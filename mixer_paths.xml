@@ -1466,7 +1466,7 @@
     </path>
 
     <path name="handset-mic">
-        <path name="adc1">
+        <path name="adc1" />
     </path>
 
     <path name="handset-mic-db">
