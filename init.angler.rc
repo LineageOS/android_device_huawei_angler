@@ -1,0 +1,72 @@
+#
+# Copyright 2015 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+import init.angler.usb.rc
+import init.angler.diag.rc
+
+on early-init
+    mount debugfs debugfs /sys/kernel/debug
+    chown system system /sys/kernel/debug/kgsl/proc
+
+on init
+    # Set permissions for persist partition
+    mkdir /persist 0771 system system
+    mkdir /firmware 0771 system system
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
+
+on fs
+    mount_all ./fstab.angler
+
+on early-boot
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+
+on boot
+    # Enable DEBUG_SUSPEND, DEBUG_EXIT_SUSPEND, and DEBUG_WAKEUP
+    write /sys/module/wakelock/parameters/debug_mask 7
+
+    # create symlink for fb1 as HDMI
+    symlink /dev/graphics/fb1 /dev/graphics/hdmi
+
+    # setup permissions for fb1 related nodes
+    chown system graphics /sys/class/graphics/fb1/hpd
+    chown system graphics /sys/class/graphics/fb1/vendor_name
+    chown system graphics /sys/class/graphics/fb1/product_description
+    chmod 0664 /sys/devices/virtual/graphics/fb1/hpd
+    chmod 0664 /sys/devices/virtual/graphics/fb1/vendor_name
+    chmod 0664 /sys/devices/virtual/graphics/fb1/product_description
+
+on post-fs-data
+    write /sys/kernel/boot_adsp/boot 1
+
+    # Ecc_Handler qcril.db
+    mkdir /data/misc/radio 0770 radio radio
+    symlink /system/etc/qcril.db /data/misc/radio/qcril.db
+
+    setprop vold.post_fs_data_done 1
+
+on charger
+
+# bugreport is triggered by holding down volume down, volume up and power
+service bugreport /system/bin/dumpstate -d -p -B \
+        -o /data/data/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+    keycodes 114 115 116
