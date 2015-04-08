@@ -21,7 +21,7 @@
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/huawei/angler-kernel/Image-dtb
+LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
