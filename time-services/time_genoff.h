@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2010-2014, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -8,7 +8,7 @@
  *  * Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in the
  *    documentation and/or other materials provided with the distribution.
- *  * Neither the name of Code Aurora nor the names of its contributors
+ *  * Neither the name of The Linux Foundation nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
  *
@@ -29,6 +29,10 @@
 #ifndef __TIME_GENOFF_H__
 #define __TIME_GENOFF_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*
  * Time genoff base -- To be used by the time setter
  * Reserved bases to be supported later.
@@ -37,15 +41,18 @@ typedef enum time_bases {
 	ATS_RTC = 0,
 	ATS_TOD,
 	ATS_USER,
+	ATS_SECURE,
 	ATS_RESERVED_1,
 	ATS_RESERVED_2,
 	ATS_RESERVED_3,
-	ATS_RESERVED_4,
 	ATS_GPS,
 	ATS_1X,
-	ATS_RESERVED_5,
+	ATS_RESERVED_4,
 	ATS_WCDMA,
-	ATS_RESERVED_6,
+	ATS_SNTP,
+	ATS_UTC,
+	ATS_MODEM,
+	ATS_MFLO,
 	ATS_INVALID
 } time_bases_type;
 
@@ -63,6 +70,9 @@ typedef enum time_unit {
 typedef enum time_genoff_opr {
 	T_SET,
 	T_GET,
+	T_IS_SET,
+	T_DISABLE,
+	T_ENABLE,
 	T_MAX
 } time_genoff_opr_type;
 
@@ -81,5 +91,12 @@ typedef struct time_genoff_info {
 
 /* API to be called for time get/set operation */
 int time_genoff_operation(time_genoff_info_type *pargs);
+
+/* API to be called for logging operations */
+int time_control_operations(time_genoff_info_type *pargs);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __TIME_GENOFF_H__ */
