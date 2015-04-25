@@ -57,6 +57,9 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/huawei/angler/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/sec_config:system/etc/sec_config
+
 # These are the hardware-specific features
 #PRODUCT_COPY_FILES += \
 #    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
@@ -126,7 +129,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.hwc.mdpcomp.enable=true
+    persist.hwc.mdpcomp.enable=true \
+    persist.data.mode=concurrent
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=72 \
