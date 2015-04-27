@@ -102,6 +102,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # Create directory for TZ Apps
+    mkdir /data/misc/qsee 0770 system system
+
 on charger
    #low power governing
    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -132,6 +135,11 @@ service per_proxy /system/bin/pm-proxy
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+
+service qseecomd /system/bin/qseecomd
+    class core
+    user root
+    group root
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
