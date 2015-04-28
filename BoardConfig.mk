@@ -100,12 +100,6 @@ TARGET_RECOVERY_FSTAB = device/huawei/angler/fstab.angler
 BOARD_SEPOLICY_DIRS += \
 	device/huawei/angler/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-	file.te \
-	surfaceflinger.te \
-	ueventd.te \
-	file_contexts
-
 TARGET_USES_64_BIT_BINDER := true
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
