@@ -38,6 +38,10 @@ on early-boot
     setrlimit 8 67108864 67108864
 
 on boot
+    # set cpu governor to interactive after boot up
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/module/lpm_levels/parameters/sleep_disabled N
+
     # Enable DEBUG_SUSPEND, DEBUG_EXIT_SUSPEND, and DEBUG_WAKEUP
     write /sys/module/wakelock/parameters/debug_mask 7
 
