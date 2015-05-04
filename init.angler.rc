@@ -151,6 +151,14 @@ service bridgemgrd /system/bin/bridgemgrd
     user radio
     group radio
 
+service thermal-engine /system/bin/thermal-engine
+    class main
+    user root
+    socket thermal-send-client stream 0660 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0660 system system
+    group root
+
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /system/bin/qmuxd
     class main
