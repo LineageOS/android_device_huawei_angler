@@ -176,6 +176,10 @@ service time_daemon /system/bin/time_daemon
    user root
    group root
 
+service loc_launcher /system/bin/loc_launcher
+   class late_start
+   group gps inet net_raw net_admin wifi
+
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B \
         -o /data/data/com.android.shell/files/bugreports/bugreport

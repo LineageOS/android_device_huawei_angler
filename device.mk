@@ -112,6 +112,14 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler
 
+# GPS
+PRODUCT_PACKAGES += \
+    libloc_eng \
+    libloc_api_v02 \
+    libloc_ds_api \
+    libgps.utils \
+    gps.msm8994
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
