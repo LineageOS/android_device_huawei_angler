@@ -64,6 +64,28 @@ on boot
     chmod 0664 /sys/devices/virtual/graphics/fb1/vendor_name
     chmod 0664 /sys/devices/virtual/graphics/fb1/product_description
 
+    #config fingerprint
+    chown system system /dev/fpc1020
+    chmod 0660 /dev/fpc1020
+    chown system system /sys/devices/platform/fingerprint/diag/result
+    chown system system /sys/devices/platform/fingerprint/diag/navigation_enable
+    chown system system /sys/devices/platform/fingerprint/diag/wakeup_enable
+    chown system system /sys/devices/platform/fingerprint/diag/chip_id
+    chown system system /sys/devices/platform/fingerprint/diag/selftest
+    chown system system /sys/devices/platform/fingerprint/diag/fingerdetect
+    chown system system /sys/devices/platform/fingerprint/diag/spi_ctl
+    chown system system /sys/devices/platform/fingerprint/setup/adc_gain
+    chown system system /sys/devices/platform/fingerprint/setup/adc_shift
+    chown system system /sys/devices/platform/fingerprint/setup/capture_mode
+    chown system system /sys/devices/platform/fingerprint/setup/capture_count
+    chown system system /sys/devices/platform/fingerprint/setup/capture_col_groups
+    chown system system /sys/devices/platform/fingerprint/setup/capture_col_start
+    chown system system /sys/devices/platform/fingerprint/setup/capture_row_count
+    chown system system /sys/devices/platform/fingerprint/setup/capture_row_start
+    chown system system /sys/devices/platform/fingerprint/setup/capture_settings_mux
+    chown system system /sys/devices/platform/fingerprint/setup/pxl_ctrl
+    chown system system /sys/devices/platform/fingerprint/fingerprint_chip_info
+
     #Create QMUX deamon socket
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
