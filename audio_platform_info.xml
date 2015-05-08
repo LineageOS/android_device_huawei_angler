@@ -31,5 +31,16 @@
     <bit_width_configs>
         <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
     </bit_width_configs>
+
+    <backend_names>
+        <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_SAFE" backend="speaker"/>
+        <device name="SND_DEVICE_OUT_HANDSET" backend="speaker"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="speaker"/>
+        <device name="SND_DEVICE_OUT_VOICE_HANDSET" backend="speaker"/>
+        <device name="SND_DEVICE_OUT_VOICE_HAC_HANDSET" backend="speaker"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones"/>
+    </backend_names>
 </audio_platform_info>
 
