@@ -118,7 +118,8 @@ PRODUCT_PACKAGES += \
     libloc_api_v02 \
     libloc_ds_api \
     libgps.utils \
-    gps.msm8994
+    gps.msm8994 \
+    gps.conf
 
 # for off charging mode
 PRODUCT_PACKAGES += \
