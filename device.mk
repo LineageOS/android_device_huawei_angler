@@ -121,6 +121,15 @@ PRODUCT_PACKAGES += \
     gps.msm8994 \
     gps.conf
 
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libstagefrighthw \
+    libOmxCore \
+    libmm-omxcore \
+    libOmxVdec \
+    libOmxVdecHevc \
+    libOmxVenc
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
