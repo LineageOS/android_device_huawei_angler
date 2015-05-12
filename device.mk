@@ -61,6 +61,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/sec_config:system/etc/sec_config
+# Wifi
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 # These are the hardware-specific features
 #PRODUCT_COPY_FILES += \
@@ -145,6 +148,13 @@ PRODUCT_PACKAGES += \
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
+
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/huawei/angler/overlay
@@ -233,3 +243,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, hardware/qcom/msm8994/msm8994.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
+
+# copy wlan firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358/device-bcm.mk)
