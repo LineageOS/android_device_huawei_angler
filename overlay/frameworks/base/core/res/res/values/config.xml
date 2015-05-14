@@ -321,4 +321,20 @@
         <item>INTERMEDIATE_POS=0</item>
         <item>SUPL_ES=0</item>
     </string-array>
+
+    <!-- Values for USB port setting. in format of bootmode:current function:new function -->
+    <string-array translatable="false" name="config_oemUsbModeOverride">
+        <item>"hw-factory:mtp:manufacture,adb"</item>
+        <item>"hw-factory:mtp,adb:manufacture,adb"</item>
+        <item>"hw-factory:ptp:manufacture,adb"</item>
+        <item>"hw-factory:ptp,adb:manufacture,adb"</item>
+        <item>"hw-factory:rndis:manufacture,adb"</item>
+        <item>"hw-factory:rndis,adb:manufacture,adb"</item>
+        <item>"bp-tools:mtp:rmnet,serial,diag,adb"</item>
+        <item>"bp-tools:mtp,adb:rmnet,serial,diag,adb"</item>
+        <item>"bp-tools:ptp:rmnet,serial,diag,adb"</item>
+        <item>"bp-tools:ptp,adb:rmnet,serial,diag,adb"</item>
+        <item>"bp-tools:rndis:rmnet,serial,diag,adb"</item>
+        <item>"bp-tools:rndis,adb:rmnet,serial,diag,adb"</item>
+    </string-array>
 </resources>
