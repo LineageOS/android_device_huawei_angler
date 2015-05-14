@@ -77,3 +77,4 @@
 /dev/hsicctl14            0640   radio      radio
 /dev/hsicctl15            0640   radio      radio
 /dev/hsicctl16            0640   radio      radio
+/dev/qseecom              0660   system     drmrpc
