@@ -363,7 +363,7 @@ service thermal-engine /vendor/bin/thermal-engine
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /vendor/bin/qmuxd
     class main
-    user radio
+    user root
     group radio audio bluetooth wakelock gps
     writepid /dev/cpuset/system-background/tasks
 
