@@ -130,14 +130,15 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc
 
-#LIBCAMERA
-LIBCAMERA += camera.msm8994
-LIBCAMERA += libcamera
-LIBCAMERA += libmmcamera_interface
-LIBCAMERA += libmmcamera_interface2
-LIBCAMERA += libmmjpeg_interface
-LIBCAMERA += libqomx_core
-LIBCAMERA += mm-qcamera-app
+#CAMERA
+PRODUCT_PACKAGES += \
+    camera.msm8994 \
+    libcamera \
+    libmmcamera_interface \
+    libmmcamera_interface2 \
+    libmmjpeg_interface \
+    libqomx_core \
+    mm-qcamera-app
 
 # for off charging mode
 PRODUCT_PACKAGES += \
