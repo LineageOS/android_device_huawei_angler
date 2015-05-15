@@ -26,6 +26,8 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+PRODUCT_VENDOR_VERITY_PARTITON := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor
+
 PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
 
@@ -43,8 +45,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    device/huawei/angler/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    device/huawei/angler/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    device/huawei/angler/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
     device/huawei/angler/mixer_paths.xml:system/etc/mixer_paths.xml \
     device/huawei/angler/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
     device/huawei/angler/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
