@@ -15,3 +15,5 @@ allow qmux radio_device:chr_file rw_file_perms;
 
 # Access to /sys/devices/virtual/smdpkt/smdcntl*/open_timeout
 allow qmux sysfs_smdcntl_open_timeout:file rw_file_perms;
+
+allow qmux self:capability { setpcap setuid };
