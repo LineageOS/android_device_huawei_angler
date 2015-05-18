@@ -78,3 +78,5 @@
 /dev/hsicctl15            0640   radio      radio
 /dev/hsicctl16            0640   radio      radio
 /dev/qseecom              0660   system     drmrpc
+#ADD device block for FRP
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/config 0600 system system

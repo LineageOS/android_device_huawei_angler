@@ -19,3 +19,4 @@
 #/dev/block/platform/soc.0/f9824900.sdhci/by-name/sdi          /sdi            emmc    defaults                                                        defaults
 #/dev/block/platform/soc.0/f9824900.sdhci/by-name/aboot        /aboot          emmc    defaults                                                        defaults
 #/dev/block/platform/soc.0/f9824900.sdhci/by-name/imgdata      /imgdata        emmc    defaults                                                        defaults
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/config        /persistent     emmc    defaults                                                        defaults
