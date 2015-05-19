@@ -330,11 +330,11 @@
         <item>"hw-factory:ptp,adb:manufacture,adb"</item>
         <item>"hw-factory:rndis:manufacture,adb"</item>
         <item>"hw-factory:rndis,adb:manufacture,adb"</item>
-        <item>"bp-tools:mtp:rmnet,serial,diag,adb"</item>
-        <item>"bp-tools:mtp,adb:rmnet,serial,diag,adb"</item>
-        <item>"bp-tools:ptp:rmnet,serial,diag,adb"</item>
-        <item>"bp-tools:ptp,adb:rmnet,serial,diag,adb"</item>
-        <item>"bp-tools:rndis:rmnet,serial,diag,adb"</item>
-        <item>"bp-tools:rndis,adb:rmnet,serial,diag,adb"</item>
+        <item>"bp-tools:mtp:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
+        <item>"bp-tools:mtp,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
+        <item>"bp-tools:ptp:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
+        <item>"bp-tools:ptp,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
+        <item>"bp-tools:rndis:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
+        <item>"bp-tools:rndis,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
     </string-array>
 </resources>

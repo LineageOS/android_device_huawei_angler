@@ -107,6 +107,7 @@ on boot
 
     start qmuxd
     start netmgrd
+    start qti
 
 
 on property:init.svc.per_mgr=running
@@ -194,6 +195,12 @@ service qmuxd /system/bin/qmuxd
 service netmgrd /system/bin/netmgrd
     class root
     group radio
+    disabled
+
+service qti /system/vendor/bin/qti
+    class main
+    user radio
+    group radio net_raw usb net_admin
     disabled
 
 service time_daemon /system/bin/time_daemon
