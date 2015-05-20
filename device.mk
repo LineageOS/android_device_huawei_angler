@@ -164,6 +164,17 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# NFC
+PRODUCT_PACKAGES += \
+    libnfc-nci \
+    nfc_nci.angler \
+    NfcNci \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
+
 DEVICE_PACKAGE_OVERLAYS := \
     device/huawei/angler/overlay
 
