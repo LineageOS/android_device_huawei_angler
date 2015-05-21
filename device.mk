@@ -145,6 +145,12 @@ PRODUCT_PACKAGES += \
     libqomx_core \
     mm-qcamera-app
 
+# Sensor & activity_recognition HAL
+PRODUCT_PACKAGES += \
+    sensors.angler \
+    activity_recognition.angler \
+    sensortool.angler
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
