@@ -1,0 +1,29 @@
+on post-fs
+    write /sys/class/gpio/export 94
+    write /sys/class/gpio/export 93
+    write /sys/class/gpio/export 41
+    write /sys/class/gpio/export 39
+    chown system system /sys/class/gpio/gpio94
+    chown system system /sys/class/gpio/gpio94/value
+    chown system system /sys/class/gpio/gpio94/direction
+    chown system system /sys/class/gpio/gpio93
+    chown system system /sys/class/gpio/gpio93/value
+    chown system system /sys/class/gpio/gpio93/direction
+    chown system system /sys/class/gpio/gpio41
+    chown system system /sys/class/gpio/gpio41/value
+    chown system system /sys/class/gpio/gpio41/direction
+    chown system system /sys/class/gpio/gpio39
+    chown system system /sys/class/gpio/gpio39/value
+    chown system system /sys/class/gpio/gpio39/direction
+    ## The FW must be flashed before the HAL starts
+    ## A complete flash happens only on FW update
+    ## it takes ~2s to check if FW is up to date
+    ## flashing will happen only on OTAs and takes ~35s
+    rm /data/flash-sh-fw.done
+    start flash-sh-fw
+    wait /data/flash-sh-fw.done 60
+    rm /data/flash-sh-fw.done
+
+service flash-sh-fw /system/bin/logwrapper /system/bin/sensortool.angler -f /vendor/firmware/nano4x1.bin -w /data/flash-sh-fw.done
+    oneshot
+    disabled

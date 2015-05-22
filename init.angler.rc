@@ -16,6 +16,7 @@
 
 import init.angler.usb.rc
 import init.angler.diag.rc
+import init.angler.sensorhub.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

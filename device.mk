@@ -33,6 +33,7 @@ PRODUCT_COPY_FILES := \
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
+    device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/fstab.angler:root/fstab.angler \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc
