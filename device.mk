@@ -150,7 +150,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
-    sensortool.angler
+    sensortool.angler \
+    nano4x1.bin
 
 # for off charging mode
 PRODUCT_PACKAGES += \
