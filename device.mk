@@ -60,6 +60,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/huawei/angler/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
+# for launcher layout
+PRODUCT_PACKAGES += \
+    AnglerLayout
+
 PRODUCT_COPY_FILES += \
     device/huawei/angler/sec_config:system/etc/sec_config
 # Wifi
