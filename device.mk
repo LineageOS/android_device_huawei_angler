@@ -249,6 +249,16 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.user:root/init.angler.diag.rc
 endif
 
+# Delegation for OEM customization
+PRODUCT_OEM_PROPERTIES := \
+    ro.config.ringtone \
+    ro.config.notification_sound \
+    ro.config.alarm_alert \
+    ro.config.wallpaper \
+    ro.config.wallpaper_component \
+    ro.oem.* \
+    oem.*
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 

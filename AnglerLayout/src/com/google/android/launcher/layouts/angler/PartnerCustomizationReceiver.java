@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.launcher.layouts.shamu;
+package com.google.android.launcher.layouts.angler;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
