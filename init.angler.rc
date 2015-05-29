@@ -216,6 +216,14 @@ on post-fs-data
     #Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
+    # Create the directories used by CnE subsystem
+    mkdir /data/connectivity 0771 system system
+    chown system system /data/connectivity
+
+    #Create directory from IMS services
+    mkdir /data/shared 0755
+    chown system system /data/shared
+
 on charger
    #low power governing
    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -356,3 +364,39 @@ service iprenew_p2p /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
+
+service imsqmidaemon /system/bin/imsqmidaemon
+    class main
+    user system
+    socket ims_qmid stream 0660 system radio
+    group radio net_raw log diag
+
+service imsdatadaemon /system/bin/imsdatadaemon
+    class main
+    user system
+    socket ims_datad stream 0660 system radio
+    group system wifi radio inet net_raw log diag net_admin
+    disabled
+
+on property:sys.ims.QMI_DAEMON_STATUS=1
+    start imsdatadaemon
+
+service ims_rtp_daemon /system/bin/ims_rtp_daemon
+   class main
+   user system
+   socket ims_rtpd stream 0660 system radio
+   group radio net_raw diag diag log
+   disabled
+
+on property:sys.ims.DATA_DAEMON_STATUS=1
+    start ims_rtp_daemon
+
+service imscmservice /system/bin/imscmservice
+   class main
+   user system
+   group radio net_raw diag diag log
+
+service cnd /system/bin/cnd
+    class late_start
+    socket cnd stream 660 root inet
+
