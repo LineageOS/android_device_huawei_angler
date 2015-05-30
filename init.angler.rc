@@ -224,6 +224,16 @@ on post-fs-data
     mkdir /data/shared 0755
     chown system system /data/shared
 
+    # Configure bluetooth
+    chmod 0660 /proc/bluetooth/sleep/lpm
+    chmod 0660 /proc/bluetooth/sleep/btwrite
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chmod 0660 /dev/ttyHS0
+    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
+    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt_stack /dev/ttyHS0
+
 on charger
    #low power governing
    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -399,4 +409,3 @@ service imscmservice /system/bin/imscmservice
 service cnd /system/bin/cnd
     class late_start
     socket cnd stream 660 root inet
-
