@@ -36,7 +36,9 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/fstab.angler:root/fstab.angler \
-    device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc
+    device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
+    device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh
+
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
