@@ -1651,6 +1651,7 @@
     <path name="voice-handset">
         <path name="sidetone-handset" />
         <path name="handset" />
+        <ctl name="Left Speaker Gain" value="13" />
     </path>
 
     <path name="hac-handset">
@@ -1679,8 +1680,7 @@
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
-        <path name="sidetone-headphones" />
-        <ctl name="ADC2 Volume" value="13" />
+        <ctl name="ADC2 Volume" value="12" />
     </path>
 
     <path name="speaker-and-headphones">
@@ -1887,9 +1887,9 @@
     <path name="handset-dmic-endfire">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC4" />
+        <ctl name="SLIM TX8 MUX" value="DEC4" />
         <ctl name="DEC4 MUX" value="ADC3" />
-        <ctl name="SLIM TX8 MUX" value="DEC6" />
+        <ctl name="SLIM TX7 MUX" value="DEC6" />
         <ctl name="DEC6 MUX" value="ADC1" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
     </path>
@@ -1897,9 +1897,9 @@
     <path name="speaker-dmic-endfire">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC4" />
+        <ctl name="SLIM TX8 MUX" value="DEC4" />
         <ctl name="DEC4 MUX" value="ADC3" />
-        <ctl name="SLIM TX8 MUX" value="DEC6" />
+        <ctl name="SLIM TX7 MUX" value="DEC6" />
         <ctl name="DEC6 MUX" value="ADC1" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
     </path>
@@ -1928,6 +1928,8 @@
 
     <path name="voice-dmic-ef">
         <path name="dmic-endfire" />
+        <ctl name="ADC1 Volume" value="12" />
+        <ctl name="ADC3 Volume" value="12" />
     </path>
 
     <path name="voice-speaker-dmic-ef">
