@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8994 \
     libgenlock \
     memtrack.msm8994 \
-    lights.angler
+    libaudio-resampler \
+    dsm_ctrl
 
 PRODUCT_PACKAGES += \
     audio.primary.msm8994 \

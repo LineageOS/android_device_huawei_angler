@@ -83,3 +83,5 @@
 # sensor HUB
 /dev/spich                0640   system     system
 /dev/pn54x                0660   nfc        nfc
+#add audio calib device for audio
+/dev/msm_audio_cal        0664   media      media
