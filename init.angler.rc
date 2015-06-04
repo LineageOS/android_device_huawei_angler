@@ -150,25 +150,6 @@ on boot
     chown system system /sys/devices/platform/fingerprint/setup/pxl_ctrl
     chown system system /sys/devices/platform/fingerprint/fingerprint_chip_info
 
-    #config sensor hub
-    chown system system /dev/spidev5.0
-    write /sys/class/gpio/export 94
-    write /sys/class/gpio/export 93
-    write /sys/class/gpio/export 41
-    write /sys/class/gpio/export 39
-    chown system system /sys/class/gpio/gpio94
-    chown system system /sys/class/gpio/gpio41
-    chown system system /sys/class/gpio/gpio39
-    chown system system /sys/class/gpio/gpio93
-    chown system system /sys/class/gpio/gpio94/value
-    chown system system /sys/class/gpio/gpio41/value
-    chown system system /sys/class/gpio/gpio39/value
-    chown system system /sys/class/gpio/gpio93/value
-    chown system system /sys/class/gpio/gpio94/direction
-    chown system system /sys/class/gpio/gpio41/direction
-    chown system system /sys/class/gpio/gpio39/direction
-    chown system system /sys/class/gpio/gpio93/direction
-
     #Create QMUX deamon socket
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
