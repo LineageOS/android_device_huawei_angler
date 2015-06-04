@@ -155,6 +155,12 @@ on post-fs-data
     mkdir /data/shared 0755
     chown system system /data/shared
 
+     # Mark the copy complete flag to not completed
+     write /data/misc/radio/copy_complete 0
+     chown radio radio /data/misc/radio/copy_complete
+     chmod 0660 /data/misc/radio/copy_complete
+
+
     # Configure bluetooth
     chmod 0660 /proc/bluetooth/sleep/lpm
     chmod 0660 /proc/bluetooth/sleep/btwrite
@@ -357,3 +363,8 @@ on property:ro.boot.hardware.revision=ANGLER-V1
 on property:ro.boot.hardware.revision=ANGLER-V2
     write /sys/module/bcmdhd/parameters/nvram_path \
 	      /system/etc/wifi/bcmdhd-pme.cal
+
+service mcfg-sh /system/bin/sh /system/etc/init.mcfg.sh
+   class late_start
+   user root
+   oneshot
