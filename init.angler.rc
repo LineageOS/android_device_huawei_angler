@@ -57,6 +57,10 @@ on boot
     # Enable DEBUG_SUSPEND, DEBUG_EXIT_SUSPEND, and DEBUG_WAKEUP
     write /sys/module/wakelock/parameters/debug_mask 7
 
+    # update foreground cpuset now that processors are up
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/background/cpus 0
+
     # create symlink for fb1 as HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
