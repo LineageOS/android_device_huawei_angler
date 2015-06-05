@@ -368,3 +368,7 @@ service mcfg-sh /system/bin/sh /system/etc/init.mcfg.sh
    class late_start
    user root
    oneshot
+
+service oem_qmi_server /vendor/bin/oem_qmi_server
+    class core
+    user root
