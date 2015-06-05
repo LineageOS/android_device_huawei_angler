@@ -272,8 +272,8 @@ service thermal-engine /system/bin/thermal-engine
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /system/bin/qmuxd
     class main
-    user root
-    group root radio audio bluetooth gps
+    user radio
+    group radio audio bluetooth gps
     disabled
 
 service netmgrd /system/bin/netmgrd
