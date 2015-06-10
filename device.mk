@@ -26,8 +26,6 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-PRODUCT_VENDOR_VERITY_PARTITON := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor
-
 PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
 
@@ -169,6 +167,11 @@ PRODUCT_PACKAGES += \
     sensortool.angler \
     nano4x1.bin
 
+# Verified boot
+PRODUCT_PACKAGES += \
+    slideshow \
+    verity_warning_images
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -288,3 +291,8 @@ $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
 
 # copy wlan firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358/device-bcm.mk)
+
+# setup dm-verity configs.
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
+PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor
+$(call inherit-product, build/target/product/verity.mk)
