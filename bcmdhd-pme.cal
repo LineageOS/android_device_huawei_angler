@@ -159,7 +159,7 @@ swctrlmap_2g=0x14011401,0x28500000,0x08100000,0x020202,0x0ff
 swctrlmapext_2g=0x0,0x0,0x0,0x0,0x03
 
 ## Enabling OOB signal - needed for final board
-host_wake_opt=0
+#host_wake_opt=0
 
 # For Sensor Hub UART
 #muxenab=0x4

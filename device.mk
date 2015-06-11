@@ -80,7 +80,8 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+    device/huawei/angler/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
+    device/huawei/angler/bcmdhd-pme.cal:system/etc/wifi/bcmdhd-pme.cal
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
