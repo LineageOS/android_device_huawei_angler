@@ -122,15 +122,15 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8994 \
     libgenlock \
     memtrack.msm8994 \
-    libaudio-resampler \
-    dsm_ctrl
+    lights.angler
 
 PRODUCT_PACKAGES += \
     audio.primary.msm8994 \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
-    libaudio-resampler
+    libaudio-resampler \
+    dsm_ctrl
 
 # GPS
 PRODUCT_PACKAGES += \
