@@ -104,6 +104,15 @@ on boot
     mkdir /data/time/ 0700 system system
     mkdir /data/audio/ 0770 media audio
 
+    # perf daemon
+    setprop ro.min_freq_0 384000
+    setprop ro.min_freq_4 384000
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    rm /data/system/perfd/default_values
+    chmod 2770 /data/system/perfd
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
@@ -214,6 +223,10 @@ service qmuxd /system/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth gps
+
+service perfd /system/bin/perfd
+    class main
+    user root
 
 service netmgrd /system/bin/netmgrd
     class main
