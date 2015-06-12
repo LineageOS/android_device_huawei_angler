@@ -32,7 +32,7 @@ write /sys/devices/system/cpu/cpu5/online 0
 write /sys/devices/system/cpu/cpu6/online 0
 write /sys/devices/system/cpu/cpu7/online 0
 
-# in case CPU4 is online, limit its frequency
+# Best effort limiting for first time boot if msm_performance module is absent
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 960000
 
 # Limit A57 max freq from msm_perf module in case CPU 4 is offline
@@ -45,7 +45,7 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 90
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1344000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 80
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
@@ -55,9 +55,6 @@ write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
 # online CPU4
 write /sys/devices/system/cpu/cpu4/online 1
 
-# Best effort limiting for first time boot if msm_performance module is absent
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 960000
-
 # configure governor settings for big cluster
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
@@ -65,7 +62,7 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 19000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1248000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1536000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 85
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
@@ -85,14 +82,13 @@ write /sys/module/lpm_levels/parameters/sleep_disabled 0
 write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:4294967295 6:4294967295 7:4294967295"
 
 # input boost configuration
-write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000"
+write /sys/module/cpu_boost/parameters/input_boost_freq "0:1344000"
 write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
 # Setting B.L scheduler parameters
 write /proc/sys/kernel/sched_migration_fixup 1
-write /proc/sys/kernel/sched_small_task 30
-write /proc/sys/kernel/sched_upmigrate 99
-write /proc/sys/kernel/sched_downmigrate 85
+write /proc/sys/kernel/sched_upmigrate 80
+write /proc/sys/kernel/sched_downmigrate 60
 write /proc/sys/kernel/sched_freq_inc_notify 400000
 write /proc/sys/kernel/sched_freq_dec_notify 400000
 
