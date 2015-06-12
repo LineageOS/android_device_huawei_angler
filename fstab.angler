@@ -21,5 +21,7 @@
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/sdi          /sdi            emmc    defaults                                                        defaults
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/aboot        /aboot          emmc    defaults                                                        defaults
 #/dev/block/platform/soc.0/f9824900.sdhci/by-name/imgdata      /imgdata        emmc    defaults                                                        defaults
-/dev/block/platform/soc.0/f9824900.sdhci/by-name/config        /persistent     emmc    defaults                                                        defaults
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp           /persistent     emmc    defaults                                                        defaults
 /devices/platform/xhci-hcd/usb*                                auto            auto    defaults                                                        voldmanaged=usb:auto
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/keymaster     /keymaster     emmc    defaults                                                        defaults
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/cmnlib        /cmnlib        emmc    defaults                                                        defaults
