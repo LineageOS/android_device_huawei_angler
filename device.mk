@@ -205,6 +205,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# Power HAL
+PRODUCT_PACKAGES += \
+    power.angler
+
 PRODUCT_COPY_FILES += \
     device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
