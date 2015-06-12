@@ -70,6 +70,7 @@ TARGET_USES_C2D_COMPOSITION := true
 HAVE_ADRENO_SOURCE:= false
 
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
