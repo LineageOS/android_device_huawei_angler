@@ -92,6 +92,9 @@ write /proc/sys/kernel/sched_downmigrate 60
 write /proc/sys/kernel/sched_freq_inc_notify 400000
 write /proc/sys/kernel/sched_freq_dec_notify 400000
 
+# android background processes are set to nice 10. Never schedule these on the a57s.
+write /proc/sys/kernel/sched_upmigrate_min_nice 9
+
 get-set-forall  /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
 
 # Disable sched_boost
