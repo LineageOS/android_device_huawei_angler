@@ -201,11 +201,8 @@ DEVICE_PACKAGE_OVERLAYS := \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196609
 
-# Lunchbox is 1280x720 display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.sf.lcd_density=320
+    ro.sf.lcd_density=560
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
