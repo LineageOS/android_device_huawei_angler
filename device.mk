@@ -113,9 +113,14 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+# This device is 560dpi.  However the platform doesn't
+# currently contain all of the bitmaps at 560dpi density so
+# we do this little trick to fall back to the xxhdpi version
+# if the 560dpi doesn't exist.
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-#PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
+# A list of dpis to select prebuilt apk, in precedence order.
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
