@@ -8,4 +8,4 @@
 /sys/devices/virtual/graphics/fb1/product_description       -- u:object_r:sysfs_surfaceflinger:s0
 
 #factory reset protection partition
-/dev/block/platform/soc\.0/f9824900\.sdhci/by-name/config           u:object_r:frp_block_device:s0
+/dev/block/platform/soc\.0/f9824900\.sdhci/by-name/frp           u:object_r:frp_block_device:s0
