@@ -310,6 +310,16 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
+service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
+    class main
+    disabled
+    oneshot
+
+service iprenew_bt-pan /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
 service imsqmidaemon /system/bin/imsqmidaemon
     class main
     user system
