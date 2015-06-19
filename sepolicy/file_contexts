@@ -7,5 +7,11 @@
 /sys/devices/virtual/graphics/fb1/vendor_name  -- u:object_r:sysfs_surfaceflinger:s0
 /sys/devices/virtual/graphics/fb1/product_description       -- u:object_r:sysfs_surfaceflinger:s0
 
+# Sensor Hub kernel driver
+/dev/spich                             u:object_r:sensors_device:s0
+
+# System files
+/system/bin/sensortool\.angler   u:object_r:sensortool_exec:s0
+
 #factory reset protection partition
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/frp           u:object_r:frp_block_device:s0

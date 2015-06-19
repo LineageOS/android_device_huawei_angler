@@ -1,0 +1,2 @@
+# Needed by hubconnection for sensor hub
+allow system_server sensors_device:chr_file rw_file_perms;
