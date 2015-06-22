@@ -115,6 +115,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 
+# MSM IRQ Balancer configuration file
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/msm_irqbalance.conf:system/etc/msm_irqbalance.conf
+
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # This device is 560dpi.  However the platform doesn't

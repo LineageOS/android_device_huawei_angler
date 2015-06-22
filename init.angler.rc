@@ -364,3 +364,9 @@ service mcfg-sh /system/bin/sh /system/etc/init.mcfg.sh
 service oem_qmi_server /vendor/bin/oem_qmi_server
     class core
     user root
+
+service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.conf
+    socket msm_irqbalance seqpacket 660 root system
+    class core
+    user root
+    group root
