@@ -121,11 +121,6 @@ on boot
     mkdir /data/time/ 0700 system system
     mkdir /data/audio/ 0770 media audio
 
-    start qmuxd
-    start netmgrd
-    start qti
-
-
 on property:init.svc.per_mgr=running
     start per_proxy
 
@@ -237,18 +232,15 @@ service qmuxd /system/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth gps
-    disabled
 
 service netmgrd /system/bin/netmgrd
-    class root
+    class main
     group radio
-    disabled
 
 service qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw usb net_admin
-    disabled
 
 service time_daemon /system/bin/time_daemon
    class late_start
