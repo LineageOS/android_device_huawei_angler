@@ -45,6 +45,7 @@
 #include <loc_util_log.h>
 #include <gps_extended.h>
 #include "platform_lib_includes.h"
+#include <loc_cfg.h>
 
 using namespace loc_core;
 
@@ -164,10 +165,12 @@ LocApiV02 :: LocApiV02(const MsgTask* msgTask,
     LocApiBase(msgTask, exMask, context),
     clientHandle(LOC_CLIENT_INVALID_HANDLE_VALUE),
     dsClientHandle(NULL), mGnssMeasurementSupported(sup_unknown),
-    mQmiMask(0), mInSession(false), mEngineOn(false)
+    mQmiMask(0), mInSession(false), mEngineOn(false), mSAPMode(DISABLED)
 {
   // initialize loc_sync_req interface
   loc_sync_req_init();
+  // cache SAP mode for later use
+  readSAPMode();
 }
 
 /* Destructor for LocApiV02 */
@@ -310,6 +313,36 @@ enum loc_api_adapter_err LocApiV02 :: close()
   return rtv;
 }
 
+/*Read and cache SAP config*/
+void LocApiV02 :: readSAPMode()
+{
+    char conf_feature_sap[32];
+    loc_param_s_type izat_conf_feature_table[] =
+        {
+            {"SAP",           &conf_feature_sap,           NULL, 's'}
+        };
+    UTIL_READ_CONF("etc/izat.conf", izat_conf_feature_table);
+
+    if(strcmp(conf_feature_sap, "BASIC") == 0) {
+        mSAPMode = BASIC;
+        LOC_LOGD("%s:%d]: SAP mode: BASIC", __func__, __LINE__);
+    }
+    else if(strcmp(conf_feature_sap, "PREMIUM") == 0) {
+        mSAPMode = PREMIUM;
+        LOC_LOGD("%s:%d]: SAP mode: PREMIUM", __func__, __LINE__);
+    }
+    else if(strcmp(conf_feature_sap, "DISABLED") == 0) {
+        LOC_LOGD("%s:%d]: SAP mode: DISABLED", __func__, __LINE__);
+    }
+    else {
+        LOC_LOGE("%s:%d]: Unrecognized value for SAP Mode."     \
+                 " Hence SAP mode: BASIC", __func__, __LINE__);
+        mSAPMode = BASIC;
+    }
+
+    return;
+}
+
 /* start positioning session */
 enum loc_api_adapter_err LocApiV02 :: startFix(const LocPosMode& fixCriteria)
 {
@@ -321,7 +354,10 @@ enum loc_api_adapter_err LocApiV02 :: startFix(const LocPosMode& fixCriteria)
   qmiLocSetOperationModeReqMsgT_v02 set_mode_msg;
   qmiLocSetOperationModeIndMsgT_v02 set_mode_ind;
 
-    // clear all fields, validity masks
+  qmiLocSetPremiumServicesCfgReqMsgT_v02 premiumCfgReq;
+  memset(&premiumCfgReq, 0, sizeof(premiumCfgReq));
+
+  // clear all fields, validity masks
   memset (&start_msg, 0, sizeof(start_msg));
   memset (&set_mode_msg, 0, sizeof(set_mode_msg));
   memset (&set_mode_ind, 0, sizeof(set_mode_ind));
@@ -373,6 +409,14 @@ enum loc_api_adapter_err LocApiV02 :: startFix(const LocPosMode& fixCriteria)
               loc_get_v02_client_status_name(status),
               loc_get_v02_qmi_status_name(set_mode_ind.status));
   } else {
+
+      /*Disable SAP before starting positioning session*/
+      premiumCfgReq.premiumServiceType = eQMI_LOC_PREMIUM_SERVICE_SAP_V02;
+      premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_DISABLED_V02;
+      LOC_SEND_SYNC_REQ(SetPremiumServicesCfg,
+                        SET_PREMIUM_SERVICES_CONFIG,
+                        premiumCfgReq, clientHandle);
+
       start_msg.minInterval_valid = 1;
       start_msg.minInterval = fixCriteria.min_interval;
 
@@ -461,6 +505,30 @@ enum loc_api_adapter_err LocApiV02 :: stopFix()
   status = locClientSendReq(clientHandle,
                             QMI_LOC_STOP_REQ_V02,
                             req_union);
+
+  /*Inject SAP config after session has stopped*/
+  qmiLocSetPremiumServicesCfgReqMsgT_v02 premiumCfgReq;
+  memset(&premiumCfgReq, 0, sizeof(premiumCfgReq));
+  premiumCfgReq.premiumServiceType = eQMI_LOC_PREMIUM_SERVICE_SAP_V02;
+  switch(mSAPMode)
+  {
+  case BASIC:
+      premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_ENABLED_BASIC_V02;
+      LOC_LOGD("%s:%d]: SAP Mode set to BASIC %d\n",__func__, __LINE__);
+      break;
+  case PREMIUM:
+      premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_ENABLED_PREMIUM_V02;
+      LOC_LOGD("%s:%d]: SAP Mode set to PREMIUM %d\n",__func__, __LINE__);
+      break;
+  default:
+      premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_DISABLED_V02;
+      LOC_LOGD("%s:%d]: SAP Mode set to DISABLED %d\n",__func__, __LINE__);
+      break;
+  }
+
+  LOC_SEND_SYNC_REQ(SetPremiumServicesCfg,
+                    SET_PREMIUM_SERVICES_CONFIG,
+                    premiumCfgReq, clientHandle);
 
   mInSession = false;
   // if engine on never happend, deregister events
