@@ -67,7 +67,7 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 85
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 80000
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 384000
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 633600
 
 # restore A57's max
 copy /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
