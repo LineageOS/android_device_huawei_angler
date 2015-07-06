@@ -381,3 +381,10 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.
     class core
     user root
     group root
+
+#start atfwd as daemon
+service atfwd /system/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
+
