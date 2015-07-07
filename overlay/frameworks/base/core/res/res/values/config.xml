@@ -326,6 +326,10 @@
          phone object irrespective of this config -->
     <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
 
+
+    <!-- Use ERI text for network name on CDMA LTE -->
+        <bool name="config_LTE_eri_for_network_name">false</bool>
+
     <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">
         <item>SUPL_HOST=supl.google.com</item>
