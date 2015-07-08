@@ -113,6 +113,11 @@ on boot
     rm /data/system/perfd/default_values
     chmod 2770 /data/system/perfd
 
+    #audio prop
+    setprop persist.audio.dualmic.config endfire
+    setprop persist.audio.fluence.voicecall true
+    setprop persist.audio.product.identify angler
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
