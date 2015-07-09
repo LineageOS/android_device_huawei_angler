@@ -1670,8 +1670,20 @@
         <path name="speaker-mono" />
     </path>
 
+    <path name="voice-speaker-dmic-ef-ns">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+        <ctl name="SLIM TX8 MUX" value="DEC4" />
+        <ctl name="DEC4 MUX" value="ADC3" />
+        <ctl name="SLIM TX7 MUX" value="DEC3" />
+        <ctl name="DEC3 MUX" value="ADC4" />
+        <ctl name="SLIM_0_TX Channels" value="Two" />
+        <ctl name="ADC3 Volume" value="10" />
+        <ctl name="ADC4 Volume" value="10" />
+    </path>
+
     <path name="voice-speaker-mic">
-        <path name="speaker-mic" />
+        <path name="voice-speaker-dmic-ef-ns" />
     </path>
 
     <path name="voice-headphones">
@@ -1935,20 +1947,8 @@
         <ctl name="ADC3 Volume" value="10" />
     </path>
 
-    <path name="voice-speaker-dmic-ef-ns">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX8 MUX" value="DEC4" />
-        <ctl name="DEC4 MUX" value="ADC3" />
-        <ctl name="SLIM TX7 MUX" value="DEC3" />
-        <ctl name="DEC3 MUX" value="ADC4" />
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="ADC3 Volume" value="10" />
-        <ctl name="ADC4 Volume" value="10" />
-    </path>
-
     <path name="voice-speaker-dmic-ef">
-        <path name="speaker-dmic-endfire" />
+        <path name="voice-speaker-dmic-ef-ns" />
     </path>
 
     <path name="voice-rec-dmic-ef">
