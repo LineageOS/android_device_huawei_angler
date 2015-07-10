@@ -1683,7 +1683,7 @@
     </path>
 
     <path name="voice-speaker-mic">
-        <path name="voice-speaker-dmic-ef-ns" />
+        <path name="speaker-mic" />
     </path>
 
     <path name="voice-headphones">

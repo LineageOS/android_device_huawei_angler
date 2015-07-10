@@ -117,6 +117,7 @@ on boot
     setprop persist.audio.dualmic.config endfire
     setprop persist.audio.fluence.voicecall true
     setprop persist.audio.product.identify angler
+    setprop persist.audio.fluence.speaker true
 
     # Create a link /dev/stm_sensor for input device whihc name is "STM VL6180 proximity sensor"
     exec /system/bin/init.angler.laser.sh
