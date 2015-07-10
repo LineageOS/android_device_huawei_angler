@@ -293,6 +293,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.ssr.restart_level="ALL_ENABLE"
+
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
@@ -304,6 +307,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
+
+# subsystem ramdump collection
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.ssr.enable_ramdumps=1
 else
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.user:root/init.angler.diag.rc
