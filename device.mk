@@ -271,6 +271,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.always_send_plmn=true
 
+# If data_no_toggle is 0 there are no reports if the screen is off.
+# If data_no_toggle is 1 then dormancy indications will come with screen off.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.data_no_toggle=1
+
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=0
