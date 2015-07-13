@@ -26,4 +26,6 @@ void dumpstate_board()
     dump_file("SMD PKT Log", "/d/ipc_logging/smd_pkt/log");
     dump_file("IPC Router Log", "/d/ipc_logging/ipc_router/log");
     run_command("ION HEAPS", 5, SU_PATH, "root", "/system/bin/sh", "-c", "for f in $(ls /d/ion/*); do echo $f; cat $f; done", NULL);
+    dump_file("dmesg-ramoops-0", "/sys/fs/pstore/dmesg-ramoops-0");
+    dump_file("dmesg-ramoops-1", "/sys/fs/pstore/dmesg-ramoops-1");
 };
