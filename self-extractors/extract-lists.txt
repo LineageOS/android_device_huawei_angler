@@ -1,0 +1,5 @@
+  huawei)
+    TO_EXTRACT="\
+            IMAGES/vendor.img \
+            "
+    ;;
