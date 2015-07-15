@@ -44,7 +44,7 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 99
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 10000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1344000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 80
@@ -61,7 +61,7 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 19000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 10000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1536000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 85
@@ -87,8 +87,8 @@ write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
 # Setting B.L scheduler parameters
 write /proc/sys/kernel/sched_migration_fixup 1
-write /proc/sys/kernel/sched_upmigrate 80
-write /proc/sys/kernel/sched_downmigrate 60
+write /proc/sys/kernel/sched_upmigrate 95
+write /proc/sys/kernel/sched_downmigrate 85
 write /proc/sys/kernel/sched_freq_inc_notify 400000
 write /proc/sys/kernel/sched_freq_dec_notify 400000
 
