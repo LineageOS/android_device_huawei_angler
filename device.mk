@@ -209,6 +209,9 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+PRODUCT_PACKAGES += \
+    blockheader
+
 # Power HAL
 PRODUCT_PACKAGES += \
     power.angler
