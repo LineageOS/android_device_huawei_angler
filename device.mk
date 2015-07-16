@@ -309,6 +309,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    fs_config_files
 
+# For data
+PRODUCT_PACKAGES += \
+   librmnetctl
+
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
 
