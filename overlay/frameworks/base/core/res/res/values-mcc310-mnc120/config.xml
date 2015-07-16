@@ -42,4 +42,7 @@
         <item>GPS_LOCK=3</item>
         <item>SUPL_ES=0</item>
     </string-array>
+
+    <!-- Sprint's WAP push PDU is special, should set the index -->
+    <integer name="config_valid_wappush_index">4</integer>
 </resources>
