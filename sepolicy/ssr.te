@@ -1,0 +1,15 @@
+type ssr, domain;
+type ssr_exec, exec_type, file_type;
+
+permissive ssr_exec;
+
+# Started by init
+init_daemon_domain(ssr)
+
+userdebug_or_eng(`
+  # read the contents of the /dev directory
+  allow ssr device:dir r_dir_perms;
+
+  allow ssr ssr_data_file:dir rw_dir_perms;
+  allow ssr ssr_data_file:file create_file_perms;
+')
