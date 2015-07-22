@@ -5,6 +5,7 @@
 # GPU device
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
 /dev/kgsl                      u:object_r:gpu_device:s0
+/dev/qseecom                   u:object_r:tee_device:s0
 
 # Userdebug only
 /dev/ramdump_.*                u:object_r:ramdump_device:s0
@@ -20,6 +21,7 @@
 # System files
 /system/bin/sensortool\.angler   u:object_r:sensortool_exec:s0
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
+/system/bin/qseecomd             u:object_r:tee_exec:s0
 
 # Data files
 /data/ramdump(/.*)?              u:object_r:ssr_data_file:s0
