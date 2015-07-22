@@ -4,3 +4,5 @@ type sysfs_surfaceflinger, fs_type, sysfs_type;
 type firmware_file, fs_type, contextmount_type;
 
 type ssr_data_file, file_type, data_file_type;
+type sysfs_ssr, sysfs_type, fs_type;
+type sysfs_ssr_toggle, sysfs_type, fs_type;
