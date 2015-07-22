@@ -186,11 +186,6 @@ PRODUCT_PACKAGES += \
     sensortool.angler \
     nano4x1.bin
 
-# Verified boot
-PRODUCT_PACKAGES += \
-    slideshow \
-    verity_warning_images
-
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
