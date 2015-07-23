@@ -18,6 +18,13 @@
 # Sensor Hub kernel driver
 /dev/spich                             u:object_r:sensors_device:s0
 
+/dev/block/mmcblk0                                                  u:object_r:root_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/fsc                u:object_r:modem_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/fsg                u:object_r:modem_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/modem              u:object_r:modem_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst1           u:object_r:modem_block_device:s0
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst2           u:object_r:modem_block_device:s0
+
 /sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0
 /sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level         u:object_r:sysfs_ssr_toggle:s0
 
@@ -28,6 +35,7 @@
 
 # System files
 /system/bin/pm-service           u:object_r:per_mgr_exec:s0
+/system/bin/rmt_storage          u:object_r:rmt_exec:s0
 /system/bin/sensortool\.angler   u:object_r:sensortool_exec:s0
 /system/bin/ssr_setup            u:object_r:ssr_setup_exec:s0
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
