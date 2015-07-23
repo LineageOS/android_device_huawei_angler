@@ -209,9 +209,6 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
-PRODUCT_PACKAGES += \
-    blockheader
-
 # Power HAL
 PRODUCT_PACKAGES += \
     power.angler
@@ -307,11 +304,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level="ALL_ENABLE"
 
-# Modem debugger
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PACKAGES += \
-    QXDMLogger
-
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
    fs_config_files
@@ -319,6 +311,11 @@ PRODUCT_PACKAGES += \
 # For data
 PRODUCT_PACKAGES += \
    librmnetctl
+
+# Modem debugger
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    QXDMLogger
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
