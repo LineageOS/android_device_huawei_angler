@@ -10,6 +10,11 @@
 # Userdebug only
 /dev/ramdump_.*                u:object_r:ramdump_device:s0
 
+# shared mem log
+/dev/smem_log                  u:object_r:shared_log_device:s0
+
+/dev/subsys_modem              u:object_r:subsys_modem_device:s0
+
 # Sensor Hub kernel driver
 /dev/spich                             u:object_r:sensors_device:s0
 
@@ -22,6 +27,7 @@
 /sys/devices/virtual/graphics/fb1/product_description       -- u:object_r:sysfs_surfaceflinger:s0
 
 # System files
+/system/bin/pm-service           u:object_r:per_mgr_exec:s0
 /system/bin/sensortool\.angler   u:object_r:sensortool_exec:s0
 /system/bin/ssr_setup            u:object_r:ssr_setup_exec:s0
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
