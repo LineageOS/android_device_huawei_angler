@@ -25,8 +25,8 @@
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst1           u:object_r:modem_block_device:s0
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/modemst2           u:object_r:modem_block_device:s0
 
-/sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_ssr:s0
-/sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level         u:object_r:sysfs_ssr_toggle:s0
+/sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_msm_subsys:s0
+/sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level         u:object_r:sysfs_msm_subsys_toggle:s0
 
 # Sysfs files used by surfaceflinger
 /sys/devices/virtual/graphics/fb1/hpd          -- u:object_r:sysfs_surfaceflinger:s0

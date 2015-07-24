@@ -6,8 +6,8 @@ permissive per_mgr;
 
 allow per_mgr shared_log_device:chr_file rw_file_perms;
 
-allow per_mgr sysfs_ssr:dir r_dir_perms;
-allow per_mgr sysfs_ssr:lnk_file r_file_perms;
+allow per_mgr sysfs_msm_subsys:dir r_dir_perms;
+allow per_mgr sysfs_msm_subsys:lnk_file r_file_perms;
 
 binder_service(per_mgr)
 binder_use(per_mgr)
