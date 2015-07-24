@@ -35,6 +35,7 @@ on init
     symlink /sdcard /storage/sdcard0
 
 on fs
+    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
     mount_all ./fstab.angler
 
     # Enable rmnet data and aggregation
@@ -68,7 +69,6 @@ on boot
 
     # create symlink for fb1 as HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
-    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
     # setup permissions for fb1 related nodes
     chown system graphics /sys/class/graphics/fb1/hpd
