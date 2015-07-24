@@ -34,6 +34,7 @@
 /sys/devices/virtual/graphics/fb1/product_description       -- u:object_r:sysfs_surfaceflinger:s0
 
 # System files
+/system/bin/irsc_util           u:object_r:irsc_util_exec:s0
 /system/bin/pm-service           u:object_r:per_mgr_exec:s0
 /system/bin/rmt_storage          u:object_r:rmt_exec:s0
 /system/bin/sensortool\.angler   u:object_r:sensortool_exec:s0
