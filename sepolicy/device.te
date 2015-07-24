@@ -2,3 +2,4 @@ type modem_block_device, dev_type;
 type ramdump_device, dev_type;
 type shared_log_device, dev_type;
 type subsys_modem_device, dev_type;
+type thermal_engine_device, dev_type;

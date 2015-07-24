@@ -5,6 +5,8 @@
 # GPU device
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
 /dev/kgsl                      u:object_r:gpu_device:s0
+
+/dev/msm_thermal_query         u:object_r:thermal_engine_device:s0
 /dev/qseecom                   u:object_r:tee_device:s0
 
 # Userdebug only
@@ -40,6 +42,7 @@
 /system/bin/sensortool\.angler   u:object_r:sensortool_exec:s0
 /system/bin/ssr_setup            u:object_r:ssr_setup_exec:s0
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
+/system/bin/thermal-engine       u:object_r:thermald_exec:s0
 /system/bin/qseecomd             u:object_r:tee_exec:s0
 
 # Data files
