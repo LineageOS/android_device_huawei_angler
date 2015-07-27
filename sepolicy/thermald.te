@@ -1,0 +1,16 @@
+type thermald, domain;
+type thermald_exec, exec_type, file_type;
+
+init_daemon_domain(thermald)
+
+permissive thermald;
+
+allow thermald shared_log_device:chr_file rw_file_perms;
+allow thermald thermal_engine_device:chr_file rw_file_perms;
+
+allow thermald self:socket create_socket_perms;
+type_transition thermald socket_device:sock_file thermald_socket;
+allow thermald thermald_socket:sock_file create_file_perms;
+
+allow thermald sysfs_msm_subsys:dir r_dir_perms;
+allow thermald sysfs_msm_subsys:lnk_file rw_file_perms;
