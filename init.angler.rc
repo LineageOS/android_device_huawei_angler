@@ -174,6 +174,11 @@ on post-fs-data
     chown system system /persist/audio/speaker_calibdata.bin
     chmod 0444 /persist/audio/speaker_calibdata.bin
 
+    #modify access for laser calibration data
+    chmod 0710 /persist/data
+    chmod 0440 /persist/data/st_offset
+    chmod 0440 /persist/data/st_xtalk
+
 on charger
    #low power governing
    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
