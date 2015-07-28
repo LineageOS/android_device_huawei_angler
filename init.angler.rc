@@ -240,11 +240,6 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
     user root
     oneshot
 
-service bridgemgrd /system/bin/bridgemgrd
-    class late_start
-    user radio
-    group radio
-
 service thermal-engine /system/bin/thermal-engine
     class main
     user root
