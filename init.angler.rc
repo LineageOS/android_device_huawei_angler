@@ -93,6 +93,9 @@ on boot
 
     setprop wifi.interface wlan0
 
+    #wifi sar
+    chown radio radio /sys/module/wifi_sar/parameters/wifi_tx_power_limit
+
     write /sys/bus/platform/drivers/xhci_msm_hsic/unbind msm_hsic_host
     write /sys/module/rmnet_usb/parameters/mux_enabled 1
     write /sys/module/rmnet_usb/parameters/no_fwd_rmnet_links 8
