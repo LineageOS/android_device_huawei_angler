@@ -1,3 +1,4 @@
+type diag_device, dev_type;
 type modem_block_device, dev_type;
 type ramdump_device, dev_type;
 type shared_log_device, dev_type;
