@@ -1,0 +1,2 @@
+genfscon proc /sys/kernel/sched_init_task_load        u:object_r:proc_kernel_sched:s0
+genfscon proc /sys/kernel/sched_small_task            u:object_r:proc_kernel_sched:s0

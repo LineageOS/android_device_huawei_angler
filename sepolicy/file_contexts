@@ -38,6 +38,7 @@
 
 /sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level         u:object_r:sysfs_msm_subsys_toggle:s0
+/sys/module/msm_performance(/.*)?                                   u:object_r:sysfs_performance:s0
 
 # Sysfs files used by surfaceflinger
 /sys/devices/virtual/graphics/fb1/hpd          -- u:object_r:sysfs_surfaceflinger:s0
@@ -48,7 +49,8 @@
 /sys/devices/virtual/smdpkt/smdcntl([0-9])+/open_timeout u:object_r:sysfs_smdcntl_open_timeout:s0
 
 # System files
-/system/bin/irsc_util           u:object_r:irsc_util_exec:s0
+/system/bin/irsc_util            u:object_r:irsc_util_exec:s0
+/system/bin/perfd                u:object_r:perfd_exec:s0
 /system/bin/pm-service           u:object_r:per_mgr_exec:s0
 /system/bin/qmuxd                u:object_r:qmux_exec:s0
 /system/bin/qseecomd             u:object_r:tee_exec:s0
@@ -59,4 +61,6 @@
 /system/bin/thermal-engine       u:object_r:thermald_exec:s0
 
 # Data files
+/data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
+/data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/ramdump(/.*)?              u:object_r:ssr_data_file:s0

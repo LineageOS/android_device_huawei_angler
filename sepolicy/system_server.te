@@ -4,3 +4,7 @@ allow system_server sensors_device:chr_file rw_file_perms;
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets to system services
 # (e.g., LocationManager)
 qmux_socket(system_server)
+
+# talk to perfd
+allow system_server perfd_data_file:sock_file write;
+allow system_server perfd:unix_stream_socket connectto;
