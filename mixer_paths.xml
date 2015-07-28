@@ -174,6 +174,7 @@
     <ctl name="HDMI Mixer MultiMedia4" value="0" />
     <ctl name="Left Speaker Enable" value="Off" />
     <ctl name="Right Speaker Enable" value="Off" />
+    <ctl name="Receiver Enable" value="Off" />
 
     <!-- These are the initial mixer settings for QUAT_MI2S-->
     <ctl name="QUAT_MI2S_RX Port Mixer SLIM_0_TX" value="0" />
@@ -1555,6 +1556,7 @@
 
     <path name="speaker-mic">
         <path name="adc1" />
+        <ctl name="ADC1 Volume" value="12" />
     </path>
 
     <path name="speaker-mic-liquid">
@@ -1602,6 +1604,7 @@
 
     <path name="handset-mic">
         <path name="adc1" />
+        <ctl name="ADC1 Volume" value="12" />
     </path>
 
     <path name="handset-mic-cdp">
@@ -1640,7 +1643,7 @@
 
     <path name="headset-mic">
         <path name="adc2" />
-        <ctl name="ADC2 Volume" value="13" />
+        <ctl name="ADC2 Volume" value="12" />
     </path>
 
     <path name="headset-mic-liquid">
@@ -1656,10 +1659,12 @@
 
     <path name="hac-handset">
         <path name="handset" />
+        <ctl name="Left Speaker Gain" value="18" />
     </path>
 
     <path name="voice-hac-handset">
         <path name="handset" />
+        <ctl name="Left Speaker Gain" value="18" />
     </path>
 
     <path name="voice-handset-tmus">
@@ -1920,6 +1925,8 @@
     <path name="dmic-endfire">
         <path name="handset-dmic-endfire" />
         <ctl name="IIR1 INP1 MUX" value="DEC7" />
+        <ctl name="ADC1 Volume" value="12" />
+        <ctl name="ADC3 Volume" value="12" />
     </path>
 
     <path name="dmic-endfire-liquid">
