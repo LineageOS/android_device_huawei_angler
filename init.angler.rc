@@ -381,9 +381,6 @@ service cnd /system/bin/cnd
     class late_start
     socket cnd stream 660 root inet
 
-on verity-logging
-    exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2
-
 on property:ro.boot.hardware.revision=ANGLER-V1
     write /sys/module/bcmdhd/parameters/nvram_path \
 	      /system/etc/wifi/bcmdhd-pme.cal
