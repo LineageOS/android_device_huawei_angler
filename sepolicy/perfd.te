@@ -1,0 +1,14 @@
+type perfd, domain;
+type perfd_exec, exec_type, file_type;
+
+init_daemon_domain(perfd)
+
+permissive perfd;
+
+allow perfd perfd_data_file:dir rw_dir_perms;
+allow perfd perfd_data_file:file create_file_perms;
+allow perfd perfd_data_file:sock_file create_file_perms;
+
+allow perfd sysfs_performance:dir r_dir_perms;
+allow perfd sysfs_performance:file rw_file_perms;
+allow perfd proc_kernel_sched:file w_file_perms;

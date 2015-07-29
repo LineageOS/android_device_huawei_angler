@@ -3,9 +3,12 @@ type sysfs_surfaceflinger, fs_type, sysfs_type;
 # Default type for anything under /firmware
 type firmware_file, fs_type, contextmount_type;
 
+type perfd_data_file, file_type, data_file_type;
+type proc_kernel_sched, fs_type;
 type qmuxd_socket, file_type;
 type ssr_data_file, file_type, data_file_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_msm_subsys_toggle, sysfs_type, fs_type;
+type sysfs_performance, sysfs_type, fs_type;
 type sysfs_smdcntl_open_timeout, sysfs_type, fs_type;
 type thermald_socket, file_type;
