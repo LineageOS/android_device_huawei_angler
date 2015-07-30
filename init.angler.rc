@@ -100,19 +100,6 @@ on boot
     write /sys/module/rmnet_usb/parameters/rmnet_data_init 1
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
-    mkdir /data/audio/ 0770 media audio
-
-    # perf daemon
-    setprop ro.min_freq_0 384000
-    setprop ro.min_freq_4 384000
-    mkdir /data/misc/perfd 0755 root system
-    chmod 2755 /data/misc/perfd
-    mkdir /data/system/perfd 0770 root system
-    rm /data/system/perfd/default_values
-    chmod 2770 /data/system/perfd
-
     #audio prop
     setprop persist.audio.dualmic.config endfire
     setprop persist.audio.fluence.voicecall true
@@ -144,6 +131,19 @@ on post-fs-data
     #Create folder for display calibration data
     mkdir /data/misc/display 0770 system graphics
 
+    # Create /data/time folder for time-services
+    mkdir /data/time/ 0700 system system
+    mkdir /data/audio/ 0770 media audio
+
+    # Create folder for perf daemon
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    rm /data/system/perfd/default_values
+    chmod 2770 /data/system/perfd
+    setprop ro.min_freq_0 384000
+    setprop ro.min_freq_4 384000
+
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
@@ -152,11 +152,10 @@ on post-fs-data
     mkdir /data/shared 0755
     chown system system /data/shared
 
-     # Mark the copy complete flag to not completed
-     write /data/misc/radio/copy_complete 0
-     chown radio radio /data/misc/radio/copy_complete
-     chmod 0660 /data/misc/radio/copy_complete
-
+    # Mark the copy complete flag to not completed
+    write /data/misc/radio/copy_complete 0
+    chown radio radio /data/misc/radio/copy_complete
+    chmod 0660 /data/misc/radio/copy_complete
 
     # Configure bluetooth
     chmod 0660 /proc/bluetooth/sleep/lpm
