@@ -1,0 +1,16 @@
+type qti, domain;
+type qti_exec, exec_type, file_type;
+
+init_daemon_domain(qti)
+
+permissive qti;
+
+allow qti sysfs_msm_subsys:dir r_dir_perms;
+allow qti sysfs_msm_subsys:lnk_file r_file_perms;
+
+allow qti self:socket create_socket_perms;
+
+allow qti dpl_device:chr_file rw_file_perms;
+allow qti rmnet_device:chr_file rw_file_perms;
+
+qmux_socket(qti)

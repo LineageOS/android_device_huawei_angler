@@ -2,6 +2,7 @@
 #factory reset protection partition
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/frp           u:object_r:frp_block_device:s0
 /dev/diag                      u:object_r:diag_device:s0
+/dev/dpl_ctrl                  u:object_r:dpl_device:s0
 
 # GPU device
 /dev/kgsl-3d0                  u:object_r:gpu_device:s0
@@ -12,6 +13,8 @@
 
 # Userdebug only
 /dev/ramdump_.*                u:object_r:ramdump_device:s0
+
+/dev/rmnet_ctrl[0-9]*          u:object_r:rmnet_device:s0
 
 # shared memory drivers
 /dev/smdcntl[0-9]              u:object_r:radio_device:s0
@@ -60,6 +63,7 @@
 /system/bin/ssr_setup            u:object_r:ssr_setup_exec:s0
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
 /system/bin/thermal-engine       u:object_r:thermald_exec:s0
+/vendor/bin/qti                  u:object_r:qti_exec:s0
 
 # Data files
 /data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
