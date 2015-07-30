@@ -33,6 +33,7 @@
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t g_lcd_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_attention = 0;
@@ -69,6 +70,7 @@ void init_globals(void)
 {
     // init the mutex
     pthread_mutex_init(&g_lock, NULL);
+    pthread_mutex_init(&g_lcd_lock, NULL);
 }
 
 static int
@@ -118,9 +120,9 @@ set_light_backlight(struct light_device_t* dev,
         return -1;
     }
 
-    pthread_mutex_lock(&g_lock);
+    pthread_mutex_lock(&g_lcd_lock);
     err = write_int(LCD_FILE, brightness);
-    pthread_mutex_unlock(&g_lock);
+    pthread_mutex_unlock(&g_lcd_lock);
     return err;
 }
 
@@ -151,6 +153,8 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     colorRGB = state->color;
 
+    ALOGD("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
+            state->flashMode, colorRGB, onMS, offMS);
     red = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
@@ -162,17 +166,17 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
 
     if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-        }
         if (green) {
             if (write_int(GREEN_BLINK_FILE, blink))
                 write_int(GREEN_LED_FILE, 0);
         }
-        if (blue) {
+        else if (blue) {
             if (write_int(BLUE_BLINK_FILE, blink))
                 write_int(BLUE_LED_FILE, 0);
+        }
+        else if (red) {
+            if (write_int(RED_BLINK_FILE, blink))
+                write_int(RED_LED_FILE, 0);
         }
     } else {
         write_int(RED_LED_FILE, red);
