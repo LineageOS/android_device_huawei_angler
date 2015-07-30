@@ -54,6 +54,9 @@
 
 # System files
 /system/bin/irsc_util            u:object_r:irsc_util_exec:s0
+/system/bin/loc_launcher         u:object_r:location_exec:s0
+/system/bin/location-mq          u:object_r:location_exec:s0
+/system/bin/lowi-server          u:object_r:location_exec:s0
 /system/bin/netmgrd              u:object_r:netmgrd_exec:s0
 /system/bin/perfd                u:object_r:perfd_exec:s0
 /system/bin/pm-service           u:object_r:per_mgr_exec:s0
@@ -65,6 +68,7 @@
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
 /system/bin/thermal-engine       u:object_r:thermald_exec:s0
 /vendor/bin/qti                  u:object_r:qti_exec:s0
+/vendor/bin/slim_daemon          u:object_r:location_exec:s0
 
 # Data files
 /data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
