@@ -73,6 +73,7 @@
 /system/bin/ssr_setup            u:object_r:ssr_setup_exec:s0
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
 /system/bin/thermal-engine       u:object_r:thermald_exec:s0
+/system/bin/time_daemon          u:object_r:time_exec:s0
 /vendor/bin/qti                  u:object_r:qti_exec:s0
 /vendor/bin/slim_daemon          u:object_r:location_exec:s0
 
@@ -80,3 +81,4 @@
 /data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/ramdump(/.*)?              u:object_r:ssr_data_file:s0
+/data/time(/.*)?                 u:object_r:time_data_file:s0
