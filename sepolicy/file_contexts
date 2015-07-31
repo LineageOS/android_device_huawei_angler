@@ -61,7 +61,8 @@
 /sys/devices/virtual/smdpkt/smdcntl([0-9])+/open_timeout u:object_r:sysfs_smdcntl_open_timeout:s0
 
 # System files
-/system/bin/cnd            u:object_r:cnd_exec:s0
+/system/bin/ATFWD-daemon         u:object_r:atfwd_exec:s0
+/system/bin/cnd                  u:object_r:cnd_exec:s0
 /system/bin/irsc_util            u:object_r:irsc_util_exec:s0
 /system/bin/loc_launcher         u:object_r:location_exec:s0
 /system/bin/location-mq          u:object_r:location_exec:s0
