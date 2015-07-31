@@ -30,6 +30,7 @@
 # Sensor Hub kernel driver
 /dev/spich                             u:object_r:sensors_device:s0
 
+/dev/socket/cnd                        u:object_r:cnd_socket:s0
 # Qualcomm MSM Interface (QMI) devices
 /dev/socket/qmux_audio(/.*)?           u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_gps(/.*)?             u:object_r:qmuxd_socket:s0
@@ -58,6 +59,7 @@
 /sys/devices/virtual/smdpkt/smdcntl([0-9])+/open_timeout u:object_r:sysfs_smdcntl_open_timeout:s0
 
 # System files
+/system/bin/cnd            u:object_r:cnd_exec:s0
 /system/bin/irsc_util            u:object_r:irsc_util_exec:s0
 /system/bin/loc_launcher         u:object_r:location_exec:s0
 /system/bin/location-mq          u:object_r:location_exec:s0
