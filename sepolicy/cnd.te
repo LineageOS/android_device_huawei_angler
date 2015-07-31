@@ -1,0 +1,10 @@
+type cnd, domain;
+type cnd_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(cnd)
+
+permissive cnd;
+
+allow cnd self:capability { setuid setgid };
+
