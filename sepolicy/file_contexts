@@ -63,6 +63,10 @@
 # System files
 /system/bin/ATFWD-daemon         u:object_r:atfwd_exec:s0
 /system/bin/cnd                  u:object_r:cnd_exec:s0
+/system/bin/imscmservice         u:object_r:ims_exec:s0
+/system/bin/imsdatadaemon        u:object_r:ims_exec:s0
+/system/bin/imsqmidaemon         u:object_r:ims_exec:s0
+/system/bin/ims_rtp_daemon       u:object_r:ims_exec:s0
 /system/bin/irsc_util            u:object_r:irsc_util_exec:s0
 /system/bin/loc_launcher         u:object_r:location_exec:s0
 /system/bin/location-mq          u:object_r:location_exec:s0
