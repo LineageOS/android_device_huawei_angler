@@ -78,6 +78,7 @@
 /system/bin/subsystem_ramdump    u:object_r:ssr_exec:s0
 /system/bin/thermal-engine       u:object_r:thermald_exec:s0
 /system/bin/time_daemon          u:object_r:time_exec:s0
+/vendor/bin/oem_qmi_server       u:object_r:oem_qmi_server_exec:s0
 /vendor/bin/qti                  u:object_r:qti_exec:s0
 /vendor/bin/slim_daemon          u:object_r:location_exec:s0
 
