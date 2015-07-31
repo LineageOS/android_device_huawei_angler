@@ -31,6 +31,7 @@
 /dev/spich                             u:object_r:sensors_device:s0
 
 /dev/socket/cnd                        u:object_r:cnd_socket:s0
+/dev/socket/msm_irqbalance             u:object_r:irqbalance_socket:s0
 # Qualcomm MSM Interface (QMI) devices
 /dev/socket/qmux_audio(/.*)?           u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_gps(/.*)?             u:object_r:qmuxd_socket:s0
@@ -72,6 +73,7 @@
 /system/bin/location-mq          u:object_r:location_exec:s0
 /system/bin/lowi-server          u:object_r:location_exec:s0
 /system/bin/mm-qcamera-daemon    u:object_r:camera_exec:s0
+/system/bin/msm_irqbalance       u:object_r:irqbalance_exec:s0
 /system/bin/netmgrd              u:object_r:netmgrd_exec:s0
 /system/bin/perfd                u:object_r:perfd_exec:s0
 /system/bin/pm-service           u:object_r:per_mgr_exec:s0
