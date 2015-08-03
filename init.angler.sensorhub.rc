@@ -15,6 +15,10 @@ on charger
     write /sys/class/gpio/gpio42/direction in
     write /sys/class/gpio/export 64
     write /sys/class/gpio/gpio64/direction in
+    ## ensure correct calibration file permissions
+    chown root system /persist/sensorcal.json
+    chmod 0640 /persist/sensorcal.json
+    ## Update SH FW if needed
     start flash-sh-fw
 
 on post-fs
@@ -34,6 +38,10 @@ on post-fs
     write /sys/class/gpio/gpio42/direction in
     write /sys/class/gpio/export 64
     write /sys/class/gpio/gpio64/direction in
+    ## ensure correct calibration file permissions
+    chown root system /persist/sensorcal.json
+    chmod 0640 /persist/sensorcal.json
+    ## Update SH FW if needed
     start flash-sh-fw
 
 service flash-sh-fw /system/bin/logwrapper /system/bin/sensortool.angler -f /vendor/firmware/nano4x1.bin
