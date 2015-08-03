@@ -1,8 +1,10 @@
 # This file gets copied as /init.angler.diag.rc
 
-on boot
+on post-fs-data
     # Modem logging collection
     mkdir /data/diag_logs 0777 system system
+
+on boot
     chmod 666 /dev/diag
 
 # diag and adb
