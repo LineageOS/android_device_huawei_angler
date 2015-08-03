@@ -60,6 +60,9 @@
 # Sysfs files used by qmuxd
 /sys/devices/virtual/smdpkt/smdcntl([0-9])+/open_timeout u:object_r:sysfs_smdcntl_open_timeout:s0
 
+# wifi mac address
+/sys/devices/virtual/net/wlan0/address                   u:object_r:sysfs_mac_address:s0
+
 # System files
 /system/bin/ATFWD-daemon         u:object_r:atfwd_exec:s0
 /system/bin/cnd                  u:object_r:cnd_exec:s0
