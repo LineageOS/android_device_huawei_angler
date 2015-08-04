@@ -1,0 +1,13 @@
+type ims, domain;
+type ims_exec, exec_type, file_type;
+
+init_daemon_domain(ims)
+
+permissive ims;
+
+binder_use(ims)
+set_prop(ims, qcom_ims_prop)
+
+allow ims self:capability net_raw;
+
+allow ims self:socket create_socket_perms;
