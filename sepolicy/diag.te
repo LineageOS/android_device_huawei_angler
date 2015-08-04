@@ -1,0 +1,6 @@
+type diag, domain;
+type diag_exec, exec_type, file_type;
+
+init_daemon_domain(diag)
+
+permissive diag;
