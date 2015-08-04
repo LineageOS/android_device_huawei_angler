@@ -42,6 +42,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/etc/init.mcfg.sh
 
+# Thermal configuration
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
+
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
