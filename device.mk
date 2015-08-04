@@ -250,6 +250,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=2048 \
     ro.hwui.text_large_cache_height=1024
 
+# for perfd
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min_freq_0=384000
+    ro.min_freq_4=384000
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so
+
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 
