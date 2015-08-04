@@ -3,7 +3,9 @@ type cnd_socket, file_type;
 # Default type for anything under /firmware
 type firmware_file, fs_type, contextmount_type;
 
+type irqbalance_socket, file_type;
 type perfd_data_file, file_type, data_file_type;
+type proc_irq, fs_type;
 type proc_kernel_sched, fs_type;
 type qmuxd_socket, file_type;
 type ssr_data_file, file_type, data_file_type;
