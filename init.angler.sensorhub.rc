@@ -44,6 +44,6 @@ on post-fs
     ## Update SH FW if needed
     start flash-sh-fw
 
-service flash-sh-fw /system/bin/logwrapper /system/bin/sensortool.angler -f /vendor/firmware/nano4x1.bin
+service flash-sh-fw /system/bin/sensortool.angler -f /vendor/firmware/nano4x1.bin
     oneshot
     disabled
