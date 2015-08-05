@@ -27,6 +27,11 @@ bcl_hotplug_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask 0`
 bcl_hotplug_soc_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask 0`
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
+# some files in /sys/devices/system/cpu are created after the restorecon of
+# /sys/. These files receive the default label "sysfs".
+# Restorecon again to give new files the correct label.
+restorecon -R /sys/devices/system/cpu
+
 # ensure at most one A57 is online when thermal hotplug is disabled
 write /sys/devices/system/cpu/cpu5/online 0
 write /sys/devices/system/cpu/cpu6/online 0
@@ -40,6 +45,7 @@ write /sys/module/msm_performance/parameters/cpu_max_freq "4:960000 5:960000 6:9
 
 # configure governor settings for little cluster
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+restorecon -R /sys/devices/system/cpu # must restore after interactive
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
@@ -57,6 +63,7 @@ write /sys/devices/system/cpu/cpu4/online 1
 
 # configure governor settings for big cluster
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
+restorecon -R /sys/devices/system/cpu # must restore after interactive
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 19000
