@@ -6,5 +6,15 @@ init_daemon_domain(cnd)
 
 permissive cnd;
 
+userdebug_or_eng(`
+    allow cnd shared_log_device:chr_file rw_file_perms;
+')
+
 allow cnd self:capability { setuid setgid };
 
+allow cnd self:socket create_socket_perms;
+
+allow cnd sysfs_msm_subsys:dir r_dir_perms;
+allow cnd sysfs_msm_subsys:lnk_file rw_file_perms;
+
+qmux_socket(cnd)
