@@ -1,13 +1,13 @@
 # STOPSHIP - all domains must be in enforcing mode
 permissive tee;
 
-allow tee self:capability { setuid setgid };
+allow tee self:capability { setuid setgid sys_rawio };
 
 allow tee block_device:dir { getattr search };
 allow tee drm_block_device:blk_file rw_file_perms;
 allow tee ssd_block_device:blk_file rw_file_perms;
 
-allow tee firmware_file:dir r_file_perms;
+allow tee firmware_file:dir r_dir_perms;
 allow tee firmware_file:file r_file_perms;
 
 #allow tee to access dir /data/system/users/0-N/fpdata and the file
