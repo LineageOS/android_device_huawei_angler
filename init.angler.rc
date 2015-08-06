@@ -108,12 +108,6 @@ on boot
     write /sys/module/rmnet_usb/parameters/rmnet_data_init 1
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    #audio prop
-    setprop persist.audio.dualmic.config endfire
-    setprop persist.audio.fluence.voicecall true
-    setprop persist.audio.product.identify angler
-    setprop persist.audio.fluence.speaker true
-
     # Leds
     chown system system /sys/class/leds/red/on_off_ms
     chown system system /sys/class/leds/green/on_off_ms

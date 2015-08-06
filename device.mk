@@ -318,6 +318,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
+#for qcom modify fluence type name, here added and enable
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.audio.fluencetype="fluence" \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.product.identify="angler" \
+    persist.audio.fluence.speaker=true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level="ALL_ENABLE"
 
