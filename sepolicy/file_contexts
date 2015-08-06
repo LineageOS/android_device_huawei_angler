@@ -25,6 +25,7 @@
 /dev/smem_log                  u:object_r:shared_log_device:s0
 
 /dev/subsys_modem              u:object_r:subsys_modem_device:s0
+/dev/ttyHSL0                   u:object_r:console_device:s0
 /dev/v4l-subdev[0-9]+          u:object_r:video_device:s0
 /dev/video([0-9])+             u:object_r:video_device:s0
 
