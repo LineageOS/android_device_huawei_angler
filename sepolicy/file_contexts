@@ -42,6 +42,7 @@
 /dev/socket/qmux_radio(/.*)?           u:object_r:qmuxd_socket:s0
 
 /dev/block/mmcblk0                                                  u:object_r:root_block_device:s0
+/dev/block/mmcblk0rpmb                                              u:object_r:drm_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/cache            u:object_r:cache_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/fsc              u:object_r:modem_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/fsg              u:object_r:modem_block_device:s0
@@ -50,6 +51,7 @@
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/modemst1         u:object_r:modem_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/modemst2         u:object_r:modem_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/persist          u:object_r:persist_block_device:s0
+/dev/block/platform/soc\.0/f9824900\.sdhci/by-name/ssd              u:object_r:ssd_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/userdata         u:object_r:userdata_block_device:s0
 /dev/block/zram0                                                    u:object_r:swap_block_device:s0
 
