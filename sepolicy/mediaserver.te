@@ -1,4 +1,13 @@
+binder_call(mediaserver, rild)
 # send data to camera socket
 allow mediaserver camera_data_file:sock_file write;
 allow mediaserver camera:unix_stream_socket connectto;
 allow mediaserver camera:unix_dgram_socket sendto;
+#read/write /dev/media[0-N]
+allow mediaserver media_device:chr_file rw_file_perms;
+#read/write /dev/msm_audio_cal
+userdebug_or_eng(`
+  allow mediaserver diag_device:chr_file rw_file_perms;
+')
+#read/write /dev/v4l-subdev[0-N]
+allow mediaserver v41_subdev_device:chr_file rw_file_perms;

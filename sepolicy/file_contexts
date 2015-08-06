@@ -32,6 +32,10 @@
 
 /dev/socket/cnd                        u:object_r:cnd_socket:s0
 /dev/socket/msm_irqbalance             u:object_r:irqbalance_socket:s0
+
+#media kernel driver
+/dev/msm_audio_cal                     u:object_r:audio_device:s0
+
 # Qualcomm MSM Interface (QMI) devices
 /dev/socket/qmux_audio(/.*)?           u:object_r:qmuxd_socket:s0
 /dev/socket/qmux_gps(/.*)?             u:object_r:qmuxd_socket:s0
