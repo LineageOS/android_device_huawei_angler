@@ -2123,7 +2123,7 @@
     </path>
 
     <path name="voice-tty-vco-handset-mic">
-        <path name="dmic1" />
+        <path name="speaker-mic" />
     </path>
 
     <path name="listen-handset-mic">
