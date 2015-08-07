@@ -1,1 +1,3 @@
 unix_socket_connect(system_app, cnd, cnd)
+
+set_prop(system_app, ctl_ppd_prop)

@@ -1,1 +1,2 @@
 type qcom_ims_prop, property_type;
+type ctl_ppd_prop, property_type;
