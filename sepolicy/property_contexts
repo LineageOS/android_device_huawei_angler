@@ -1,1 +1,2 @@
 sys.ims.        u:object_r:qcom_ims_prop:s0
+ctl.ppd         u:object_r:ctl_ppd_prop:s0
