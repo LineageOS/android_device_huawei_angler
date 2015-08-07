@@ -153,6 +153,13 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     dsm_ctrl
 
+# Audio effects
+PRODUCT_PACKAGES += \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcomvoiceprocessingdescriptors \
+    libqcompostprocbundle
+
 # GPS
 PRODUCT_PACKAGES += \
     libloc_eng \
