@@ -28,6 +28,9 @@ on post-fs
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     write /sys/class/android_usb/android0/f_ffs/aliases adb
 
+on charger
+    setprop persist.sys.usb.config charging
+
 # MTP
 on property:sys.usb.config=mtp
     stop adbd
@@ -133,6 +136,16 @@ on property:sys.usb.config=midi,adb
     write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/class/android_usb/android0/enable 1
     start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+# USB charging configuration
+on property:sys.usb.config=charging
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 18d1
+    write /sys/class/android_usb/android0/idProduct 4ee8
+    write /sys/class/android_usb/android0/functions charging
+    write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
 # QDSS - Qualcomm Debug Subsystem
