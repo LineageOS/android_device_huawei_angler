@@ -370,4 +370,9 @@
         <item>"bp-tools:rndis:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
         <item>"bp-tools:rndis,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
     </string-array>
+
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
+    <!-- MMS user agent prolfile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://wap1.huawei.com/uaprof/HUAWEI_angler-Uaprofile.xml</string>
 </resources>
