@@ -1,1 +1,4 @@
+# STOPSHIP: move shell scripts to own domains and remove
+permissive init;
+
 allow init tmpfs:lnk_file create_file_perms;
