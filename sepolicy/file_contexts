@@ -68,6 +68,9 @@
 /sys/module/msm_performance(/.*)?                                   u:object_r:sysfs_performance:s0
 /sys/module/msm_thermal(/.*)?                                       u:object_r:sysfs_thermal:s0
 
+# Sysfs files used by fingerprintd
+/sys/devices/soc\.0/f9968000\.spi/spi_master/spi12/spi12\.0(/.*)?    u:object_r:sysfs_fingerprintd:s0
+
 # Sysfs files used by surfaceflinger
 /sys/devices/virtual/graphics/fb1/hpd          -- u:object_r:sysfs_surfaceflinger:s0
 /sys/devices/virtual/graphics/fb1/vendor_name  -- u:object_r:sysfs_surfaceflinger:s0
