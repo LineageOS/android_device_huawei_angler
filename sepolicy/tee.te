@@ -1,3 +1,6 @@
+# STOPSHIP - all domains must be in enforcing mode
+permissive tee;
+
 allow tee self:capability { setuid setgid };
 
 allow tee block_device:dir { getattr search };
