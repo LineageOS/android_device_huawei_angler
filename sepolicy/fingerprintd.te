@@ -1,1 +1,4 @@
+# STOPSHIP: must be in enforcing mode
+permissive fingerprintd;
+
 allow fingerprintd tee_device:chr_file rw_file_perms;
