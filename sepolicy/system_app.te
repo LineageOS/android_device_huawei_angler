@@ -1,3 +1,4 @@
 unix_socket_connect(system_app, cnd, cnd)
+allow system_app time:unix_stream_socket connectto;
 
 set_prop(system_app, ctl_ppd_prop)
