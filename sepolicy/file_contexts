@@ -61,9 +61,14 @@
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/userdata         u:object_r:userdata_block_device:s0
 /dev/block/zram0                                                    u:object_r:swap_block_device:s0
 
-/sys/devices/bt_bcm4358\.85/rfkill/rfkill0/state                    u:object_r:sysfs_bluetooth_writable:s0
+/persist(/.*)?                                                      u:object_r:persist_file:s0
+/persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
+/persist/data(/.*)?                                                 u:object_r:persist_data_file:s0
+/persist/data/tz(/.*)?                                              u:object_r:persist_drm_file:s0
+/persist/sensors(/.*)?                                              u:object_r:persist_sensors_file:s0
 
 /sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_msm_subsys:s0
+/sys/devices/bt_bcm4358\.85/rfkill/rfkill0/state                    u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level         u:object_r:sysfs_msm_subsys_toggle:s0
 /sys/devices/soc\.0/fd900000\.qcom,mdss_mdp/qcom,mdss_fb_primary\.181/leds(/.*)? u:object_r:sysfs_led:s0
 /sys/devices/soc\.0/qcom,bcl\.[0-9]+(/.*)?                          u:object_r:sysfs_thermal:s0
@@ -121,11 +126,12 @@
 /vendor/bin/slim_daemon          u:object_r:location_exec:s0
 
 # Data files
-/data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
+/data/fpc(/.*)?                  u:object_r:fingerprintd_data_file:s0
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/misc/radio(/.*)?           u:object_r:radio_data_file:s0
 /data/nfc(/.*)?                  u:object_r:nfc_data_file:s0
 /data/ramdump(/.*)?              u:object_r:ssr_data_file:s0
+/data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
 /data/time(/.*)?                 u:object_r:time_data_file:s0
 
 #wifi sar
