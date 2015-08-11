@@ -1,4 +1,5 @@
 type cnd_socket, file_type;
+type diag_logs, file_type, data_file_type, mlstrustedobject;
 
 # Default type for anything under /firmware
 type firmware_file, fs_type, contextmount_type;

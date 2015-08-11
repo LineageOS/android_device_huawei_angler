@@ -122,6 +122,7 @@
 /vendor/bin/slim_daemon          u:object_r:location_exec:s0
 
 # Data files
+/data/diag_logs(/.*)?            u:object_r:diag_logs:s0
 /data/fpc(/.*)?                  u:object_r:fingerprintd_data_file:s0
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/misc/radio(/.*)?           u:object_r:radio_data_file:s0
