@@ -43,8 +43,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/etc/init.mcfg.sh
 
 # Thermal configuration
-#PRODUCT_COPY_FILES += \
-#    device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
 
 # Media
 PRODUCT_COPY_FILES += \
