@@ -26,6 +26,7 @@
 /dev/smem_log                  u:object_r:shared_log_device:s0
 
 /dev/subsys_modem              u:object_r:subsys_modem_device:s0
+/dev/ttyHS0                    u:object_r:hci_attach_dev:s0
 /dev/ttyHSL0                   u:object_r:console_device:s0
 /dev/v4l-subdev[0-9]+          u:object_r:video_device:s0
 /dev/video([0-9])+             u:object_r:video_device:s0
@@ -58,6 +59,8 @@
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/ssd              u:object_r:ssd_block_device:s0
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/userdata         u:object_r:userdata_block_device:s0
 /dev/block/zram0                                                    u:object_r:swap_block_device:s0
+
+/sys/devices/bt_bcm4358\.85/rfkill/rfkill0/state                    u:object_r:sysfs_bluetooth_writable:s0
 
 /sys/bus/msm_subsys(/.*)?                                           u:object_r:sysfs_msm_subsys:s0
 /sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level         u:object_r:sysfs_msm_subsys_toggle:s0
