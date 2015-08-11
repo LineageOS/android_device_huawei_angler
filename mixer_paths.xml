@@ -175,6 +175,10 @@
     <ctl name="Left Speaker Enable" value="Off" />
     <ctl name="Right Speaker Enable" value="Off" />
     <ctl name="Receiver Enable" value="Off" />
+    <ctl name="Imon Enable" value="Off" />
+    <ctl name="Vmon Enable" value="Off" />
+    <ctl name="ClassD Only" value="On" />
+    <ctl name="Boost Output Voltage" value="6.5V" />
 
     <!-- These are the initial mixer settings for QUAT_MI2S-->
     <ctl name="QUAT_MI2S_RX Port Mixer SLIM_0_TX" value="0" />
@@ -1500,6 +1504,11 @@
     </path>
 
     <path name="speaker">
+        <ctl name="Receiver Enable" value="Off" />
+        <ctl name="Imon Enable" value="On" />
+        <ctl name="Vmon Enable" value="On" />
+        <ctl name="ClassD Only" value="Off" />
+        <ctl name="Boost Output Voltage" value="8.5V" />
         <ctl name="Left Speaker Gain" value="20" />
         <ctl name="Right Speaker Gain" value="20" />
         <ctl name="Left Speaker Enable" value="On" />
@@ -1507,11 +1516,21 @@
     </path>
 
     <path name="speaker-left">
+        <ctl name="Receiver Enable" value="Off" />
+        <ctl name="Imon Enable" value="On" />
+        <ctl name="Vmon Enable" value="On" />
+        <ctl name="ClassD Only" value="Off" />
+        <ctl name="Boost Output Voltage" value="8.5V" />
         <ctl name="Left Speaker Gain" value="20" />
         <ctl name="Left Speaker Enable" value="On" />
     </path>
 
     <path name="speaker-right">
+        <ctl name="Receiver Enable" value="Off" />
+        <ctl name="Imon Enable" value="On" />
+        <ctl name="Vmon Enable" value="On" />
+        <ctl name="ClassD Only" value="Off" />
+        <ctl name="Boost Output Voltage" value="8.5V" />
         <ctl name="Right Speaker Gain" value="20" />
         <ctl name="Right Speaker Enable" value="On" />
     </path>
@@ -1582,8 +1601,7 @@
     </path>
 
     <path name="speaker-mono">
-        <ctl name="Right Speaker Gain" value="20" />
-        <ctl name="Right Speaker Enable" value="On" />
+        <path name="speaker-right" />
     </path>
 
     <path name="voice-speaker-protected">
@@ -1594,6 +1612,10 @@
     </path>
 
     <path name="handset">
+        <ctl name="Imon Enable" value="Off" />
+        <ctl name="Vmon Enable" value="Off" />
+        <ctl name="ClassD Only" value="On" />
+        <ctl name="Boost Output Voltage" value="6.5V" />
         <ctl name="Left Speaker Gain" value="20" />
         <ctl name="Receiver Enable" value="On" />
     </path>
