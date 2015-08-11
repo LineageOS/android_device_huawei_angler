@@ -11,3 +11,7 @@ userdebug_or_eng(`
 ')
 #read/write /dev/v4l-subdev[0-N]
 allow mediaserver v41_subdev_device:chr_file rw_file_perms;
+
+allow mediaserver persist_file:dir search;
+allow mediaserver persist_audio_file:dir search;
+allow mediaserver persist_audio_file:file r_file_perms;

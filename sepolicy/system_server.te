@@ -12,5 +12,9 @@ allow system_server sysfs_msm_subsys:lnk_file r_file_perms;
 qmux_socket(system_server)
 
 # talk to perfd
+allow system_server perfd_data_file:dir search;
 allow system_server perfd_data_file:sock_file write;
 allow system_server perfd:unix_stream_socket connectto;
+
+allow system_server persist_file:dir search;
+allow system_server persist_file:file r_file_perms;
