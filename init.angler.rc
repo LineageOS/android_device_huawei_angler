@@ -411,9 +411,10 @@ on property:ro.boot.hardware.revision=ANGLER-V2
     write /sys/module/bcmdhd/parameters/nvram_path \
 	      /system/etc/wifi/bcmdhd-pme.cal
 
-service mcfg-sh /system/bin/sh /system/etc/init.mcfg.sh
+service mcfg-sh /system/bin/init.mcfg.sh
    class late_start
-   user root
+   user radio
+   group radio system
    oneshot
 
 service oem_qmi_server /vendor/bin/oem_qmi_server
