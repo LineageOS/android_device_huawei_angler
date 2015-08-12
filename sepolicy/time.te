@@ -12,7 +12,8 @@ allow time shared_log_device:chr_file rw_file_perms;
 allow time rtc_device:chr_file r_file_perms;
 allow time alarm_device:chr_file rw_file_perms;
 
-allow time time_data_file:file r_file_perms;
+allow time time_data_file:dir rw_dir_perms;
+allow time time_data_file:file create_file_perms;
 allow time sysfs_msm_subsys:dir r_dir_perms;
 allow time sysfs_msm_subsys:lnk_file r_file_perms;
 
