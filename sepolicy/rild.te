@@ -1,3 +1,6 @@
+# STOPSHIP - all domains must be enforcing
+permissive rild;
+
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets to RILD
 qmux_socket(rild)
 
