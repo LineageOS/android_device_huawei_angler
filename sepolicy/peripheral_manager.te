@@ -11,6 +11,8 @@ allow per_mgr sysfs_msm_subsys:lnk_file r_file_perms;
 
 binder_service(per_mgr)
 binder_use(per_mgr)
+binder_call(per_mgr, per_proxy)
+binder_call(per_mgr, rild)
 allow per_mgr per_mgr_service:service_manager add;
 
 allow per_mgr subsys_modem_device:chr_file r_file_perms;
