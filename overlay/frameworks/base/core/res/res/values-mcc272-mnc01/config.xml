@@ -34,4 +34,18 @@
         <item>INTERMEDIATE_POS=0</item>
         <item>SUPL_ES=0</item>
     </string-array>
+    <!-- The list of ril radio technologies (see ServiceState.java) which only support
+         a single data connection at one time.  This may change by carrier via
+         overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+         tech types support unlimited types (practically only 2-4 used). -->
+    <integer-array name="config_onlySingleDcAllowed">
+        <item>1</item>  <!-- GPRS -->
+        <item>2</item>  <!-- EDGE -->
+        <item>3</item>  <!-- UMTS -->
+        <item>9</item>  <!-- HSDPA -->
+        <item>10</item> <!-- HSUPA -->
+        <item>11</item> <!-- HSPA -->
+        <item>14</item> <!-- LTE -->
+        <item>15</item> <!-- HSPAP -->
+    </integer-array>
 </resources>
