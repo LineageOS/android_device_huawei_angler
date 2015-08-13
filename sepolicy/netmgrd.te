@@ -11,6 +11,8 @@ net_domain(netmgrd)
 allow netmgrd self:capability { setuid setgid net_admin net_raw };
 dontaudit netmgrd self:capability setpcap;
 
+set_prop(netmgrd, net_radio_prop)
+
 allow netmgrd self:netlink_socket create_socket_perms;
 allow netmgrd self:netlink_route_socket nlmsg_write;
 allow netmgrd self:netlink_xfrm_socket { create_socket_perms nlmsg_write };
@@ -20,16 +22,17 @@ allow netmgrd net_data_file:dir r_dir_perms;
 allow netmgrd net_data_file:file r_file_perms;
 
 allow netmgrd shell_exec:file rx_file_perms;
-
-allow netmgrd shared_log_device:chr_file rw_file_perms;
+allow netmgrd system_file:file rx_file_perms;
 
 allow netmgrd sysfs_msm_subsys:dir r_dir_perms;
 allow netmgrd sysfs_msm_subsys:lnk_file r_file_perms;
-
-allow netmgrd system_file:file rx_file_perms;
 
 # Access to /proc/sys/net/*
 allow netmgrd proc_net:file rw_file_perms;
 allow netmgrd proc_net:dir r_dir_perms;
 
 qmux_socket(netmgrd)
+
+userdebug_or_eng(`
+    allow netmgrd shared_log_device:chr_file rw_file_perms;
+')
