@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <carrier_config_list>
     <carrier_config>
+        <int name="smsToMmsTextThreshold" value="11" />
         <boolean name="prefer_2g_bool" value="false" />
-        <int name="smsToMmsTextThreshold" value="6" />
     </carrier_config>
 </carrier_config_list>

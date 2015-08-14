@@ -2,6 +2,6 @@
 <carrier_config_list>
     <carrier_config>
         <boolean name="prefer_2g_bool" value="false" />
-        <int name="smsToMmsTextThreshold" value="6" />
+        <int name="smsToMmsTextThreshold" value="10" />
     </carrier_config>
 </carrier_config_list>
