@@ -5,6 +5,7 @@ permissive rild;
 qmux_socket(rild)
 
 binder_call(rild, per_mgr)
+binder_call(rild, mediaserver)
 binder_use(rild)
 
 allow rild sysfs_msm_subsys:dir r_dir_perms;
@@ -13,3 +14,5 @@ allow rild sysfs_msm_subsys:lnk_file read;
 allow rild sysfs_wifi_sar:file { getattr w_file_perms};
 
 allow rild time:unix_stream_socket connectto;
+
+allow rild mediaserver_service:service_manager find;
