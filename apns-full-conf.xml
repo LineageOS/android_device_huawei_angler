@@ -24503,14 +24503,6 @@
       authtype="2"
   />
 
-  <apn carrier="SBM"
-      mcc="440"
-      mnc="20"
-      apn=""
-      type="ia"
-      protocol="IP"
-  />
-
   <apn carrier="IMS"
       mcc="440"
       mnc="20"
