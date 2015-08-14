@@ -12,6 +12,9 @@ allow thermald self:socket create_socket_perms;
 type_transition thermald socket_device:sock_file thermald_socket;
 allow thermald thermald_socket:sock_file create_file_perms;
 
+allow thermald sysfs_thermal:dir r_dir_perms;
+allow thermald sysfs_thermal:file rw_file_perms;
+
 allow thermald sysfs_msm_subsys:dir r_dir_perms;
 allow thermald sysfs_msm_subsys:lnk_file rw_file_perms;
 
