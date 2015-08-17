@@ -319,6 +319,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level="ALL_ENABLE"
 
+# Enable camera EIS
+# eis.enable: enables electronic image stabilization
+# is_type: sets image stabilization type
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.eis.enable=1 \
+    persist.camera.is_type=4
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
    fs_config_files
