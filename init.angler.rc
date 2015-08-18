@@ -414,6 +414,14 @@ on property:ro.boot.hardware.revision=ANGLER-V2
     write /sys/module/bcmdhd/parameters/nvram_path \
 	      /system/etc/wifi/bcmdhd-pme.cal
 
+on property:ro.boot.wifi_cal=2
+	write /sys/module/bcmdhd/parameters/nvram_path \
+		  /system/etc/wifi/bcmdhd-low.cal
+
+on property:ro.boot.wifi_cal=3
+	write /sys/module/bcmdhd/parameters/nvram_path \
+		  /system/etc/wifi/bcmdhd-high.cal
+
 service mcfg-sh /system/bin/init.mcfg.sh
    class late_start
    user radio
