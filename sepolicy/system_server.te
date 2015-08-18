@@ -19,3 +19,6 @@ allow system_server perfd:unix_stream_socket connectto;
 
 allow system_server persist_file:dir search;
 allow system_server persist_file:file r_file_perms;
+
+# hubconnection to get and set sensors.contexthub.* properties
+set_prop(system_server, contexthub_prop);
