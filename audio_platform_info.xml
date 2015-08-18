@@ -34,6 +34,7 @@
         <device name="SND_DEVICE_IN_BT_SCO_MIC_WB_NREC" acdb_id="123"/>
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="4"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="14"/>
+        <device name="SND_DEVICE_OUT_VOICE_HAC_HANDSET" acdb_id="238"/>
     </acdb_ids>
     <bit_width_configs>
         <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
