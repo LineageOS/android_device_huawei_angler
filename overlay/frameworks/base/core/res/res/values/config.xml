@@ -361,12 +361,13 @@
         <item>"hw-factory:rndis:manufacture,adb"</item>
         <item>"hw-factory:rndis,adb:manufacture,adb"</item>
         <item>"hw-factory:adb:manufacture,adb"</item>
-        <item>"bp-tools:mtp:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
-        <item>"bp-tools:mtp,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
-        <item>"bp-tools:ptp:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
-        <item>"bp-tools:ptp,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
-        <item>"bp-tools:rndis:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
-        <item>"bp-tools:rndis,adb:diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb"</item>
+        <item>"bp-tools:mtp:diag,serial_smd,rmnet_ipa,adb"</item>
+        <item>"bp-tools:mtp,adb:diag,serial_smd,rmnet_ipa,adb"</item>
+        <item>"bp-tools:ptp:diag,serial_smd,rmnet_ipa,adb"</item>
+        <item>"bp-tools:ptp,adb:diag,serial_smd,rmnet_ipa,adb"</item>
+        <item>"bp-tools:adb:diag,serial_smd,rmnet_ipa,adb"</item>
+        <item>"bp-tools:rndis:rndis,serial,adb"</item>
+        <item>"bp-tools:rndis,adb:rndis,serial,adb"</item>
     </string-array>
 
     <!-- MMS user agent string -->
