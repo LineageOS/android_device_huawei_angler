@@ -3,8 +3,6 @@ type qti_exec, exec_type, file_type;
 
 init_daemon_domain(qti)
 
-permissive qti;
-
 allow qti sysfs_msm_subsys:dir r_dir_perms;
 allow qti sysfs_msm_subsys:lnk_file r_file_perms;
 
