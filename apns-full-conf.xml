@@ -24556,32 +24556,6 @@
       protocol="IPV6"
   />
 
-  <apn carrier="SoftBank 3G"
-      mcc="440"
-      mnc="20"
-      apn="plus.softbank"
-      user="plus"
-      password="softbank"
-      mmsproxy="andmms.plusacs.ne.jp"
-      mmsport="8080"
-      mmsc="http://mms-s"
-      type="default,mms,supl,hipri"
-      authtype="2"
-  />
-
-  <apn carrier="SoftBank 4G"
-      mcc="440"
-      mnc="20"
-      apn="plus.4g"
-      user="plus"
-      password="4g"
-      mmsproxy="andmms.plusacs.ne.jp"
-      mmsport="8080"
-      mmsc="http://mms-s"
-      type="default,mms,supl,hipri"
-      authtype="2"
-  />
-
   <apn carrier="Y! mobile"
       mcc="440"
       mnc="20"
