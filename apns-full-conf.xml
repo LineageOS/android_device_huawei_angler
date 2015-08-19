@@ -385,7 +385,7 @@
       mvno_type="imsi"
   />
 
-  <apn carrier="Vodafone NL"
+  <apn carrier="Vodafone Internet"
       mcc="204"
       mnc="04"
       apn="live.vodafone.com"
@@ -395,7 +395,7 @@
       mmsc="http://mmsc.mms.vodafone.nl"
       mmsproxy="192.168.251.150"
       mmsport="8799"
-      type="default,supl,mms"
+      type="default,supl,mms,ia"
   />
 
   <apn carrier="EHRPD - VZW Roaming Internet"
@@ -2681,7 +2681,7 @@
       type="mms"
   />
 
-  <apn carrier="Acc. Internet da cell"
+  <apn carrier="Accesso a Internet da cellulare"
       mcc="222"
       mnc="10"
       apn="mobile.vodafone.it"
@@ -2692,8 +2692,6 @@
       mcc="222"
       mnc="10"
       apn="web.omnitel.it"
-      authtype="0"
-      mmsport="80"
       type="dun"
   />
 
@@ -3167,26 +3165,25 @@
       type="mms"
   />
 
-  <apn carrier="live!"
+  <apn carrier="A1"
       mcc="232"
       mnc="01"
       apn="a1.net"
-      user="ppp@a1plus.at"
+      user="ppp@A1plus.at"
       password="ppp"
-      authtype="1"
+      authtype="0"
       type="default,supl"
   />
 
   <apn carrier="A1 MMS"
       mcc="232"
       mnc="01"
-      apn="free.a1.net"
-      user="ppp@a1plus.at"
+      apn="free.A1.net"
+      user="ppp@A1plus.at"
       password="ppp"
-      mmsc="http://mmsc.a1.net"
+      mmsc="http://mmsc.A1.net"
       mmsproxy="194.48.124.71"
       mmsport="8001"
-      authtype="1"
       type="mms"
   />
 
@@ -3511,7 +3508,7 @@
       type="mms"
   />
 
-  <apn carrier="Vodafone UK"
+  <apn carrier="Contract WAP"
       mcc="234"
       mnc="15"
       apn="wap.vodafone.co.uk"
@@ -3521,10 +3518,10 @@
       mmsproxy="212.183.137.12"
       mmsport="8799"
       authtype="1"
-      type="default,supl,mms"
+      type="default,supl,mms,ia"
   />
 
-  <apn carrier="Vodafone UK Prepay"
+  <apn carrier="PAYG WAP"
       mcc="234"
       mnc="15"
       apn="pp.vodafone.co.uk"
@@ -3534,7 +3531,49 @@
       mmsproxy="212.183.137.12"
       mmsport="8799"
       authtype="1"
-      type="default,supl,mms"
+      type="default,supl,mms,ia"
+  />
+
+  <apn carrier="PAYG Internet"
+    mcc="234"
+    mnc="15"
+    apn="pp.vodafone.co.uk"
+    user="web"
+    password="web"
+    type="default,supl,mms"
+    authtype="1"
+  />
+
+  <apn carrier="PAYG MMS"
+    mcc="234"
+    mnc="15"
+    apn="pp.vodafone.co.uk"
+    user="wap"
+    password="wap"
+    mmsproxy="212.183.137.012"
+    mmsport="8799"
+    mmsc="http://mms.vodafone.co.uk/servlets/mms"
+    type="mms"
+    authtype="0"
+  />
+
+  <apn carrier="Contract MMS"
+    mcc="234"
+    mnc="15"
+    apn="wap.vodafone.co.uk"
+    user="wap"
+    password="wap"
+    mmsc="http://mms.vodafone.co.uk/servlets/mms"
+    mmsproxy="212.183.137.012"
+    mmsport="8799"
+    type="mms"
+  />
+
+  <apn carrier="Mtel Internet"
+    mcc="284"
+    mnc="01"
+    apn="wap-gprs.mtel.bg"
+    type="default"
   />
 
   <apn carrier="ASDA WAP"
@@ -5897,7 +5936,7 @@
       protocol="IPV4V6"
   />
 
-  <apn carrier="Vodafone DE-MMS"
+  <apn carrier="VF DE MMS"
       mcc="262"
       mnc="02"
       apn="event.vodafone.de"
@@ -5905,13 +5944,17 @@
       mmsproxy="139.7.29.17"
       mmsport="80"
       type="mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
-  <apn carrier="Vodafone DE"
+  <apn carrier="VF DE Web"
       mcc="262"
       mnc="02"
       apn="web.vodafone.de"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Vodafone DE-IMS"
@@ -6035,21 +6078,23 @@
       mcc="268"
       mnc="01"
       apn="net2.vodafone.pt"
-      user="vodafone"
-      password="vodafone"
-      authtype="1"
       mmsc="http://mms.vodafone.pt/servlets/mms"
       mmsproxy="iproxy.vodafone.pt"
       mmsport="80"
       type="default,supl,mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
-  <apn carrier="vodafone P dun"
+  <apn carrier="Vodafone Internet"
       mcc="268"
       mnc="01"
       apn="internet.vodafone.pt"
-      authtype="0"
+      user="vodafone"
+      password="vodafone"
       type="dun"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="PortalOptimus"
@@ -6385,9 +6430,9 @@
       apn="mms-gprs.mtel.bg"
       user="mtel"
       password="mtel"
-      authtype="1"
+      authtype="0"
       mmsc="http://mmsc/"
-      mmsproxy="10.150.0.33"
+      mmsproxy="010.150.000.033"
       mmsport="8080"
       type="mms"
   />
@@ -31562,5 +31607,26 @@
       proxy="10.150.0.115"
       port="8080"
       type="default"
+  />
+
+  <apn carrier="VFAL Internet"
+    mcc="276"
+    mnc="02"
+    apn="vodafoneweb"
+    user="web"
+    password="web"
+    type="default,supl,dun"
+  />
+
+  <apn carrier="VFAL MMS"
+    mcc="276"
+    mnc="02"
+    apn="vfalmms"
+    user="mms"
+    password="mms"
+    mmsproxy="10.0.9.2"
+    mmsport="8080"
+    mmsc="http://mmsc.vodafone.al"
+    type="mms"
   />
 </apns>
