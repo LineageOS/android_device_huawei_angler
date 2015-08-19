@@ -1,20 +1,4 @@
 on charger
-    ## TODO: remove these gpio settings once we receive v4 devices
-    ## set unused backup sensorhub signals to inputs to prevent contention
-    write /sys/class/gpio/export 0
-    write /sys/class/gpio/gpio0/direction in
-    write /sys/class/gpio/export 1
-    write /sys/class/gpio/gpio1/direction in
-    write /sys/class/gpio/export 2
-    write /sys/class/gpio/gpio2/direction in
-    write /sys/class/gpio/export 3
-    write /sys/class/gpio/gpio3/direction in
-    write /sys/class/gpio/export 40
-    write /sys/class/gpio/gpio40/direction in
-    write /sys/class/gpio/export 42
-    write /sys/class/gpio/gpio42/direction in
-    write /sys/class/gpio/export 64
-    write /sys/class/gpio/gpio64/direction in
     ## ensure correct calibration file permissions
     chown root system /persist/sensorcal.json
     chmod 0640 /persist/sensorcal.json
@@ -22,22 +6,6 @@ on charger
     start flash-sh-fw
 
 on post-fs
-    ## TODO: remove these gpio settings once we receive v4 devices
-    ## set unused backup sensorhub signals to inputs to prevent contention
-    write /sys/class/gpio/export 0
-    write /sys/class/gpio/gpio0/direction in
-    write /sys/class/gpio/export 1
-    write /sys/class/gpio/gpio1/direction in
-    write /sys/class/gpio/export 2
-    write /sys/class/gpio/gpio2/direction in
-    write /sys/class/gpio/export 3
-    write /sys/class/gpio/gpio3/direction in
-    write /sys/class/gpio/export 40
-    write /sys/class/gpio/gpio40/direction in
-    write /sys/class/gpio/export 42
-    write /sys/class/gpio/gpio42/direction in
-    write /sys/class/gpio/export 64
-    write /sys/class/gpio/gpio64/direction in
     ## ensure correct calibration file permissions
     chown root system /persist/sensorcal.json
     chmod 0640 /persist/sensorcal.json
