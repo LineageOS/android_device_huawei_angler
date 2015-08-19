@@ -4,8 +4,6 @@ type qmux_exec, exec_type, file_type;
 
 init_daemon_domain(qmux)
 
-permissive qmux;
-
 wakelock_use(qmux)
 allow qmux sysfs_msm_subsys:dir r_dir_perms;
 allow qmux sysfs_msm_subsys:lnk_file r_file_perms;
