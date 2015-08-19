@@ -11,4 +11,6 @@ binder_use(atfwd)
 allow atfwd sysfs_msm_subsys:dir r_dir_perms;
 allow atfwd sysfs_msm_subsys:lnk_file r_file_perms;
 
+set_prop(atfwd, radio_atfwd_prop)
+
 qmux_socket(atfwd)
