@@ -8491,6 +8491,8 @@
       mnc="090"
       apn="isp"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="MMS"
@@ -8501,6 +8503,8 @@
       mmsproxy="12.108.12.13"
       mmsport="3128"
       type="mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Edge MMS Prepay"
@@ -8511,6 +8515,8 @@
       mmsproxy="12.108.12.13"
       mmsport="3128"
       type="mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="PLATMMS"
@@ -8698,6 +8704,8 @@
       mmsproxy="proxy.aiowireless.net"
       mmsport="80"
       type="default,mms,fota,hipri,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="T-Mobile US 160"
@@ -8750,6 +8758,8 @@
       mnc="170"
       apn="isp.cingular"
       type="default,supl"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Cingular MMS"
@@ -8762,6 +8772,8 @@
       mmsproxy="66.209.11.32"
       mmsport="8080"
       type="mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="WCW-INTERNET"
@@ -9532,6 +9544,8 @@
       mmsc="http://mmsc.cingular.com/"
       mmsproxy="wireless.cingular.com"
       type="default,supl,mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="AWS MMS"
@@ -9542,6 +9556,8 @@
       mmsproxy="10.250.250.55"
       mmsport="8080"
       type="mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Celloneet MMS"
@@ -9564,6 +9580,8 @@
       mmsc="http://mmsc.mobile.att.net"
       mmsproxy="proxy.mobile.att.net"
       mmsport="80"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="ATT Phone"
@@ -9574,6 +9592,8 @@
       mmsc="http://mmsc.mobile.att.net"
       mmsproxy="proxy.mobile.att.net"
       mmsport="80"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="ATT WAP"
@@ -9586,6 +9606,8 @@
       mmsc="http://mmsc.cingular.com/"
       mmsproxy="wireless.cingular.com"
       type="default,supl,mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
  <apn carrier="ATT IMS"
@@ -9595,6 +9617,7 @@
       type="ims"
       modem_cognitive="true"
       protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Defense Mobile"
@@ -9976,6 +9999,8 @@
       mmsproxy="172.23.1.252"
       mmsport="8799"
       type="mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Cellular One Smartphone"
