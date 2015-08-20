@@ -39,4 +39,9 @@
         <item>GPS_LOCK=3</item>
         <item>SUPL_ES=0</item>
     </string-array>
+
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">wsh1511</string>
+    <!-- MMS user agent prolfile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprof.vtext.com/huawei/wsh1511/wsh1511.xml</string>
 </resources>

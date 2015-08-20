@@ -54,4 +54,9 @@
 
     <!-- Config SoftAP 2G channel list -->
     <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">1,6</string>
+
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">H1511/Android-MMS/2.0</string>
+    <!-- MMS user agent prolfile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://wap1.huawei.com/uaprof/Angler-Uaprofile.rdf</string>
 </resources>
