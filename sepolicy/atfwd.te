@@ -13,4 +13,5 @@ allow atfwd sysfs_msm_subsys:lnk_file r_file_perms;
 
 set_prop(atfwd, radio_atfwd_prop)
 
+allow atfwd atfwd_service:service_manager find;
 qmux_socket(atfwd)
