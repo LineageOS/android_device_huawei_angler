@@ -7,5 +7,6 @@ permissive per_proxy;
 binder_use(per_proxy)
 binder_call(per_proxy, per_mgr)
 
+allow per_proxy per_mgr_service:service_manager find;
 allow per_proxy sysfs_msm_subsys:dir r_dir_perms;
 allow per_proxy sysfs_msm_subsys:lnk_file r_file_perms;
