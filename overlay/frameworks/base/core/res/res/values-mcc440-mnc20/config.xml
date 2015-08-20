@@ -30,4 +30,6 @@
     </string-array>
     <string translatable= "false" name= "config_mobile_hotspot_provision_app_no_ui">com.huawei.entitlement.SILENT_ENTITLEMENT_CHECK</string >
     <string translatable= "false" name= "config_mobile_hotspot_provision_response">com.huawei.entitlement.SILENT_ENTITLEMENT_CHECK_RESULT</string >
+    <!-- Config SoftAP 2G channel list -->
+    <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">1,6</string>
 </resources>
