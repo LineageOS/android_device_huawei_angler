@@ -38,4 +38,7 @@
         <item>14</item> <!-- LTE -->
         <item>15</item> <!-- HSPAP -->
     </integer-array>
+
+    <!-- Config SoftAP 2G channel list -->
+    <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">11</string>
 </resources>
