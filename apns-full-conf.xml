@@ -3566,6 +3566,7 @@
     mmsc="http://mms.vodafone.co.uk/servlets/mms"
     mmsproxy="212.183.137.012"
     mmsport="8799"
+    authtype="0"
     type="mms"
   />
 
