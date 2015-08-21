@@ -325,6 +325,9 @@
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
     <string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,4194304,262144,524288,1048576</string>
 
+    <!-- Config SoftAP 2G channel list -->
+    <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">1,6,11</string>
+
     <!-- Config determines whether to update phone object when voice registration
          state changes. Voice radio tech change will always trigger an update of
          phone object irrespective of this config -->

@@ -51,4 +51,7 @@
 
     <!-- Default network policy warning threshold, in megabytes. -->
     <integer name="config_networkPolicyDefaultWarning">51200</integer>
+
+    <!-- Config SoftAP 2G channel list -->
+    <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">1,6</string>
 </resources>
