@@ -4,8 +4,6 @@ type location_exec, exec_type, file_type;
 # Started by init
 init_daemon_domain(location)
 
-permissive location;
-
 allow location location_exec:file rx_file_perms;
 
 allow location self:capability { setuid setgid net_raw };
