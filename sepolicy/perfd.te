@@ -5,10 +5,16 @@ init_daemon_domain(perfd)
 
 permissive perfd;
 
+# b/23494192
+dontaudit perfd self:capability fsetid;
+
 allow perfd perfd_data_file:dir rw_dir_perms;
 allow perfd perfd_data_file:file create_file_perms;
 allow perfd perfd_data_file:sock_file create_file_perms;
 
 allow perfd sysfs_performance:dir r_dir_perms;
 allow perfd sysfs_performance:file rw_file_perms;
-allow perfd proc_kernel_sched:file w_file_perms;
+allow perfd proc_kernel_sched:file rw_file_perms;
+
+allow perfd sysfs_thermal:dir search;
+allow perfd sysfs_thermal:file rw_file_perms;
