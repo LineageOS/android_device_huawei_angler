@@ -9,6 +9,8 @@ permissive camera;
 binder_use(camera)
 binder_call(camera, system_server)
 
+allow camera sensorservice_service:service_manager find;
+
 allow camera system_server:unix_stream_socket { read write };
 
 allow camera camera_device:chr_file rw_file_perms;
@@ -23,6 +25,7 @@ allow camera camera_data_file:dir rw_dir_perms;
 allow camera camera_data_file:sock_file create_file_perms;
 
 # /persist access
+allow camera persist_file:dir search;
 allow camera persist_data_file:dir search;
 allow camera persist_data_file:file r_file_perms;
 
