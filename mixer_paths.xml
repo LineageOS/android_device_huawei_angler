@@ -1573,6 +1573,10 @@
         <ctl name="RX1 MIX2 INP1" value="IIR1" />
     </path>
 
+    <path name="sidetone-hac-handset">
+        <path name="sidetone-handset" />
+    </path>
+
     <path name="speaker-mic">
         <path name="adc1" />
         <ctl name="ADC1 Volume" value="12" />
