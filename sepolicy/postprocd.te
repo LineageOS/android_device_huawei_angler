@@ -4,8 +4,6 @@ type postprocd_exec, exec_type, file_type;
 # Started by init
 init_daemon_domain(postprocd)
 
-permissive postprocd;
-
 set_prop(postprocd, system_prop)
 
 allow postprocd graphics_device:dir search;
