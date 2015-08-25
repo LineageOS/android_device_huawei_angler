@@ -114,6 +114,12 @@ on boot
     setprop persist.audio.product.identify angler
     setprop persist.audio.fluence.speaker true
 
+    # Leds
+    chown system system /sys/class/leds/red/on_off_ms
+    chown system system /sys/class/leds/green/on_off_ms
+    chown system system /sys/class/leds/blue/on_off_ms
+    chown system system /sys/class/leds/red/rgb_start
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
