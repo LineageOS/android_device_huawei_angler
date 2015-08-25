@@ -3,8 +3,6 @@ type perfd_exec, exec_type, file_type;
 
 init_daemon_domain(perfd)
 
-permissive perfd;
-
 # b/23494192
 dontaudit perfd self:capability fsetid;
 
