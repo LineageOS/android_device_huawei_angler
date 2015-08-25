@@ -4,8 +4,6 @@ type atfwd_exec, exec_type, file_type;
 # Started by init
 init_daemon_domain(atfwd)
 
-permissive atfwd;
-
 binder_use(atfwd)
 
 allow atfwd sysfs_msm_subsys:dir r_dir_perms;
