@@ -49,9 +49,6 @@ char const*const BLUE_LED_FILE
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
-char const*const BUTTON_FILE
-        = "/sys/class/leds/button-backlight/brightness";
-
 char const*const RED_TIMER_FILE
         = "/sys/class/leds/red/on_off_ms";
 
@@ -257,22 +254,6 @@ set_light_notifications(struct light_device_t* dev,
     return 0;
 }
 
-static int
-set_light_buttons(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int err = 0;
-
-    if(!dev) {
-        return -1;
-    }
-
-    pthread_mutex_lock(&g_lock);
-    err = write_int(BUTTON_FILE, state->color & 0xFF);
-    pthread_mutex_unlock(&g_lock);
-    return err;
-}
-
 /** Close the lights device */
 static int
 close_lights(struct light_device_t *dev)
@@ -303,8 +284,6 @@ static int open_lights(const struct hw_module_t* module, char const* name,
         set_light = set_light_battery;
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
         set_light = set_light_notifications;
-    else if (0 == strcmp(LIGHT_ID_BUTTONS, name))
-        set_light = set_light_buttons;
     else
         return -EINVAL;
 
