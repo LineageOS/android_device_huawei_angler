@@ -55,4 +55,8 @@
         <item>14</item> <!-- LTE -->
         <item>15</item> <!-- HSPAP -->
     </integer-array>
+    <!-- Don't use roaming icon for considered operators -->
+    <string-array translatable="false" name="config_operatorConsideredNonRoaming">
+        <item>505</item>
+    </string-array>
 </resources>
