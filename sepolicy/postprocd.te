@@ -8,6 +8,7 @@ permissive postprocd;
 
 set_prop(postprocd, system_prop)
 
+allow postprocd graphics_device:dir search;
 allow postprocd graphics_device:chr_file rw_file_perms;
 allow postprocd sysfs_led:dir r_dir_perms;
 allow postprocd sysfs_led:file rw_file_perms;
