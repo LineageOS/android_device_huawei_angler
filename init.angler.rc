@@ -60,7 +60,7 @@ on early-boot
 on boot
     # execute script to set initial CPU settings
     # don't run as a service to avoid race conditions
-    exec /system/bin/init.angler.power.sh
+    exec - root system -- /system/bin/init.angler.power.sh
 
     # Enable DEBUG_SUSPEND, DEBUG_EXIT_SUSPEND, and DEBUG_WAKEUP
     write /sys/module/wakelock/parameters/debug_mask 7

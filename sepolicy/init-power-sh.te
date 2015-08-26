@@ -16,3 +16,6 @@ allow init-power-sh proc_kernel_sched:file w_file_perms;
 # allow labeling of interactive /sys files created post-initial restorecon
 allow init-power-sh sysfs:{ dir file lnk_file } relabelfrom;
 allow init-power-sh sysfs_devices_system_cpu:{ dir file lnk_file } relabelto;
+
+# allow writes to sysfs files that have not yet been labeled
+allow init-power-sh sysfs:file rw_file_perms;
