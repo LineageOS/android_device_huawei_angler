@@ -1680,7 +1680,7 @@
     <path name="voice-handset">
         <path name="sidetone-handset" />
         <path name="handset" />
-        <ctl name="Left Speaker Gain" value="13" />
+        <ctl name="Left Speaker Gain" value="10" />
     </path>
 
     <path name="hac-handset">
