@@ -195,6 +195,9 @@ on post-fs-data
     chmod 0440 /persist/data/st_xtalk
 
 on charger
+   #set cpu4,5 online first, or they can't get into low power consumption mode
+   write /sys/devices/system/cpu/cpu4/online 1
+   write /sys/devices/system/cpu/cpu5/online 1
    #low power governing
    write /sys/devices/soc.0/qcom,bcl.60/mode disable
    write /sys/devices/soc.0/qcom,bcl.60/hotplug_mask 0
