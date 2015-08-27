@@ -5,8 +5,6 @@ init_daemon_domain(irqbalance);
 
 permissive irqbalance;
 
-allow irqbalance self:capability { setuid setgid };
-
 allow irqbalance sysfs_devices_system_cpu:file rw_file_perms;
 allow irqbalance proc_irq:dir r_dir_perms;
 allow irqbalance proc_irq:file rw_file_perms;
