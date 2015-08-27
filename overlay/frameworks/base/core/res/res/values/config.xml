@@ -73,13 +73,13 @@
     <integer-array name="config_autoBrightnessLcdBacklightValues">
         <item>10</item>   <!-- 0-9 -->
         <item>21</item>   <!-- 9-30 -->
-        <item>39</item>   <!-- 30-100 -->
-        <item>51</item>   <!-- 100-325 -->
-        <item>68</item>  <!-- 325-600 -->
-        <item>90</item>  <!-- 600-1250 -->
-        <item>122</item>  <!-- 1250-2200 -->
-        <item>164</item>  <!-- 2200-5000 -->
-        <item>217</item>  <!-- 5000-10000 -->
+        <item>47</item>   <!-- 30-100 -->
+        <item>61</item>   <!-- 100-325 -->
+        <item>85</item>  <!-- 325-600 -->
+        <item>109</item>  <!-- 600-1250 -->
+        <item>160</item>  <!-- 1250-2200 -->
+        <item>206</item>  <!-- 2200-5000 -->
+        <item>245</item>  <!-- 5000-10000 -->
         <item>255</item>  <!-- 10000+ -->
     </integer-array>
 
@@ -108,7 +108,7 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">82</integer>
+    <integer name="config_screenBrightnessSettingDefault">72</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
