@@ -2066,6 +2066,21 @@
         <ctl name="DEC4 Volume" value="84" />
     </path>
 
+    <!-- Three MIC devices -->
+    <path name="speaker-tmic">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
+        <ctl name="SLIM_0_TX Channels" value="Three" />
+        <ctl name="SLIM TX9 MUX" value="DEC6" />
+        <ctl name="DEC6 MUX" value="ADC1" />
+        <ctl name="SLIM TX8 MUX" value="DEC4" />
+        <ctl name="DEC4 MUX" value="ADC3" />
+        <ctl name="SLIM TX7 MUX" value="DEC3" />
+        <ctl name="DEC3 MUX" value="ADC4" />
+        <ctl name="IIR1 INP1 MUX" value="DEC7" />
+    </path>
+
     <!-- Quad MIC devices -->
     <path name="speaker-qmic">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
@@ -2117,6 +2132,10 @@
 
     <path name="voice-speaker-qmic">
         <path name="speaker-qmic" />
+    </path>
+
+    <path name="three-mic">
+        <path name="speaker-tmic" />
     </path>
 
     <path name="quad-mic">
