@@ -1503,14 +1503,23 @@
         <ctl name="IIR1 INP1 MUX" value="DEC6" />
     </path>
 
+    <path name="spkr-gain-in-headphone-combo">
+        <ctl name="Left Speaker Gain" value="20" />
+        <ctl name="Right Speaker Gain" value="20" />
+    </path>
+
+    <path name="speaker-gain-default">
+        <ctl name="Left Speaker Gain" value="20" />
+        <ctl name="Right Speaker Gain" value="20" />
+    </path>
+
     <path name="speaker">
         <ctl name="Receiver Enable" value="Off" />
         <ctl name="Imon Enable" value="On" />
         <ctl name="Vmon Enable" value="On" />
         <ctl name="ClassD Only" value="Off" />
         <ctl name="Boost Output Voltage" value="8.5V" />
-        <ctl name="Left Speaker Gain" value="20" />
-        <ctl name="Right Speaker Gain" value="20" />
+        <path name="speaker-gain-default" />
         <ctl name="Left Speaker Enable" value="On" />
         <ctl name="Right Speaker Enable" value="On" />
     </path>
