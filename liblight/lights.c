@@ -172,9 +172,16 @@ set_speaker_light_locked(struct light_device_t* dev,
         override = 1;
     }
 
+    // When turning off the notification LED, restore the battery
+    // notification state.
+    if (type == LED_NOTIFICATION && !is_lit(&g_notification)) {
+       state = &g_battery;
+       override = 1;
+    }
+
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
-		case LIGHT_FLASH_HARDWARE:
+        case LIGHT_FLASH_HARDWARE:
             onMS = state->flashOnMS;
             offMS = state->flashOffMS;
             break;
@@ -204,22 +211,22 @@ set_speaker_light_locked(struct light_device_t* dev,
     blue = colorRGB & 0xFF;
 
     if (onMS == 0) {
-		red = 0;
-		green = 0;
-     	blue = 0;
-	}
+        red = 0;
+        green = 0;
+        blue = 0;
+    }
 
-	write_int(RGB_LOCK_FILE, 0);
+    write_int(RGB_LOCK_FILE, 0);
 
     write_int(RED_LED_FILE, red);
     write_int(GREEN_LED_FILE, green);
     write_int(BLUE_LED_FILE, blue);
 
-	write_on_off(RED_TIMER_FILE, onMS, offMS);
-	write_on_off(GREEN_TIMER_FILE, onMS, offMS);
-	write_on_off(BLUE_TIMER_FILE, onMS, offMS);
+    write_on_off(RED_TIMER_FILE, onMS, offMS);
+    write_on_off(GREEN_TIMER_FILE, onMS, offMS);
+    write_on_off(BLUE_TIMER_FILE, onMS, offMS);
 
-	write_int(RGB_LOCK_FILE, 1);
+    write_int(RGB_LOCK_FILE, 1);
 
     return 0;
 }
