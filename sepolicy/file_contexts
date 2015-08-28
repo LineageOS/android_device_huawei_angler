@@ -35,7 +35,11 @@
 /dev/spich                                      u:object_r:sensors_device:s0
 
 /dev/socket/cnd                                 u:object_r:cnd_socket:s0
+/dev/socket/ims_datad                           u:object_r:ims_socket:s0
+/dev/socket/ims_qmid                            u:object_r:ims_socket:s0
+/dev/socket/ims_rtpd                            u:object_r:ims_socket:s0
 /dev/socket/msm_irqbalance                      u:object_r:irqbalance_socket:s0
+/dev/socket/pps                                 u:object_r:postprocd_socket:s0
 /dev/socket/thermal-send-client                 u:object_r:thermald_socket:s0
 /dev/socket/thermal-recv-client                 u:object_r:thermald_socket:s0
 /dev/socket/thermal-recv-passive-client         u:object_r:thermald_socket:s0
