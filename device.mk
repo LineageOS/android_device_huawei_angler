@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.mcfg.sh:system/etc/init.mcfg.sh
+    device/huawei/angler/init.mcfg.sh:system/bin/init.mcfg.sh
 
 # Thermal configuration
 PRODUCT_COPY_FILES += \
