@@ -109,6 +109,7 @@
 /system/bin/imsqmidaemon         u:object_r:ims_exec:s0
 /system/bin/ims_rtp_daemon       u:object_r:ims_exec:s0
 /system/bin/init.angler.power.sh u:object_r:init-power-sh_exec:s0
+/system/bin/InputEventFind       u:object_r:inputeventfind_exec:s0
 /system/bin/irsc_util            u:object_r:irsc_util_exec:s0
 /system/bin/loc_launcher         u:object_r:location_exec:s0
 /system/bin/location-mq          u:object_r:location_exec:s0
