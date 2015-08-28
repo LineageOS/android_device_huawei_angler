@@ -3,8 +3,6 @@ type inputeventfind_exec, exec_type, file_type;
 
 init_daemon_domain(inputeventfind)
 
-permissive inputeventfind;
-
 # search for appropriate input device
 allow inputeventfind input_device:dir r_dir_perms;
 allow inputeventfind input_device:chr_file r_file_perms;
