@@ -98,6 +98,7 @@
 
 /sys/kernel/range/enable_ps_sensor                                  u:object_r:sysfs_prox_snsr:s0
 /sys/module/cpu_boost(/.*)?                                         u:object_r:sysfs_devices_system_cpu:s0
+/sys/module/lpm_levels/parameters/sleep_disabled                    u:object_r:sysfs_power_management:s0
 /sys/module/msm_performance(/.*)?                                   u:object_r:sysfs_performance:s0
 /sys/module/msm_thermal(/.*)?                                       u:object_r:sysfs_thermal:s0
 
