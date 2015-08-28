@@ -131,9 +131,6 @@ on post-fs-data
     mkdir /data/misc/qsee 0770 system system
     mkdir /data/fpc 0700 system system
 
-    # Create a link /dev/stm_sensor for input device which name is "STM VL6180 proximity sensor"
-    exec /system/bin/init.angler.laser.sh
-
     #Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
@@ -208,6 +205,11 @@ on charger
 on property:sys.boot_completed=1
      #allow CPUs to go in deeper idle state than C0
      write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+# Search the laser device under /dev/input, then create symlink
+service InputEventFind /system/bin/InputEventFind
+    class main
+    oneshot
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
