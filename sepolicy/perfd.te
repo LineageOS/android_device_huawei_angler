@@ -16,3 +16,5 @@ allow perfd proc_kernel_sched:file rw_file_perms;
 
 allow perfd sysfs_thermal:dir search;
 allow perfd sysfs_thermal:file rw_file_perms;
+
+allow perfd sysfs_power_management:file w_file_perms;
