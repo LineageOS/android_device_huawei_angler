@@ -395,7 +395,7 @@
       mmsc="http://mmsc.mms.vodafone.nl"
       mmsproxy="192.168.251.150"
       mmsport="8799"
-      type="default,supl,mms,ia"
+      type="default,supl,mms"
   />
 
   <apn carrier="EHRPD - VZW Roaming Internet"
@@ -26039,6 +26039,8 @@
       mmsproxy="10.202.2.60"
       mmsport="8080"
       type="default,supl,mms"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Planet 3"
