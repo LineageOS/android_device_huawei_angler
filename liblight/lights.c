@@ -83,7 +83,7 @@ write_int(char const* path, int value)
     int fd;
     static int already_warned = 0;
 
-    fd = open(path, O_RDWR);
+    fd = open(path, O_WRONLY);
     if (fd >= 0) {
         char buffer[20] = {0,};
         int bytes = snprintf(buffer, sizeof(buffer), "%d\n", value);
@@ -105,7 +105,7 @@ write_on_off(char const* path, int on, int off)
     int fd;
     static int already_warned = 0;
 
-    fd = open(path, O_RDWR);
+    fd = open(path, O_WRONLY);
     if (fd >= 0) {
         char buffer[32] = {0,};
         int bytes = snprintf(buffer, sizeof(buffer), "%d %d\n", on, off);
