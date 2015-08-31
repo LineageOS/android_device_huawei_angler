@@ -71,6 +71,7 @@
 /persist(/.*)?                                                      u:object_r:persist_file:s0
 /persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
 /persist/data(/.*)?                                                 u:object_r:persist_data_file:s0
+/persist/data/sfs(/.*)?                                             u:object_r:persist_drm_file:s0
 /persist/data/tz(/.*)?                                              u:object_r:persist_drm_file:s0
 /persist/sensors(/.*)?                                              u:object_r:persist_sensors_file:s0
 
