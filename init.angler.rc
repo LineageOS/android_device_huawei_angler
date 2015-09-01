@@ -39,6 +39,8 @@ on fs
     mount_all ./fstab.angler
 
     restorecon_recursive /persist
+    mkdir /persist/data/sfs 0700 system system
+    mkdir /persist/data/tz 0700 system system
 
     # Enable rmnet data and aggregation
     setprop persist.rmnet.mux enabled
