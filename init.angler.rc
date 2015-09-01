@@ -67,6 +67,7 @@ on boot
 
     # update foreground cpuset now that processors are up
     write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 4-7
     write /dev/cpuset/background/cpus 0
 
     # create symlink for fb1 as HDMI
