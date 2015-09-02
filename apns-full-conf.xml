@@ -3313,6 +3313,40 @@
       type="default,supl"
   />
 
+  <apn carrier="0677 web"
+      mcc="232"
+      mnc="07"
+      apn="webaut"
+      type="default,supl"
+  />
+  <apn carrier="0677 mms"
+      mcc="232"
+      mnc="07"
+      apn="mmsaut"
+      mmsc="http://mmsaut.at/send"
+      mmsproxy="212.095.031.050"
+      mmsport="80"
+      type="mms"
+  />
+  <apn carrier="UPC mobile internet"
+      mcc="232"
+      mnc="13"
+      apn="Internet.at.upcmobile.com"
+      type="default,supl"
+  />
+  <apn carrier="UPC mobile internet"
+      mcc="204"
+      mnc="08"
+      apn="Internet.at.upcmobile.com"
+      type="default,supl"
+  />
+  <apn carrier="Tele2 Web"
+      mcc="232"
+      mnc="19"
+      apn="internet.tele2.at"
+      authtype="0"
+      type="default,supl"
+  />
   <apn carrier="UBIQUISYS"
       mcc="234"
       mnc="01"
@@ -6754,7 +6788,7 @@
       type="default,supl"
   />
 
-  <apn carrier="TELUS"
+  <apn carrier="TELUS SP"
       mcc="302"
       mnc="220"
       apn="sp.telus.com"
@@ -6829,7 +6863,7 @@
       mvno_match_data="54"
   />
 
-  <apn carrier="TELUS"
+  <apn carrier="TELUS SP"
       mcc="302"
       mnc="221"
       apn="sp.telus.com"
@@ -9607,16 +9641,6 @@
       mmsc="http://mmsc.cingular.com/"
       mmsproxy="wireless.cingular.com"
       type="default,supl,mms"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-  />
-
- <apn carrier="ATT IMS"
-      mcc="310"
-      mnc="410"
-      apn="ims"
-      type="ims"
-      modem_cognitive="true"
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
   />
