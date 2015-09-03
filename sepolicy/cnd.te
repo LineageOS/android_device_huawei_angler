@@ -4,8 +4,6 @@ type cnd_exec, exec_type, file_type;
 # Started by init
 init_daemon_domain(cnd)
 
-permissive cnd;
-
 userdebug_or_eng(`
     allow cnd shared_log_device:chr_file rw_file_perms;
 ')
