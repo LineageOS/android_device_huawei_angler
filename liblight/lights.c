@@ -31,11 +31,18 @@
 
 /******************************************************************************/
 
+/*
+ * Change this to 1 to support battery notifications via BatteryService
+ */
+#define LIGHTS_SUPPORT_BATTERY 0
+
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t g_lcd_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
+#if LIGHTS_SUPPORT_BATTERY
 static struct light_state_t g_battery;
+#endif
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -166,6 +173,7 @@ set_speaker_light_locked(struct light_device_t* dev,
         return -1;
     }
 
+#if LIGHTS_SUPPORT_BATTERY
     // Ensure that LED notifications override charging LED.
     if (type == LED_BATTERY && is_lit(&g_notification)) {
         state = &g_notification;
@@ -178,6 +186,7 @@ set_speaker_light_locked(struct light_device_t* dev,
        state = &g_battery;
        override = 1;
     }
+#endif
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
@@ -231,6 +240,7 @@ set_speaker_light_locked(struct light_device_t* dev,
     return 0;
 }
 
+#if LIGHTS_SUPPORT_BATTERY
 static int
 set_light_battery(struct light_device_t* dev,
         struct light_state_t const* state)
@@ -245,6 +255,7 @@ set_light_battery(struct light_device_t* dev,
     pthread_mutex_unlock(&g_lock);
     return 0;
 }
+#endif
 
 static int
 set_light_notifications(struct light_device_t* dev,
@@ -287,8 +298,10 @@ static int open_lights(const struct hw_module_t* module, char const* name,
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name))
         set_light = set_light_backlight;
+#if LIGHTS_SUPPORT_BATTERY
     else if (0 == strcmp(LIGHT_ID_BATTERY, name))
         set_light = set_light_battery;
+#endif
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
         set_light = set_light_notifications;
     else
