@@ -40,7 +40,7 @@
 
     <!-- Different CPU speeds as reported in
          /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
-    <array name="cpu.speeds">
+    <array name="cpu.speeds.cluster0">
         <value>384000</value> <!-- 384 MHz CPU speed -->
         <value>460800</value> <!-- 460.8 MHz CPU speed -->
         <value>600000</value> <!-- 600 MHz CPU speed -->
@@ -53,7 +53,7 @@
         <value>1478400</value> <!-- 1478.4 MHz CPU speed -->
         <value>1555200</value> <!-- 1555.2 MHz CPU speed -->
     </array>
-    <array name="cpu.speeds.big">
+    <array name="cpu.speeds.cluster1">
         <value>384000</value> <!-- 384 MHz CPU speed -->
         <value>480000</value> <!-- 480 MHz CPU speed -->
         <value>633600</value> <!-- 633.6 MHz CPU speed -->
@@ -73,7 +73,7 @@
     <item name="cpu.idle">5.58</item>
     <item name="cpu.awake">4.92</item>
     <!-- Power consumption at different speeds -->
-    <array name="cpu.active">
+    <array name="cpu.active.cluster0">
         <value>24.14</value> <!-- 384 MHz CPU speed -->
         <value>27.2</value> <!-- 460.8 MHz CPU speed -->
         <value>32.3</value> <!-- 600 MHz CPU speed -->
@@ -86,7 +86,7 @@
         <value>102.4</value> <!-- 1478.4 MHz CPU speed -->
         <value>110.9</value> <!-- 1555.2 MHz CPU speed -->
     </array>
-    <array name="cpu.active.big">
+    <array name="cpu.active.cluster1">
         <value>86.83</value> <!-- 384 MHz CPU speed -->
         <value>103.24</value> <!-- 480 MHz CPU speed -->
         <value>129.38</value> <!-- 633.6 MHz CPU speed -->
@@ -101,6 +101,10 @@
         <value>405.51</value> <!-- 1728 MHz CPU speed -->
         <value>437.84</value> <!-- 1824 MHz CPU speed -->
         <value>481.07</value> <!-- 1958.4 MHz CPU speed -->
+    </array>
+    <array name="cpu.clusters.core">
+        <value>4</value> <!-- Cluster 0 has 4 cores (cpu0, cpu1, cpu2, cpu3) -->
+        <value>4</value> <!-- Cluster 1 has 4 cores (cpu4, cpu5, cpu6, cpu7) -->
     </array>
     <!-- This is the battery capacity in mAh -->
     <item name="battery.capacity">3450</item>
