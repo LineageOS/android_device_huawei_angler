@@ -24,3 +24,8 @@ allow system_server persist_file:file r_file_perms;
 set_prop(system_server, contexthub_prop);
 
 allow system_server per_mgr_service:service_manager find;
+
+# To improve app launch times - we would like to force all tasks to
+# run on big cores for app launch (sched_boost) - instead of just
+# boosting them to make it "more likely" to run on big cores.
+allow system_server zygote:process setsched;
