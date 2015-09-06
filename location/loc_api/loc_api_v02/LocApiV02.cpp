@@ -514,15 +514,15 @@ enum loc_api_adapter_err LocApiV02 :: stopFix()
   {
   case BASIC:
       premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_ENABLED_BASIC_V02;
-      LOC_LOGD("%s:%d]: SAP Mode set to BASIC %d\n",__func__, __LINE__);
+      LOC_LOGD("%s:%d]: SAP Mode set to BASIC \n",__func__, __LINE__);
       break;
   case PREMIUM:
       premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_ENABLED_PREMIUM_V02;
-      LOC_LOGD("%s:%d]: SAP Mode set to PREMIUM %d\n",__func__, __LINE__);
+      LOC_LOGD("%s:%d]: SAP Mode set to PREMIUM \n",__func__, __LINE__);
       break;
   default:
       premiumCfgReq.premiumServiceCfg = eQMI_LOC_PREMIUM_SERVICE_DISABLED_V02;
-      LOC_LOGD("%s:%d]: SAP Mode set to DISABLED %d\n",__func__, __LINE__);
+      LOC_LOGD("%s:%d]: SAP Mode set to DISABLED \n",__func__, __LINE__);
       break;
   }
 
@@ -2913,8 +2913,8 @@ int LocApiV02 :: openAndStartDataCall()
         ret = LOC_API_ADAPTER_ERR_ENGINE_BUSY;
     }
     else {
-        LOC_LOGE("%s:%d]: Unable to bring up emergency call using DS. ret = %d",
-                 __func__, __LINE__, (int)ret);
+        LOC_LOGE("%s:%d]: Unable to bring up emergency call using DS. result = %d",
+                 __func__, __LINE__, (int)result);
         ret = LOC_API_ADAPTER_ERR_UNSUPPORTED;
     }
 
