@@ -24619,15 +24619,6 @@
       authtype="2"
   />
 
-  <apn carrier="SKT IA"
-      mcc="450"
-      mnc="05"
-      apn=""
-      type="ia"
-      protocol="IPV4V6"
-      roaming_protocol="IP"
-  />
-
   <apn carrier="SKT IMS"
       mcc="450"
       mnc="05"
@@ -24710,15 +24701,6 @@
       server="*"
   />
 
-  <apn carrier="LG uplus IA"
-      mcc="450"
-      mnc="06"
-      apn=""
-      type="ia"
-      protocol="IPV4V6"
-      roaming_protocol="IP"
-  />
-
   <apn carrier="LG uplus IMS"
       mcc="450"
       mnc="06"
@@ -24751,15 +24733,6 @@
       apn="wroaming.lguplus.co.kr"
       mmsc="http://omammsc.uplus.co.kr:9084"
       authtype="0"
-  />
-
-  <apn carrier="KT IA"
-      mcc="450"
-      mnc="08"
-      apn=""
-      type="ia"
-      protocol="IPV4V6"
-      roaming_protocol="IP"
   />
 
   <apn carrier="KT IMS"
