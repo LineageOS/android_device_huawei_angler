@@ -3783,6 +3783,18 @@
       type="dun"
   />
 
+  <apn carrier="iD"
+      mcc="234"
+      mnc="20"
+      apn="id"
+      mmsproxy="mms.idmobile.co.uk"
+      mmsport="8799"
+      mmsc="http://mms.um.idmobile.co.uk:10021/mmsc"
+      type="default,mms,supl"
+      mvno_match_data="0305"
+      mvno_type="gid"
+  />
+
   <apn carrier="Lycamobile"
       mcc="234"
       mnc="26"
@@ -4913,6 +4925,7 @@
       mnc="12"
       apn="internet"
       type="default,supl"
+      protocol="IPV4V6"
   />
 
   <apn carrier="DNA MMS"
@@ -7210,6 +7223,56 @@
       mvno_type="spn"
       protocol="IPV4V6"
       roaming_protocol="IP"
+  />
+
+  <apn carrier="Ztar Internet"
+      mcc="302"
+      mnc="720"
+      apn="rogers-core-appl1.apn"
+      mmsproxy="mmsproxy.rogers.com"
+      mmsport="80"
+      mmsc="http://mms.gprs.rogers.com"
+      type="default,supl,mms"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+      mvno_type="imsi"
+      mvno_match_data="302720398"
+  />
+
+  <apn carrier="Ztar Internet"
+      mcc="302"
+      mnc="720"
+      apn="rogers-core-appl1.apn"
+      mmsproxy="mmsproxy.rogers.com"
+      mmsport="80"
+      mmsc="http://mms.gprs.rogers.com"
+      type="default,supl,mms"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+      mvno_type="imsi"
+      mvno_match_data="302720498"
+  />
+
+  <apn carrier="Ztar Tethering"
+      mcc="302"
+      mnc="720"
+      apn="isp.apn"
+      type="dun"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+      mvno_type="imsi"
+      mvno_match_data="302720398"
+  />
+
+  <apn carrier="Ztar Tethering"
+      mcc="302"
+      mnc="720"
+      apn="isp.apn"
+      type="dun"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+      mvno_type="imsi"
+      mvno_match_data="302720498"
   />
 
   <apn carrier="SaskTel"
@@ -24667,7 +24730,7 @@
       protocol="IPV6"
   />
 
-  <apn carrier="Y! mobile"
+  <apn carrier="Application"
       mcc="440"
       mnc="20"
       apn="plus.acs.jp"
@@ -25656,6 +25719,27 @@
       mmsport="80"
       type="default,mms,hipri,supl,fota,cbs"
       protocol="IP"
+  />
+
+  <apn carrier="CTLTE"
+      mcc="460"
+      mnc="03"
+      apn="ctlte"
+      type="default,supl"
+      authtype="3"
+      bearer_bitmask="14"
+  />
+
+  <apn carrier="CTWAP"
+      mcc="460"
+      mnc="03"
+      apn="ctwap"
+      mmsproxy="10.0.0.200"
+      mmsport="80"
+      mmsc="http://mmsc.vnet.mobi"
+      type="mms"
+      authtype="3"
+      bearer_bitmask="14"
   />
 
   <apn carrier="CTNET"
