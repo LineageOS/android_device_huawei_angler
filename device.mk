@@ -259,6 +259,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=2048 \
     ro.hwui.text_large_cache_height=1024
 
+# Enable low power video mode for 4K encode
+PRODUCT_PROPERTY_OVERRIDES += \
+    vidc.debug.perf.mode=2 \
+    vidc.enc.dcvs.extra-buff-count=2
+
 # for perfd
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.min_freq_0=384000
