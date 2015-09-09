@@ -422,6 +422,9 @@ on property:ro.boot.wifi_cal=3
 	write /sys/module/bcmdhd/parameters/nvram_path \
 		  /system/etc/wifi/bcmdhd-high.cal
 
+on property:ro.boot.hardware.sku=H1511
+    setprop ro.boot.wificountrycode US
+
 service mcfg-sh /system/bin/init.mcfg.sh
    class late_start
    user radio

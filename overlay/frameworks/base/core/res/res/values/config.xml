@@ -271,6 +271,10 @@
     <!-- Wifi driver supports batched scan -->
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
 
+    <!-- Boolean indicating whether or not to revert to default country code when cellular
+    radio is unable to find any MCC information to infer wifi country code from -->
+    <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">true</bool>
+
     <!-- MMS user agent string -->
     <string name="config_mms_user_agent" translatable="false">nexus6</string>
 
