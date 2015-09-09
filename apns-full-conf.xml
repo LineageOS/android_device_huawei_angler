@@ -3318,7 +3318,10 @@
       mnc="07"
       apn="webaut"
       type="default,supl"
+      mvno_type="imsi"
+      mvno_match_data="23207718"
   />
+
   <apn carrier="0677 mms"
       mcc="232"
       mnc="07"
@@ -3327,7 +3330,52 @@
       mmsproxy="212.095.031.050"
       mmsport="80"
       type="mms"
+      mvno_type="imsi"
+      mvno_match_data="23207718"
   />
+
+  <apn carrier="0677 web"
+      mcc="232"
+      mnc="07"
+      apn="webaut"
+      type="default,supl"
+      mvno_type="imsi"
+      mvno_match_data="2320776"
+  />
+
+  <apn carrier="0677 mms"
+      mcc="232"
+      mnc="07"
+      apn="mmsaut"
+      mmsc="http://mmsaut.at/send"
+      mmsproxy="212.095.031.050"
+      mmsport="80"
+      type="mms"
+      mvno_type="imsi"
+      mvno_match_data="2320776"
+  />
+
+  <apn carrier="0677 web"
+      mcc="232"
+      mnc="07"
+      apn="webaut"
+      type="default,supl"
+      mvno_type="imsi"
+      mvno_match_data="23207799"
+  />
+
+  <apn carrier="0677 mms"
+      mcc="232"
+      mnc="07"
+      apn="mmsaut"
+      mmsc="http://mmsaut.at/send"
+      mmsproxy="212.095.031.050"
+      mmsport="80"
+      type="mms"
+      mvno_type="imsi"
+      mvno_match_data="23207799"
+  />
+
   <apn carrier="UPC mobile internet"
       mcc="232"
       mnc="13"
@@ -3339,6 +3387,8 @@
       mnc="08"
       apn="Internet.at.upcmobile.com"
       type="default,supl"
+      mvno_type="imsi"
+      mvno_match_data="204080754"
   />
   <apn carrier="Tele2 Web"
       mcc="232"
