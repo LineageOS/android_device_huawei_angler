@@ -11,6 +11,8 @@ set_prop(ims, qcom_ims_prop)
 qmux_socket(ims)
 unix_socket_connect(ims, cnd, cnd)
 
+allow ims ims_service:service_manager add;
+
 allow ims ims_socket:sock_file write;
 allow ims self:socket create_socket_perms;
 allow ims self:udp_socket create_socket_perms;
