@@ -13583,7 +13583,7 @@
       mnc="500"
       apn="wap"
       mmsc="http://mmsc.ctc.csky.us:6672"
-      mmsproxy="09.4.229.46"
+      mmsproxy="209.4.229.46"
       mmsport="9201"
       mvno_type="spn"
       mvno_match_data="24-7 Wireless"
@@ -13594,7 +13594,7 @@
       mnc="500"
       apn="wap"
       mmsc="http://mmsc.ctc.csky.us:6672"
-      mmsproxy="09.4.229.46"
+      mmsproxy="209.4.229.46"
       mmsport="9201"
       mvno_type="spn"
       mvno_match_data="24-7 Wireless RPA"
@@ -13605,7 +13605,7 @@
       mnc="500"
       apn="wap"
       mmsc="http://mmsc.ctc.csky.us:6672"
-      mmsproxy="09.4.229.46"
+      mmsproxy="209.4.229.46"
       mmsport="9201"
       mvno_type="spn"
       mvno_match_data="24-7 Wireless RPT"
@@ -13616,7 +13616,7 @@
       mnc="500"
       apn="wap"
       mmsc="http://mmsc.ctc.csky.us:6672"
-      mmsproxy="09.4.229.46"
+      mmsproxy="209.4.229.46"
       mmsport="9201"
       mvno_type="spn"
       mvno_match_data="24-7 Wireless RPO"
@@ -24722,6 +24722,76 @@
       authtype="2"
   />
 
+  <apn carrier="BIGLOBE LTE•3G"
+      mcc="440"
+      mnc="10"
+      apn="biglobe.jp"
+      user="user"
+      password="0000"
+      authtype="3"
+      type="default,supl"
+  />
+
+  <apn carrier="nifty"
+      mcc="440"
+      mnc="10"
+      apn="mda.nifty.com"
+      user="mda@nifty"
+      password="nifty"
+      authtype="3"
+      type="default,supl"
+  />
+
+  <apn carrier="DMM mobile"
+      mcc="440"
+      mnc="10"
+      apn="vmobile.jp"
+      user="dmm@dmm.com"
+      password="dmm"
+      authtype="3"
+      type="default,supl"
+  />
+
+  <apn carrier="U-mobile"
+      mcc="440"
+      mnc="10"
+      apn="umobile.jp"
+      user="umobile@umobile.jp"
+      password="umobile"
+      authtype="3"
+      type="default,supl"
+  />
+
+  <apn carrier="hi-ho"
+      mcc="440"
+      mnc="10"
+      apn="vmobile.jp"
+      user="lte@hi-ho"
+      password="hi-ho"
+      authtype="3"
+      type="default,supl"
+  />
+
+  <apn carrier="So-net"
+      mcc="440"
+      mnc="10"
+      apn="so-net.jp"
+      user="nuro"
+      password="nuro"
+      authtype="3"
+      type="default,supl"
+  />
+
+  <apn carrier="楽天モバイル　通話SIM"
+      mcc="440"
+      mnc="10"
+      apn="vdm.jp"
+      user="rakuten@vdm"
+      password="vrkt"
+      authtype="3"
+      type="default,supl"
+  />
+
   <apn carrier="IMS"
       mcc="440"
       mnc="20"
@@ -24741,6 +24811,16 @@
       mmsc="http://mms-s"
       type="default,mms,supl,hipri"
       authtype="2"
+  />
+
+  <apn carrier="au.au-net.ne.jp"
+      mcc="440"
+      mnc="50"
+      apn="au.au-net.ne.jp"
+      user="user@au.au-net.ne.jp"
+      password="au"
+      authtype="2"
+      type="default,supl"
   />
 
   <apn carrier="SKT IMS"
