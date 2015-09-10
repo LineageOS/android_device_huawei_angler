@@ -284,6 +284,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=1 \
     persist.radio.mode_pref_nv10=1
 
+# Emergency call overrides for Korea
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.ecc_hard_count=1 \
+    persist.radio.ecc_hard_1=111,113,117,122,125
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1
 
