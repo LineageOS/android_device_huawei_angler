@@ -111,6 +111,11 @@ on boot
     write /sys/module/rmnet_usb/parameters/rmnet_data_init 1
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
+    # Assign TCP buffer thresholds to be ceiling value of technology maximums
+    # Increased technology maximums should be reflected here.
+    write /proc/sys/net/core/rmem_max  8388608
+    write /proc/sys/net/core/wmem_max  8388608
+
     # Leds
     chown system system /sys/class/leds/red/on_off_ms
     chown system system /sys/class/leds/green/on_off_ms
