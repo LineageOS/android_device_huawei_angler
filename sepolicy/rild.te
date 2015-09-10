@@ -13,3 +13,4 @@ allow rild sysfs_wifi_sar:file { getattr w_file_perms};
 allow rild time:unix_stream_socket connectto;
 
 allow rild mediaserver_service:service_manager find;
+allow rild per_mgr_service:service_manager find;

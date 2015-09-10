@@ -5,3 +5,4 @@ allow system_app oem_qmi_server:unix_stream_socket connectto;
 set_prop(system_app, ctl_ppd_prop)
 
 allow system_app atfwd_service:service_manager add;
+allow system_app cne_service:service_manager add;
