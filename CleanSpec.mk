@@ -50,3 +50,4 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/ETC/system_build_prop_intermedi
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/build.prop)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/ETC/system_build_prop_intermediates/build.prop)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/build.prop)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/build.prop)
