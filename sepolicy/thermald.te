@@ -19,3 +19,6 @@ allow thermald sysfs_msm_subsys:lnk_file rw_file_perms;
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets to system services
 # (e.g., LocationManager)
 qmux_socket(thermald)
+
+# Reboot the device
+set_prop(thermald, powerctl_prop)
