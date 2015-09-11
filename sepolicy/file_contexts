@@ -46,6 +46,7 @@
 
 #media kernel driver
 /dev/msm_audio_cal                     u:object_r:audio_device:s0
+/dev/msm_rtac                          u:object_r:audio_device:s0
 
 # Qualcomm MSM Interface (QMI) devices
 /dev/socket/qmux_audio(/.*)?           u:object_r:qmuxd_socket:s0

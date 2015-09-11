@@ -84,7 +84,8 @@
 /dev/spich                0660   system     system
 /dev/pn54x                0660   nfc        nfc
 #add audio calib device for audio
-/dev/msm_audio_cal        0664   media      media
+/dev/msm_audio_cal        0664   system     audio
+/dev/msm_rtac             0660   system     audio
 
 # Ramdump devices
 /dev/ramdump*             0640   system     system
