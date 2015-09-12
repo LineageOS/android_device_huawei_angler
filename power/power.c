@@ -211,10 +211,26 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         break;
         case POWER_HINT_INTERACTION:
         {
+            // little core freq bump for 1.5s
             int resources[] = {0x20C};
-            int duration = 3000;
+            int duration = 1500;
+
+            // big core freq bump for 500ms
+            int resources_big[] = {0x1F08};
+            int duration_big = 500;
+
+            // sched_upmigrate lowered to 20 for 500ms
+            int resources_upmigrate[] = {0x4E14};
+            int duration_upmigrate = 500;
+            
+            // sched_downmigrate lowered to 10 for 1s
+            int resources_downmigrate[] = {0x4F0A};
+            int duration_downmigrate = 1000;
 
             interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
+            interaction(duration_big, sizeof(resources_big)/sizeof(resources_big[0]), resources_big);
+            interaction(duration_downmigrate, sizeof(resources_downmigrate)/sizeof(resources_downmigrate[0]), resources_downmigrate);
+            interaction(duration_upmigrate, sizeof(resources_upmigrate)/sizeof(resources_upmigrate[0]), resources_upmigrate);
         }
         break;
         case POWER_HINT_VIDEO_ENCODE:
