@@ -389,6 +389,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.user:root/init.angler.diag.rc
 endif
 
+# Incoming number (b/23529711)
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.redir_party_num=0
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
