@@ -29,6 +29,7 @@
     <carrier_config mcc="214" mnc="01">
         <boolean name="prefer_2g_bool" value="false" />
         <int name="smsToMmsTextThreshold" value="5" />
+        <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
 
     <carrier_config mcc="214" mnc="02">
@@ -38,6 +39,7 @@
     <carrier_config mcc="222" mnc="10">
         <int name="maxMessageSize" value="307200" />
         <int name="smsToMmsTextThreshold" value="-1" />
+        <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
 
     <carrier_config mcc="228" mnc="01">
@@ -46,6 +48,10 @@
 
     <carrier_config mcc="228" mnc="02">
         <int name="smsToMmsTextThreshold" value="5" />
+    </carrier_config>
+
+    <carrier_config mcc="230" mnc="01">
+        <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
 
     <carrier_config mcc="232" mnc="01">
@@ -221,6 +227,7 @@
     <carrier_config mcc="262" mnc="02">
         <int name="maxMessageSize" value="307200" />
         <int name="smsToMmsTextThreshold" value="5" />
+        <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
 
     <carrier_config mcc="262" mnc="07">
@@ -231,6 +238,7 @@
         <boolean name="prefer_2g_bool" value="false" />
         <int name="maxMessageSize" value="614400" />
         <int name="smsToMmsTextThreshold" value="5" />
+        <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
 
     <carrier_config mcc="268" mnc="03">
@@ -331,6 +339,102 @@
     <carrier_config mcc="334" mnc="090">
         <int name="maxMessageSize" value="614400" />
         <int name="smsToMmsTextThreshold" value="9" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="840">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="854">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="855">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="856">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="857">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="858">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="859">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="860">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="861">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="862">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="863">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="864">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="865">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="866">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="867">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="868">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="869">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="870">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="871">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="872">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="873">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="874">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="00">
+        <boolean name="carrier_volte_available_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="10">
+        <boolean name="carrier_volte_available_bool" value="false" />
     </carrier_config>
 
     <carrier_config mcc="450" mnc="05">
