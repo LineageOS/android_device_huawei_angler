@@ -152,3 +152,6 @@
 
 #wifi sar
 /sys/module/wifi_sar/parameters/wifi_tx_power_limit                u:object_r:sysfs_wifi_sar:s0
+
+#amoled dynamic mipi clk rate
+/sys/devices/virtual/graphics/fb0/dynamic_dsitiming                   u:object_r:sysfs_lcd_mipi:s0

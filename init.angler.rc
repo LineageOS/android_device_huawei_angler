@@ -79,6 +79,9 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 4-7
     write /dev/cpuset/background/cpus 0
 
+    # setup permissions for fb0 related nodes
+    chown system system /sys/class/graphics/fb0/dynamic_dsitiming
+
     # create symlink for fb1 as HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
 
