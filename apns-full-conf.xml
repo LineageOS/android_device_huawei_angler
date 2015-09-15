@@ -8732,7 +8732,7 @@
       mmsc="http://mms.sprintpcs.com"
       mmsproxy="68.28.31.7"
       mmsport="80"
-      type="default,supl,mms"
+      type="default,supl,mms,dun"
       bearer_bitmask="1|2|3|9|10|11|15|16"
   />
 
