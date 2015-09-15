@@ -166,18 +166,6 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessingdescriptors \
     libqcompostprocbundle
 
-# GPS
-PRODUCT_PACKAGES += \
-    libloc_eng \
-    libloc_api_v02 \
-    libloc_ds_api \
-    libgps.utils \
-    gps.msm8994
-
-# GPS configuration
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/location/etc/gps.conf:system/etc/gps.conf
-
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libstagefrighthw \
