@@ -381,6 +381,16 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
 
+service dhcpcd_eth0 /system/bin/dhcpcd -aABDKL
+    class late_start
+    disabled
+    oneshot
+
+service iprenew_eth0 /system/bin/dhcpcd -n
+    class late_start
+    disabled
+    oneshot
+
 service imsqmidaemon /system/bin/imsqmidaemon
     class main
     user system
