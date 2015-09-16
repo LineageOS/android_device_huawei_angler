@@ -90,11 +90,6 @@ on boot
     chmod 0664 /sys/devices/virtual/graphics/fb1/vendor_name
     chmod 0664 /sys/devices/virtual/graphics/fb1/product_description
 
-    #config fingerprint
-    chown system system /sys/bus/spi/devices/spi12.0/spi_prepare
-    chown system system /sys/bus/spi/devices/spi12.0/wakeup_enable
-    chown system system /sys/bus/spi/devices/spi12.0/do_wakeup
-
     #Create QMUX deamon socket
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
