@@ -8,8 +8,6 @@ userdebug_or_eng(`
     allow cnd shared_log_device:chr_file rw_file_perms;
 ')
 
-# TODO: remove dac_override and fsetid b/23625913
-allow cnd self:capability { dac_override fsetid };
 allow cnd self:capability { setuid setgid net_raw };
 
 allow cnd self:socket create_socket_perms;
