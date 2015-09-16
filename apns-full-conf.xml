@@ -1691,6 +1691,29 @@
       type="mms"
   />
 
+  <apn carrier="internet simyo"
+      mcc="214"
+      mnc="03"
+      apn="gprs-service.com"
+      authtype="1"
+      type="default,supl"
+      mvno_type="imsi"
+      mvno_match_data="2140358"
+  />
+
+  <apn carrier="MMS"
+      mcc="214"
+      mnc="03"
+      apn="mms-service.com"
+      authtype="1"
+      mmsc="http://mms.orange.es"
+      mmsproxy="172.22.188.25"
+      mmsport="8080"
+      type="mms"
+      mvno_type="imsi"
+      mvno_match_data="2140358"
+  />
+
   <apn carrier="Yoigo Internet"
       mcc="214"
       mnc="04"
@@ -2019,16 +2042,6 @@
       type="mms"
   />
 
-  <apn carrier="Simyo Internet"
-      mcc="214"
-      mnc="19"
-      apn="gprs-service.com"
-      mmsc="http://217.18.32.180:8080"
-      mmsproxy="217.18.32.181"
-      mmsport="8080"
-      type="default,supl,mms"
-  />
-
   <apn carrier="Jazztel Internet"
       mcc="214"
       mnc="21"
@@ -2061,6 +2074,19 @@
       mnc="27"
       apn="truphone.com"
       type="default,supl"
+  />
+
+  <apn carrier="Internet Tu"
+    mcc="214"
+    mnc="32"
+    apn="tuenti.com"
+    user="tuenti"
+    password="tuenti"
+    mmsproxy="10.138.255.43"
+    mmsport="8080"
+    mmsc="http://tuenti.com"
+    type="default,supl,mms"
+    authtype="1"
   />
 
   <apn carrier="Telenor MMS"
@@ -2980,8 +3006,6 @@
       mcc="228"
       mnc="01"
       apn="gprs.swisscom.ch"
-      proxy="192.168.210.1"
-      port="8080"
       type="default,supl"
   />
 
@@ -3002,14 +3026,21 @@
       type="mms"
   />
 
-  <apn carrier="Orange Internet"
+  <apn carrier="Salt Internet"
       mcc="228"
       mnc="03"
       apn="internet"
       type="default,supl"
   />
 
-  <apn carrier="Orange MMS"
+  <apn carrier="Salt Prepay"
+    mcc="228"
+    mnc="03"
+    apn="click"
+    type="default"
+  />
+
+  <apn carrier="Salt MMS"
       mcc="228"
       mnc="03"
       apn="mms"
@@ -3017,6 +3048,23 @@
       mmsproxy="192.168.151.2"
       mmsport="8080"
       type="mms"
+  />
+
+  <apn carrier="upcnet"
+    mcc="228"
+    mnc="53"
+    apn="Internet.ch.upcmobile.com"
+    type="default,supl"
+  />
+
+  <apn carrier="upcmms"
+    mcc="228"
+    mnc="53"
+    apn="mms.ch.upcmobile.com"
+    mmsproxy="62.179.127.18"
+    mmsport="8080"
+    mmsc="http://mms.ch.upcmobile.com:8080/servlets/mms"
+    type="mms"
   />
 
   <apn carrier="T-Mobile CZ"
@@ -3602,7 +3650,7 @@
       mmsproxy="212.183.137.12"
       mmsport="8799"
       authtype="1"
-      type="default,supl,mms,ia"
+      type="default,supl,mms"
   />
 
   <apn carrier="PAYG WAP"
@@ -3615,7 +3663,7 @@
       mmsproxy="212.183.137.12"
       mmsport="8799"
       authtype="1"
-      type="default,supl,mms,ia"
+      type="default,supl,mms"
   />
 
   <apn carrier="PAYG Internet"
@@ -4173,7 +4221,7 @@
       type="default,supl,mms"
   />
 
-  <apn carrier="DK TDC"
+  <apn carrier="TDC DK"
       mcc="238"
       mnc="01"
       apn="internet"
@@ -4181,7 +4229,7 @@
       type="default,supl,agps,fota,dun"
   />
 
-  <apn carrier="DK TDC mms"
+  <apn carrier="TDC MMS"
       mcc="238"
       mnc="01"
       apn="mms"
@@ -4192,7 +4240,7 @@
       type="mms"
   />
 
-  <apn carrier="TDC Internet"
+  <apn carrier="TDC DK"
       mcc="238"
       mnc="01"
       apn="internet"
@@ -4263,14 +4311,42 @@
       type="mms"
   />
 
-  <apn carrier="3"
-      mcc="238"
-      mnc="06"
-      apn="data.tre.dk"
-      mmsc="http://mms.3.dk/"
-      mmsproxy="mmsproxy.3.dk"
-      mmsport="8799"
-      type="default,supl,mms"
+  <apn carrier="3 DK"
+    mcc="238"
+    mnc="06"
+    apn="data.tre.dk"
+    type="default,supl"
+  />
+
+  <apn carrier="MMS"
+    mcc="238"
+    mnc="06"
+    apn="data.tre.dk"
+    mmsproxy="172.16.53.12"
+    mmsport="8799"
+    mmsc="http://mms.3.dk"
+    type="mms"
+  />
+
+  <apn carrier="Oister DK"
+    mcc="238"
+    mnc="06"
+    apn="data.oister.dk"
+    type="default,supl"
+    mvno_type="imsi"
+    mvno_match_data="23806009"
+  />
+
+  <apn carrier="Oister MMS"
+    mcc="238"
+    mnc="06"
+    apn="data.tre.dk"
+    mmsproxy="172.16.53.12"
+    mmsport="8799"
+    mmsc="http://mms.3.dk"
+    type="mms"
+    mvno_type="imsi"
+    mvno_match_data="23806009"
   />
 
   <apn carrier="Telia SurfPort"
@@ -4555,38 +4631,17 @@
       type="mms"
   />
 
-  <apn carrier="Tele2 Internet"
-      mcc="240"
-      mnc="07"
-      apn="4g.tele2.se"
-      type="default,supl"
-  />
-
-  <apn carrier="Tele2 MMS"
-      mcc="240"
-      mnc="07"
-      apn="4g.tele2.se"
-      mmsc="http://mmsc.tele2.se"
-      mmsproxy="130.244.202.30"
-      mmsport="8080"
-      type="mms"
-  />
-
-  <apn carrier="Tele2 Internet 3G"
-      mcc="240"
-      mnc="07"
-      apn="internet.tele2.se"
-      type="default,supl"
-  />
-
-  <apn carrier="Tele2 MMS 3G"
-      mcc="240"
-      mnc="07"
-      apn="internet.tele2.se"
-      mmsc="http://mmsc.tele2.se"
-      mmsproxy="130.244.202.30"
-      mmsport="8080"
-      type="mms"
+  <apn carrier="Tele2 SE"
+    mcc="240"
+    mnc="07"
+    apn="4g.tele2.se"
+    mmsproxy="130.244.202.30"
+    mmsport="8080"
+    mmsc="http://mmsc.tele2.se"
+    type="default,supl,mms"
+    authtype="2"
+    protocol="IPV4V6"
+    roaming_protocol="IPV4V6"
   />
 
   <apn carrier="Tele2 Internet"
@@ -23813,6 +23868,7 @@
       mmsproxy="10.3.2.133"
       mmsport="8080"
       type="mms"
+      authtype="1"
   />
 
   <apn carrier="Mobily MMS Prepaid"
@@ -23829,14 +23885,13 @@
       mcc="420"
       mnc="04"
       apn="zain"
-      authtype="0"
       type="default,supl"
   />
 
   <apn carrier="zain-mms"
       mcc="420"
       mnc="04"
-      apn="zainmms"
+      apn="Zain"
       mmsc="http://10.122.200.12:8002"
       mmsproxy="10.122.200.10"
       mmsport="8080"
@@ -25858,6 +25913,15 @@
       type="default,supl"
   />
 
+  <apn carrier="GT Internet"
+    mcc="466"
+    mnc="05"
+    apn="gtnet"
+    type="default,supl"
+    mvno_match_data='GT 4G'
+    mvno_type="spn"
+  />
+
   <apn carrier="和信電訊(KGT-Online) (Internet)"
       mcc="466"
       mnc="88"
@@ -26908,7 +26972,7 @@
       type="mms"
   />
 
-  <apn carrier="SingTel (PostPaid)"
+  <apn carrier="Singtel (PostPaid)"
       mcc="525"
       mnc="01"
       apn="e-ideas"
@@ -26918,7 +26982,7 @@
       type="default,supl,mms"
   />
 
-  <apn carrier="SingTel (PrePaid)"
+  <apn carrier="Singtel (PrePaid)"
       mcc="525"
       mnc="01"
       apn="hicard"
@@ -26928,7 +26992,7 @@
       type="default,supl,mms"
   />
 
-  <apn carrier="SingTel (PostPaid)"
+  <apn carrier="Singtel (PostPaid)"
       mcc="525"
       mnc="02"
       apn="e-ideas"
@@ -26938,7 +27002,7 @@
       type="default,supl,mms"
   />
 
-  <apn carrier="SingTel (PrePaid)"
+  <apn carrier="Singtel (PrePaid)"
       mcc="525"
       mnc="02"
       apn="hicard"
