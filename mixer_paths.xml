@@ -1761,6 +1761,7 @@
 
     <path name="voice-handset-tmus">
         <path name="handset" />
+        <ctl name="Left Speaker Gain" value="10" />
     </path>
 
     <path name="voice-speaker">
