@@ -29,3 +29,8 @@ allow system_server per_mgr_service:service_manager find;
 # run on big cores for app launch (sched_boost) - instead of just
 # boosting them to make it "more likely" to run on big cores.
 allow system_server zygote:process setsched;
+
+# remove fingerprint dataset when remove user account
+allow system_server fingerprintd_data_file:file r_file_perms;
+allow system_server fingerprintd_data_file:file create_file_perms;
+allow system_server fingerprintd_data_file:dir create_dir_perms;
