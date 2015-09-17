@@ -230,12 +230,15 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             if (data) {
                 // modify downmigrate duration based on interaction data hint
                 // 1000 <= duration_downmigrate <= 5000
+                // extend little core freq bump past downmigrate to soften downmigrates
                 int duration_hint = *((int*)data);
                 if (duration_hint > 1000) {
                     if (duration_hint < 5000) {
                         duration_downmigrate = duration_hint;
+                        duration = duration_hint + 750;
                     } else {
                         duration_downmigrate = 5000;
+                        duration = 5750;
                     }
                 }
             }
