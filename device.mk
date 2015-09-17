@@ -339,6 +339,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.flinger_standbytime_ms=300
 
+# channel-to-speaker mapping follows device rotation
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.monitorRotation=true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level="ALL_ENABLE"
 
