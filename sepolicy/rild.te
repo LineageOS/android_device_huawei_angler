@@ -10,6 +10,8 @@ allow rild sysfs_msm_subsys:lnk_file read;
 
 allow rild sysfs_wifi_sar:file { getattr w_file_perms};
 
+allow rild sysfs_lcd_mipi:file rw_file_perms;
+
 allow rild time:unix_stream_socket connectto;
 
 allow rild mediaserver_service:service_manager find;
