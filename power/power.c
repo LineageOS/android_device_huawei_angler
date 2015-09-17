@@ -227,6 +227,19 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             int resources_downmigrate[] = {0x4F0A};
             int duration_downmigrate = 1000;
 
+            if (data) {
+                // modify downmigrate duration based on interaction data hint
+                // 1000 <= duration_downmigrate <= 5000
+                int duration_hint = *((int*)data);
+                if (duration_hint > 1000) {
+                    if (duration_hint < 5000) {
+                        duration_downmigrate = duration_hint;
+                    } else {
+                        duration_downmigrate = 5000;
+                    }
+                }
+            }
+
             interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
             interaction(duration_big, sizeof(resources_big)/sizeof(resources_big[0]), resources_big);
             interaction(duration_downmigrate, sizeof(resources_downmigrate)/sizeof(resources_downmigrate[0]), resources_downmigrate);
