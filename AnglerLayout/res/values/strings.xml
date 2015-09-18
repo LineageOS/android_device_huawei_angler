@@ -15,7 +15,7 @@
 -->
 
 <resources>
-    <string name="app_label">Nexus 6 Home Screen</string>
+    <string name="app_label">Nexus 6P Home Screen</string>
     <string name="google_folder_title">Google</string>
     <string name="create_folder_title">Create</string>
     <!--Play here refers to the brand -->
