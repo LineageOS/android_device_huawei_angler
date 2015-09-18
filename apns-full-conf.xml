@@ -24994,6 +24994,14 @@
       authtype="0"
   />
 
+  <apn carrier="KT IA"
+      mcc="450"
+      mnc="08"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+  />
+
   <apn carrier="KT IMS"
       mcc="450"
       mnc="08"
