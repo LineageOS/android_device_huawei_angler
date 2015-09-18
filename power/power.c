@@ -195,7 +195,8 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 }
 
 /* Declare function before use */
-void interaction(int duration, int num_args, int opt_list[]);
+int interaction(int duration, int num_args, int opt_list[]);
+int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 
 static void power_hint(struct power_module *module, power_hint_t hint,
         void *data)
@@ -211,31 +212,64 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         break;
         case POWER_HINT_INTERACTION:
         {
+            int duration_hint = 0;
+            static unsigned long long previous_boost_time = 0;
+
             // little core freq bump for 1.5s
             int resources[] = {0x20C};
             int duration = 1500;
+            static int handle_little = 0;
 
             // big core freq bump for 500ms
             int resources_big[] = {0x1F08};
             int duration_big = 500;
+            static int handle_big = 0;
 
-            // sched_upmigrate lowered to 20 for 500ms
-            int resources_upmigrate[] = {0x4E14};
-            int duration_upmigrate = 500;
-            
-            // sched_downmigrate lowered to 10 for 1s
-            int resources_downmigrate[] = {0x4F0A};
+            // sched_downmigrate lowered to 10 for 1s at most
+            // should be half of upmigrate
+            int resources_downmigrate[] = {0x4F00};
             int duration_downmigrate = 1000;
+            static int handle_downmigrate = 0;
+
+            // sched_upmigrate lowered to at most 20 for 500ms
+            // set threshold based on elapsed time since last boost
+            int resources_upmigrate[] = {0x4E00};
+            int duration_upmigrate = 500;
+            static int handle_upmigrate = 0;
+
+            // set duration hint
+            if (data) {
+                duration_hint = *((int*)data);
+            }
+
+            struct timeval cur_boost_timeval = {0, 0};
+            gettimeofday(&cur_boost_timeval, NULL);
+            unsigned long long cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
+            double elapsed_time = (double)(cur_boost_time - previous_boost_time);
+            if (elapsed_time > 750000)
+                elapsed_time = 750000;
+            // don't hint if it's been less than 250ms since last boost
+            // also detect if we're doing anything resembling a fling
+            // support additional boosting in case of flings
+            else if (elapsed_time < 250000 && duration_hint <= 750)
+                return;
+
+            // 95: default upmigrate for phone
+            // 20: upmigrate for sporadic touch
+            // 750ms: a completely arbitrary threshold for last touch
+            int upmigrate_value = 95 - (int)(75. * ((elapsed_time*elapsed_time) / (750000.*750000.)));
+            previous_boost_time = cur_boost_time;
+            resources_upmigrate[0] = resources_upmigrate[0] | upmigrate_value;
+            resources_downmigrate[0] = resources_downmigrate[0] | (upmigrate_value / 2);
 
             if (data) {
                 // modify downmigrate duration based on interaction data hint
                 // 1000 <= duration_downmigrate <= 5000
                 // extend little core freq bump past downmigrate to soften downmigrates
-                int duration_hint = *((int*)data);
                 if (duration_hint > 1000) {
                     if (duration_hint < 5000) {
                         duration_downmigrate = duration_hint;
-                        duration = duration_hint + 750;
+                        duration = duration_hint + 750;                        
                     } else {
                         duration_downmigrate = 5000;
                         duration = 5750;
@@ -243,10 +277,10 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 }
             }
 
-            interaction(duration, sizeof(resources)/sizeof(resources[0]), resources);
-            interaction(duration_big, sizeof(resources_big)/sizeof(resources_big[0]), resources_big);
-            interaction(duration_downmigrate, sizeof(resources_downmigrate)/sizeof(resources_downmigrate[0]), resources_downmigrate);
-            interaction(duration_upmigrate, sizeof(resources_upmigrate)/sizeof(resources_upmigrate[0]), resources_upmigrate);
+            handle_little = interaction_with_handle(handle_little,duration, sizeof(resources)/sizeof(resources[0]), resources);
+            handle_big = interaction_with_handle(handle_big, duration_big, sizeof(resources_big)/sizeof(resources_big[0]), resources_big);
+            handle_downmigrate = interaction_with_handle(handle_downmigrate, duration_downmigrate, sizeof(resources_downmigrate)/sizeof(resources_downmigrate[0]), resources_downmigrate);
+            handle_upmigrate = interaction_with_handle(handle_upmigrate, duration_upmigrate, sizeof(resources_upmigrate)/sizeof(resources_upmigrate[0]), resources_upmigrate);
         }
         break;
         case POWER_HINT_VIDEO_ENCODE:
@@ -408,7 +442,7 @@ void set_interactive(struct power_module *module, int on)
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             undo_hint_action(DISPLAY_STATE_HINT_ID);
             display_hint_sent = 0;
-        } else if ((strncmp(governor, MSMDCVS_GOVERNOR, strlen(MSMDCVS_GOVERNOR)) == 0) && 
+        } else if ((strncmp(governor, MSMDCVS_GOVERNOR, strlen(MSMDCVS_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(MSMDCVS_GOVERNOR))) {
             if (saved_interactive_mode == -1 || saved_interactive_mode == 0) {
                 /* Display turned on. Restore if possible. */
