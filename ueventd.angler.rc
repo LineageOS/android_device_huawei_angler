@@ -91,5 +91,6 @@
 /dev/ramdump*             0640   system     system
 
 # Fingerprint
-/sys/devices/soc.0/fpc1020.*  spi_prepare    0200 system system
+/sys/devices/soc.0/fpc1020.*  clk_enable     0200 system system
 /sys/devices/soc.0/fpc1020.*  wakeup_enable  0200 system system
+/sys/devices/soc.0/fpc1020.*  irq            0600 system system
