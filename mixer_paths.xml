@@ -2180,6 +2180,9 @@
 
     <path name="three-mic">
         <path name="speaker-tmic" />
+        <ctl name="ADC1 Volume" value="12" />
+        <ctl name="ADC3 Volume" value="12" />
+        <ctl name="ADC4 Volume" value="12" />
     </path>
 
     <path name="quad-mic">
