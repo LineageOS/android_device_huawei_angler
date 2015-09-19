@@ -330,6 +330,18 @@
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
     <string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,4194304,262144,524288,1048576</string>
 
+    <!-- The color transforms for the built-in display. Each items corresponds
+         to a defined configuration mode:
+            1. Wide-gamut ("Vibrant")
+            2. Adobe RGB ("Natural")
+            3. sRGB ("Standard")
+    -->
+    <integer-array name="config_colorTransforms">
+        <item>0</item>
+        <item>8</item>
+        <item>7</item>
+    </integer-array>
+
     <!-- Config SoftAP 2G channel list -->
     <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">1,6,11</string>
 
