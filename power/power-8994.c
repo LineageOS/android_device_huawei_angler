@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -35,6 +35,8 @@
 #include <fcntl.h>
 #include <dlfcn.h>
 #include <stdlib.h>
+#include <pthread.h>
+#include <stdbool.h>
 
 #define LOG_TAG "QCOM PowerHAL"
 #include <utils/Log.h>
@@ -46,6 +48,51 @@
 #include "hint-data.h"
 #include "performance.h"
 #include "power-common.h"
+
+pthread_mutex_t video_encode_lock = PTHREAD_MUTEX_INITIALIZER;
+uintptr_t video_encode_hint_counter = 0;
+bool video_encode_hint_should_enable = false;
+bool video_encode_hint_is_enabled = false;
+
+static int new_hint_id = DEFAULT_VIDEO_ENCODE_HINT_ID;
+static int cur_hint_id = DEFAULT_VIDEO_ENCODE_HINT_ID;
+
+static const time_t VIDEO_ENCODE_DELAY_SECONDS = 2;
+static const time_t VIDEO_ENCODE_DELAY_NSECONDS = 0;
+
+static void* video_encode_hint_function(void* arg) {
+    struct timespec tv = {0};
+    tv.tv_sec = VIDEO_ENCODE_DELAY_SECONDS;
+    tv.tv_nsec = VIDEO_ENCODE_DELAY_NSECONDS;
+    int nanosleep_ret = 0;
+    uintptr_t expected_counter = (uintptr_t)arg;
+
+    // delay the hint for two seconds
+    // the hint hotplugs the large CPUs, so this prevents the large CPUs from
+    // going offline until the camera has had time to startup
+    TEMP_FAILURE_RETRY(nanosleep(&tv, &tv));
+    pthread_mutex_lock(&video_encode_lock);
+
+    // check to ensure we should still turn on hint from this particular thread
+    // if should_enable is true but counter is different, another thread owns hint
+    // if should_enable is false, we've already quit the camera
+    if (video_encode_hint_should_enable == true && video_encode_hint_counter == expected_counter) {
+        /* sched and cpufreq params
+         * A57 - offlines
+         * A53 - 4 cores online at 1.2GHz
+         */
+        int resource_values[] = {0x150C, 0x160C, 0x170C, 0x180C, 0x3DFF};
+
+        perform_hint_action(new_hint_id,
+                            resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
+        cur_hint_id = new_hint_id;
+        video_encode_hint_is_enabled = true;
+        video_encode_hint_should_enable = false;
+    }
+
+    pthread_mutex_unlock(&video_encode_lock);
+    return NULL;
+}
 
 static int display_hint_sent;
 
@@ -78,20 +125,36 @@ static int process_video_encode_hint(void *metadata)
     if (video_encode_metadata.state == 1) {
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            /* sched and cpufreq params
-             * A57 - offlines
-             * A53 - 4 cores online at 1.2GHz
-             */
-            int resource_values[] = {0x150C, 0x160C, 0x170C, 0x180C, 0x3DFF};
+            pthread_t video_encode_hint_thread;
+            pthread_mutex_lock(&video_encode_lock);
+            new_hint_id = video_encode_metadata.hint_id;
+            if (video_encode_hint_counter < 65535) {
+                video_encode_hint_counter++;
+            } else {
+                video_encode_hint_counter = 0;
+            }
+            // start new thread to launch hint
+            video_encode_hint_should_enable = true;
+            if (pthread_create(&video_encode_hint_thread, NULL, video_encode_hint_function, (void*)video_encode_hint_counter) != 0) {
+                ALOGE("Error constructing hint thread");
+                video_encode_hint_should_enable = false;
+                pthread_mutex_unlock(&video_encode_lock);
+                return HINT_NONE;
+            }
+            pthread_detach(video_encode_hint_thread);
+            pthread_mutex_unlock(&video_encode_lock);
 
-            perform_hint_action(video_encode_metadata.hint_id,
-                    resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
             return HINT_HANDLED;
         }
     } else if (video_encode_metadata.state == 0) {
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            undo_hint_action(video_encode_metadata.hint_id);
+            pthread_mutex_lock(&video_encode_lock);
+            if (video_encode_hint_is_enabled == true) {
+                undo_hint_action(cur_hint_id);
+                video_encode_hint_is_enabled = false;
+            }
+            pthread_mutex_unlock(&video_encode_lock);
             return HINT_HANDLED;
         }
     }
