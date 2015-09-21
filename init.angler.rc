@@ -78,6 +78,7 @@ on boot
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 4-7
     write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-3
 
     # setup permissions for fb0 related nodes
     chown system system /sys/class/graphics/fb0/dynamic_dsitiming
@@ -293,6 +294,7 @@ service perfd /system/bin/perfd
     class main
     user root
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -462,6 +464,7 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 #start atfwd as daemon
 service atfwd /system/bin/ATFWD-daemon
