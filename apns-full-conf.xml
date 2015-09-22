@@ -9304,10 +9304,10 @@
   <apn carrier="Project Fi - T"
        mcc="310"
        mnc="260"
-       apn=""
+       apn="h2g2"
        type="ia"
-       protocol="IPV6"
-       roaming_protocol="IP"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
        mvno_match_data="31026097"
        mvno_type="IMSI"
   />
