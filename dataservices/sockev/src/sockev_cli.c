@@ -38,12 +38,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <string.h>
 
 #define SOCKEVCLI_ERROR -1
 
 int main(void)
 {
-	int skfd, addrlen, rc;
+	int skfd, rc;
+	socklen_t addrlen;
 	struct sockaddr_nl my_addr, src_addr;
 	struct nlmsghdr *nlh = NULL;
 	struct sknlsockevmsg *msg;
