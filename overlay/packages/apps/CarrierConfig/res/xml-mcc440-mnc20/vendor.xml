@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<carrier_config_list>
-    <carrier_config>
-        <int name="ims_dtmf_tone_delay_int" value="300" />
-        <int name="gsm_dtmf_tone_delay_int" value="300" />
-    </carrier_config>
-</carrier_config_list>
