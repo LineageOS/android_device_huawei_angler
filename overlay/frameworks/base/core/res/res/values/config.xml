@@ -343,7 +343,7 @@
     </integer-array>
 
     <!-- Config SoftAP 2G channel list -->
-    <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">1,6,11</string>
+    <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">6</string>
 
     <!-- Config determines whether to update phone object when voice registration
          state changes. Voice radio tech change will always trigger an update of
