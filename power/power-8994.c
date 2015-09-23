@@ -150,6 +150,7 @@ static int process_video_encode_hint(void *metadata)
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             pthread_mutex_lock(&video_encode_lock);
+            video_encode_hint_should_enable = false;
             if (video_encode_hint_is_enabled == true) {
                 undo_hint_action(cur_hint_id);
                 video_encode_hint_is_enabled = false;
