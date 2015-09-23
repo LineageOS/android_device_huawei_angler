@@ -258,22 +258,25 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             // 20: upmigrate for sporadic touch
             // 750ms: a completely arbitrary threshold for last touch
             int upmigrate_value = 95 - (int)(75. * ((elapsed_time*elapsed_time) / (750000.*750000.)));
+
+            // keep sched_upmigrate high when flinging
+            if (duration_hint >= 750)
+                upmigrate_value = 20;
+
             previous_boost_time = cur_boost_time;
             resources_upmigrate[0] = resources_upmigrate[0] | upmigrate_value;
             resources_downmigrate[0] = resources_downmigrate[0] | (upmigrate_value / 2);
 
-            if (data) {
-                // modify downmigrate duration based on interaction data hint
-                // 1000 <= duration_downmigrate <= 5000
-                // extend little core freq bump past downmigrate to soften downmigrates
-                if (duration_hint > 1000) {
-                    if (duration_hint < 5000) {
-                        duration_downmigrate = duration_hint;
-                        duration = duration_hint + 750;                        
-                    } else {
-                        duration_downmigrate = 5000;
-                        duration = 5750;
-                    }
+            // modify downmigrate duration based on interaction data hint
+            // 1000 <= duration_downmigrate <= 5000
+            // extend little core freq bump past downmigrate to soften downmigrates
+            if (duration_hint > 1000) {
+                if (duration_hint < 5000) {
+                    duration_downmigrate = duration_hint;
+                    duration = duration_hint + 750;
+                } else {
+                    duration_downmigrate = 5000;
+                    duration = 5750;
                 }
             }
 
