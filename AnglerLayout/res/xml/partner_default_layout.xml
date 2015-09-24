@@ -36,9 +36,9 @@
   <!-- Play folder -->
   <!-- Movies, Music, Games, Books, Newsstand -->
   <folder title="@string/play_folder_title" screen="0" x="3" y="4">
-    <favorite packageName="com.google.android.videos" className="com.google.android.youtube.videos.EntryPoint"/>
     <favorite packageName="com.google.android.music" className="com.android.music.activitymanagement.TopLevelActivity"/>
     <favorite packageName="com.google.android.play.games" className="com.google.android.gms.games.ui.destination.main.MainActivity"/>
+    <favorite packageName="com.google.android.videos" className="com.google.android.youtube.videos.EntryPoint"/>
   </folder>
   <favorite screen="0" x="4" y="4" packageName="com.android.vending" className="com.android.vending.AssetBrowserActivity"/>
   <!-- Any other installed apps will appear in All Apps -->
