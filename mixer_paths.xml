@@ -1573,6 +1573,10 @@
         <ctl name="Right Speaker Enable" value="On" />
     </path>
 
+    <path name="speaker-reverse">
+        <path name="speaker" />
+    </path>
+
     <path name="speaker-left">
         <ctl name="Receiver Enable" value="Off" />
         <ctl name="Imon Enable" value="On" />

@@ -35,6 +35,7 @@
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="4"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="14"/>
         <device name="SND_DEVICE_OUT_VOICE_HAC_HANDSET" acdb_id="238"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="63"/>
     </acdb_ids>
 
     <backend_names>
