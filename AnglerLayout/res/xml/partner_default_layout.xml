@@ -23,22 +23,24 @@
   <favorite container="-101" screen="4" x="3" y="0" packageName="com.google.android.GoogleCamera" className="com.android.camera.CameraActivity"/>
   <!-- In Launcher3, workspaces extend infinitely to the right, incrementing from zero -->
   <!-- Google folder -->
-  <!-- Google, Maps, Gmail, G+, Calendar, Photos, YouTube, News & Weather, Hangouts -->
+  <!-- Gmail, Maps, Google, G+, Contacts, Calendar, Hangouts, Drive, YouTube, Photos -->
   <folder title="@string/google_folder_title" screen="0" x="0" y="4">
-    <favorite packageName="com.google.android.googlequicksearchbox" className="com.google.android.googlequicksearchbox.SearchActivity"/>
-    <favorite packageName="com.google.android.apps.maps" className="com.google.android.maps.MapsActivity"/>
     <favorite packageName="com.google.android.gm" className="com.google.android.gm.ConversationListActivityGmail"/>
+    <favorite packageName="com.google.android.apps.maps" className="com.google.android.maps.MapsActivity"/>
+    <favorite packageName="com.google.android.googlequicksearchbox" className="com.google.android.googlequicksearchbox.SearchActivity"/>
+    <favorite packageName="com.google.android.contacts" className="com.android.contacts.activities.PeopleActivity"/>
     <favorite packageName="com.google.android.calendar" className="com.android.calendar.AllInOneActivity"/>
-    <favorite packageName="com.google.android.apps.photos" className="com.google.android.apps.photos.home.HomeActivity"/>
-    <favorite packageName="com.google.android.youtube" className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"/>
     <favorite packageName="com.google.android.talk" className="com.google.android.talk.SigningInActivity"/>
+    <favorite packageName="com.google.android.apps.docs" className="com.google.android.apps.docs.app.NewMainProxyActivity"/>
+    <favorite packageName="com.google.android.youtube" className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"/>
+    <favorite packageName="com.google.android.apps.photos" className="com.google.android.apps.photos.home.HomeActivity"/>
   </folder>
   <!-- Play folder -->
-  <!-- Movies, Music, Games, Books, Newsstand -->
-  <folder title="@string/play_folder_title" screen="0" x="3" y="4">
+  <!-- Music, Movies, Games -->
+  <folder title="@string/play_folder_title" screen="0" x="1" y="4">
     <favorite packageName="com.google.android.music" className="com.android.music.activitymanagement.TopLevelActivity"/>
-    <favorite packageName="com.google.android.play.games" className="com.google.android.gms.games.ui.destination.main.MainActivity"/>
     <favorite packageName="com.google.android.videos" className="com.google.android.youtube.videos.EntryPoint"/>
+    <favorite packageName="com.google.android.play.games" className="com.google.android.gms.games.ui.destination.main.MainActivity"/>
   </folder>
   <favorite screen="0" x="4" y="4" packageName="com.android.vending" className="com.android.vending.AssetBrowserActivity"/>
   <!-- Any other installed apps will appear in All Apps -->
