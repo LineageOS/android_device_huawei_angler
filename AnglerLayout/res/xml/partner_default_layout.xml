@@ -25,9 +25,9 @@
   <!-- Google folder -->
   <!-- Gmail, Maps, Google, G+, Contacts, Calendar, Hangouts, Drive, YouTube, Photos -->
   <folder title="@string/google_folder_title" screen="0" x="0" y="4">
+    <favorite packageName="com.google.android.googlequicksearchbox" className="com.google.android.googlequicksearchbox.SearchActivity"/>
     <favorite packageName="com.google.android.gm" className="com.google.android.gm.ConversationListActivityGmail"/>
     <favorite packageName="com.google.android.apps.maps" className="com.google.android.maps.MapsActivity"/>
-    <favorite packageName="com.google.android.googlequicksearchbox" className="com.google.android.googlequicksearchbox.SearchActivity"/>
     <favorite packageName="com.google.android.contacts" className="com.android.contacts.activities.PeopleActivity"/>
     <favorite packageName="com.google.android.calendar" className="com.android.calendar.AllInOneActivity"/>
     <favorite packageName="com.google.android.talk" className="com.google.android.talk.SigningInActivity"/>
