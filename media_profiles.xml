@@ -269,7 +269,7 @@
         <!-- CAMCORDER_QUALITY_HIGH_SPEED_LOW/720P : 720p@240fps; 55.0 Mbps -->
         <EncoderProfile quality="highspeedlow" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="55000000"
+                   bitRate="42000000"
                    width="1280"
                    height="720"
                    frameRate="240" />
@@ -283,7 +283,7 @@
         <!-- CAMCORDER_QUALITY_HIGH_SPEED_HIGH/720P : 720p@240fps; 55.0 Mbps -->
         <EncoderProfile quality="highspeedhigh" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="55000000"
+                   bitRate="42000000"
                    width="1280"
                    height="720"
                    frameRate="240" />
@@ -296,7 +296,7 @@
 
         <EncoderProfile quality="highspeed720p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="55000000"
+                   bitRate="42000000"
                    width="1280"
                    height="720"
                    frameRate="240" />
