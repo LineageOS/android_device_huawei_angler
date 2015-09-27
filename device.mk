@@ -335,8 +335,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicecomm=true \
     persist.audio.product.identify="angler" \
-    persist.audio.fluence.speaker=true \
-    ro.audio.monitorRotation=true
+    persist.audio.fluence.speaker=true
 
 # low audio flinger standby delay to reduce power consumption
 PRODUCT_PROPERTY_OVERRIDES += \
