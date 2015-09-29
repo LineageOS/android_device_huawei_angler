@@ -3,7 +3,7 @@ type ims_exec, exec_type, file_type;
 
 init_daemon_domain(ims)
 
-# STOPSHIP: b/23784951
+# Policy below to be updated per b/23784951
 allow ims self:capability { net_admin net_raw };
 
 binder_use(ims)
