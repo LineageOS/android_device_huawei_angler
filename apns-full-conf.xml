@@ -8916,8 +8916,8 @@
       mnc="160"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -8942,6 +8942,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 160"
+      mcc="310"
+      mnc="160"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 160"
@@ -9006,8 +9017,8 @@
       mnc="200"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9038,6 +9049,17 @@
       mcc="310"
       mnc="200"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 200"
+      mcc="310"
+      mnc="200"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9051,8 +9073,8 @@
       mnc="210"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9083,6 +9105,17 @@
       mcc="310"
       mnc="210"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 210"
+      mcc="310"
+      mnc="210"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9096,8 +9129,8 @@
       mnc="220"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9128,6 +9161,17 @@
       mcc="310"
       mnc="220"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 220"
+      mcc="310"
+      mnc="220"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9141,8 +9185,8 @@
       mnc="230"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9173,6 +9217,17 @@
       mcc="310"
       mnc="230"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 230"
+      mcc="310"
+      mnc="230"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9186,8 +9241,8 @@
       mnc="240"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9218,6 +9273,17 @@
       mcc="310"
       mnc="240"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 240"
+      mcc="310"
+      mnc="240"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9231,8 +9297,8 @@
       mnc="250"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9263,6 +9329,17 @@
       mcc="310"
       mnc="250"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 250"
+      mcc="310"
+      mnc="250"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9276,8 +9353,8 @@
       mnc="260"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9335,7 +9412,18 @@
       protocol="IPV6"
   />
 
-  <apn carrier="MetroPCS"
+  <apn carrier="MetroPCS 260"
+      mcc="310"
+      mnc="260"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 260"
       mcc="310"
       mnc="260"
       apn="fast.metropcs.com"
@@ -9404,8 +9492,8 @@
       mnc="270"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9436,6 +9524,17 @@
       mcc="310"
       mnc="270"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 270"
+      mcc="310"
+      mnc="270"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -9449,6 +9548,16 @@
       mnc="280"
       apn="agms"
       type="default,supl"
+  />
+
+  <apn carrier="T-Mobile US 300"
+      mcc="310"
+      mnc="300"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mtu="1440"
   />
 
   <apn carrier="T-Mobile US 300"
@@ -9472,6 +9581,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 300"
+      mcc="310"
+      mnc="300"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 300"
@@ -9506,8 +9626,8 @@
       mnc="310"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -9532,6 +9652,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 310"
+      mcc="310"
+      mnc="310"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 310"
@@ -10100,8 +10231,8 @@
       mnc="490"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -10126,6 +10257,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 490"
+      mcc="310"
+      mnc="490"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 490"
@@ -10166,8 +10308,8 @@
       apn="fast.t-mobile.com"
       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
       type="default,supl,mms"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -10181,6 +10323,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 530"
+      mcc="310"
+      mnc="530"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 530"
@@ -10229,8 +10382,8 @@
       mnc="580"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -10255,6 +10408,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 580"
+      mcc="310"
+      mnc="580"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 580"
@@ -10376,6 +10540,16 @@
   <apn carrier="T-Mobile US 590"
       mcc="310"
       mnc="590"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mtu="1440"
+  />
+
+  <apn carrier="T-Mobile US 590"
+      mcc="310"
+      mnc="590"
       apn="fast.t-mobile.com"
       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
       type="default,supl,mms"
@@ -10394,6 +10568,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 590"
+      mcc="310"
+      mnc="590"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 590"
@@ -10521,6 +10706,16 @@
   <apn carrier="T-Mobile US 640"
       mcc="310"
       mnc="640"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mtu="1440"
+  />
+
+  <apn carrier="T-Mobile US 640"
+      mcc="310"
+      mnc="640"
       apn="fast.t-mobile.com"
       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
       type="default,supl,mms"
@@ -10544,6 +10739,17 @@
       mcc="310"
       mnc="640"
       apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
+  />
+
+  <apn carrier="MetroPCS 640"
+      mcc="310"
+      mnc="640"
+      apn="fast.metropcs.com"
       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
       type="default,supl,mms"
       protocol="IPV6"
@@ -10557,8 +10763,8 @@
       mnc="660"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -10583,6 +10789,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 660"
+      mcc="310"
+      mnc="660"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 660"
@@ -10743,8 +10960,8 @@
       mnc="800"
       apn=""
       type="ia"
-      protocol="IPV6"
-      roaming_protocol="IP"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
       mtu="1440"
   />
 
@@ -10769,6 +10986,17 @@
       protocol="IP"
       type="dun"
       mtu="1440"
+  />
+
+  <apn carrier="MetroPCS 800"
+      mcc="310"
+      mnc="800"
+      apn="fast.metropcs.com"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      mvno_match_data="6D"
+      mvno_type="gid"
   />
 
   <apn carrier="MetroPCS 800"
