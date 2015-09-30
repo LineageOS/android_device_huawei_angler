@@ -12350,18 +12350,6 @@
   <apn carrier="U.S. Cellular"
       mcc="311"
       mnc="220"
-      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
-      type="default,mms,dun,hipri,fota"
-      protocol="IPV4V6"
-      authtype="3"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="6"
-      mtu="1422"
-  />
-
-  <apn carrier="U.S. Cellular"
-      mcc="311"
-      mnc="220"
       apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
@@ -12419,19 +12407,6 @@
       mtu="1422"
   />
 
-  <!-- bearer 4, 5, 6, 7, 8, 12 -->
-  <apn carrier="U.S. Cellular"
-      mcc="311"
-      mnc="221"
-      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
-      type="default,mms,dun,hipri,fota"
-      authtype="3"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="4|5|6|7|8|12"
-      mtu="1422"
-  />
-
   <apn carrier="U.S. Cellular"
       mcc="311"
       mnc="221"
@@ -12453,6 +12428,19 @@
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
       bearer_bitmask="14"
+      mtu="1422"
+  />
+
+  <!-- bearer 4, 5, 6, 7, 8, 12 -->
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="221"
+      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
+      type="default,mms,dun,hipri,fota"
+      authtype="3"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      bearer_bitmask="4|5|6|7|8|12"
       mtu="1422"
   />
 
@@ -12567,18 +12555,6 @@
       mtu="1422"
   />
 
-  <!-- bearer 4, 5, 6, 7, 8, 12 -->
-  <apn carrier="U.S. Cellular"
-      mcc="311"
-      mnc="225"
-      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
-      type="default,mms,dun,hipri,fota"
-      authtype="3"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="4|5|6|7|8|12"
-      mtu="1422"
-  />
 
   <apn carrier="U.S. Cellular"
       mcc="311"
@@ -12603,6 +12579,19 @@
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
       bearer_bitmask="14"
+      mtu="1422"
+  />
+
+  <!-- bearer 4, 5, 6, 7, 8, 12 -->
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="225"
+      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
+      type="default,mms,dun,hipri,fota"
+      authtype="3"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      bearer_bitmask="4|5|6|7|8|12"
       mtu="1422"
   />
 
@@ -14031,19 +14020,6 @@
       mmsport="8080"
   />
 
-  <!-- bearer 4, 5, 6, 7, 8, 12 -->
-  <apn carrier="U.S. Cellular"
-      mcc="311"
-      mnc="580"
-      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
-      type="default,mms,dun,hipri,fota"
-      authtype="3"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="4|5|6|7|8|12"
-      mtu="1422"
-  />
-
   <apn carrier="U.S. Cellular"
       mcc="311"
       mnc="580"
@@ -14065,6 +14041,19 @@
       protocol="IPV4V6"
       roaming_protocol="IPV4V6"
       bearer_bitmask="14"
+      mtu="1422"
+  />
+
+  <!-- bearer 4, 5, 6, 7, 8, 12 -->
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="580"
+      mmsc="http://mmsc1.uscc.net/mmsc/MMS"
+      type="default,mms,dun,hipri,fota"
+      authtype="3"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+      bearer_bitmask="4|5|6|7|8|12"
       mtu="1422"
   />
 
