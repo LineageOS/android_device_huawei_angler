@@ -266,7 +266,7 @@ service rmt_storage /system/bin/rmt_storage
     user root
     group system
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
