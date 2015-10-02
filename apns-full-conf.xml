@@ -25263,7 +25263,7 @@
       mnc="08"
       apn="IMS"
       type="ims"
-      protocol="IPV4V6"
+      protocol="IP"
   />
 
   <apn carrier="KT"
