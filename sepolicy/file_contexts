@@ -130,7 +130,7 @@
 /system/bin/pm-proxy                     u:object_r:per_proxy_exec:s0
 /system/bin/pm-service                   u:object_r:per_mgr_exec:s0
 /system/bin/qmuxd                        u:object_r:qmux_exec:s0
-/system/bin/qseecomd                     u:object_r:tee_exec:s0
+/vendor/bin/qseecomd                     u:object_r:tee_exec:s0
 /system/bin/rmt_storage                  u:object_r:rmt_exec:s0
 /system/bin/sensortool\.angler           u:object_r:sensortool_exec:s0
 /system/bin/ssr_setup                    u:object_r:ssr_setup_exec:s0
