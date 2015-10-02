@@ -4639,7 +4639,7 @@
     mmsport="8080"
     mmsc="http://mmsc.tele2.se"
     type="default,supl,mms"
-    authtype="2"
+    authtype="0"
     protocol="IPV4V6"
     roaming_protocol="IPV4V6"
   />
@@ -27431,14 +27431,14 @@
       mvno_type="imsi"
   />
 
-  <apn carrier="2Degrees Internet"
+  <apn carrier="Internet"
       mcc="530"
       mnc="24"
       apn="internet"
       type="default,supl"
   />
 
-  <apn carrier="2Degrees MMS"
+  <apn carrier="MMS"
       mcc="530"
       mnc="24"
       apn="mms"
