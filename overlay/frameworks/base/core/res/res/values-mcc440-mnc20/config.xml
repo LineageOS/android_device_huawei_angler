@@ -21,7 +21,7 @@
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array translatable="false" name="config_default_vm_number">
-        <item>09066517000</item>
+        <item>1416</item>
     </string-array>
 
     <string-array translatable= "false" name= "config_mobile_hotspot_provision_app">
