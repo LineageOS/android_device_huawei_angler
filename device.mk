@@ -332,6 +332,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.product.identify="angler" \
     persist.audio.fluence.speaker=true
 
+#stereo speakers: orientation changes swap L/R channels
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.monitorRotation=true
+
 # low audio flinger standby delay to reduce power consumption
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.flinger_standbytime_ms=300
