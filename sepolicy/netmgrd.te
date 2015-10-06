@@ -37,3 +37,6 @@ userdebug_or_eng(`
 
 # execute toybox/toolbox
 allow netmgrd toolbox_exec:file rx_file_perms;
+
+#Allow netmgrd to use wakelock
+wakelock_use(netmgrd)
