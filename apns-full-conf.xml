@@ -2772,6 +2772,24 @@
       mvno_match_data="ERG"
   />
 
+  <apn carrier="DailyTelecomWAP"
+      mcc="222"
+      mnc="10"
+      apn="wap.dtm.it"
+      type="default,supl,dun"
+      mvno_type="imsi"
+      mvno_match_data="222101306"
+  />
+
+  <apn carrier="DailyTelecomWAP"
+      mcc="222"
+      mnc="10"
+      apn="wap.dtm.it"
+      type="default,supl,dun"
+      mvno_type="imsi"
+      mvno_match_data="222101406"
+  />
+
   <apn carrier="WIND WEB"
       mcc="222"
       mnc="88"
