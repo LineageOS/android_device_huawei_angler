@@ -37,7 +37,7 @@
 #include <dlfcn.h>
 #include <stdlib.h>
 
-#define LOG_TAG "QCOM PowerHAL"
+#define LOG_TAG "QCOMPowerHAL"
 #include <utils/Log.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
@@ -221,7 +221,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             static int handle_little = 0;
 
             // big core freq bump for 500ms
-            int resources_big[] = {0x1F08};
+            int resources_big[] = {0x2312, 0x1F08};
             int duration_big = 500;
             static int handle_big = 0;
 
