@@ -9408,7 +9408,6 @@
       mnc="260"
       apn="ims"
       type="ims"
-      modem_cognitive="true"
       protocol="IPV6"
   />
 
