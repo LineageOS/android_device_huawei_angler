@@ -38,7 +38,7 @@
 #include <pthread.h>
 #include <stdbool.h>
 
-#define LOG_TAG "QCOM PowerHAL"
+#define LOG_TAG "QCOMPowerHAL"
 #include <utils/Log.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
@@ -78,11 +78,10 @@ static void* video_encode_hint_function(void* arg) {
     // if should_enable is false, we've already quit the camera
     if (video_encode_hint_should_enable == true && video_encode_hint_counter == expected_counter) {
         /* sched and cpufreq params
-         * A57 - offlines
-         * A53 - 4 cores online at 1.2GHz
-         */
-        int resource_values[] = {0x150C, 0x160C, 0x170C, 0x180C, 0x3DFF};
-
+           A53: 4 cores online at 1.2GHz max, 960 min
+           A57: 4 cores online at 384 max, 384 min
+        */
+        int resource_values[] = {0x150C, 0x1F03, 0x2303};
         perform_hint_action(new_hint_id,
                             resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
         cur_hint_id = new_hint_id;
@@ -177,7 +176,6 @@ int power_hint_override(struct power_module *module, power_hint_t hint, void *da
 
 int set_interactive_override(struct power_module *module, int on)
 {
-    return HINT_HANDLED; /* Don't excecute this code path, not in use */
     char governor[80];
 
     if (get_scaling_governor(governor, sizeof(governor)) == -1) {
@@ -190,7 +188,9 @@ int set_interactive_override(struct power_module *module, int on)
         /* Display off */
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
             (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            int resource_values[] = {}; /* dummy node */
+            // sched upmigrate = 99, sched downmigrate = 95
+            // keep the big cores around, but make them very hard to use
+            int resource_values[] = {0x4E63, 0x4F5F};
             if (!display_hint_sent) {
                 perform_hint_action(DISPLAY_STATE_HINT_ID,
                 resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
