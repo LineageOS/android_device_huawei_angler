@@ -1,0 +1,2 @@
+on post-fs
+	write /sys/class/nanohub/nanohub/download_bl 1
