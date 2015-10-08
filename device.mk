@@ -19,11 +19,17 @@
 #
 # Everything in this directory will become public
 
+# Enable support for chinook sensorhub
+TARGET_USES_CHINOOK_SENSORHUB := true
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
+  ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
+    LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
+  else
+    LOCAL_KERNEL := vendor/google_contexthub/linux/angler/Image.gz-dtb
+  endif
 else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+  LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_COPY_FILES := \
@@ -31,12 +37,18 @@ PRODUCT_COPY_FILES := \
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
-    device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/fstab.angler:root/fstab.angler \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh
 
+ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc
+else
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.angler.nanohub.rc:root/init.angler.sensorhub.rc
+endif
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/bin/init.mcfg.sh
@@ -188,11 +200,17 @@ PRODUCT_PACKAGES += \
     mm-qcamera-app
 
 # Sensor & activity_recognition HAL
+ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
     sensortool.angler \
     nano4x1.bin
+else
+PRODUCT_PACKAGES += \
+    sensors.default \
+    nanoapp_cmd
+endif
 
 # for off charging mode
 PRODUCT_PACKAGES += \
