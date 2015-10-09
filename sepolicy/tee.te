@@ -17,8 +17,8 @@ set_prop(tee, system_prop)
 allow tee time:unix_stream_socket connectto;
 
 allow tee persist_file:dir r_dir_perms;
-allow tee persist_data_file:dir r_dir_perms;
-allow tee persist_data_file:file r_file_perms;
+allow tee persist_data_file:dir create_dir_perms;
+allow tee persist_data_file:file create_file_perms;
 allow tee persist_drm_file:dir rw_dir_perms;
 allow tee persist_drm_file:file create_file_perms;
 
