@@ -13763,6 +13763,7 @@
       mmsc="http://mms.vzwreseller.com/servlets/mms"
       protocol="IPV4V6"
       bearer_bitmask="4|5|6|7|8|12"
+      user_visible="false"
   />
   <!-- bearer 4, 5, 6, 7, 8, 12 -->
   <apn carrier="Verizon"
@@ -13775,6 +13776,7 @@
       protocol="IPV4V6"
       bearer_bitmask="4|5|6|7|8|12"
       profile_id="1"
+      user_visible="false"
   />
 
   <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
@@ -13805,6 +13807,7 @@
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
+      user_visible="false"
   />
 
   <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
@@ -13820,6 +13823,7 @@
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
+      user_visible="false"
   />
 
   <!-- bearer 1, 2, 3, 9, 10, 11, 13, 14, 15 -->
@@ -13836,6 +13840,7 @@
       modem_cognitive="true"
       max_conns="1023"
       max_conns_time="300"
+      user_visible="false"
   />
 
   <!-- bearer 1, 2, 3, 9, 10, 11, 15, 16 -->
