@@ -298,7 +298,7 @@ service perfd /system/bin/perfd
 
 service netmgrd /system/bin/netmgrd
     class main
-    group radio
+    group radio system
 
 service qti /system/vendor/bin/qti
     class main
