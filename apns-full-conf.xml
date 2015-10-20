@@ -1130,27 +1130,6 @@
       mvno_type="gid"
   />
 
-  <apn carrier="Tele2 WAP"
-      mcc="208"
-      mnc="01"
-      apn="ofnew.fr"
-      user="orange"
-      password="orange"
-      type="default,supl"
-  />
-
-  <apn carrier="Tele2 MMS"
-      mcc="208"
-      mnc="01"
-      apn="orange.acte"
-      user="orange"
-      password="orange"
-      mmsc="http://mms.orange.fr"
-      mmsproxy="192.168.10.200"
-      mmsport="8080"
-      type="mms"
-  />
-
   <apn carrier="SFR webphone"
       mcc="208"
       mnc="09"
@@ -3463,6 +3442,17 @@
       authtype="0"
       type="default,supl"
   />
+
+  <apn carrier="Simyo Internet"
+      mcc="214"
+      mnc="19"
+      apn="gprs-service.com"
+      mmsc="http://217.18.32.180:8080"
+      mmsproxy="217.18.32.181"
+      mmsport="8080"
+      type="default,supl,mms"
+  />
+
   <apn carrier="UBIQUISYS"
       mcc="234"
       mnc="01"
@@ -25218,6 +25208,16 @@
       server="*"
   />
 
+  <apn carrier="tplus"
+      mcc="450"
+      mnc="11"
+      apn="lte.sktelecom.com"
+      type="default,supl,mms,dun"
+      mmsc="http://omms.nate.com:9082/oma_mms"
+      mmsproxy="smart.nate.com"
+      mmsport="9093"
+  />
+
   <apn carrier="LG uplus IA"
       mcc="450"
       mnc="06"
@@ -26195,6 +26195,17 @@
     type="default,supl"
     mvno_match_data='GT 4G'
     mvno_type="spn"
+  />
+
+  <apn carrier="GT Roaming"
+    mcc="525"
+    mnc="05"
+    apn="gtnet"
+    mvno_type="imsi"
+    mvno_match_data="525053095"
+    type="default,supl"
+    roaming_protocol="IPV4V6"
+    protocol="IPV4V6"
   />
 
   <apn carrier="和信電訊(KGT-Online) (Internet)"
