@@ -17,3 +17,4 @@ allow cnd sysfs_msm_subsys:dir r_dir_perms;
 allow cnd sysfs_msm_subsys:lnk_file rw_file_perms;
 
 qmux_socket(cnd)
+wakelock_use(cnd)
