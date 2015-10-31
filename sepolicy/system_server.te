@@ -34,3 +34,6 @@ allow system_server zygote:process setsched;
 allow system_server fingerprintd_data_file:file r_file_perms;
 allow system_server fingerprintd_data_file:file create_file_perms;
 allow system_server fingerprintd_data_file:dir create_dir_perms;
+
+# TapToWake
+allow system_server tap2wake_dev:file rw_file_perms;

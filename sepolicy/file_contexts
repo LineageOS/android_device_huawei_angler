@@ -155,3 +155,6 @@
 
 #amoled dynamic mipi clk rate
 /sys/devices/virtual/graphics/fb0/dynamic_dsitiming                   u:object_r:sysfs_lcd_mipi:s0
+
+# TapToWake
+/sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input0/wake_gesture     u:object_r:tap2wake_dev:s0
