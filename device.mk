@@ -22,15 +22,6 @@
 # Enable support for chinook sensorhub
 TARGET_USES_CHINOOK_SENSORHUB := false
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-  LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
-else
-  LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES := \
-    $(LOCAL_KERNEL):kernel
-
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
@@ -97,8 +88,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/synaptics_dsx.idc:system/usr/idc/synaptics_dsx.idc
 
 # for launcher layout
-PRODUCT_PACKAGES += \
-    AnglerLayout
+#PRODUCT_PACKAGES += \
+#    AnglerLayout
 
 # Fingerprint Sensor
 PRODUCT_PACKAGES += \
@@ -296,8 +287,8 @@ PRODUCT_PACKAGES += \
 endif
 
 # for off charging mode
-PRODUCT_PACKAGES += \
-    charger_res_images
+#PRODUCT_PACKAGES += \
+#    charger_res_images
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -316,10 +307,11 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
     libnfc-nci \
     NfcNci \
     Tag \
-    nfc_nci.angler \
+    nfc_nci.pn54x.default \
     android.hardware.nfc@1.0-impl \
 
 # Keymaster HAL
@@ -388,12 +380,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Write Manufacturer & Model information in created media files.
 # IMPORTANT: ONLY SET THIS PROPERTY TO TRUE FOR PUBLIC DEVICES
-ifneq ($(filter aosp_angler% angler%, $(TARGET_PRODUCT)),)
+#ifneq ($(filter aosp_angler% angler%, $(TARGET_PRODUCT)),)
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
-else
-$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
-endif  #TARGET_PRODUCT
+#else
+#$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
+#endif  #TARGET_PRODUCT
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=72 \
@@ -415,7 +407,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # for perfd
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.min_freq_0=384000
+    ro.min_freq_0=384000 \
     ro.min_freq_4=384000
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -570,6 +562,10 @@ endif
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# Enable sdcardfs
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
 
 $(call inherit-product-if-exists, hardware/qcom/msm8994/msm8994.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
