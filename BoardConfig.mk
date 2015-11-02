@@ -31,6 +31,11 @@ TARGET_2ND_CPU_VARIANT := cortex-a7
 
 ENABLE_CPUSETS := true
 
+# Inline kernel building
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_KERNEL_SOURCE := kernel/huawei/angler
+TARGET_KERNEL_CONFIG := cyanogenmod_angler_defconfig
+
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
