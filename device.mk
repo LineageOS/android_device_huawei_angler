@@ -97,8 +97,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/synaptics_dsx.idc:system/usr/idc/synaptics_dsx.idc
 
 # for launcher layout
-PRODUCT_PACKAGES += \
-    AnglerLayout
+#PRODUCT_PACKAGES += \
+#    AnglerLayout
 
 # Fingerprint Sensor
 PRODUCT_PACKAGES += \
@@ -296,8 +296,8 @@ PRODUCT_PACKAGES += \
 endif
 
 # for off charging mode
-PRODUCT_PACKAGES += \
-    charger_res_images
+#PRODUCT_PACKAGES += \
+#    charger_res_images
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -316,10 +316,11 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
     libnfc-nci \
     NfcNci \
     Tag \
-    nfc_nci.angler \
+    nfc_nci.pn54x.default \
     android.hardware.nfc@1.0-impl \
 
 # Keymaster HAL
@@ -415,7 +416,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # for perfd
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.min_freq_0=384000
+    ro.min_freq_0=384000 \
     ro.min_freq_4=384000
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -570,6 +571,10 @@ endif
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# Enable sdcardfs
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
 
 $(call inherit-product-if-exists, hardware/qcom/msm8994/msm8994.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
