@@ -412,7 +412,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     class main
     disabled
     oneshot
-    keycodes 114 115 116
 
 # start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
