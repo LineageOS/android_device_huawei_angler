@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_34b7d689",
+        "filename": "cm.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-11-03T07:29:24Z",
+      "side": 1,
+      "message": "huawei\n\nOr remove this line if you aren\u0027t going to separate out cm overlays.  I did it for ease of future merges.",
+      "range": {
+        "startLine": 14,
+        "startChar": 34,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "171b0b8d8049e3938fbb17aa427d8fefeb2862b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
