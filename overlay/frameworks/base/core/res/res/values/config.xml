@@ -26,7 +26,8 @@
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
-    <string name="config_orientationSensorType">com.google.sensor.window_orientation</string>
+    <!---
+    <string name="config_orientationSensorType">com.google.sensor.window_orientation</string> -->
 
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
@@ -272,8 +273,8 @@
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
 
     <!-- Boolean indicating whether or not to revert to default country code when cellular
-    radio is unable to find any MCC information to infer wifi country code from -->
-    <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">true</bool>
+    radio is unable to find any MCC information to infer wifi country code from
+    <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">true</bool> -->
 
     <!-- MMS user agent string -->
     <string name="config_mms_user_agent" translatable="false">Nexus6P</string>
@@ -347,12 +348,11 @@
             1. Wide-gamut ("Vibrant")
             2. Adobe RGB ("Natural")
             3. sRGB ("Standard")
-    -->
     <integer-array name="config_colorTransforms">
         <item>0</item>
         <item>8</item>
         <item>7</item>
-    </integer-array>
+    </integer-array> -->
 
     <!-- Config SoftAP 2G channel list -->
     <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">6</string>
