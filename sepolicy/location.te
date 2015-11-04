@@ -1,4 +1,4 @@
-type location, domain;
+type location, domain, domain_deprecated;
 type location_exec, exec_type, file_type;
 
 # Started by init

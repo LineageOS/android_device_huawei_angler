@@ -1,4 +1,4 @@
-type time, domain;
+type time, domain, domain_deprecated;
 type time_exec, exec_type, file_type;
 
 # Started by init

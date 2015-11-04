@@ -1,4 +1,4 @@
-type atfwd, domain;
+type atfwd, domain, domain_deprecated;
 type atfwd_exec, exec_type, file_type;
 
 # Started by init

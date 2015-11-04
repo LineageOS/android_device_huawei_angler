@@ -1,4 +1,4 @@
-type camera, domain;
+type camera, domain, domain_deprecated;
 type camera_exec, exec_type, file_type;
 
 # Started by init
