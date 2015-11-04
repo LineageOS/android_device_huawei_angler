@@ -1,4 +1,4 @@
-type perfd, domain;
+type perfd, domain, domain_deprecated;
 type perfd_exec, exec_type, file_type;
 
 init_daemon_domain(perfd)

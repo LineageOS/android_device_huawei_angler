@@ -1,4 +1,4 @@
-type thermald, domain;
+type thermald, domain, domain_deprecated;
 type thermald_exec, exec_type, file_type;
 
 init_daemon_domain(thermald)

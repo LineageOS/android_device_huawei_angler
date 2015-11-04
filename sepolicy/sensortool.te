@@ -1,4 +1,4 @@
-type sensortool, domain;
+type sensortool, domain, domain_deprecated;
 type sensortool_exec, exec_type, file_type;
 
 init_daemon_domain(sensortool)
