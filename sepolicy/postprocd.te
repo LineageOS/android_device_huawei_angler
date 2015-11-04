@@ -1,4 +1,4 @@
-type postprocd, domain;
+type postprocd, domain, domain_deprecated;
 type postprocd_exec, exec_type, file_type;
 
 # Started by init

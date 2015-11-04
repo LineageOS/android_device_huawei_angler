@@ -1,4 +1,4 @@
-type init-mcfg-sh, domain;
+type init-mcfg-sh, domain, domain_deprecated;
 type init-mcfg-sh_exec, exec_type, file_type;
 
 init_daemon_domain(init-mcfg-sh)

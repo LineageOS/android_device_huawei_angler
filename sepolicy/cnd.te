@@ -1,4 +1,4 @@
-type cnd, domain;
+type cnd, domain, domain_deprecated;
 type cnd_exec, exec_type, file_type;
 
 # Started by init

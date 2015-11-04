@@ -1,4 +1,4 @@
-type irqbalance, domain;
+type irqbalance, domain, domain_deprecated;
 type irqbalance_exec, exec_type, file_type;
 
 init_daemon_domain(irqbalance);
