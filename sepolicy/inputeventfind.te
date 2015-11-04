@@ -1,4 +1,4 @@
-type inputeventfind, domain;
+type inputeventfind, domain, domain_deprecated;
 type inputeventfind_exec, exec_type, file_type;
 
 init_daemon_domain(inputeventfind)

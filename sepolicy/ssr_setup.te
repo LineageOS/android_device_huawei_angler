@@ -1,4 +1,4 @@
-type ssr_setup, domain;
+type ssr_setup, domain, domain_deprecated;
 type ssr_setup_exec, exec_type, file_type;
 init_daemon_domain(ssr_setup);
 
