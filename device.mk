@@ -257,7 +257,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
