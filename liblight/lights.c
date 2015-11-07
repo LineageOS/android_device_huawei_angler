@@ -34,7 +34,7 @@
 /*
  * Change this to 1 to support battery notifications via BatteryService
  */
-#define LIGHTS_SUPPORT_BATTERY 0
+#define LIGHTS_SUPPORT_BATTERY 1
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
