@@ -1,68 +1,86 @@
-#!/bin/bash
-#
-# Copyright (C) 2013-2015 The CyanogenMod Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
+#!/bin/bash -e
 
+export VENDOR=huawei
+export DEVICE_VENDOR=huawei
+export DEVICE=angler
+export PROPRIETARY_FILES=proprietary-blobs.txt
 
-set -e
+TMPDIR="/tmp/extractfiles.$$"
+mkdir "$TMPDIR"
 
-VENDOR=huawei
-DEVICE=angler
+# relative to SMALIBASE defined by 2nd cli arg to this script
+SMALIJAR=smali/build/libs/smali.jar
+BAKSMALIJAR=baksmali/build/libs/baksmali.jar
 
-if [ $# -eq 0 ]; then
-  SRC=adb
-else
-  if [ $# -eq 1 ]; then
-    SRC=$1
-  else
-    echo "$0: bad number of arguments"
-    echo ""
-    echo "usage: $0 [PATH_TO_EXPANDED_ROM]"
-    echo ""
-    echo "If PATH_TO_EXPANDED_ROM is not specified, blobs will be extracted from"
-    echo "the device using adb pull."
+# Only supports extract from filesystem
+
+if [[ "$#" -ne 2 || ! -d "$1/vendor" || ! -d "$1/system" || ! -f "$2/$SMALIJAR" || ! -f "$2/$BAKSMALIJAR" ]]; then
+    echo "Usage: $0 <path to root dir of extracted filesystem> <smali base dir for git clone https://github.com/JesusFreke/smali> >"
+    echo "  root dir must contain at least system and vendor directions"
+    echo "  smali base must contain built jar objects (within smali base run: ./gradew build)"
     exit 1
-  fi
 fi
 
+COPY_FROM="$1"
+SMALIBASE="$2"
 
-BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-rm -rf $BASE/*
+function oat2dex()
+{
+    OFILE="$1"
 
-
-for FILE in `cat proprietary-blobs.txt | grep -v ^# | grep -v ^$ | sed -e 's#^/system/##g' | sed -e "s#^-/system/##g"`; do
-    DIR=`dirname $FILE`
-    if [ ! -d $BASE/$DIR ]; then
-        mkdir -p $BASE/$DIR
+    OAT="`dirname $OFILE`/oat/arm64/`basename $OFILE ."${OFILE##*.}"`.odex"
+    if [ ! -e "$OAT" ]; then
+        return 0
     fi
 
-    if [ "$SRC" = "adb" ]; then
-        if ! adb shell ls /system/$FILE | grep "No such file" &>/dev/null; then
-            adb pull /system/$FILE $BASE/$FILE
-        else
-            echo "ERROR: Pull file /system/$FILE from a device running CyanogenMod"
+    java -jar "$SMALIBASE/$BAKSMALIJAR" -x -o "$TMPDIR/dexout" -c boot.oat -d "$COPY_FROM/system/framework/arm64" "$OAT"
+    java -jar "$SMALIBASE/$SMALIJAR" "$TMPDIR/dexout" -o "$TMPDIR/classes.dex"
+    rm -rf "$TMPDIR/dexout"
+}
+
+function extract() {
+    OUTBASE="$2"
+    for FILE in $(egrep -v '(^#|^$)' $1); do
+        echo "Extracting $FILE ..."
+        OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+        SRCFILE=$(echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g")
+        DESTFILE=${PARSING_ARRAY[1]}
+        if [ -z "$DESTFILE" ]; then
+            DESTFILE="$SRCFILE"
         fi
-    else
-        if [ -e $SRC/$FILE ]; then
-            cp $SRC/$FILE $BASE/$FILE
-        else
-            echo "ERROR: Pull file /system/$FILE from a device running CyanogenMod"
+        DESTFILE=$(echo "$DESTFILE" | sed 's|^system/||')
+        DESTDIR=$(dirname "$DESTFILE")
+        if [ ! -d "$OUTBASE/$DESTDIR" ]; then
+            mkdir -p "$OUTBASE/$DESTDIR"
         fi
-    fi
 
-    # fixup xml files
-    if [[ "$BASE/$FILE" =~ .xml$ ]]; then
-        xmlheader=$(grep '^<?xml version' "$BASE/$FILE")
-	grep -v '^<?xml version' "$BASE/$FILE" > "$BASE/$FILE".temp
-	(echo "$xmlheader"; cat "$BASE/$FILE".temp ) > "$BASE/$FILE"
-	rm "$BASE/$FILE".temp
-    fi
-done
+        cp "$COPY_FROM/$SRCFILE" "$OUTBASE/$DESTFILE"
+
+        # Fixup xml files
+        if [[ "$OUTBASE/$DESTFILE" =~ .xml$ ]]; then
+            xmlheader=$(grep '^<?xml version' "$OUTBASE/$DESTFILE")
+            grep -v '^<?xml version' "$OUTBASE/$DESTFILE" > "$OUTBASE/$DESTFILE".temp
+            (echo "$xmlheader"; cat "$OUTBASE/$DESTFILE".temp ) > "$OUTBASE/$DESTFILE"
+            rm "$OUTBASE/$DESTFILE".temp
+        fi
+        if [[ "$DESTFILE" =~ .(apk|jar)$ ]]; then
+            oat2dex "$COPY_FROM/$SRCFILE"
+            if [ -e "$TMPDIR/classes.dex" ]; then
+                zip -gjq "$OUTBASE/$DESTFILE" "$TMPDIR/classes.dex"
+                rm "$TMPDIR/classes.dex"
+                echo "Updated $OUTBASE/$DESTFILE from odex files"
+            fi
+        fi
+    done
+}
+
+DEVICE_BASE="../../../vendor/$VENDOR/$DEVICE/proprietary"
+rm -rf "$DEVICE_BASE"/*
+
+# Extract the device specific files
+extract "../../$DEVICE_VENDOR/$DEVICE/$PROPRIETARY_FILES" "$DEVICE_BASE"
+
+# clean temp dir
+rm -rf "$TMPDIR"
 
 ./setup-makefiles.sh
