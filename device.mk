@@ -200,15 +200,16 @@ PRODUCT_PACKAGES += \
     mm-qcamera-app
 
 # Sensor & activity_recognition HAL
-ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
     sensors.angler \
-    activity_recognition.angler \
+    activity_recognition.angler
+
+ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
+PRODUCT_PACKAGES += \
     sensortool.angler \
     nano4x1.bin
 else
 PRODUCT_PACKAGES += \
-    sensors.default \
     nanoapp_cmd
 endif
 
