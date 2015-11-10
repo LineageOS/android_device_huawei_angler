@@ -269,7 +269,7 @@ service rmt_storage /system/bin/rmt_storage
     user root
     group system
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
@@ -326,7 +326,7 @@ service bugreport /system/bin/dumpstate -d -p -B \
     keycodes 114 115 116
 
 # start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
