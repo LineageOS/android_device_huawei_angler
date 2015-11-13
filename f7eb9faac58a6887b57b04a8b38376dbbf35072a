@@ -93,6 +93,30 @@
       "revId": "f7eb9faac58a6887b57b04a8b38376dbbf35072a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_47304857",
+        "filename": "proprietary-blobs.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-11-13T07:49:27Z",
+      "side": 1,
+      "message": "Yeah you would need to add\n\nvendor/app/ims/lib64/ims.odex:system/app/ims/arm64/ims.odex or something similar with a way to not copy them over just use in oat2dex",
+      "parentUuid": "1f2f7f8d_87f07092",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "f7eb9faac58a6887b57b04a8b38376dbbf35072a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
