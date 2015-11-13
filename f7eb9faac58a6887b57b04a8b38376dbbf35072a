@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_c7cd585e",
+        "filename": "proprietary-blobs.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-11-13T07:08:48Z",
+      "side": 1,
+      "message": "-vendor/app/ims/ims.apk:system/app/ims/ims.apk\n\nif you truly want to be able to do it from a live system?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "f7eb9faac58a6887b57b04a8b38376dbbf35072a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
