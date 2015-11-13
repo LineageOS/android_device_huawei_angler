@@ -444,6 +444,9 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">64</integer>
 
+    <!-- Permit doze mode to operate -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
