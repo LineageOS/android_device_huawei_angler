@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1f2f7f8d_87d750ee",
+        "filename": "extract-files.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-11-13T07:13:26Z",
+      "side": 1,
+      "message": "since you moved the base up to / you can remove the /system/ here as $FILE will be the full path.",
+      "range": {
+        "startLine": 44,
+        "startChar": 26,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "f7eb9faac58a6887b57b04a8b38376dbbf35072a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2f7f8d_c7cd585e",
         "filename": "proprietary-blobs.txt",
         "patchSetId": 4
