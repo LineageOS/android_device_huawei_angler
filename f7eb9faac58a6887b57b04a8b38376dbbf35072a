@@ -69,6 +69,30 @@
       "revId": "f7eb9faac58a6887b57b04a8b38376dbbf35072a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_87f07092",
+        "filename": "proprietary-blobs.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2015-11-13T07:45:30Z",
+      "side": 1,
+      "message": "I think it could be made to work but oat2dex() would have to make adb calls to locate odex files which gets more messy that it already is (to cater for the apks that need to be deodexed).",
+      "parentUuid": "1f2f7f8d_c7cd585e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "f7eb9faac58a6887b57b04a8b38376dbbf35072a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
