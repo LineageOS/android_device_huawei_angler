@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_eac5b98f",
+        "filename": "setup-makefiles.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 8640
+      },
+      "writtenOn": "2015-11-13T10:54:29Z",
+      "side": 1,
+      "message": "You can remove the section from here to the end as we wouldn\u0027t have any files with a destination of vendor when the vendor image is prebuilt.",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 10
+      },
+      "revId": "f620b5b15f73e900b3a9ac27caadcaf1145b64ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
