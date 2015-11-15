@@ -155,3 +155,6 @@
 
 #amoled dynamic mipi clk rate
 /sys/devices/virtual/graphics/fb0/dynamic_dsitiming                   u:object_r:sysfs_lcd_mipi:s0
+
+# Vibrator
+/sys/devices/virtual/timed_output/vibrator/vmax_mv_strong                  u:object_r:sysfs_vibrator:s0
