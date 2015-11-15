@@ -140,4 +140,8 @@ WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Anything we build under CM must end up in /system so redirect
+# files that want to go to /vendor
+TARGET_COPY_OUT_VENDOR := system
+
 -include vendor/huawei/angler/BoardConfigVendor.mk
