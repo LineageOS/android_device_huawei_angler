@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_20307d56",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 3671
+      },
+      "writtenOn": "2015-11-15T14:31:04Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be hardware/cyanogen/cmhw ?",
+      "revId": "ce9bfd8545ea00f5f07da52766b181462eef7ba2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
