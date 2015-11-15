@@ -128,6 +128,12 @@ on boot
     chown system system /sys/class/leds/blue/on_off_ms
     chown system system /sys/class/leds/red/rgb_start
 
+    # Vibrator intensity
+    chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_strong
+
+    # MDSS PCC RGB colour adjust interface
+    chown system system /sys/devices/virtual/graphics/fb0/rgb
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
