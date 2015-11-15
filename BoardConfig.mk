@@ -149,6 +149,7 @@ EXTENDED_FONT_FOOTPRINT := true
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS := \
-    hardware/cyanogen/cmhw
+    hardware/cyanogen/cmhw \
+    device/huawei/angler/cmhw
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
