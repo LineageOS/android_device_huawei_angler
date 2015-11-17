@@ -109,7 +109,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.angler
 
 TARGET_RECOVERY_FSTAB = device/huawei/angler/fstab.angler
-TARGET_COPY_OUT_VENDOR := vendor
+# write vendor modules to system
+TARGET_COPY_OUT_VENDOR := system
 TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler
 
 BOARD_SEPOLICY_DIRS += \
