@@ -146,4 +146,9 @@ WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# CMHW
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS := \
+    hardware/cyanogen/cmhw
+
 -include vendor/huawei/angler/BoardConfigVendor.mk
