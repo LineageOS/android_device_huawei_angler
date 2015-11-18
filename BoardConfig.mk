@@ -141,4 +141,6 @@ WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+
 -include vendor/huawei/angler/BoardConfigVendor.mk
