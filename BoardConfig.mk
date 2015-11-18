@@ -53,6 +53,11 @@ TARGET_NO_RPC := true
 
 BOARD_EGL_CFG := device/huawei/angler/egl.cfg
 
+# Temporarily disable DBus globally for this device since the default
+# is enabled but not all the depencencies are included in this branch.
+# TODO(b/25751378): Remove this setting once the global default is 0.
+BRILLO_USE_DBUS := 0
+
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
 # Increase the size if shaders of size greater than 12KB are used.
