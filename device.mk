@@ -374,6 +374,10 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.redir_party_num=0
 
+# IO Scheduler
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.io.scheduler=bfq
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
