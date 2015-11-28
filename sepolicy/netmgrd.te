@@ -6,7 +6,7 @@ type netmgrd_exec, exec_type, file_type;
 init_daemon_domain(netmgrd)
 
 net_domain(netmgrd)
-allow netmgrd self:capability { setuid setgid net_admin net_raw };
+allow netmgrd self:capability { setuid setgid net_admin net_raw dac_override };
 dontaudit netmgrd self:capability setpcap;
 
 set_prop(netmgrd, net_radio_prop)
