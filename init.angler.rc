@@ -23,9 +23,6 @@ on early-init
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
-    # Load persistent dm-verity state
-    verity_load_state
-
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
@@ -59,12 +56,6 @@ on fs
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-
-    # Adjust parameters for dm-verity device
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
 
 on boot
     # execute script to set initial CPU settings
