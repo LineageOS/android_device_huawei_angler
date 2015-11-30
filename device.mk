@@ -537,7 +537,7 @@ PRODUCT_COPY_FILES += \
 
 # subsystem ramdump collection
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.enable_ramdumps=1
+    persist.sys.ssr.enable_ramdumps=0
 else # userdebug eng
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.user:root/init.angler.diag.rc
