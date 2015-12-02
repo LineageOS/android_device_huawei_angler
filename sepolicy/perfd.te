@@ -15,3 +15,8 @@ allow perfd sysfs_thermal:dir search;
 allow perfd sysfs_thermal:file rw_file_perms;
 
 allow perfd sysfs_power_management:file w_file_perms;
+
+# perfd uses kill(pid, 0) to determine if a process exists.
+# Determining if a process exists does not require the kill capability
+# since a permission denied indicates the process exists.
+dontaudit perfd self:capability kill;
