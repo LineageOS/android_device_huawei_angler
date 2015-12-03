@@ -12303,6 +12303,15 @@
       mcc="311"
       mnc="220"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="220"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12327,6 +12336,15 @@
       mcc="311"
       mnc="221"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="221"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12400,6 +12418,15 @@
       mcc="311"
       mnc="222"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="222"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12437,6 +12464,15 @@
       mcc="311"
       mnc="223"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="223"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12474,6 +12510,15 @@
       mcc="311"
       mnc="224"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="224"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12507,6 +12552,15 @@
       mtu="1422"
   />
 
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="225"
+      apn="usccinternet"
+      type="ia"
+      carrier_enabled="true"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
 
   <apn carrier="U.S. Cellular"
       mcc="311"
@@ -12551,6 +12605,15 @@
       mcc="311"
       mnc="226"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="226"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12588,6 +12651,15 @@
       mcc="311"
       mnc="227"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="227"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12625,6 +12697,15 @@
       mcc="311"
       mnc="228"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="228"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -12656,6 +12737,15 @@
       roaming_protocol="IPV4V6"
       bearer_bitmask="4|5|6|7|8|12"
       mtu="1422"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="229"
+      apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="U.S. Cellular"
@@ -13981,6 +14071,15 @@
       mcc="311"
       mnc="580"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="580"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14018,6 +14117,15 @@
       mcc="311"
       mnc="581"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="581"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14055,6 +14163,15 @@
       mcc="311"
       mnc="582"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="582"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14092,6 +14209,15 @@
       mcc="311"
       mnc="583"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="583"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14129,6 +14255,15 @@
       mcc="311"
       mnc="584"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="584"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14166,6 +14301,15 @@
       mcc="311"
       mnc="585"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="585"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14203,6 +14347,15 @@
       mcc="311"
       mnc="586"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="586"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14240,6 +14393,15 @@
       mcc="311"
       mnc="587"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="587"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14277,6 +14439,15 @@
       mcc="311"
       mnc="588"
       apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="588"
+      apn="usccinternet"
       mmsc="http://mmsc1.uscc.net/mmsc/MMS"
       type="default,mms,dun,hipri,fota"
       protocol="IPV4V6"
@@ -14308,6 +14479,15 @@
       roaming_protocol="IPV4V6"
       bearer_bitmask="4|5|6|7|8|12"
       mtu="1422"
+  />
+
+  <apn carrier="U.S. Cellular"
+      mcc="311"
+      mnc="589"
+      apn="usccinternet"
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IPV4V6"
   />
 
   <apn carrier="U.S. Cellular"
