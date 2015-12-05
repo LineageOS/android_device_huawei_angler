@@ -15,6 +15,7 @@
         <string name="ci_action_on_sys_update_extra_string">ServerID</string>
         <string name="ci_action_on_sys_update_intent_string">com.android.omadm.service.CONFIGURATION_UPDATE</string>
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
+        <boolean name="world_phone_bool" value="true" />
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <string-array name="carrier_app_wake_signal_config" num="1">
@@ -682,6 +683,7 @@
         <string name="ci_action_on_sys_update_extra_string">ServerID</string>
         <string name="ci_action_on_sys_update_intent_string">com.android.omadm.service.CONFIGURATION_UPDATE</string>
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
+        <boolean name="world_phone_bool" value="true" />
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <string-array name="carrier_app_wake_signal_config" num="1">
@@ -708,6 +710,7 @@
         <string name="ci_action_on_sys_update_extra_string">ServerID</string>
         <string name="ci_action_on_sys_update_intent_string">com.android.omadm.service.CONFIGURATION_UPDATE</string>
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
+        <boolean name="world_phone_bool" value="true" />
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <string-array name="carrier_app_wake_signal_config" num="1">
