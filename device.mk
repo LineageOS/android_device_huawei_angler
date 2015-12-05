@@ -397,6 +397,9 @@ $(error "you must decide whether to write manufacturer and model information int
 endif  #TARGET_PRODUCT
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.force_eri_from_xml=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=72 \
     ro.hwui.layer_cache_size=48 \
     ro.hwui.r_buffer_cache_size=8 \
@@ -432,7 +435,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=10 \
     telephony.lteOnCdmaDevice=1 \
-    persist.radio.mode_pref_nv10=1
+    persist.radio.mode_pref_nv10=1 \
+    ro.telephony.get_imsi_from_sim=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1
@@ -462,6 +466,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # If data_no_toggle is 1 then dormancy indications will come with screen off.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_no_toggle=1
+
+# Allow tethering without provisioning app
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
