@@ -2,6 +2,7 @@
 qmux_socket(rild)
 
 binder_call(rild, per_mgr)
+binder_call(rild, audioserver)
 binder_call(rild, mediaserver)
 binder_use(rild)
 
@@ -14,5 +15,6 @@ allow rild sysfs_lcd_mipi:file rw_file_perms;
 
 allow rild time:unix_stream_socket connectto;
 
+allow rild audioserver_service:service_manager find;
 allow rild mediaserver_service:service_manager find;
 allow rild per_mgr_service:service_manager find;
