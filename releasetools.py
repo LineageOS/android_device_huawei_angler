@@ -19,7 +19,7 @@ import struct
 
 # The target does not support OTA-flashing
 # the partition table, so blacklist it.
-DEFAULT_BOOTLOADER_OTA_BLACKLIST = [ 'partition' ]
+DEFAULT_BOOTLOADER_OTA_BLACKLIST = ['partition']
 
 
 class BadMagicError(Exception):
@@ -51,6 +51,7 @@ class HuaweiBootImage(object):
 
   def __init__(self, data, name=None):
     self.name = name
+    self.unpacked_images = None
     self._unpack(data)
 
   def _unpack(self, data):
@@ -59,14 +60,9 @@ class HuaweiBootImage(object):
     num_imgs_fmt = struct.Struct("<IHH64sHH")
     header = data[0:num_imgs_fmt.size]
     info = {}
-    (
-      info["magic"],
-      info["major_version"],
-      info["minor_version"],
-      info["img_version"],
-      info["meta_hdr_size"],
-      info["img_hdr_size"],
-    ) = num_imgs_fmt.unpack(header)
+    (info["magic"], info["major_version"],
+     info["minor_version"], info["img_version"],
+     info["meta_hdr_size"], info["img_hdr_size"]) = num_imgs_fmt.unpack(header)
 
     img_info_format = "<72sLL"
     img_info_size = struct.calcsize(img_info_format)
@@ -119,11 +115,14 @@ def FullOTA_InstallEnd(info):
 def IncrementalOTA_VerifyEnd(info):
   target_radio_img = FindRadio(info.target_zip)
   source_radio_img = FindRadio(info.source_zip)
-  if not target_radio_img or not source_radio_img: return
+  if not target_radio_img or not source_radio_img:
+    return
   target_modem_img = HuaweiBootImage(target_radio_img).GetUnpackedImage("modem")
-  if not target_modem_img: return
+  if not target_modem_img:
+    return
   source_modem_img = HuaweiBootImage(source_radio_img).GetUnpackedImage("modem")
-  if not source_modem_img: return
+  if not source_modem_img:
+    return
   if target_modem_img.sha1 != source_modem_img.sha1:
     info.script.CacheFreeSpaceCheck(len(source_modem_img.data))
     radio_type, radio_device = common.GetTypeAndDevice("/modem", info.info_dict)
@@ -199,8 +198,8 @@ def WriteIncrementalBootloader(info, target_imagefile, source_imagefile):
         blacklist.append(ti.name)
 
   # If there are any images to then write them
-  whitelist = [ i.name for i in tm.unpacked_images.values()
-                if i.name not in blacklist ]
+  whitelist = [i.name for i in tm.unpacked_images.values()
+               if i.name not in blacklist]
   if len(whitelist):
     # Install the bootloader, skipping any matching partitions
     WriteBootloader(info, target_imagefile.data, blacklist)
@@ -252,11 +251,11 @@ def WriteIncrementalModemPartition(info, target_modem_image,
   partial_sf = len(sf.data) % blocksize
 
   if partial_tf:
-     pad_tf = True
+    pad_tf = True
   if partial_sf:
-     pad_sf = True
-  b = common.BlockDifference("modem", common.DataImage(tf.data,False, pad_tf),
-                             common.DataImage(sf.data,False, pad_sf))
+    pad_sf = True
+  b = common.BlockDifference("modem", common.DataImage(tf.data, False, pad_tf),
+                             common.DataImage(sf.data, False, pad_sf))
   b.WriteScript(info.script, info.output_zip)
 
 
@@ -271,16 +270,20 @@ def WriteRadio(info, radio_img):
   WriteHuaweiBootPartitionImages(info, huawei_boot_image)
 
 
-def WriteHuaweiBootPartitionImages(info, huawei_boot_image, blacklist=[]):
+def WriteHuaweiBootPartitionImages(info, huawei_boot_image, blacklist=None):
+  if blacklist is None:
+    blacklist = []
   WriteGroupedImages(info, huawei_boot_image.name,
                      huawei_boot_image.unpacked_images.values(), blacklist)
 
 
-def WriteGroupedImages(info, group_name, images, blacklist=[]):
+def WriteGroupedImages(info, group_name, images, blacklist=None):
   """Write a group of partition images to the OTA package,
   and add the corresponding flash instructions to the recovery
   script.  Skip any images that do not have a corresponding
   entry in recovery.fstab."""
+  if blacklist is None:
+    blacklist = []
   for i in images:
     if i.name not in blacklist:
       WritePartitionImage(info, i, group_name)
@@ -304,11 +307,12 @@ def WritePartitionImage(info, image, group_name=None):
                           (filename, device))
 
 
-def WriteBootloader(info, bootloader,
-                    blacklist=DEFAULT_BOOTLOADER_OTA_BLACKLIST):
+def WriteBootloader(info, bootloader, blacklist=None):
+  if blacklist is None:
+    blacklist = DEFAULT_BOOTLOADER_OTA_BLACKLIST
   info.script.Print("Writing bootloader...")
   try:
-    huawei_boot_image = HuaweiBootImage(bootloader,"bootloader")
+    huawei_boot_image = HuaweiBootImage(bootloader, "bootloader")
   except BadMagicError:
     raise ValueError("bootloader.img bad magic value")
 
