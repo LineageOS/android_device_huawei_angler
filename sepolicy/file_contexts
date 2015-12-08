@@ -114,7 +114,6 @@
 /system/bin/ims_rtp_daemon               u:object_r:ims_exec:s0
 /system/bin/init\.angler\.power\.sh      u:object_r:init-power-sh_exec:s0
 /system/bin/init\.mcfg\.sh               u:object_r:init-mcfg-sh_exec:s0
-/system/bin/InputEventFind               u:object_r:inputeventfind_exec:s0
 /system/bin/irsc_util                    u:object_r:irsc_util_exec:s0
 /system/bin/loc_launcher                 u:object_r:location_exec:s0
 /system/bin/location-mq                  u:object_r:location_exec:s0
@@ -134,6 +133,7 @@
 /system/bin/thermal-engine               u:object_r:thermald_exec:s0
 /system/bin/time_daemon                  u:object_r:time_exec:s0
 /vendor/bin/diag_test_server             u:object_r:diag_exec:s0
+/vendor/bin/InputEventFind               u:object_r:inputeventfind_exec:s0
 /vendor/bin/oem_qmi_server               u:object_r:oem_qmi_server_exec:s0
 /vendor/bin/qti                          u:object_r:qti_exec:s0
 /vendor/bin/sensortool\.angler           u:object_r:sensortool_exec:s0
