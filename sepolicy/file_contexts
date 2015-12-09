@@ -119,7 +119,7 @@
 /system/bin/location-mq                  u:object_r:location_exec:s0
 /system/bin/lowi-server                  u:object_r:location_exec:s0
 /system/bin/mm-pp-daemon                 u:object_r:postprocd_exec:s0
-/vendor/bin/mm-qcamera-daemon            u:object_r:camera_exec:s0
+/system/bin/mm-qcamera-daemon            u:object_r:camera_exec:s0
 /system/bin/msm_irqbalance               u:object_r:irqbalance_exec:s0
 /system/bin/netmgrd                      u:object_r:netmgrd_exec:s0
 /system/bin/perfd                        u:object_r:perfd_exec:s0
