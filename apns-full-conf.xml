@@ -13867,45 +13867,6 @@
       user_visible="false"
   />
 
-  <!-- bearer 1, 2, 3, 9, 10, 11, 15, 16 -->
-  <apn carrier="Sprint"
-      mcc="311"
-      mnc="490"
-      apn="cinet.spcs"
-      user="none"
-      server="*"
-      password="none"
-      mmsproxy="68.28.31.2"
-      mmsport="80"
-      mmsc="http://mmsc.vmobl.com:8088"
-      type="default,mms"
-      bearer_bitmask="1|2|3|9|10|11|15|16"
-  />
-
-  <apn carrier="Sprint CdmaNai"
-      mcc="311"
-      mnc="490"
-      mmsproxy="68.28.31.2"
-      mmsport="80"
-      mmsc="http://mmsc.vmobl.com:8088"
-      type="default,mms"
-      authtype="3"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="6"
-  />
-
-  <!-- bearer 13, 14 -->
-  <apn carrier="Sprint"
-      mcc="311"
-      mnc="490"
-      apn="otasn"
-      type="ota"
-      carrier_enabled="true"
-      protocol="IPV4V6"
-      bearer_bitmask="13|14"
-  />
-
   <apn carrier="24-7 WAP"
       mcc="311"
       mnc="500"
@@ -15005,44 +14966,6 @@
       roaming_protocol="IP"
   />
 
-  <!-- bearer 1, 2, 3, 9, 10, 11, 15, 16 -->
-  <apn carrier="Sprint"
-      mcc="311"
-      mnc="870"
-      apn="cinet.spcs"
-      user="none"
-      server="*"
-      password="none"
-      mmsproxy="68.28.31.7"
-      mmsport="80"
-      mmsc="http://mm.myboostmobile.com"
-      type="default,mms"
-      bearer_bitmask="1|2|3|9|10|11|15|16"
-  />
-
-  <apn carrier="Sprint CdmaNai"
-      mcc="311"
-      mnc="870"
-      mmsproxy="68.28.31.7"
-      mmsport="80"
-      mmsc="http://mm.myboostmobile.com"
-      type="default,mms"
-      authtype="3"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="6"
-  />
-
-  <!-- bearer 13, 14 -->
-  <apn carrier="Sprint"
-      mcc="311"
-      mnc="870"
-      apn="otasn"
-      type="ota"
-      protocol="IPV4V6"
-      bearer_bitmask="13|14"
-  />
-
   <apn carrier="MobileNation"
       mcc="311"
       mnc="910"
@@ -15413,44 +15336,6 @@
       protocol="IPV4V6"
   />
 
-  <apn carrier="Sprint CdmaNai"
-      mcc="312"
-      mnc="530"
-      mmsproxy="68.28.31.7"
-      mmsport="80"
-      mmsc="http://mms.sprintpcs.com"
-      authtype="3"
-      type="default,mms"
-      protocol="IPV4V6"
-      roaming_protocol="IPV4V6"
-      bearer_bitmask="6"
-  />
-
-  <!-- bearer 1, 2, 3, 9, 10, 11, 15, 16 -->
-  <apn carrier="Sprint"
-      mcc="312"
-      mnc="530"
-      apn="cinet.spcs"
-      user="none"
-      server="*"
-      password="none"
-      mmsproxy="68.28.31.7"
-      mmsport="80"
-      mmsc="http://mms.sprintpcs.com"
-      type="default,mms"
-      bearer_bitmask="1|2|3|9|10|11|15|16"
-  />
-
-  <!-- bearer 13, 14 -->
-  <apn carrier="Sprint"
-      mcc="312"
-      mnc="530"
-      apn="otasn"
-      type="ota"
-      protocol="IPV4V6"
-      bearer_bitmask="13|14"
-  />
-
   <apn carrier="Blue Wireless"
       mcc="312"
       mnc="570"
@@ -15463,19 +15348,6 @@
       mmsc="http://mms.blueunlimited.com"
       type="default,dun,mms"
       protocol="IPV4V6"
-  />
-
-  <apn carrier="Sprint APN"
-      mcc="316"
-      mnc="010"
-      apn="cinet.spcs"
-      user="none"
-      server="*"
-      password="none"
-      mmsproxy="68.28.31.7"
-      mmsport="80"
-      mmsc="http://mms.sprintpcs.com"
-      type="default"
   />
 
   <apn carrier="openmobile"
