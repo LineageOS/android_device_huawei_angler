@@ -27,4 +27,4 @@ allow camera persist_file:dir search;
 allow camera persist_data_file:dir search;
 allow camera persist_data_file:file r_file_perms;
 
-allow camera { mediaserver surfaceflinger }:fd use;
+allow camera { audioserver mediaserver surfaceflinger }:fd use;
