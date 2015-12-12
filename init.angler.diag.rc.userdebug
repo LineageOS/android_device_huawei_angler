@@ -9,6 +9,7 @@ on post-fs-data
 
 on boot
     chmod 666 /dev/diag
+    write /sys/module/msm_poweroff/parameters/enable_edl 1
 
 # diag and adb
 on property:sys.usb.config=diag,adb
