@@ -31826,6 +31826,13 @@
       type="mms"
   />
 
+  <apn carrier="ENTEL 4G"
+      mcc="736"
+      mnc="02"
+      apn="4g.entel"
+      type="default,supl"
+  />
+
   <apn carrier="ENTEL WAP GPRS"
       mcc="736"
       mnc="02"
@@ -31851,28 +31858,36 @@
       type="mms"
   />
 
-  <apn carrier="WAPTIGO"
+  <apn carrier="Internet Tigo"
       mcc="736"
       mnc="03"
-      apn="wap.tigo.bo"
-      user=""
-      password=""
-      proxy="172.25.100.8"
-      port="8080"
-      authtype="1"
+      apn="internet.tigo.bo"
       type="default,supl"
   />
 
-  <apn carrier="MMSTIGO"
+  <apn carrier="WAP Tigo"
+      mcc="736"
+      mnc="03"
+      apn="wap.tigo.bo"
+      proxy="172.25.100.8"
+      port="8888"
+      type="default,supl"
+  />
+
+  <apn carrier="Video Tigo"
+      mcc="736"
+      mnc="03"
+      apn="video.tigo.bo"
+      type="default,supl"
+  />
+
+  <apn carrier="MMS Tigo"
       mcc="736"
       mnc="03"
       apn="mms.tigo.bo"
-      user=""
-      password=""
       mmsproxy="172.25.100.8"
-      mmsport="8080"
+      mmsport="8888"
       mmsc="http://mms"
-      authtype="1"
       type="mms"
   />
 
