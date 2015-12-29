@@ -264,7 +264,7 @@ service per_proxy /system/bin/pm-proxy
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
-    group system
+    group system wakelock
 
 service qseecomd /vendor/bin/qseecomd
     class core
@@ -288,7 +288,7 @@ service thermal-engine /system/bin/thermal-engine
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps
+    group radio audio bluetooth wakelock gps
 
 service perfd /system/bin/perfd
     class main
@@ -298,7 +298,7 @@ service perfd /system/bin/perfd
 
 service netmgrd /system/bin/netmgrd
     class main
-    group radio system
+    group radio system wakelock
 
 service qti /system/vendor/bin/qti
     class main
@@ -419,6 +419,7 @@ service imscmservice /system/bin/imscmservice
 service cnd /system/bin/cnd
     class late_start
     socket cnd stream 660 root inet
+    group root wakelock
 
 on property:ro.boot.hardware.revision=ANGLER-V1
     write /sys/module/bcmdhd/parameters/nvram_path \
