@@ -146,6 +146,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/angler/msm_irqbalance.conf:system/etc/msm_irqbalance.conf
 
+# Qseecomd configuration file
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.angler.qseecomd.sh:system/bin/init.angler.qseecomd.sh
+
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # This device is 560dpi.  However the platform doesn't
