@@ -84,6 +84,7 @@
 /sys/devices/soc\.0/qcom,bcl\.[0-9]+(/.*)?                                                                 u:object_r:sysfs_thermal:s0
 /sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)?                                    u:object_r:sysfs_devices_system_cpu:s0
 /sys/devices/soc\.0/qpnp-smbcharger-[^/]*/power_supply/battery/system_temp_level                           u:object_r:sysfs_thermal:s0
+/sys/devices/soc\.0/qpnp-smbcharger-[0-9a-f]+/power_supply/battery/capacity                                u:object_r:sysfs_batteryinfo:s0
 /sys/devices/soc\.0/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk                                        u:object_r:sysfs_thermal:s0
 
 # Sysfs files used by fingerprintd
