@@ -127,4 +127,6 @@ WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
 USE_CLANG_PLATFORM_BUILD := true
 
+USE_CLANG_PLATFORM_BUILD := true
+
 -include vendor/huawei/angler/BoardConfigVendor.mk
