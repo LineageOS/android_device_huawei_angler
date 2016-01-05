@@ -3899,6 +3899,15 @@
       type="mms"
   />
 
+  <apn carrier="EE IMS"
+      mcc="234"
+      mnc="30"
+      apn="ims"
+      type="ims"
+      protocol="IPV6"
+      roaming_protocol="IPV6"
+  />
+
   <apn carrier="BT One Phone Internet"
       mcc="234"
       mnc="30"
@@ -4041,6 +4050,15 @@
       mmsport="8080"
       authtype="1"
       type="mms"
+  />
+
+  <apn carrier="EE IMS"
+      mcc="234"
+      mnc="33"
+      apn="ims"
+      type="ims"
+      protocol="IPV6"
+      roaming_protocol="IPV6"
   />
 
   <apn carrier="Internet"
