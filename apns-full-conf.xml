@@ -31819,15 +31819,10 @@
       type="mms"
   />
 
-  <apn carrier="VIVA3G"
+  <apn carrier="VIVA Internet"
       mcc="736"
       mnc="01"
       apn="internet.nuevatel.com"
-      user=""
-      password=""
-      proxy="192.168.101.4"
-      port="3128"
-      authtype="1"
       type="default,supl"
   />
 
