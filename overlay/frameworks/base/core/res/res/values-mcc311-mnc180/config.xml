@@ -17,13 +17,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array translatable= "false" name= "config_mobile_hotspot_provision_app">
-        <item>com.huawei.entitlement</item>
-        <item>com.huawei.entitlement.EntitlementDialogActivity</item >
-    </string-array>
-    <string translatable= "false" name= "config_mobile_hotspot_provision_app_no_ui">com.huawei.entitlement.SILENT_ENTITLEMENT_CHECK</string >
-    <string translatable= "false" name= "config_mobile_hotspot_provision_response">com.huawei.entitlement.SILENT_ENTITLEMENT_CHECK_RESULT</string >
-
     <!-- Values for GPS configuration (AT&T) -->
     <string-array translatable="false" name="config_gpsParameters">
         <item>SUPL_HOST=NONE</item>
