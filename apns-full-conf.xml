@@ -25323,6 +25323,16 @@
       server="*"
   />
 
+  <apn carrier="tplus"
+      mcc="450"
+      mnc="11"
+      apn="lte.sktelecom.com"
+      type="default,supl,mms,dun,ia"
+      mmsc="http://omms.nate.com:9082/oma_mms"
+      mmsproxy="smart.nate.com"
+      mmsport="9093"
+  />
+
   <apn carrier="SKT 3G INTERNET"
       mcc="450"
       mnc="11"
@@ -25354,16 +25364,6 @@
       mmsproxy="smart.nate.com"
       mmsport="9093"
       server="*"
-  />
-
-  <apn carrier="tplus"
-      mcc="450"
-      mnc="11"
-      apn="lte.sktelecom.com"
-      type="default,supl,mms,dun"
-      mmsc="http://omms.nate.com:9082/oma_mms"
-      mmsproxy="smart.nate.com"
-      mmsport="9093"
   />
 
   <apn carrier="LG uplus IA"
