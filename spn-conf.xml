@@ -21,6 +21,8 @@
     <spnOverride numeric="310980" spn="AT&amp;T"/>
     <spnOverride numeric="311180" spn="AT&amp;T"/>
     <spnOverride numeric="310120" spn="Sprint"/>
+    <spnOverride numeric="23430" spn="EE"/>
+    <spnOverride numeric="23433" spn="EE"/>
     <spnOverride numeric="40402" spn="airtel"/>
     <spnOverride numeric="40403" spn="airtel"/>
     <spnOverride numeric="40410" spn="airtel"/>
