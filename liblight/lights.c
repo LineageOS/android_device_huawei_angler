@@ -24,6 +24,8 @@
 #include <pthread.h>
 #include <malloc.h>
 
+#include <linux/msm_mdp.h>
+
 #include <sys/ioctl.h>
 #include <sys/types.h>
 
@@ -36,10 +38,13 @@
  */
 #define LIGHTS_SUPPORT_BATTERY 0
 
+#define DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS 255
+
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t g_lcd_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
+static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
 #if LIGHTS_SUPPORT_BATTERY
 static struct light_state_t g_battery;
 #endif
@@ -67,6 +72,9 @@ char const*const BLUE_TIMER_FILE
 
 char const*const RGB_LOCK_FILE
         = "/sys/class/leds/red/rgb_start";
+
+char const*const DISPLAY_FB_DEV_PATH
+        = "/dev/graphics/fb0";
 
 enum led_type {
     LED_NOTIFICATION = 0,
@@ -148,13 +156,43 @@ set_light_backlight(struct light_device_t* dev,
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
+    unsigned int lpEnabled = state->brightnessMode == BRIGHTNESS_MODE_LOW_PERSISTENCE;
 
     if(!dev) {
         return -1;
     }
 
     pthread_mutex_lock(&g_lcd_lock);
-    err = write_int(LCD_FILE, brightness);
+
+    // If we're not in lp mode and it has been enabled or if we are in lp mode
+    // and it has been disabled send an ioctl to the display with the update
+    if ((g_last_backlight_mode != state->brightnessMode && lpEnabled) ||
+            (!lpEnabled && g_last_backlight_mode == BRIGHTNESS_MODE_LOW_PERSISTENCE)) {
+        int fd = -1;
+        fd = open(DISPLAY_FB_DEV_PATH, O_RDWR);
+        if (fd >= 0) {
+            if ((err = ioctl(fd, MSMFB_SET_PERSISTENCE_MODE, &lpEnabled)) != 0) {
+                ALOGE("%s: Failed in ioctl call to %s: %s\n", __FUNCTION__, DISPLAY_FB_DEV_PATH,
+                        strerror(errno));
+                err = -1;
+            }
+            close(fd);
+
+            brightness = DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS;
+        } else {
+            ALOGE("%s: Failed to open %s: %s\n", __FUNCTION__, DISPLAY_FB_DEV_PATH,
+                    strerror(errno));
+            err = -1;
+        }
+    }
+
+
+    g_last_backlight_mode = state->brightnessMode;
+
+    if (!err) {
+        err = write_int(LCD_FILE, brightness);
+    }
+
     pthread_mutex_unlock(&g_lcd_lock);
     return err;
 }
@@ -317,7 +355,7 @@ static int open_lights(const struct hw_module_t* module, char const* name,
     memset(dev, 0, sizeof(*dev));
 
     dev->common.tag = HARDWARE_DEVICE_TAG;
-    dev->common.version = 0;
+    dev->common.version = LIGHTS_DEVICE_API_VERSION_2_0;
     dev->common.module = (struct hw_module_t*)module;
     dev->common.close = (int (*)(struct hw_device_t*))close_lights;
     dev->set_light = set_light;
