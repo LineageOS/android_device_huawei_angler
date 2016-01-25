@@ -118,6 +118,8 @@ system/lib64/libloc_core.so
 system/lib64/libloc_ds_api.so
 system/lib64/libloc_eng.so
 system/lib64/libManufacture.so
+system/lib64/libnfc-nci.so
+system/lib64/libnfc_nci_jni.so
 system/lib64/libtinyxml.so
 system/lib/hw/camera.msm8994.so
 system/lib/hw/gps.msm8994.so
@@ -132,6 +134,7 @@ system/lib/libloc_eng.so
 system/lib/libmmcamera_interface.so
 system/lib/libmmjpeg_interface.so
 system/lib/libmm-qcamera.so
+system/lib/libnfc-nci.so
 system/lib/libqomx_core.so
 system/lib/libtinyxml.so
 system/lib/soundfx/libfmas.so
