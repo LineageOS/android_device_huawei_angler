@@ -20,9 +20,11 @@
 -vendor/app/ims/ims.apk:system/app/ims/ims.apk
 vendor/lib64/libimscamera_jni.so:system/app/ims/lib/arm64/libimscamera_jni.so
 vendor/lib64/libimscamera_jni.so:system/lib64/libimscamera_jni.so
+vendor/lib/libimscamera_jni.so:system/app/ims/lib/arm/libimscamera_jni.so
 vendor/lib/libimscamera_jni.so:system/lib/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so:system/app/ims/lib/arm64/libimsmedia_jni.so
 vendor/lib64/libimsmedia_jni.so:system/lib64/libimsmedia_jni.so
+vendor/lib/libimsmedia_jni.so:system/app/ims/lib/arm/libimsmedia_jni.so
 vendor/lib/libimsmedia_jni.so:system/lib/libimsmedia_jni.so
 -system/app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -system/app/TimeService/TimeService.apk
