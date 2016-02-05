@@ -136,4 +136,5 @@ system/lib/libqomx_core.so
 system/lib/libtinyxml.so
 system/lib/soundfx/libfmas.so
 -system/priv-app/CNEService/CNEService.apk
+system/priv-app/HotwordEnrollment/HotwordEnrollment.apk
 system/xbin/wlutil
