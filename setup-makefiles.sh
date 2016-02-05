@@ -248,9 +248,7 @@ for PRIVAPK in `ls ../../../$OUTDIR/proprietary/priv-app/*/*apk`; do
   fi
     privapkname=`basename $PRIVAPK`
     privmodulename=`echo $privapkname|sed -e 's/\.apk$//gi'`
-  if [[ $privmodulename = BuaContactAdapter || $privmodulename = MotoSignatureApp ||
-      $privmodulename = TriggerEnroll || $privmodulename = TriggerTrainingService ||
-      $privmodulename = VZWAPNService ]]; then
+  if [[ $privmodulename = HotwordEnrollment ]]; then
     signature="PRESIGNED"
   else
     signature="platform"
