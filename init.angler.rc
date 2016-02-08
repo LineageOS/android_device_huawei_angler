@@ -129,6 +129,9 @@ on boot
     chown system system /sys/class/leds/blue/on_off_ms
     chown system system /sys/class/leds/red/rgb_start
 
+    # GPU Tuning
+    chmod 0666 /sys/class/kgsl/kgsl-3d0/dispatch/inflight
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
