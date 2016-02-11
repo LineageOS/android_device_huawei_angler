@@ -65,6 +65,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AnglerLayout
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
     ro.config.ringtone \
