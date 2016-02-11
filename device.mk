@@ -175,7 +175,8 @@ PRODUCT_PACKAGES += \
     libmmcamera_interface2 \
     libmmjpeg_interface \
     libqomx_core \
-    mm-qcamera-app
+    mm-qcamera-app \
+    Snap
 
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
