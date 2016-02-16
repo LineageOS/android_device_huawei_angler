@@ -6,3 +6,5 @@ userdebug_or_eng(`
 ')
 
 allow platform_app oem_qmi_server:unix_stream_socket connectto;
+
+allow platform_app nfc_service:service_manager find;
