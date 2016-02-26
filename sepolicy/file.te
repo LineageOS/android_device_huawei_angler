@@ -22,6 +22,7 @@ type sysfs_gpu_tuning, sysfs_type, fs_type;
 type sysfs_fingerprintd, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_msm_subsys_toggle, sysfs_type, fs_type;
+type sysfs_nanoapp_cmd, sysfs_type, fs_type;
 type sysfs_performance, sysfs_type, fs_type;
 type sysfs_power_management, fs_type, sysfs_type;
 type sysfs_prox_snsr, sysfs_type, fs_type;
