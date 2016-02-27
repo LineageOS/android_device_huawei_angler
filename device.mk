@@ -221,7 +221,8 @@ PRODUCT_PACKAGES += \
     nano4x1.bin
 else
 PRODUCT_PACKAGES += \
-    nanoapp_cmd
+    nanoapp_cmd \
+    nanotool
 endif
 
 # for off charging mode
