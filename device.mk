@@ -285,6 +285,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=2048 \
     ro.hwui.text_large_cache_height=1024
 
+# VR HAL
+PRODUCT_PACKAGES += \
+    vr.angler
+
 # Enable low power video mode for 4K encode
 PRODUCT_PROPERTY_OVERRIDES += \
     vidc.debug.perf.mode=2 \
