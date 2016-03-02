@@ -16,6 +16,24 @@
       "revId": "a5bd450ced1b58849acc183c9ef3f34012f38d80",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_9bf8eac4",
+        "filename": "proprietary-blobs.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4567
+      },
+      "writtenOn": "2016-03-02T00:17:26Z",
+      "side": 1,
+      "message": "On the vendor partition, they\u0027re symlinks, but on the system partition, they\u0027re not. This was path of least resistance for paralleling /vendor, but I don\u0027t recall a specific bug that the addition of these fixed.",
+      "parentUuid": "1fcbff3d_6fb8c475",
+      "revId": "a5bd450ced1b58849acc183c9ef3f34012f38d80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
