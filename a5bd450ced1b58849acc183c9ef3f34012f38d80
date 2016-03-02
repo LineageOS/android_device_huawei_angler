@@ -34,6 +34,24 @@
       "revId": "a5bd450ced1b58849acc183c9ef3f34012f38d80",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_fbeec686",
+        "filename": "proprietary-blobs.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2016-03-02T02:17:57Z",
+      "side": 1,
+      "message": "I don\u0027t see them in vendor:\nls: cannot access vendor/app/ims/lib/arm/: No such file or directory\n\nI only see arm64",
+      "parentUuid": "ffb9cba7_9bf8eac4",
+      "revId": "a5bd450ced1b58849acc183c9ef3f34012f38d80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
