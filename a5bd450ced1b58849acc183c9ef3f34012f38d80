@@ -52,6 +52,24 @@
       "revId": "a5bd450ced1b58849acc183c9ef3f34012f38d80",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb9cba7_7bfad642",
+        "filename": "proprietary-blobs.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4567
+      },
+      "writtenOn": "2016-03-02T02:23:05Z",
+      "side": 1,
+      "message": "entirely possible. I\u0027ll drop em from my next build and see how it goes",
+      "parentUuid": "ffb9cba7_fbeec686",
+      "revId": "a5bd450ced1b58849acc183c9ef3f34012f38d80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
