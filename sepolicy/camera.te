@@ -7,6 +7,8 @@ init_daemon_domain(camera)
 binder_use(camera)
 binder_call(camera, system_server)
 
+allow camera self:capability { sys_nice };
+
 allow camera sensorservice_service:service_manager find;
 
 allow camera system_server:unix_stream_socket { read write };
