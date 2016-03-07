@@ -33,6 +33,7 @@ qmux_socket(netmgrd)
 
 userdebug_or_eng(`
     allow netmgrd shared_log_device:chr_file rw_file_perms;
+    allow netmgrd diag_device:chr_file rw_file_perms;
 ')
 
 # execute toybox/toolbox
