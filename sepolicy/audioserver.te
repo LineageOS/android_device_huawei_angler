@@ -21,3 +21,6 @@ allow audioserver perfd_data_file:dir search;
 allow audioserver perfd_data_file:sock_file write;
 allow audioserver perfd:unix_dgram_socket sendto;
 allow audioserver perfd:unix_stream_socket connectto;
+
+# allow reading /sys/devices/soc0/hw_platform. "MTP" on Angler
+allow audioserver sysfs:file read;
