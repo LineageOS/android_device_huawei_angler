@@ -1,17 +1,10 @@
 binder_call(audioserver, rild)
-# send data to camera socket
-allow audioserver camera_data_file:sock_file write;
-allow audioserver camera:unix_stream_socket connectto;
-allow audioserver camera:unix_dgram_socket sendto;
-#read/write /dev/media[0-N]
-allow audioserver media_device:chr_file rw_file_perms;
-#read/write /dev/msm_audio_cal
+
 userdebug_or_eng(`
   allow audioserver diag_device:chr_file rw_file_perms;
 ')
-#read/write /dev/v4l-subdev[0-N]
-allow audioserver v41_subdev_device:chr_file rw_file_perms;
 
+# access for speaker calibration file
 allow audioserver persist_file:dir search;
 allow audioserver persist_audio_file:dir search;
 allow audioserver persist_audio_file:file r_file_perms;
@@ -22,5 +15,5 @@ allow audioserver perfd_data_file:sock_file write;
 allow audioserver perfd:unix_dgram_socket sendto;
 allow audioserver perfd:unix_stream_socket connectto;
 
-# allow reading /sys/devices/soc0/hw_platform. "MTP" on Angler
-allow audioserver sysfs:file read;
+# allow reading /sys/devices/soc0/hw_platform for acdb
+allow audioserver sysfs:file { getattr open read };
