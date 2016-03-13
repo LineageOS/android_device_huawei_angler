@@ -16,8 +16,8 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="5571314736583534338">"Startskärm för Nexus 6P"</string>
-    <string name="google_folder_title" msgid="4347273870572851699">"Google"</string>
-    <string name="create_folder_title" msgid="8767128128047322863">"Skapa"</string>
-    <string name="play_folder_title" msgid="4005661735942522721">"Play"</string>
+    <string name="app_label" msgid="4827444239162090155">"Startskärm för Nexus 6P"</string>
+    <string name="google_folder_title" msgid="3050712152111669078">"Google"</string>
+    <string name="create_folder_title" msgid="1626185277541881691">"Skapa"</string>
+    <string name="play_folder_title" msgid="8796147714003891112">"Play"</string>
 </resources>
