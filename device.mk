@@ -62,8 +62,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/synaptics_dsx.idc:system/usr/idc/synaptics_dsx.idc
 
 # for launcher layout
-PRODUCT_PACKAGES += \
-    AnglerLayout
+#PRODUCT_PACKAGES += \
+#    AnglerLayout
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
