@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_26a31652",
+        "filename": "device.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 2814
+      },
+      "writtenOn": "2016-03-16T22:21:21Z",
+      "side": 1,
+      "message": "what is this prop for ? are you sure its needed?",
+      "revId": "64e1b9e3d053ba5875b41e9cdf48eaf81379af3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
