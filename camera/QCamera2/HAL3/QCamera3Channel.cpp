@@ -2827,17 +2827,12 @@ void QCamera3PicChannel::jpegEvtHandle(jpeg_job_status_t status,
                 if (obj->mStreams[0]->getMyHandle() ==
                         src_frame->bufs[0]->stream_id) {
                     snapshotIdx = (int32_t)src_frame->bufs[0]->buf_idx;
-                } else {
-                    ALOGE("%s: Snapshot stream id %d and source frame %d don't match!",
-                            __func__, obj->mStreams[0]->getMyHandle(),
-                            src_frame->bufs[0]->stream_id);
+
+                    if (0 <= snapshotIdx) {
+                        Mutex::Autolock lock(obj->mFreeBuffersLock);
+                        obj->mFreeBufferList.push_back((uint32_t)snapshotIdx);
+                    }
                 }
-            }
-            if (0 <= snapshotIdx) {
-                Mutex::Autolock lock(obj->mFreeBuffersLock);
-                obj->mFreeBufferList.push_back((uint32_t)snapshotIdx);
-            } else {
-                ALOGE("%s: Snapshot buffer not found!", __func__);
             }
 
             CDBG("%s: Issue Callback", __func__);
