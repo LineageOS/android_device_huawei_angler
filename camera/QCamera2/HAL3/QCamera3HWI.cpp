@@ -7035,6 +7035,12 @@ camera_metadata_t* QCamera3HardwareInterface::translateCapabilityToMetadata(int 
     property_get("persist.camera.eis.enable", eis_prop, "0");
     const uint8_t eis_prop_set = (uint8_t)atoi(eis_prop);
 
+    // Hybrid AE enable/disable
+    char hybrid_ae_prop[PROPERTY_VALUE_MAX];
+    memset(hybrid_ae_prop, 0, sizeof(hybrid_ae_prop));
+    property_get("persist.camera.hybrid_ae.enable", hybrid_ae_prop, "0");
+    const uint8_t hybrid_ae = (uint8_t)atoi(hybrid_ae_prop);
+
     const bool facingBack = gCamCapability[mCameraId]->position == CAM_POSITION_BACK;
     // This is a bit hacky. EIS is enabled only when the above setprop
     // is set to non-zero value and on back camera (for 2015 Nexus).
@@ -7392,6 +7398,10 @@ camera_metadata_t* QCamera3HardwareInterface::translateCapabilityToMetadata(int 
 
     int32_t mode = cds_mode;
     settings.update(QCAMERA3_CDS_MODE, &mode, 1);
+
+    /* hybrid ae */
+    settings.update(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE, &hybrid_ae, 1);
+
     mDefaultMetadata[type] = settings.release();
 
     return mDefaultMetadata[type];
@@ -8509,6 +8519,17 @@ int QCamera3HardwareInterface::translateToHalMetadata
 
         if (ADD_SET_PARAM_ENTRY_TO_BATCH(hal_metadata,
                 CAM_INTF_META_CDS_DATA, *cdsData)) {
+            rc = BAD_VALUE;
+        }
+    }
+
+    // Hybrid AE
+    if (frame_settings.exists(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE)) {
+        uint8_t *hybrid_ae = (uint8_t *)
+                frame_settings.find(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE).data.u8;
+
+        if (ADD_SET_PARAM_ENTRY_TO_BATCH(hal_metadata,
+                CAM_INTF_META_HYBRID_AE, *hybrid_ae)) {
             rc = BAD_VALUE;
         }
     }

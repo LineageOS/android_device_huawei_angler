@@ -784,6 +784,7 @@ typedef struct {
     INCLUDE(CAM_INTF_META_BLACK_LEVEL_SOURCE_PATTERN,   cam_black_level_metadata_t,  1);
     INCLUDE(CAM_INTF_META_BLACK_LEVEL_APPLIED_PATTERN,  cam_black_level_metadata_t,  1);
     INCLUDE(CAM_INTF_META_DAEMON_RESTART,               uint8_t,                     1);
+    INCLUDE(CAM_INTF_META_HYBRID_AE,                    uint8_t,                     1);
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to
