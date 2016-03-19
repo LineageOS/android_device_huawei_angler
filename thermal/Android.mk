@@ -19,8 +19,8 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_CFLAGS := -Wno-unused-parameter
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_SRC_FILES := hardware_properties.c
+LOCAL_SRC_FILES := thermal.c
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := hardware_properties.angler
+LOCAL_MODULE := thermal.angler
 include $(BUILD_SHARED_LIBRARY)
