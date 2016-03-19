@@ -4821,6 +4821,12 @@ QCamera3HardwareInterface::translateFromHalMetadata(
         }
     }
 
+    // Post Raw Sensitivity Boost = ISP digital gain
+    IF_META_AVAILABLE(float, ispDigitalGain, CAM_INTF_META_ISP_DIGITAL_GAIN, metadata) {
+        int32_t postRawSensitivity = static_cast<int32_t>(*ispDigitalGain * 100);
+        camMetadata.update(ANDROID_CONTROL_POST_RAW_SENSITIVITY_BOOST, &postRawSensitivity, 1);
+    }
+
     resultMetadata = camMetadata.release();
     return resultMetadata;
 }
@@ -6498,7 +6504,8 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
        ANDROID_STATISTICS_SCENE_FLICKER, ANDROID_STATISTICS_FACE_RECTANGLES,
        ANDROID_STATISTICS_FACE_SCORES,
        ANDROID_SENSOR_DYNAMIC_BLACK_LEVEL,
-       ANDROID_SENSOR_DYNAMIC_WHITE_LEVEL};
+       ANDROID_SENSOR_DYNAMIC_WHITE_LEVEL,
+       ANDROID_CONTROL_POST_RAW_SENSITIVITY_BOOST };
     size_t result_keys_cnt =
             sizeof(result_keys_basic)/sizeof(result_keys_basic[0]);
 
