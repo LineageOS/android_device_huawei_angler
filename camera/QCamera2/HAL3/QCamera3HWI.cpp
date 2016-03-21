@@ -2518,31 +2518,26 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
             memset(&notify_msg, 0, sizeof(camera3_notify_msg_t));
             for (List<RequestedBufferInfo>::iterator j = i->buffers.begin();
                     j != i->buffers.end(); j++) {
-               if (j->stream->format != HAL_PIXEL_FORMAT_BLOB) {
-                   QCamera3ProcessingChannel *channel = (QCamera3ProcessingChannel *)j->stream->priv;
-                   uint32_t streamID = channel->getStreamID(channel->getStreamTypeMask());
-                   for (uint32_t k = 0; k < p_cam_frame_drop->cam_stream_ID.num_streams; k++) {
-                       if (streamID == p_cam_frame_drop->cam_stream_ID.streamID[k]) {
-                           // Send Error notify to frameworks with CAMERA3_MSG_ERROR_BUFFER
-                           ALOGW("%s: Start of reporting error frame#=%u, streamID=%u",
-                                   __func__, i->frame_number, streamID);
-                           notify_msg.type = CAMERA3_MSG_ERROR;
-                           notify_msg.message.error.frame_number = i->frame_number;
-                           notify_msg.message.error.error_code = CAMERA3_MSG_ERROR_BUFFER ;
-                           notify_msg.message.error.error_stream = j->stream;
-                           mCallbackOps->notify(mCallbackOps, &notify_msg);
-                           ALOGW("%s: End of reporting error frame#=%u, streamID=%u",
-                                  __func__, i->frame_number, streamID);
-                           PendingFrameDropInfo PendingFrameDrop;
-                           PendingFrameDrop.frame_number=i->frame_number;
-                           PendingFrameDrop.stream_ID = streamID;
-                           // Add the Frame drop info to mPendingFrameDropList
-                           mPendingFrameDropList.push_back(PendingFrameDrop);
-                      }
+                QCamera3ProcessingChannel *channel = (QCamera3ProcessingChannel *)j->stream->priv;
+                uint32_t streamID = channel->getStreamID(channel->getStreamTypeMask());
+                for (uint32_t k = 0; k < p_cam_frame_drop->cam_stream_ID.num_streams; k++) {
+                    if (streamID == p_cam_frame_drop->cam_stream_ID.streamID[k]) {
+                        // Send Error notify to frameworks with CAMERA3_MSG_ERROR_BUFFER
+                        ALOGW("%s: Start of reporting error frame#=%u, streamID=%u streamFormat=%d",
+                                __func__, i->frame_number, streamID, j->stream->format);
+                        notify_msg.type = CAMERA3_MSG_ERROR;
+                        notify_msg.message.error.frame_number = i->frame_number;
+                        notify_msg.message.error.error_code = CAMERA3_MSG_ERROR_BUFFER ;
+                        notify_msg.message.error.error_stream = j->stream;
+                        mCallbackOps->notify(mCallbackOps, &notify_msg);
+                        ALOGW("%s: End of reporting error frame#=%u, streamID=%u streamFormat=%d",
+                                __func__, i->frame_number, streamID, j->stream->format);
+                        PendingFrameDropInfo PendingFrameDrop;
+                        PendingFrameDrop.frame_number=i->frame_number;
+                        PendingFrameDrop.stream_ID = streamID;
+                        // Add the Frame drop info to mPendingFrameDropList
+                        mPendingFrameDropList.push_back(PendingFrameDrop);
                    }
-               } else {
-                   ALOGE("%s: JPEG buffer dropped for frame number %d",
-                           __func__, i->frame_number);
                }
             }
         }
