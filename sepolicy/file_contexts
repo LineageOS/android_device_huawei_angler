@@ -33,6 +33,7 @@
 # Sensor Hub kernel driver
 /dev/spich                                      u:object_r:sensors_device:s0
 /dev/nanohub                                    u:object_r:sensors_device:s0
+/dev/nanohub_comms                              u:object_r:sensors_device:s0
 
 /dev/socket/cnd                                 u:object_r:cnd_socket:s0
 /dev/socket/ims_datad                           u:object_r:ims_socket:s0
