@@ -209,6 +209,20 @@ on post-fs-data
     chmod 0440 /persist/data/st_offset
     chmod 0440 /persist/data/st_xtalk
 
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chown system system /sys/class/devfreq/qcom,gpubw.70/min_freq
+    chmod 0660 /sys/class/devfreq/qcom,gpubw.70/min_freq
+    chown system system /sys/devices/system/cpu/cpu4/online
+    chmod 0660 /sys/devices/system/cpu/cpu4/online
+    chown system system /sys/devices/system/cpu/cpu5/online
+    chmod 0660 /sys/devices/system/cpu/cpu5/online
+    chown system system /sys/devices/system/cpu/cpu6/online
+    chmod 0660 /sys/devices/system/cpu/cpu6/online
+    chown system system /sys/devices/system/cpu/cpu7/online
+    chmod 0660 /sys/devices/system/cpu/cpu7/online
 on charger
    #set cpu4,5 online first, or they can't get into low power consumption mode
    write /sys/devices/system/cpu/cpu4/online 1
