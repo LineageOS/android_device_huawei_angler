@@ -48,6 +48,14 @@
 #include "performance.h"
 #include "power-common.h"
 
+#define BUS_SPEED_PATH "/sys/class/devfreq/qcom,gpubw.70/min_freq"
+#define GPU_MAX_FREQ_PATH "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq"
+#define GPU_MIN_FREQ_PATH "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq"
+#define CPU4_ONLINE_PATH "/sys/devices/system/cpu/cpu4/online"
+#define CPU5_ONLINE_PATH "/sys/devices/system/cpu/cpu5/online"
+#define CPU6_ONLINE_PATH "/sys/devices/system/cpu/cpu6/online"
+#define CPU7_ONLINE_PATH "/sys/devices/system/cpu/cpu7/online"
+
 static int saved_dcvs_cpu0_slack_max = -1;
 static int saved_dcvs_cpu0_slack_min = -1;
 static int saved_mpdecision_slack_max = -1;
@@ -55,7 +63,10 @@ static int saved_mpdecision_slack_min = -1;
 static int saved_interactive_mode = -1;
 static int slack_node_rw_failed = 0;
 static int display_hint_sent;
+static int sustained_performance_mode = 0;
+static int vr_mode = 0;
 int display_boost;
+static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
@@ -215,6 +226,15 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             int duration_hint = 0;
             static unsigned long long previous_boost_time = 0;
 
+            // If we are in sustained perforamnce Mode, touch boost should be
+            // ignored.
+            pthread_mutex_lock(&lock);
+            if (sustained_performance_mode || vr_mode) {
+                pthread_mutex_unlock(&lock);
+                return;
+            }
+            pthread_mutex_unlock(&lock);
+
             // little core freq bump for 1.5s
             int resources[] = {0x20C};
             int duration = 1500;
@@ -292,6 +312,78 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         case POWER_HINT_VIDEO_DECODE:
             process_video_decode_hint(data);
         break;
+
+        /* While the system is Sustained Performance Mode:
+         * CPUfreq for the little cores are capped to 864MHz
+         * Big cores are hotplugged out
+         * GPU frequency is capped to 390 MHz
+         */
+        case POWER_HINT_SUSTAINED_PERFORMANCE:
+        {
+            static int handle = 0;
+
+            pthread_mutex_lock(&lock);
+            if (data) {
+                int resources[] = {0x1508};
+                int duration = 0;
+                handle = interaction_with_handle(handle, duration,
+                                        sizeof(resources)/sizeof(resources[0]),
+                                        resources);
+                sysfs_write(GPU_MAX_FREQ_PATH, "390000000");
+                if (vr_mode == 0) {
+                    sysfs_write(CPU4_ONLINE_PATH, "0");
+                    sysfs_write(CPU5_ONLINE_PATH, "0");
+                    sysfs_write(CPU6_ONLINE_PATH, "0");
+                    sysfs_write(CPU7_ONLINE_PATH, "0");
+                }
+                sustained_performance_mode = 1;
+            } else {
+                release_request(handle);
+                sysfs_write(GPU_MAX_FREQ_PATH, "600000000");
+                if (vr_mode == 0) {
+                    sysfs_write(CPU4_ONLINE_PATH, "1");
+                    sysfs_write(CPU5_ONLINE_PATH, "1");
+                    sysfs_write(CPU6_ONLINE_PATH, "1");
+                    sysfs_write(CPU7_ONLINE_PATH, "1");
+                }
+                sustained_performance_mode = 0;
+           }
+           pthread_mutex_unlock(&lock);
+        }
+        break;
+        case POWER_HINT_VR_MODE:
+        {
+            static int handle_vr = 0;
+            pthread_mutex_lock(&lock);
+            if (data) {
+                int resources[] = {0x206};
+                int duration = 0;
+                handle_vr = interaction_with_handle(handle_vr, duration,
+                                        sizeof(resources)/sizeof(resources[0]),
+                                        resources);
+                sysfs_write(GPU_MIN_FREQ_PATH, "305000000");
+                sysfs_write(BUS_SPEED_PATH, "7904");
+                if (sustained_performance_mode == 0) {
+                    sysfs_write(CPU4_ONLINE_PATH, "0");
+                    sysfs_write(CPU5_ONLINE_PATH, "0");
+                    sysfs_write(CPU6_ONLINE_PATH, "0");
+                    sysfs_write(CPU7_ONLINE_PATH, "0");
+                }
+                vr_mode = 1;
+            } else {
+                release_request(handle_vr);
+                sysfs_write(GPU_MIN_FREQ_PATH, "180000000");
+                sysfs_write(BUS_SPEED_PATH, "0");
+                if (sustained_performance_mode == 0) {
+                    sysfs_write(CPU4_ONLINE_PATH, "1");
+                    sysfs_write(CPU5_ONLINE_PATH, "1");
+                    sysfs_write(CPU6_ONLINE_PATH, "1");
+                    sysfs_write(CPU7_ONLINE_PATH, "1");
+                }
+                vr_mode = 0;
+            }
+            pthread_mutex_unlock(&lock);
+        }
     }
 }
 
