@@ -5660,7 +5660,10 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
 
     uint8_t supportedHwLvl = limitedDevice ?
             ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED :
-            ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_FULL;
+            // No capability check done here to distinguish LEVEL_FULL from
+            // LEVEL_3 - assuming this HAL will not run on devices that only
+            // meet FULL spec
+            ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_3;
 
     staticInfo.update(ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL,
             &supportedHwLvl, 1);
