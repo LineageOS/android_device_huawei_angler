@@ -400,7 +400,7 @@ service imscmservice /system/bin/imscmservice
    user system
    group radio net_raw diag diag log
 
-service cnd /system/bin/cnd
+service cnd /vendor/bin/cnd
     class late_start
     socket cnd stream 660 root inet
     group root wakelock
