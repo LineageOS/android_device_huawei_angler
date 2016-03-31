@@ -49,6 +49,7 @@ const int CPU_SENSORS[] = {8, 9, 10, 11, 14, 15, 16, 7};
 // device/huawei/angler/thermal-engine-angler.conf
 #define SKIN_THROTTLING_THRESHOLD     41
 #define SKIN_SHUTDOWN_THRESHOLD       64
+#define VR_THROTTLED_BELOW_MIN        47
 
 #define GPU_LABEL                     "GPU"
 #define BATTERY_LABEL                 "battery"
@@ -71,7 +72,8 @@ const char *CPU_LABEL[] = {"CPU0", "CPU1", "CPU2", "CPU3", "CPU4", "CPU5", "CPU6
  * @return 0 on success or negative value -errno on error.
  */
 static ssize_t read_temperature(int sensor_num, int type, const char *name, float mult,
-        float throttling_threshold, float shutdown_threshold, temperature_t *out) {
+        float throttling_threshold, float shutdown_threshold, float vr_throttling_threshold,
+        temperature_t *out) {
     FILE *file;
     char file_name[MAX_LENGTH];
     float temp;
@@ -95,7 +97,8 @@ static ssize_t read_temperature(int sensor_num, int type, const char *name, floa
         .name = name,
         .current_value = temp * mult,
         .throttling_threshold = throttling_threshold,
-        .shutdown_threshold = shutdown_threshold
+        .shutdown_threshold = shutdown_threshold,
+        .vr_throttling_threshold = vr_throttling_threshold
     };
 
     return 0;
@@ -110,7 +113,8 @@ static ssize_t get_cpu_temperatures(temperature_t *list, size_t size) {
         }
         // tsens_tz_sensor[7,8,9,10,11,14,15,6]: temperature in Celsius.
         ssize_t result = read_temperature(CPU_SENSORS[cpu], DEVICE_TEMPERATURE_CPU, CPU_LABEL[cpu],
-                1, CPU_THROTTLING_THRESHOLD, CPU_SHUTDOWN_THRESHOLD, &list[cpu]);
+                1, CPU_THROTTLING_THRESHOLD, CPU_SHUTDOWN_THRESHOLD, UNKNOWN_TEMPERATURE,
+                &list[cpu]);
         if (result != 0) {
             return result;
         }
@@ -136,7 +140,8 @@ static ssize_t get_temperatures(thermal_module_t *module, temperature_t *list, s
     if (current_index < size) {
         // tsens_tz_sensor12: temperature in Celsius.
         result = read_temperature(GPU_SENSOR_NUM, DEVICE_TEMPERATURE_GPU, GPU_LABEL, 1,
-                UNKNOWN_TEMPERATURE, UNKNOWN_TEMPERATURE, &list[current_index]);
+                UNKNOWN_TEMPERATURE, UNKNOWN_TEMPERATURE, UNKNOWN_TEMPERATURE,
+                &list[current_index]);
         if (result < 0) {
             return result;
         }
@@ -147,7 +152,8 @@ static ssize_t get_temperatures(thermal_module_t *module, temperature_t *list, s
     if (current_index < size) {
         // hwmon sensor: battery: temperature in millidegrees Celsius.
         result = read_temperature(BATTERY_SENSOR_NUM, DEVICE_TEMPERATURE_BATTERY, BATTERY_LABEL,
-                0.001, UNKNOWN_TEMPERATURE, BATTERY_SHUTDOWN_THRESHOLD, &list[current_index]);
+                0.001, UNKNOWN_TEMPERATURE, BATTERY_SHUTDOWN_THRESHOLD, UNKNOWN_TEMPERATURE,
+                &list[current_index]);
         if (result < 0) {
             return result;
         }
@@ -158,7 +164,8 @@ static ssize_t get_temperatures(thermal_module_t *module, temperature_t *list, s
     if (current_index < size) {
         // msm_thermal: temperature in Celsius.
         result = read_temperature(SKIN_SENSOR_NUM, DEVICE_TEMPERATURE_SKIN, SKIN_LABEL, 1,
-                SKIN_THROTTLING_THRESHOLD, SKIN_SHUTDOWN_THRESHOLD, &list[current_index]);
+                SKIN_THROTTLING_THRESHOLD, SKIN_SHUTDOWN_THRESHOLD, VR_THROTTLED_BELOW_MIN,
+                &list[current_index]);
         if (result < 0) {
             return result;
         }
