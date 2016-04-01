@@ -125,7 +125,7 @@ vendor_tag_info_t nexus_experimental_2015[NEXUS_EXPERIMENTAL_2015_END -
 
 vendor_tag_info_t nexus_experimental_2016[NEXUS_EXPERIMENTAL_2016_END -
         NEXUS_EXPERIMENTAL_2016_START] = {
-   {"3a.hybrid_3a_enable", TYPE_BYTE }
+   {"3a.hybrid_ae_enable", TYPE_BYTE }
 };
 
 vendor_tag_info_t *qcamera3_tag_info[QCAMERA3_SECTIONS_END -

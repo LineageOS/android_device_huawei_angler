@@ -342,6 +342,7 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(uint32_t cameraId,
       mUpdateDebugLevel(false),
       mCallbacks(callbacks),
       mCaptureIntent(0),
+      mHybridAeEnable(0),
       mBatchSize(0),
       mToBeQueuedVidBufs(0),
       mHFRVideoFps(DEFAULT_VIDEO_FPS),
@@ -2597,7 +2598,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
 
             result.result = translateFromHalMetadata(metadata,
                     i->timestamp, i->request_id, i->jpegMetadata, i->pipeline_depth,
-                    i->capture_intent, internalPproc);
+                    i->capture_intent, i->hybrid_ae_enable, internalPproc);
 
             saveExifParams(metadata);
 
@@ -3494,7 +3495,12 @@ no_error:
         mCaptureIntent =
                 meta.find(ANDROID_CONTROL_CAPTURE_INTENT).data.u8[0];
     }
+    if (meta.exists(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE)) {
+        mHybridAeEnable =
+                meta.find(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE).data.u8[0];
+    }
     pendingRequest.capture_intent = mCaptureIntent;
+    pendingRequest.hybrid_ae_enable = mHybridAeEnable;
 
     for (size_t i = 0; i < request->num_output_buffers; i++) {
         RequestedBufferInfo requestedBuf;
@@ -4013,6 +4019,7 @@ template <class mapType> cam_cds_mode_type_t lookupProp(const mapType *arr,
  *   @metadata : metadata information from callback
  *   @timestamp: metadata buffer timestamp
  *   @request_id: request id
+ *   @hybrid_ae_enable: whether hybrid ae is enabled
  *   @jpegMetadata: additional jpeg metadata
  *   @pprocDone: whether internal offline postprocsesing is done
  *
@@ -4027,6 +4034,7 @@ QCamera3HardwareInterface::translateFromHalMetadata(
                                  const CameraMetadata& jpegMetadata,
                                  uint8_t pipeline_depth,
                                  uint8_t capture_intent,
+                                 uint8_t hybrid_ae_enable,
                                  bool pprocDone)
 {
     CameraMetadata camMetadata;
@@ -4039,6 +4047,7 @@ QCamera3HardwareInterface::translateFromHalMetadata(
     camMetadata.update(ANDROID_REQUEST_ID, &request_id, 1);
     camMetadata.update(ANDROID_REQUEST_PIPELINE_DEPTH, &pipeline_depth, 1);
     camMetadata.update(ANDROID_CONTROL_CAPTURE_INTENT, &capture_intent, 1);
+    camMetadata.update(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE, &hybrid_ae_enable, 1);
 
     IF_META_AVAILABLE(uint32_t, frame_number, CAM_INTF_META_FRAME_NUMBER, metadata) {
         int64_t fwk_frame_number = *frame_number;
@@ -6466,7 +6475,7 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
        ANDROID_STATISTICS_HISTOGRAM_MODE, ANDROID_STATISTICS_SHARPNESS_MAP_MODE,
        ANDROID_STATISTICS_LENS_SHADING_MAP_MODE, ANDROID_TONEMAP_CURVE_BLUE,
        ANDROID_TONEMAP_CURVE_GREEN, ANDROID_TONEMAP_CURVE_RED, ANDROID_TONEMAP_MODE,
-       ANDROID_BLACK_LEVEL_LOCK };
+       ANDROID_BLACK_LEVEL_LOCK, NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE};
 
     size_t request_keys_cnt =
             sizeof(request_keys_basic)/sizeof(request_keys_basic[0]);
@@ -6502,7 +6511,7 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
        ANDROID_STATISTICS_SCENE_FLICKER, ANDROID_STATISTICS_FACE_RECTANGLES,
        ANDROID_STATISTICS_FACE_SCORES,
        ANDROID_SENSOR_DYNAMIC_BLACK_LEVEL,
-       ANDROID_SENSOR_DYNAMIC_WHITE_LEVEL,
+       ANDROID_SENSOR_DYNAMIC_WHITE_LEVEL, NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE,
        ANDROID_CONTROL_POST_RAW_SENSITIVITY_BOOST };
     size_t result_keys_cnt =
             sizeof(result_keys_basic)/sizeof(result_keys_basic[0]);
