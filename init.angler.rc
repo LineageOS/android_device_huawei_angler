@@ -132,6 +132,9 @@ on boot
     # GPU Tuning
     chmod 0666 /sys/class/kgsl/kgsl-3d0/dispatch/inflight
 
+    write /sys/block/mmcblk0/queue/rq_affinity 0
+    write /sys/block/mmcblk0/queue/scheduler noop
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
