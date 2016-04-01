@@ -216,7 +216,8 @@ PRODUCT_PACKAGES += \
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
     sensors.angler \
-    activity_recognition.angler
+    activity_recognition.angler \
+    context_hub.angler
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
