@@ -1709,6 +1709,11 @@
         <ctl name="ADC5 Volume" value="20" />
     </path>
 
+     <path name="unprocessed-handset-mic">
+        <path name="adc1" />
+        <ctl name="ADC1 Volume" value="5" />
+    </path>
+
     <path name="anc-handset">
         <ctl name="ANC Function" value="ON" />
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
@@ -1963,6 +1968,10 @@
 
     <path name="voice-rec-mic">
         <path name="handset-mic" />
+    </path>
+
+    <path name="unprocessed-mic">
+        <path name="unprocessed-handset-mic" />
     </path>
 
     <path name="camcorder-mic">
