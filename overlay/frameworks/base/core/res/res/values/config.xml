@@ -407,4 +407,7 @@
     <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
     <!-- MMS user agent prolfile url -->
     <string name="config_mms_user_agent_profile_url" translatable="false">http://wap1.huawei.com/uaprof/HUAWEI_angler-Uaprofile.xml</string>
+
+    <!-- If this is true, device supports Sustained Performance Mode. -->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
 </resources>
