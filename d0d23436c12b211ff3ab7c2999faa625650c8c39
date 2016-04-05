@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_7e2167fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-04-05T15:35:03Z",
+      "side": 1,
+      "message": "build :)",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "d0d23436c12b211ff3ab7c2999faa625650c8c39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_de241b10",
+        "filename": "cm.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 9045
+      },
+      "writtenOn": "2016-04-05T15:35:03Z",
+      "side": 1,
+      "message": "tabs",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "d0d23436c12b211ff3ab7c2999faa625650c8c39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
