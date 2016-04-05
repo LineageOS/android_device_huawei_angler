@@ -316,7 +316,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         /* While the system is Sustained Performance Mode:
          * CPUfreq for the little cores are capped to 864MHz
          * Big cores are hotplugged out
-         * GPU frequency is capped to 390 MHz
+         * GPU frequency is capped to 305 MHz
          */
         case POWER_HINT_SUSTAINED_PERFORMANCE:
         {
@@ -329,7 +329,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 handle = interaction_with_handle(handle, duration,
                                         sizeof(resources)/sizeof(resources[0]),
                                         resources);
-                sysfs_write(GPU_MAX_FREQ_PATH, "390000000");
+                sysfs_write(GPU_MAX_FREQ_PATH, "305000000");
                 if (vr_mode == 0) {
                     sysfs_write(CPU4_ONLINE_PATH, "0");
                     sysfs_write(CPU5_ONLINE_PATH, "0");
