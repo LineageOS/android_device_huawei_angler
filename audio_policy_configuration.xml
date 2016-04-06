@@ -62,10 +62,6 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,16000,48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO,AUDIO_CHANNEL_OUT_MONO"/>
                 </mixPort>
-                <mixPort name="tts" role="source" flags="AUDIO_OUTPUT_FLAG_TTS">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </mixPort>
                 <mixPort name="primary input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
@@ -111,7 +107,7 @@
                 <route type="mix" sink="Earpiece"
                        sources="primary output,raw,deep_buffer"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,raw,deep_buffer,compressed_offload,tts"/>
+                       sources="primary output,raw,deep_buffer,compressed_offload"/>
                 <route type="mix" sink="Wired Headset"
                        sources="primary output,raw,deep_buffer,compressed_offload"/>
                 <route type="mix" sink="Wired Headphones"
