@@ -342,7 +342,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #stereo speakers: orientation changes swap L/R channels
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.audio.monitorRotation=true
+    ro.audio.monitorRotation=false
 
 # low audio flinger standby delay to reduce power consumption
 PRODUCT_PROPERTY_OVERRIDES += \
