@@ -348,10 +348,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.flinger_standbytime_ms=300
 
-# Enable speaker calibration
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.speaker.prot.enable=true
-
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level="ALL_ENABLE"
 
