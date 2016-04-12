@@ -51,8 +51,17 @@ const float kMaxSampleRateHzLight = 5.0;
 const float kMinSampleRateHzOrientation = 12.5f;
 const float kMaxSampleRateHzOrientation = 200.0f;
 
-const int kMaxOneAxisEventCount = 9000;
-const int kMaxThreeAxisEventCount = 4500;
+/*
+ * The fowllowing max count is determined by the total number of blocks
+ * avaliable in the shared nanohub buffer and number of samples each type of
+ * event can hold within a buffer block.
+ * For angler's case, there are 239 blocks in the shared sensor buffer and
+ * each block can hold 30 OneAxis Samples, 15 ThreeAxis Samples or 24
+ * RawThreeAxies Samples.
+ */
+const int kMaxOneAxisEventCount = 7170;
+const int kMaxThreeAxisEventCount = 3585;
+const int kMaxRawThreeAxisEventCount = 5736;
 
 const char SENSOR_STRING_TYPE_INTERNAL_TEMPERATURE[] =
     "com.google.sensor.internal_temperature";
@@ -93,7 +102,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzLight), // minDelay
         0,                                         // XXX fifoReservedEventCount
-        0,                                         // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                     // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_LIGHT,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzLight),    // maxDelay
@@ -111,7 +120,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzAccel), // minDelay
         3000,                                      // XXX fifoReservedEventCount
-        kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
+        kMaxRawThreeAxisEventCount,                // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_ACCELEROMETER,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzAccel),    // maxDelay
@@ -129,7 +138,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzGyro),  // minDelay
         0,                                         // XXX fifoReservedEventCount
-        0,                                         // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GYROSCOPE,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzGyro),     // maxDelay
@@ -147,7 +156,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzGyro),  // minDelay
         0,                                         // XXX fifoReservedEventCount
-        0,                                         // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GYROSCOPE_UNCALIBRATED,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzGyro),     // maxDelay
@@ -165,7 +174,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzMag),   // minDelay
         0,                                         // XXX fifoReservedEventCount
-        0,                                         // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_MAGNETIC_FIELD,
         "",                                        // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzMag),      // maxDelay
@@ -219,7 +228,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzTemperature), // minDelay
         0,                                               // XXX fifoReservedEventCount
-        0,                                               // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                           // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_INTERNAL_TEMPERATURE,
         "",                                              // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzTemperature),    // maxDelay
@@ -237,7 +246,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
         0,                                               // XXX fifoReservedEventCount
-        0,                                               // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_ORIENTATION,
         "",                                              // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzOrientation),    // maxDelay
@@ -273,7 +282,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                   // XXX power
         0,                                      // minDelay
         0,                                      // XXX fifoReservedEventCount
-        0,                                      // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_STEP_COUNTER,
         "",                                     // requiredPermission
         0,                                      // maxDelay
@@ -309,7 +318,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
         0,                                               // XXX fifoReservedEventCount
-        0,                                               // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GRAVITY,
         "",                                              // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzOrientation),    // maxDelay
@@ -327,7 +336,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
         0,                                               // XXX fifoReservedEventCount
-        0,                                               // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_LINEAR_ACCELERATION,
         "",                                              // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzOrientation),    // maxDelay
@@ -345,7 +354,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
         0,                                               // XXX fifoReservedEventCount
-        0,                                               // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_ROTATION_VECTOR,
         "",                                              // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzOrientation),    // maxDelay
@@ -363,7 +372,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
         0,                                               // XXX fifoReservedEventCount
-        0,                                               // XXX fifoMaxEventCount
+        kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GEOMAGNETIC_ROTATION_VECTOR,
         "",                                              // requiredPermission
         (long)(1.0E6f / kMinSampleRateHzOrientation),    // maxDelay
@@ -399,7 +408,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                   // XXX power
         0,                                      // minDelay
         0,                                      // XXX fifoReservedEventCount
-        0,                                      // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_TILT_DETECTOR,
         "",                                     // requiredPermission
         0,                                      // maxDelay
@@ -435,7 +444,7 @@ extern const sensor_t kSensorList[] = {
         0.1f,                                   // XXX power
         0,                                      // minDelay
         0,                                      // XXX fifoReservedEventCount
-        0,                                      // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_SYNC,
         "",                                     // requiredPermission
         0,                                      // maxDelay
@@ -453,7 +462,7 @@ extern const sensor_t kSensorList[] = {
         0.1f,                                   // XXX power
         0,                                      // minDelay
         0,                                      // XXX fifoReservedEventCount
-        0,                                      // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_DOUBLE_TWIST,
         "",                                     // requiredPermission
         0,                                      // maxDelay
@@ -471,7 +480,7 @@ extern const sensor_t kSensorList[] = {
         0.1f,                                   // XXX power
         0,                                      // minDelay
         0,                                      // XXX fifoReservedEventCount
-        0,                                      // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_DOUBLE_TAP,
         "",                                     // requiredPermission
         0,                                      // maxDelay
@@ -489,7 +498,7 @@ extern const sensor_t kSensorList[] = {
         0.1f,                                   // XXX power
         0,                                      // minDelay
         0,                                      // XXX fifoReservedEventCount
-        0,                                      // XXX fifoMaxEventCount
+        kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_DEVICE_ORIENTATION,
         "",                                     // requiredPermission
         0,                                      // maxDelay
