@@ -1553,8 +1553,8 @@
     </path>
 
     <path name="spkr-gain-in-headphone-combo">
-        <ctl name="Left Speaker Gain" value="20" />
-        <ctl name="Right Speaker Gain" value="20" />
+        <ctl name="Left Speaker Gain" value="30" />
+        <ctl name="Right Speaker Gain" value="30" />
     </path>
 
     <path name="speaker-gain-default">
