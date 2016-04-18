@@ -63,6 +63,8 @@ const int kMaxOneAxisEventCount = 7170;
 const int kMaxThreeAxisEventCount = 3585;
 const int kMaxRawThreeAxisEventCount = 5736;
 
+const int kMinFifoReservedEventCount = 20;
+
 const char SENSOR_STRING_TYPE_INTERNAL_TEMPERATURE[] =
     "com.google.sensor.internal_temperature";
 const char SENSOR_STRING_TYPE_SYNC[] =
@@ -101,7 +103,7 @@ extern const sensor_t kSensorList[] = {
         10.0f,                                     // XXX resolution (lx)
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzLight), // minDelay
-        0,                                         // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                     // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_LIGHT,
         "",                                        // requiredPermission
@@ -137,7 +139,7 @@ extern const sensor_t kSensorList[] = {
         2000.0f * M_PI / (180.0f * 32768.0f),      // resolution
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzGyro),  // minDelay
-        0,                                         // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GYROSCOPE,
         "",                                        // requiredPermission
@@ -155,7 +157,7 @@ extern const sensor_t kSensorList[] = {
         2000.0f * M_PI / (180.0f * 32768.0f),      // resolution
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzGyro),  // minDelay
-        0,                                         // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GYROSCOPE_UNCALIBRATED,
         "",                                        // requiredPermission
@@ -173,7 +175,7 @@ extern const sensor_t kSensorList[] = {
         0.0f,                                      // XXX resolution
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzMag),   // minDelay
-        0,                                         // XXX fifoReservedEventCount
+        600,                                       // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                   // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_MAGNETIC_FIELD,
         "",                                        // requiredPermission
@@ -227,7 +229,7 @@ extern const sensor_t kSensorList[] = {
         0.01,                                            // resolution (degC)
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzTemperature), // minDelay
-        0,                                               // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                      // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                           // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_INTERNAL_TEMPERATURE,
         "",                                              // requiredPermission
@@ -245,7 +247,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                            // XXX resolution (deg)
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
-        0,                                               // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                      // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_ORIENTATION,
         "",                                              // requiredPermission
@@ -281,7 +283,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                   // resolution
         0.0f,                                   // XXX power
         0,                                      // minDelay
-        0,                                      // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,             // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_STEP_COUNTER,
         "",                                     // requiredPermission
@@ -317,7 +319,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                            // XXX resolution
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
-        0,                                               // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                      // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GRAVITY,
         "",                                              // requiredPermission
@@ -335,7 +337,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                            // XXX resolution
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
-        0,                                               // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                      // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_LINEAR_ACCELERATION,
         "",                                              // requiredPermission
@@ -353,7 +355,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                            // XXX resolution
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
-        0,                                               // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                      // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_ROTATION_VECTOR,
         "",                                              // requiredPermission
@@ -371,7 +373,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                            // XXX resolution
         0.0f,                                            // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzOrientation), // minDelay
-        0,                                               // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,                      // XXX fifoReservedEventCount
         kMaxThreeAxisEventCount,                         // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_GEOMAGNETIC_ROTATION_VECTOR,
         "",                                              // requiredPermission
@@ -407,7 +409,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                   // XXX resolution
         0.0f,                                   // XXX power
         0,                                      // minDelay
-        0,                                      // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,             // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_TILT_DETECTOR,
         "",                                     // requiredPermission
@@ -443,7 +445,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                   // XXX resolution
         0.1f,                                   // XXX power
         0,                                      // minDelay
-        0,                                      // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,             // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_SYNC,
         "",                                     // requiredPermission
@@ -461,7 +463,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                   // XXX resolution
         0.1f,                                   // XXX power
         0,                                      // minDelay
-        0,                                      // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,             // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_DOUBLE_TWIST,
         "",                                     // requiredPermission
@@ -479,7 +481,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                   // XXX resolution
         0.1f,                                   // XXX power
         0,                                      // minDelay
-        0,                                      // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,             // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_DOUBLE_TAP,
         "",                                     // requiredPermission
@@ -497,7 +499,7 @@ extern const sensor_t kSensorList[] = {
         1.0f,                                   // XXX resolution
         0.1f,                                   // XXX power
         0,                                      // minDelay
-        0,                                      // XXX fifoReservedEventCount
+        kMinFifoReservedEventCount,             // XXX fifoReservedEventCount
         kMaxOneAxisEventCount,                  // XXX fifoMaxEventCount
         SENSOR_STRING_TYPE_DEVICE_ORIENTATION,
         "",                                     // requiredPermission
