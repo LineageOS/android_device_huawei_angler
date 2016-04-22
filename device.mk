@@ -91,6 +91,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AnglerLayout
 
+# include fingerprintd
+PRODUCT_PACKAGES += \
+    fingerprintd
+
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
     ro.config.ringtone \
@@ -214,6 +218,11 @@ PRODUCT_PACKAGES += \
     libqomx_core \
     mm-qcamera-app
 
+# GPS
+PRODUCT_PACKAGES += \
+    libgps.utils \
+    gps.msm8994
+
 # Sensor & activity_recognition HAL
 TARGET_USES_NANOHUB_SENSORHAL := true
 NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
@@ -318,7 +327,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
