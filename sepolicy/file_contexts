@@ -115,10 +115,10 @@
 # System files
 /vendor/bin/ATFWD-daemon                 u:object_r:atfwd_exec:s0
 /vendor/bin/cnd                          u:object_r:cnd_exec:s0
-/system/bin/imscmservice                 u:object_r:ims_exec:s0
-/system/bin/imsdatadaemon                u:object_r:ims_exec:s0
-/system/bin/imsqmidaemon                 u:object_r:ims_exec:s0
-/system/bin/ims_rtp_daemon               u:object_r:ims_exec:s0
+/vendor/bin/imscmservice                 u:object_r:ims_exec:s0
+/vendor/bin/imsdatadaemon                u:object_r:ims_exec:s0
+/vendor/bin/imsqmidaemon                 u:object_r:ims_exec:s0
+/vendor/bin/ims_rtp_daemon               u:object_r:ims_exec:s0
 /system/bin/init\.angler\.power\.sh      u:object_r:init-power-sh_exec:s0
 /system/bin/init\.angler\.qseecomd\.sh   u:object_r:init-angler-qseecomd-sh_exec:s0
 /system/bin/init\.mcfg\.sh               u:object_r:init-mcfg-sh_exec:s0
