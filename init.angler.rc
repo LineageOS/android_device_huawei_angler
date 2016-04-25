@@ -281,27 +281,32 @@ service charger /sbin/healthd -c
     class charger
     group log
     seclabel u:r:healthd:s0
+    writepid /dev/cpuset/system-background/tasks
 
 service per_mgr /vendor/bin/pm-service
     class core
     user root
     group system net_raw
+    writepid /dev/cpuset/system-background/tasks
 
 service per_proxy /vendor/bin/pm-proxy
     class core
     user root
     group system net_raw
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
@@ -315,12 +320,14 @@ service thermal-engine /vendor/bin/thermal-engine
     socket thermal-recv-client stream 0660 system system
     socket thermal-recv-passive-client stream 0660 system system
     group root radio
+    writepid /dev/cpuset/system-background/tasks
 
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /vendor/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth wakelock gps
+    writepid /dev/cpuset/system-background/tasks
 
 service perfd /vendor/bin/perfd
     class main
@@ -331,20 +338,24 @@ service perfd /vendor/bin/perfd
 service netmgrd /vendor/bin/netmgrd
     class main
     group radio system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw usb net_admin
+    writepid /dev/cpuset/system-background/tasks
 
 service time_daemon /vendor/bin/time_daemon
-   class late_start
-   user root
-   group root
+    class late_start
+    user root
+    group root
+    writepid /dev/cpuset/system-background/tasks
 
 service loc_launcher /vendor/bin/loc_launcher
-   class late_start
-   group gps inet net_raw net_admin wifi
+    class late_start
+    group gps inet net_raw net_admin wifi
+    writepid /dev/cpuset/system-background/tasks
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B -z \
@@ -365,6 +376,7 @@ service fingerprintd /system/bin/fingerprintd
     class late_start
     user system
     group input
+    writepid /dev/cpuset/system-background/tasks
 
 service p2p_supplicant /system/bin/wpa_supplicant \
         -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -392,26 +404,30 @@ service imsqmidaemon /system/bin/imsqmidaemon
     user system
     socket ims_qmid stream 0660 system radio
     group radio net_raw log diag
+    writepid /dev/cpuset/system-background/tasks
 
 service imsdatadaemon /system/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
     group system wifi radio inet net_raw log diag net_admin
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
 service imscmservice /system/bin/imscmservice
-   class main
-   user system
-   group radio net_raw diag diag log
+    class main
+    user system
+    group radio net_raw diag diag log
+    writepid /dev/cpuset/system-background/tasks
 
 service cnd /vendor/bin/cnd
     class late_start
     socket cnd stream 660 root inet
     group root wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.boot.hardware.revision=ANGLER-V1
     write /sys/module/bcmdhd/parameters/nvram_path \
