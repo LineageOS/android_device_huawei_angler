@@ -323,7 +323,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             static int handle = 0;
 
             pthread_mutex_lock(&lock);
-            if (data) {
+            if (data && sustained_performance_mode == 0) {
                 int resources[] = {0x1508};
                 int duration = 0;
                 handle = interaction_with_handle(handle, duration,
@@ -337,7 +337,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                     sysfs_write(CPU7_ONLINE_PATH, "0");
                 }
                 sustained_performance_mode = 1;
-            } else {
+            } else if (sustained_performance_mode == 1){
                 release_request(handle);
                 sysfs_write(GPU_MAX_FREQ_PATH, "600000000");
                 if (vr_mode == 0) {
@@ -355,7 +355,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         {
             static int handle_vr = 0;
             pthread_mutex_lock(&lock);
-            if (data) {
+            if (data && vr_mode == 0) {
                 int resources[] = {0x206};
                 int duration = 0;
                 handle_vr = interaction_with_handle(handle_vr, duration,
@@ -370,7 +370,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                     sysfs_write(CPU7_ONLINE_PATH, "0");
                 }
                 vr_mode = 1;
-            } else {
+            } else if (vr_mode == 1){
                 release_request(handle_vr);
                 sysfs_write(GPU_MIN_FREQ_PATH, "180000000");
                 sysfs_write(BUS_SPEED_PATH, "0");
