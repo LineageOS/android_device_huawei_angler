@@ -167,5 +167,5 @@
 /sys/devices/virtual/graphics/fb0/dynamic_dsitiming                   u:object_r:sysfs_lcd_mipi:s0
 
 # Sysfs files used by nanoapp_cmd
-/sys/devices/virtual/nanohub/nanohub/download_bl u:object_r:sysfs_nanoapp_cmd:s0
+/sys/devices/virtual/nanohub/nanohub(/.*)? u:object_r:sysfs_nanoapp_cmd:s0
 
