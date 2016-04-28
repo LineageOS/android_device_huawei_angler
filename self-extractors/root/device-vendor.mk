@@ -15,3 +15,4 @@
 LOCAL_STEM := angler/device-partial.mk
 
 $(call inherit-product-if-exists, vendor/huawei/$(LOCAL_STEM))
+$(call inherit-product-if-exists, vendor/qcom/$(LOCAL_STEM))
