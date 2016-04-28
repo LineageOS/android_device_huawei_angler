@@ -232,7 +232,7 @@ NANOHUB_SENSORHAL_SENSORLIST := $(LOCAL_PATH)/sensorhal/sensorlist.cpp
 PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
-    context_hub.angler
+    context_hub.default
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
