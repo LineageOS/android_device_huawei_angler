@@ -365,6 +365,8 @@ private:
         uint32_t num_buffers;
         // List of pending buffers
         List<PendingBufferInfo> mPendingBufferList;
+        // Last frame number requested
+        uint32_t last_frame_number;
     } PendingBuffersMap;
 
     typedef struct {
