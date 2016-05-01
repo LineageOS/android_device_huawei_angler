@@ -182,6 +182,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
     sensors.angler \
