@@ -355,7 +355,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
 
             pthread_mutex_lock(&lock);
             if (data && sustained_performance_mode == 0) {
-                int resources[] = {0x1508};
+                int resources[] = {0x1509};
                 int duration = 0;
                 handle = interaction_with_handle(handle, duration,
                                         sizeof(resources)/sizeof(resources[0]),
