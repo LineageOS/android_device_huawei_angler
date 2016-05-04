@@ -390,6 +390,9 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(uint32_t cameraId,
     memset(prop, 0, sizeof(prop));
     property_get("persist.camera.tnr.video", prop, "1");
     m_bTnrVideo = (uint8_t)atoi(prop);
+
+    mPendingBuffersMap.num_buffers = 0;
+    mPendingBuffersMap.last_frame_number = -1;
 }
 
 /*===========================================================================
@@ -479,6 +482,12 @@ QCamera3HardwareInterface::~QCamera3HardwareInterface()
 
             // Check if there is still pending buffer not yet returned.
             if (hasPendingBuffers) {
+                for (auto& pendingBuffer : mPendingBuffersMap.mPendingBufferList) {
+                    ALOGE("%s: Buffer not yet returned for stream. Frame number %d, format 0x%x, width %d, height %d",
+                        __func__, pendingBuffer.frame_number, pendingBuffer.stream->format, pendingBuffer.stream->width,
+                        pendingBuffer.stream->height);
+                }
+                ALOGE("%s: Last requested frame number is %d", __func__, mPendingBuffersMap.last_frame_number);
                 uint8_t restart = TRUE;
                 ADD_SET_PARAM_ENTRY_TO_BATCH(mParameters, CAM_INTF_META_DAEMON_RESTART,
                         restart);
@@ -3521,6 +3530,7 @@ no_error:
                 __func__, frameNumber, bufferInfo.buffer,
                 channel->getStreamTypeMask(), bufferInfo.stream->format);
     }
+    mPendingBuffersMap.last_frame_number = frameNumber;
     latestRequest = mPendingRequestsList.insert(
             mPendingRequestsList.end(), pendingRequest);
     if(mFlush) {
