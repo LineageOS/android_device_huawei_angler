@@ -2425,7 +2425,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
             POINTER_OF_META(CAM_INTF_META_URGENT_FRAME_NUMBER, metadata);
     IF_META_AVAILABLE(cam_frame_dropped_t, p_cam_frame_drop, CAM_INTF_META_FRAME_DROPPED,
             metadata) {
-        CDBG("%s: Dropped frame info for frame_number_valid %d, frame_number %d",
+        ALOGE("%s: Dropped frame info for frame_number_valid %d, frame_number %d",
                 __func__, *p_frame_number_valid, *p_frame_number);
     }
 
