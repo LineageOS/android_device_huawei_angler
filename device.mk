@@ -28,18 +28,15 @@ else
   LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
+    device/huawei/angler/fstab.angler:root/fstab.angler \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh
-
-ifneq ($(TARGET_NO_RECOVERY),true)
-  PRODUCT_COPY_FILES += device/huawei/angler/fstab.angler:root/fstab.angler
-endif
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_COPY_FILES += \
