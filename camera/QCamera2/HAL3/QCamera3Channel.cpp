@@ -1801,11 +1801,68 @@ int32_t QCamera3RawChannel::initialize(cam_is_type_t isType)
     return QCamera3RegularChannel::initialize(isType);
 }
 
+#define GET_RAW_PIXEL(row_start,j) (row_start[5*(j/4)+j%4]<<2|((row_start[5*(j/4)+4]>>(j%4))&0x03))
+static void calculateBlacklevelForRaw10(mm_camera_buf_def_t *frame,
+    uint32_t stridebytes,
+    float (&fwk_blacklevel)[4],
+    int32_t opticalBlackRegions[4]){
+
+    int32_t left   = opticalBlackRegions[0];
+    int32_t right  = opticalBlackRegions[2];
+    int32_t top    = opticalBlackRegions[1];
+    int32_t bottom = opticalBlackRegions[3];
+    int32_t count  = 0;
+
+    fwk_blacklevel[0] = 0.0;
+    fwk_blacklevel[1] = 0.0;
+    fwk_blacklevel[2] = 0.0;
+    fwk_blacklevel[3] = 0.0;
+
+    for(int32_t i = top ; i < bottom ; i += 2){
+        uint8_t* row_start = (uint8_t *)frame->buffer + i * stridebytes;
+        for(int32_t j = left ; j < right ; j += 2){
+            count++;
+            fwk_blacklevel[0] += GET_RAW_PIXEL(row_start,j);
+            fwk_blacklevel[1] += GET_RAW_PIXEL(row_start,(j+1));
+            fwk_blacklevel[2] += GET_RAW_PIXEL((row_start+stridebytes),j);
+            fwk_blacklevel[3] += GET_RAW_PIXEL((row_start+stridebytes),(j+1));
+        }
+    }
+    fwk_blacklevel[0] = fwk_blacklevel[0]/count;
+    fwk_blacklevel[1] = fwk_blacklevel[1]/count;
+    fwk_blacklevel[2] = fwk_blacklevel[2]/count;
+    fwk_blacklevel[3] = fwk_blacklevel[3]/count;
+}
+
 void QCamera3RawChannel::streamCbRoutine(
                         mm_camera_super_buf_t *super_frame,
                         QCamera3Stream * stream)
 {
     ATRACE_CALL();
+    CDBG("%s, E.", __func__);
+    QCamera3HardwareInterface* hw = (QCamera3HardwareInterface*)mUserData;
+    int32_t opticalBlackRegions[4];
+
+    if (mIsRaw16 && hw->getBlackLevelRegion(opticalBlackRegions) == true) {
+        if (RAW_FORMAT == CAM_FORMAT_BAYER_MIPI_RAW_10BPP_GBRG) {
+            QCamera3HardwareInterface* hw = (QCamera3HardwareInterface*)mUserData;
+            uint32_t frame_number = 0;
+            float dynamic_blacklevel[4] = {0.0, 0.0, 0.0, 0.0};
+
+            cam_frame_len_offset_t offset;
+            memset(&offset, 0, sizeof(cam_frame_len_offset_t));
+            stream->getFrameOffset(offset);
+            calculateBlacklevelForRaw10(super_frame->bufs[0],(uint32_t)offset.mp[0].stride_in_bytes,
+                dynamic_blacklevel, opticalBlackRegions);
+            frame_number = mMemory.getFrameNumber((uint8_t)super_frame->bufs[0]->buf_idx);
+            CDBG("%s, frame_number:%d, dynamic black level (%f, %f, %f, %f)",
+                __func__, frame_number,
+                dynamic_blacklevel[0], dynamic_blacklevel[1],
+                dynamic_blacklevel[2], dynamic_blacklevel[3]);
+            hw->sendDynamicBlackLevel(dynamic_blacklevel, frame_number);
+        }
+    }
+
     /* Move this back down once verified */
     if (mRawDump)
         dumpRawSnapshot(super_frame->bufs[0]);

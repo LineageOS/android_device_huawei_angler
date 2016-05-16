@@ -174,7 +174,7 @@ public:
                             nsecs_t timestamp, int32_t request_id,
                             const CameraMetadata& jpegMetadata, uint8_t pipeline_depth,
                             uint8_t capture_intent, uint8_t hybrid_ae_enable,
-                            bool pprocDone);
+                            bool pprocDone, bool dynamic_blklvl);
     camera_metadata_t* saveRequestSettings(const CameraMetadata& jpegMetadata,
                             camera3_capture_request_t *request);
     int initParameters();
@@ -213,6 +213,9 @@ public:
         cam_cds_mode_type_t val;
     } QCameraPropMap;
 
+    bool getBlackLevelRegion(int (&opticalBlackRegions)[4]);
+    void sendDynamicBlackLevel(float blacklevel[4], uint32_t frame_number);
+    void sendDynamicBlackLevelWithLock(float blacklevel[4], uint32_t frame_number);
 
 private:
 
@@ -344,6 +347,8 @@ private:
         uint8_t capture_intent;
         bool shutter_notified;
         uint8_t hybrid_ae_enable;
+        bool need_dynamic_blklvl;
+        bool pending_extra_result;
     } PendingRequestInfo;
     typedef struct {
         uint32_t frame_number;
