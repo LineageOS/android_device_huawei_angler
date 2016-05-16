@@ -9396,6 +9396,37 @@
       type="mms"
       protocol="IPV6"
       roaming_protocol="IP"
+      bearer_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17"
+  />
+
+  <apn carrier="T-Mobile MMS"
+       mcc="310"
+       mnc="260"
+       apn="TMUS"
+       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
+       type="mms"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="18"
+  />
+
+  <apn carrier="T-Mobile IMS"
+       mcc="310"
+       mnc="260"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       bearer_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17"
+  />
+
+  <apn carrier="T-Mobile IMS"
+       mcc="310"
+       mnc="260"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="18"
   />
 
   <apn carrier="Project Fi - T"
@@ -9421,14 +9452,6 @@
        roaming_protocol="IP"
        mvno_match_data="31026097"
        mvno_type="IMSI"
-  />
-
-  <apn carrier="T-Mobile IMS"
-      mcc="310"
-      mnc="260"
-      apn="ims"
-      type="ims"
-      protocol="IPV6"
   />
 
   <apn carrier="MetroPCS 260"
