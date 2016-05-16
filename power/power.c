@@ -243,6 +243,8 @@ int interaction_with_handle(int lock_handle, int duration, int num_args, int opt
 static void power_hint(struct power_module *module, power_hint_t hint,
         void *data)
 {
+    static int handle_hotplug = 0;
+    int resources_hotplug[] = {0x3DFF};
     /* Check if this hint has been overridden. */
     if (power_hint_override(module, hint, data) == HINT_HANDLED) {
         /* The power_hint has been handled. We can skip the rest. */
@@ -362,20 +364,16 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                                         resources);
                 sysfs_write(GPU_MAX_FREQ_PATH, "305000000");
                 if (vr_mode == 0) {
-                    sysfs_write(CPU4_ONLINE_PATH, "0");
-                    sysfs_write(CPU5_ONLINE_PATH, "0");
-                    sysfs_write(CPU6_ONLINE_PATH, "0");
-                    sysfs_write(CPU7_ONLINE_PATH, "0");
+                    handle_hotplug = interaction_with_handle(handle_hotplug, duration,
+                                        sizeof(resources_hotplug)/sizeof(resources_hotplug[0]),
+                                        resources_hotplug);
                 }
                 sustained_performance_mode = 1;
             } else if (sustained_performance_mode == 1){
                 release_request(handle);
                 sysfs_write(GPU_MAX_FREQ_PATH, "600000000");
                 if (vr_mode == 0) {
-                    sysfs_write(CPU4_ONLINE_PATH, "1");
-                    sysfs_write(CPU5_ONLINE_PATH, "1");
-                    sysfs_write(CPU6_ONLINE_PATH, "1");
-                    sysfs_write(CPU7_ONLINE_PATH, "1");
+                    release_request(handle_hotplug);
                 }
                 sustained_performance_mode = 0;
            }
@@ -395,10 +393,9 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 sysfs_write(GPU_MIN_FREQ_PATH, "305000000");
                 sysfs_write(BUS_SPEED_PATH, "7904");
                 if (sustained_performance_mode == 0) {
-                    sysfs_write(CPU4_ONLINE_PATH, "0");
-                    sysfs_write(CPU5_ONLINE_PATH, "0");
-                    sysfs_write(CPU6_ONLINE_PATH, "0");
-                    sysfs_write(CPU7_ONLINE_PATH, "0");
+                    handle_hotplug = interaction_with_handle(handle_hotplug, duration,
+                                        sizeof(resources_hotplug)/sizeof(resources_hotplug[0]),
+                                        resources_hotplug);
                 }
                 vr_mode = 1;
             } else if (vr_mode == 1){
@@ -406,10 +403,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 sysfs_write(GPU_MIN_FREQ_PATH, "180000000");
                 sysfs_write(BUS_SPEED_PATH, "0");
                 if (sustained_performance_mode == 0) {
-                    sysfs_write(CPU4_ONLINE_PATH, "1");
-                    sysfs_write(CPU5_ONLINE_PATH, "1");
-                    sysfs_write(CPU6_ONLINE_PATH, "1");
-                    sysfs_write(CPU7_ONLINE_PATH, "1");
+                    release_request(handle_hotplug);
                 }
                 vr_mode = 0;
             }
