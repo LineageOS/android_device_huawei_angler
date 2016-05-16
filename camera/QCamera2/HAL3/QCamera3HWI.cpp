@@ -58,7 +58,7 @@ namespace qcamera {
 #define DATA_PTR(MEM_OBJ,INDEX) MEM_OBJ->getPtr( INDEX )
 
 #define EMPTY_PIPELINE_DELAY 2
-#define PARTIAL_RESULT_COUNT 2
+#define PARTIAL_RESULT_COUNT 3
 #define FRAME_SKIP_DELAY     0
 #define CAM_MAX_SYNC_LATENCY 4
 
@@ -2423,6 +2423,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
     int32_t frame_number_valid, urgent_frame_number_valid;
     uint32_t frame_number, urgent_frame_number;
     int64_t capture_time;
+    bool unfinished_raw_request = false;
 
     int32_t *p_frame_number_valid =
             POINTER_OF_META(CAM_INTF_META_FRAME_NUMBER_VALID, metadata);
@@ -2516,8 +2517,6 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
         memset(&result, 0, sizeof(camera3_capture_result_t));
 
         CDBG("%s: frame_number in the list is %u", __func__, i->frame_number);
-        i->partial_result_cnt++;
-        result.partial_result = i->partial_result_cnt;
 
         // Check whether any stream buffer corresponding to this is dropped or not
         // If dropped, then send the ERROR_BUFFER for the corresponding stream
@@ -2562,6 +2561,20 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 /* this will be handled in handleInputBufferWithLock */
                 i++;
                 continue;
+            } else if (i->need_dynamic_blklvl) {
+                unfinished_raw_request = true;
+                // i->partial_result_cnt--;
+                CDBG("%s, frame number:%d, partial_result:%d, unfinished raw request..",
+                        __func__, i->frame_number, i->partial_result_cnt);
+                i++;
+                continue;
+            } else if (i->pending_extra_result) {
+                CDBG("%s, frame_number:%d, partial_result:%d, need_dynamic_blklvl:%d",
+                        __func__, i->frame_number, i->partial_result_cnt,
+                        i->need_dynamic_blklvl);
+                // i->partial_result_cnt--;
+                i++;
+                continue;
             } else {
                 ALOGE("%s: Fatal: Missing metadata buffer for frame number %d", __func__, i->frame_number);
                 if (free_and_bufdone_meta_buf) {
@@ -2576,7 +2589,22 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 goto done_metadata;
             }
         } else {
-            mPendingLiveRequest--;
+            i->partial_result_cnt++;
+            CDBG("%s, frame_number:%d, need_dynamic_blklvl:%d, partial cnt:%d\n",
+                    __func__, i->frame_number, i->need_dynamic_blklvl,
+                    i->partial_result_cnt);
+            if (!i->need_dynamic_blklvl) {
+                CDBG("%s, meta for request without raw, frame number: %d\n",
+                        __func__, i->frame_number);
+                if (!unfinished_raw_request) {
+                    i->partial_result_cnt++;
+                    CDBG("%s, no raw request pending, send the final (cnt:%d) partial result",
+                            __func__, i->partial_result_cnt);
+                }
+            }
+
+            result.partial_result = i->partial_result_cnt;
+
             /* Clear notify_msg structure */
             camera3_notify_msg_t notify_msg;
             memset(&notify_msg, 0, sizeof(camera3_notify_msg_t));
@@ -2607,7 +2635,7 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
 
             result.result = translateFromHalMetadata(metadata,
                     i->timestamp, i->request_id, i->jpegMetadata, i->pipeline_depth,
-                    i->capture_intent, i->hybrid_ae_enable, internalPproc);
+                    i->capture_intent, i->hybrid_ae_enable, internalPproc, i->need_dynamic_blklvl);
 
             saveExifParams(metadata);
 
@@ -2694,22 +2722,31 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
             }
             result.output_buffers = result_buffers;
             mCallbackOps->process_capture_result(mCallbackOps, &result);
-            CDBG("%s %d: meta frame_number = %u, capture_time = %lld",
-                    __func__, __LINE__, result.frame_number, i->timestamp);
+            CDBG("%s %d: meta frame_number = %u, capture_time = %lld, partial:%d",
+                    __func__, __LINE__, result.frame_number, i->timestamp, result.partial_result);
             free_camera_metadata((camera_metadata_t *)result.result);
             delete[] result_buffers;
         } else {
             mCallbackOps->process_capture_result(mCallbackOps, &result);
-            CDBG("%s %d: meta frame_number = %u, capture_time = %lld",
-                        __func__, __LINE__, result.frame_number, i->timestamp);
+            CDBG("%s %d: meta frame_number = %u, capture_time = %lld, partial:%d",
+                        __func__, __LINE__, result.frame_number, i->timestamp, result.partial_result);
             free_camera_metadata((camera_metadata_t *)result.result);
         }
 
-        i = erasePendingRequest(i);
+        if (i->partial_result_cnt == PARTIAL_RESULT_COUNT) {
+            mPendingLiveRequest--;
+            i = erasePendingRequest(i);
+        } else {
+            CDBG("%s, keep in list, frame number:%d, partial result:%d",
+                    __func__, i->frame_number, i->partial_result_cnt);
+            i->pending_extra_result = true;
+            i++;
+        }
 
         if (!mPendingReprocessResultList.empty()) {
             handlePendingReprocResults(frame_number + 1);
         }
+
     }
 
 done_metadata:
@@ -2830,6 +2867,104 @@ void QCamera3HardwareInterface::handleInputBufferWithLock(uint32_t frame_number)
     }
 }
 
+bool QCamera3HardwareInterface::getBlackLevelRegion(int (&opticalBlackRegions)[4])
+{
+    if (gCamCapability[mCameraId]->optical_black_region_count > 0) {
+        /*just calculate one region black level and send to fwk*/
+        for (size_t i = 0; i <  4; i++) {
+            opticalBlackRegions[i] = gCamCapability[mCameraId]->optical_black_regions[i];
+        }
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+void QCamera3HardwareInterface::sendDynamicBlackLevel(float blacklevel[4], uint32_t frame_number)
+{
+    CDBG("%s, E.\n", __func__);
+    pthread_mutex_lock(&mMutex);
+    sendDynamicBlackLevelWithLock(blacklevel, frame_number);
+    pthread_mutex_unlock(&mMutex);
+    CDBG("%s, X.\n", __func__);
+}
+
+void QCamera3HardwareInterface::sendDynamicBlackLevelWithLock(float blacklevel[4], uint32_t frame_number)
+{
+    CDBG("%s, E. frame_number:%d\n", __func__, frame_number);
+
+    pendingRequestIterator i = mPendingRequestsList.begin();
+    while (i != mPendingRequestsList.end() && i->frame_number != frame_number){
+        i++;
+    }
+    if ((i == mPendingRequestsList.end()) || !i->need_dynamic_blklvl) {
+        ALOGE("%s, error: invalid frame number.", __func__);
+        return;
+    }
+
+    i->partial_result_cnt++;
+
+    CameraMetadata camMetadata;
+    int64_t fwk_frame_number = (int64_t)frame_number;
+    camMetadata.update(ANDROID_SYNC_FRAME_NUMBER, &fwk_frame_number, 1);
+
+    // update dynamic black level here
+    camMetadata.update(ANDROID_SENSOR_DYNAMIC_BLACK_LEVEL, blacklevel, 4);
+
+    camera3_capture_result_t result;
+    memset(&result, 0, sizeof(camera3_capture_result_t));
+    result.frame_number = frame_number;
+    result.num_output_buffers = 0;
+    result.result = camMetadata.release();
+    result.partial_result = i->partial_result_cnt;
+
+    CDBG("%s, partial result:%d, frame_number:%d, pending extra result:%d\n",
+            __func__, result.partial_result, frame_number, i->pending_extra_result);
+    mCallbackOps->process_capture_result(mCallbackOps, &result);
+    free_camera_metadata((camera_metadata_t *)result.result);
+
+    if (i->partial_result_cnt == PARTIAL_RESULT_COUNT) {
+        CDBG("%s, remove cur request from pending list.", __func__);
+        mPendingLiveRequest--;
+        i = erasePendingRequest(i);
+
+        // traverse the remaining pending list to see whether need to send cached ones..
+        while (i != mPendingRequestsList.end()) {
+            CDBG("%s, frame number:%d, partial_result:%d, pending extra result:%d",
+                    __func__, i->frame_number, i->partial_result_cnt,
+                    i->pending_extra_result);
+
+            if ((i->partial_result_cnt == PARTIAL_RESULT_COUNT - 1)
+                    && (i->need_dynamic_blklvl == false) /* in case two consecutive raw requests */) {
+                // send out final result, and remove it from pending list.
+                CameraMetadata camMetadata;
+                int64_t fwk_frame_number = (int64_t)i->frame_number;
+                camMetadata.update(ANDROID_SYNC_FRAME_NUMBER, &fwk_frame_number, 1);
+
+                memset(&result, 0, sizeof(camera3_capture_result_t));
+                result.frame_number = i->frame_number;
+                result.num_output_buffers = 0;
+                result.result = camMetadata.release();
+                result.partial_result = i->partial_result_cnt + 1;
+
+                mCallbackOps->process_capture_result(mCallbackOps, &result);
+                free_camera_metadata((camera_metadata_t *)result.result);
+
+                mPendingLiveRequest--;
+                i = erasePendingRequest(i);
+                CDBG("%s, mPendingLiveRequest:%d, pending list size:%d",
+                        __func__, mPendingLiveRequest, mPendingRequestsList.size());
+            } else {
+                break;
+            }
+        }
+    }
+
+    unblockRequestIfNecessary();
+    CDBG("%s, X.mPendingLiveRequest = %d\n", __func__, mPendingLiveRequest);
+}
+
+
 /*===========================================================================
  * FUNCTION   : handleBufferWithLock
  *
@@ -2852,7 +2987,14 @@ void QCamera3HardwareInterface::handleBufferWithLock(
     while (i != mPendingRequestsList.end() && i->frame_number != frame_number){
         i++;
     }
-    if (i == mPendingRequestsList.end()) {
+    if (i == mPendingRequestsList.end() || i->pending_extra_result == true) {
+        if (i != mPendingRequestsList.end()) {
+            // though the pendingRequestInfo is still in the list,
+            // still send the buffer directly, as the pending_extra_result is true,
+            // and we've already received meta for this frame number.
+            CDBG("%s, send the buffer directly, frame number:%d",
+                    __func__, i->frame_number);
+        }
         // Verify all pending requests frame_numbers are greater
         for (pendingRequestIterator j = mPendingRequestsList.begin();
                 j != mPendingRequestsList.end(); j++) {
@@ -3498,6 +3640,8 @@ no_error:
     pendingRequest.jpegMetadata = mCurJpegMeta;
     pendingRequest.settings = saveRequestSettings(mCurJpegMeta, request);
     pendingRequest.shutter_notified = false;
+    pendingRequest.need_dynamic_blklvl = false;
+    pendingRequest.pending_extra_result = false;
 
     //extract capture intent
     if (meta.exists(ANDROID_CONTROL_CAPTURE_INTENT)) {
@@ -3529,6 +3673,13 @@ no_error:
         CDBG("%s: frame = %d, buffer = %p, streamTypeMask = %d, stream format = %d",
                 __func__, frameNumber, bufferInfo.buffer,
                 channel->getStreamTypeMask(), bufferInfo.stream->format);
+
+        if (bufferInfo.stream->format == HAL_PIXEL_FORMAT_RAW16) {
+            if (gCamCapability[mCameraId]->optical_black_region_count > 0) {
+                CDBG("%s, frame_number:%d, need dynamic blacklevel", __func__, frameNumber);
+                pendingRequest.need_dynamic_blklvl = true;
+            }
+        }
     }
     mPendingBuffersMap.last_frame_number = frameNumber;
     latestRequest = mPendingRequestsList.insert(
@@ -4045,7 +4196,8 @@ QCamera3HardwareInterface::translateFromHalMetadata(
                                  uint8_t pipeline_depth,
                                  uint8_t capture_intent,
                                  uint8_t hybrid_ae_enable,
-                                 bool pprocDone)
+                                 bool pprocDone,
+                                 bool dynamic_blklvl)
 {
     CameraMetadata camMetadata;
     camera_metadata_t *resultMetadata;
@@ -4201,14 +4353,17 @@ QCamera3HardwareInterface::translateFromHalMetadata(
         camMetadata.update(QCAMERA3_SENSOR_DYNAMIC_BLACK_LEVEL_PATTERN, fwk_blackLevelInd, 4);
         camMetadata.update(NEXUS_EXPERIMENTAL_2015_SENSOR_DYNAMIC_BLACK_LEVEL, fwk_blackLevelInd, 4);
 
-        // Update the ANDROID_SENSOR_DYNAMIC_BLACK_LEVEL
-        // Need convert the internal 16 bit depth to sensor 10 bit sensor raw
-        // depth space.
-        fwk_blackLevelInd[0] /= 64.0;
-        fwk_blackLevelInd[1] /= 64.0;
-        fwk_blackLevelInd[2] /= 64.0;
-        fwk_blackLevelInd[3] /= 64.0;
-        camMetadata.update(ANDROID_SENSOR_DYNAMIC_BLACK_LEVEL, fwk_blackLevelInd, 4);
+        // if dynmaic_blklvl is true, we calculate blklvl from raw callback
+        // otherwise, use the value from linearization LUT.
+        if (dynamic_blklvl == false) {
+            // Need convert the internal 16 bit depth to sensor 10 bit sensor raw
+            // depth space.
+            fwk_blackLevelInd[0] /= 64.0;
+            fwk_blackLevelInd[1] /= 64.0;
+            fwk_blackLevelInd[2] /= 64.0;
+            fwk_blackLevelInd[3] /= 64.0;
+            camMetadata.update(ANDROID_SENSOR_DYNAMIC_BLACK_LEVEL, fwk_blackLevelInd, 4);
+        }
     }
 
     // Fixed whitelevel is used by ISP/Sensor
@@ -5759,8 +5914,17 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
     if (gCamCapability[cameraId]->optical_black_region_count != 0 &&
             gCamCapability[cameraId]->optical_black_region_count <= MAX_OPTICAL_BLACK_REGIONS) {
         int32_t opticalBlackRegions[MAX_OPTICAL_BLACK_REGIONS * 4];
-        for (size_t i = 0; i < gCamCapability[cameraId]->optical_black_region_count * 4; i++) {
+        for (size_t i = 0; i < gCamCapability[cameraId]->optical_black_region_count * 4; i+=4) {
+            // Left
             opticalBlackRegions[i] = gCamCapability[cameraId]->optical_black_regions[i];
+            //Top
+            opticalBlackRegions[i + 1] = gCamCapability[cameraId]->optical_black_regions[i + 1];
+            // Width
+            opticalBlackRegions[i + 2] = gCamCapability[cameraId]->optical_black_regions[i + 2] -
+                    gCamCapability[cameraId]->optical_black_regions[i];
+            // Height
+            opticalBlackRegions[i + 3] = gCamCapability[cameraId]->optical_black_regions[i + 3] -
+                    gCamCapability[cameraId]->optical_black_regions[i + 1];
         }
         staticInfo.update(ANDROID_SENSOR_OPTICAL_BLACK_REGIONS,
                 opticalBlackRegions, gCamCapability[cameraId]->optical_black_region_count * 4);
