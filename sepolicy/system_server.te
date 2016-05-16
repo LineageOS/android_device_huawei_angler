@@ -41,3 +41,6 @@ allow system_server fingerprintd_data_file:dir create_dir_perms;
 # Access /dev/graphics/fb0 for setting display persistence
 allow system_server graphics_device:dir search;
 allow system_server graphics_device:chr_file rw_file_perms;
+
+# Access for thermal-engine
+allow system_server sysfs_thermal:file write;

@@ -319,7 +319,7 @@ service thermal-engine /vendor/bin/thermal-engine
     socket thermal-send-client stream 0660 system system
     socket thermal-recv-client stream 0660 system system
     socket thermal-recv-passive-client stream 0660 system system
-    group root radio
+    group root radio system
     writepid /dev/cpuset/system-background/tasks
 
 # QMUX must be in multiple groups to support external process connections
