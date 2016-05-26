@@ -36,9 +36,9 @@
     <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
         <value>17.52231575</value>
         <value>5.902211798</value>
-	<value>6.454893079</value>
-	<value>6.771166916</value>
-	<value>6.725541238</value>
+        <value>6.454893079</value>
+        <value>6.771166916</value>
+        <value>6.725541238</value>
     </array>
 
     <!-- Different CPU speeds as reported in
@@ -77,33 +77,33 @@
     <item name="cpu.awake">9.488210416</item>
     <!-- Power consumption at different speeds -->
     <array name="cpu.active.cluster0">
-        <value>379.9659093</value> <!-- 384 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 460.8 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 600 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 672 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 768 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 864 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 960 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1248 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1344 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1478 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1555.2 MHz CPU speed -->
+        <value>202.17</value> <!-- 384 MHz CPU speed -->
+        <value>211.34</value> <!-- 460.8 MHz CPU speed -->
+        <value>224.22</value> <!-- 600 MHz CPU speed -->
+        <value>238.72</value> <!-- 672 MHz CPU speed -->
+        <value>251.89</value> <!-- 768 MHz CPU speed -->
+        <value>263.07</value> <!-- 864 MHz CPU speed -->
+        <value>276.33</value> <!-- 960 MHz CPU speed -->
+        <value>314.40</value> <!-- 1248 MHz CPU speed -->
+        <value>328.12</value> <!-- 1344 MHz CPU speed -->
+        <value>369.63</value> <!-- 1478 MHz CPU speed -->
+        <value>391.05</value> <!-- 1555.2 MHz CPU speed -->
     </array>
     <array name="cpu.active.cluster1">
-        <value>379.9659093</value> <!-- 384 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 480 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 633.6 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 768 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 864 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 960 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1248 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1344 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1440 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1536 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1632 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1728 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1824 MHz CPU speed -->
-        <value>379.9659093</value> <!-- 1958.4 MHz CPU speed -->
+        <value>354.95</value> <!-- 384 MHz CPU speed -->
+        <value>387.15</value> <!-- 480 MHz CPU speed -->
+        <value>442.86</value> <!-- 633.6 MHz CPU speed -->
+        <value>510.20</value> <!-- 768 MHz CPU speed -->
+        <value>582.65</value> <!-- 864 MHz CPU speed -->
+        <value>631.99</value> <!-- 960 MHz CPU speed -->
+        <value>812.02</value> <!-- 1248 MHz CPU speed -->
+        <value>858.84</value> <!-- 1344 MHz CPU speed -->
+        <value>943.23</value> <!-- 1440 MHz CPU speed -->
+        <value>992.45</value> <!-- 1536 MHz CPU speed -->
+        <value>1086.32</value> <!-- 1632 MHz CPU speed -->
+        <value>1151.96</value> <!-- 1728 MHz CPU speed -->
+        <value>1253.80</value> <!-- 1824 MHz CPU speed -->
+        <value>1397.67</value> <!-- 1958.4 MHz CPU speed -->
     </array>
     <array name="cpu.clusters.cores">
         <value>4</value> <!-- Cluster 0 has 4 cores (cpu0, cpu1, cpu2, cpu3) -->
