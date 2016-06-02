@@ -51,11 +51,7 @@ class LocApiV02 : public LocApiBase {
 protected:
   /* loc api v02 handle*/
   locClientHandleType clientHandle;
-  enum premium_mode{
-      DISABLED = 0,
-      BASIC = 1,
-      PREMIUM = 2
-  };
+
 private:
   /*ds client handle*/
   dsClientHandleType dsClientHandle;
@@ -63,7 +59,6 @@ private:
   locClientEventMaskType mQmiMask;
   bool mInSession;
   bool mEngineOn;
-  enum premium_mode mSAPMode;
 
   /* Convert event mask from loc eng to loc_api_v02 format */
   static locClientEventMaskType convertMask(LOC_API_ADAPTER_EVENT_MASK_T mask);
@@ -133,7 +128,6 @@ private:
   bool registerEventMask(locClientEventMaskType qmiMask);
   locClientEventMaskType adjustMaskForNoSession(locClientEventMaskType qmiMask);
   void cacheGnssMeasurementSupport();
-  void readSAPMode();
 
 protected:
   virtual enum loc_api_adapter_err
