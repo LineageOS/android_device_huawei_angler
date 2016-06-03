@@ -3831,7 +3831,10 @@ no_error:
         minInFlightRequests = MIN_INFLIGHT_HFR_REQUESTS;
         maxInFlightRequests = MAX_INFLIGHT_HFR_REQUESTS;
     }
-    while ((mPendingLiveRequest >= minInFlightRequests) && !pInputBuffer) {
+
+    // Do not block in the middle of a batch.
+    while ((mPendingLiveRequest >= minInFlightRequests) && !pInputBuffer &&
+            mToBeQueuedVidBufs == 0) {
         if (!isValidTimeout) {
             CDBG("%s: Blocking on conditional wait", __func__);
             pthread_cond_wait(&mRequestCond, &mMutex);
