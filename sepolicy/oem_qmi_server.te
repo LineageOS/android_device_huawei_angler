@@ -11,6 +11,7 @@ allow oem_qmi_server sysfs_msm_subsys:dir r_dir_perms;
 allow oem_qmi_server sysfs_msm_subsys:lnk_file rw_file_perms;
 
 allow oem_qmi_server self:socket create_socket_perms;
+allowxperm oem_qmi_server self:socket ioctl msm_sock_ipc_ioctls;
 
 # Access device /dev/diag
 userdebug_or_eng(`
