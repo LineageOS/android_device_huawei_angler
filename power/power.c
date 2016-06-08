@@ -74,6 +74,8 @@
 
 /* RPM runs at 19.2Mhz. Divide by 19200 for msec */
 #define RPM_CLK 19200
+#define USINSEC 1000000L
+#define NSINUS 1000L
 
 const char *parameter_names[] = {
     "vlow_count",
@@ -240,6 +242,13 @@ int __attribute__ ((weak)) power_hint_override(struct power_module *module, powe
 int interaction(int duration, int num_args, int opt_list[]);
 int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
 
+static long long calc_timespan_us(struct timespec start, struct timespec end) {
+    long long diff_in_us = 0;
+    diff_in_us += (end.tv_sec - start.tv_sec) * USINSEC;
+    diff_in_us += (end.tv_nsec - start.tv_nsec) / NSINUS;
+    return diff_in_us;
+}
+
 static void power_hint(struct power_module *module, power_hint_t hint,
         void *data)
 {
@@ -257,7 +266,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         case POWER_HINT_INTERACTION:
         {
             int duration_hint = 0;
-            static unsigned long long previous_boost_time = 0;
+            static struct timespec previous_boost_timespec = {0, 0};
 
             // If we are in sustained perforamnce Mode, touch boost should be
             // ignored.
@@ -295,17 +304,22 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 duration_hint = *((int*)data);
             }
 
-            struct timeval cur_boost_timeval = {0, 0};
-            gettimeofday(&cur_boost_timeval, NULL);
-            unsigned long long cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
-            double elapsed_time = (double)(cur_boost_time - previous_boost_time);
+            struct timespec cur_boost_timespec;
+            clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+            pthread_mutex_lock(&lock);
+            long long elapsed_time = calc_timespan_us(previous_boost_timespec, cur_boost_timespec);
             if (elapsed_time > 750000)
                 elapsed_time = 750000;
             // don't hint if it's been less than 250ms since last boost
             // also detect if we're doing anything resembling a fling
             // support additional boosting in case of flings
-            else if (elapsed_time < 250000 && duration_hint <= 750)
+            else if (elapsed_time < 250000 && duration_hint <= 750) {
+                pthread_mutex_unlock(&lock);
                 return;
+            }
+
+            previous_boost_timespec = cur_boost_timespec;
+            pthread_mutex_unlock(&lock);
 
             // 95: default upmigrate for phone
             // 20: upmigrate for sporadic touch
@@ -316,7 +330,6 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             if (duration_hint >= 750)
                 upmigrate_value = 20;
 
-            previous_boost_time = cur_boost_time;
             resources_upmigrate[0] = resources_upmigrate[0] | upmigrate_value;
             resources_downmigrate[0] = resources_downmigrate[0] | (upmigrate_value / 2);
 
