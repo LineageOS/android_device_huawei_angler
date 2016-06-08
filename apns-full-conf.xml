@@ -9529,6 +9529,53 @@
       mvno_match_data="2AC9"
   />
 
+  <apn carrier="Vodafone US"
+      mcc="310"
+      mnc="260"
+      apn="us.vodafone.com"
+      type="default,mms,supl,dun"
+      protocol="IPV6"
+      roaming_protocol="IPV4"
+      mmsc="http://wholesale.mmsmvno.com/mms/wapenc"
+      mvno_type="gid"
+      mvno_match_data="2801"
+  />
+
+  <apn carrier="Vodafone US IMS"
+      mcc="310"
+      mnc="260"
+      apn="ims"
+      type="ims"
+      protocol="IPV6"
+      roaming_protocol="IPV4"
+      mvno_type="gid"
+      mvno_match_data="2801"
+  />
+
+  <apn carrier="Vodafone US Service"
+      mcc="310"
+      mnc="260"
+      apn="service"
+      type="mms"
+      protocol="IPV6"
+      roaming_protocol="IPV4"
+      mmsc="http://wholesale.mmsmvno.com/mms/wapenc"
+      mvno_type="gid"
+      mvno_match_data="2801"
+  />
+
+  <apn carrier="Vodafone US"
+      mcc="204"
+      mnc="04"
+      apn="us.vodafone.com"
+      type="default,mms,supl,dun"
+      protocol="IPV6"
+      roaming_protocol="IPV4"
+      mmsc="http://wholesale.mmsmvno.com/mms/wapenc"
+      mvno_type="gid"
+      mvno_match_data="2801"
+  />
+
   <apn carrier="T-Mobile US 270"
       mcc="310"
       mnc="270"
@@ -10011,15 +10058,15 @@
       mvno_match_data="60FF"
   />
 
-  <apn carrier="TFDATA"
+  <apn carrier="TRACFONE"
       mcc="310"
       mnc="410"
-      apn="tfdata"
+      apn="reseller"
       type="default,mms,supl,hipri,fota"
       protocol="IP"
       roaming_protocol="IP"
-      mmsc="http://mms-tf.net"
-      mmsproxy="mms3.tracfone.com"
+      mmsc="http://mmsc.mobile.att.net"
+      mmsproxy="proxy.mobile.att.net"
       mmsport="80"
       mvno_type="gid"
       mvno_match_data="deff"
