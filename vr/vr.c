@@ -28,9 +28,14 @@
 #include <hardware/hardware.h>
 
 
-static const int DEFAULT_GPU_INFLIGHT = 15;
+// Angler has two inflight numbers. By default, inflight=15 and inflight_low_latency=4.
+// Inflight is only used when there is a single GL context, when there is more than one
+// context, inflight_low_latency is used. Since we are only interested in affecting
+// performance when there is context preemption, we only have to modify the low latency
+// parameter.
+static const int DEFAULT_GPU_INFLIGHT = 4;
 static const int VR_MODE_GPU_INFLIGHT = 2;
-static const char* GPU_INFLIGHT_PATH = "/sys/class/kgsl/kgsl-3d0/dispatch/inflight";
+static const char* GPU_INFLIGHT_PATH = "/sys/class/kgsl/kgsl-3d0/dispatch/inflight_low_latency";
 
 /**
  * Write 'len' characters from 'input' character array into file at path 'outFile.'
