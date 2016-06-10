@@ -135,7 +135,10 @@ on boot
     chown system system /sys/class/leds/red/rgb_start
 
     # GPU Tuning
-    chmod 0666 /sys/class/kgsl/kgsl-3d0/dispatch/inflight
+    chown root system /sys/class/kgsl/kgsl-3d0/dispatch/inflight
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/dispatch/inflight
+    chown root system /sys/class/kgsl/kgsl-3d0/dispatch/inflight_low_latency
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/dispatch/inflight_low_latency
 
     write /sys/block/mmcblk0/queue/rq_affinity 0
     write /sys/block/mmcblk0/queue/scheduler noop
