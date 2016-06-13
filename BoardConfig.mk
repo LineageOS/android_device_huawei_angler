@@ -137,7 +137,4 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 USE_CLANG_PLATFORM_BUILD := true
 
-# Temporary, will switch to a non-boardconfig enable soon. b/28545166.
-BOARD_ENABLE_GPU_PROTECTED_CONTENT := true
-
 -include vendor/huawei/angler/BoardConfigVendor.mk
