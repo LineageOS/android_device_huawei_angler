@@ -15,7 +15,6 @@
  */
 
 #include <dumpstate.h>
-#include <dumpstate_google.h>
 
 void dumpstate_board()
 {
@@ -39,7 +38,4 @@ void dumpstate_board()
     run_command("big cluster cpuidle", 5, SU_PATH, "root", "/system/bin/sh", "-c", "for d in $(ls -d /sys/devices/system/cpu/cpu4/cpuidle/state*); do echo \"$d: `cat $d/name` `cat $d/desc` `cat $d/time` `cat $d/usage`\"; done", NULL);
     dump_file("Battery:", "/sys/class/power_supply/bms/uevent");
     run_command("Battery:", 5, SU_PATH, "root", "/system/bin/sh", "-c", "for f in 1 2 3 4 5 6 7 8; do echo $f > /sys/class/power_supply/bms/cycle_count_id; echo \"$f: `cat /sys/class/power_supply/bms/cycle_count`\"; done", NULL);
-
-    // Dump Google-specific/common info.
-    dumpstate_google();
 };
