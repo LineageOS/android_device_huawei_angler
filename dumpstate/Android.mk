@@ -14,9 +14,13 @@
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_C_INCLUDES := frameworks/native/cmds/dumpstate  vendor/google/libraries/dumpstate
+
+LOCAL_C_INCLUDES := frameworks/native/cmds/dumpstate
+
 LOCAL_SRC_FILES := dumpstate.cpp
+
 LOCAL_MODULE := libdumpstate.angler
-LOCAL_WHOLE_STATIC_LIBRARIES := libdumpstate.google
+
 LOCAL_MODULE_TAGS := optional
+
 include $(BUILD_STATIC_LIBRARY)
