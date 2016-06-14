@@ -133,7 +133,4 @@ USE_CLANG_PLATFORM_BUILD := true
 
 TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 
-# Temporary, will switch to a non-boardconfig enable soon. b/28545166.
-BOARD_ENABLE_GPU_PROTECTED_CONTENT := true
-
 -include vendor/huawei/angler/BoardConfigVendor.mk
