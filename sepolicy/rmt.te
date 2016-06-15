@@ -13,6 +13,7 @@ allow rmt self:capability { setuid setgid setpcap net_raw sys_admin };
 allow rmt uio_device:chr_file rw_file_perms;
 
 allow rmt self:socket create_socket_perms;
+allowxperm rmt self:socket ioctl msm_sock_ipc_ioctls;
 
 allow rmt root_block_device:blk_file r_file_perms;
 allow rmt modem_block_device:blk_file rw_file_perms;
