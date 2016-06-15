@@ -13,7 +13,7 @@ allow camera sensorservice_service:service_manager find;
 
 allow camera system_server:unix_stream_socket { read write };
 
-allow camera video_device:chr_file rw_file_perms;
+allow camera camera_device:chr_file rw_file_perms;
 allow camera input_device:dir r_dir_perms;
 allow camera input_device:chr_file r_file_perms;
 allow camera media_device:chr_file rw_file_perms;
