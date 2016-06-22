@@ -431,7 +431,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 ifeq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
-    QXDMLogger
+    QXDMLoggerV2
 endif # aosp_angler
 
 PRODUCT_COPY_FILES += \
