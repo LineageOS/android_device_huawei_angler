@@ -481,3 +481,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
 PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor
 $(call inherit-product, build/target/product/verity.mk)
+
+# b/28992626
+# For app investigation, make ASAN-lite only sanitize 32-bit.
+ifeq (true,$(SANITIZE_LITE))
+  SANITIZE_ARCH := 32
+endif
