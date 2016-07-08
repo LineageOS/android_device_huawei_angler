@@ -19,3 +19,6 @@ include device/huawei/angler/aosp_angler.mk
 PRODUCT_NAME := aosp_angler_treble
 PRODUCT_DEVICE := angler_treble
 PRODUCT_MODEL := AOSP on angler_treble
+
+PRODUCT_PACKAGES += \
+    hwservicemanager

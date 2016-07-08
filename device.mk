@@ -23,7 +23,11 @@
 TARGET_USES_CHINOOK_SENSORHUB := false
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
+    ifeq ($(TARGET_PRODUCT),angler_treble)
+      LOCAL_KERNEL := device/huawei/angler-kernel/Image_treble.gz-dtb
+    else
+      LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
+    endif
 else
   LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -263,9 +267,16 @@ PRODUCT_PACKAGES += \
 # NFC
 PRODUCT_PACKAGES += \
     libnfc-nci \
-    nfc_nci.angler \
     NfcNci \
     Tag
+
+ifeq ($(TARGET_PRODUCT), angler_treble)
+PRODUCT_PACKAGES += \
+    nfc_hal_pn54x
+else
+PRODUCT_PACKAGES += \
+    nfc_nci.angler
+endif
 
 # Power HAL
 PRODUCT_PACKAGES += \

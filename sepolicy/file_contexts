@@ -174,3 +174,5 @@
 # Sysfs files used by nanoapp_cmd
 /sys/devices/virtual/nanohub/nanohub(/.*)? u:object_r:sysfs_nanoapp_cmd:s0
 
+# NFC hal
+/system/bin/hw/nfc_hal_pn54x    u:object_r:nfc_hal_pn54x_exec:s0
