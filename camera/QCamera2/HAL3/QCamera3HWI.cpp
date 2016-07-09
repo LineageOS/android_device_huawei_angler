@@ -2312,7 +2312,7 @@ void QCamera3HardwareInterface::handleBatchMetadata(
         urgentFrameNumDiff = last_urgent_frame_number + 1 -
                 first_urgent_frame_number;
 
-        CDBG("%s: urgent_frm: valid: %d frm_num: %d - %d",
+        CDBG_HIGH("%s: urgent_frm: valid: %d frm_num: %d - %d",
                 __func__, urgent_frame_number_valid,
                 first_urgent_frame_number, last_urgent_frame_number);
     }
@@ -2323,7 +2323,7 @@ void QCamera3HardwareInterface::handleBatchMetadata(
                 first_frame_number;
         mPendingBatchMap.removeItem(last_frame_number);
 
-        CDBG("%s:        frm: valid: %d frm_num: %d - %d",
+        CDBG_HIGH("%s:        frm: valid: %d frm_num: %d - %d",
                 __func__, frame_number_valid,
                 first_frame_number, last_frame_number);
 
@@ -2384,13 +2384,14 @@ void QCamera3HardwareInterface::handleBatchMetadata(
                         first_frame_capture_time + (i * NSEC_PER_SEC / mHFRVideoFps);
                 ADD_SET_PARAM_ENTRY_TO_BATCH(metadata,
                         CAM_INTF_META_SENSOR_TIMESTAMP, capture_time);
-                CDBG("%s: batch capture_time: %lld, capture_time: %lld",
+                CDBG_HIGH("%s: batch capture_time: %lld, capture_time: %lld",
                         __func__, last_frame_capture_time, capture_time);
             }
         }
         pthread_mutex_lock(&mMutex);
         handleMetadataWithLock(metadata_buf,
-                false /* free_and_bufdone_meta_buf */);
+                false /* free_and_bufdone_meta_buf */,
+                (i == 0) /* first metadata in the batch metadata */);
         pthread_mutex_unlock(&mMutex);
     }
 
@@ -2410,12 +2411,15 @@ done_batch_metadata:
  * PARAMETERS : @metadata_buf: metadata buffer
  *              @free_and_bufdone_meta_buf: Buf done on the meta buf and free
  *                 the meta buf in this method
+ *              @firstMetadataInBatch: Boolean to indicate whether this is the
+ *                  first metadata in a batch. Valid only for batch mode
  *
  * RETURN     :
  *
  *==========================================================================*/
 void QCamera3HardwareInterface::handleMetadataWithLock(
-    mm_camera_super_buf_t *metadata_buf, bool free_and_bufdone_meta_buf)
+    mm_camera_super_buf_t *metadata_buf, bool free_and_bufdone_meta_buf,
+    bool firstMetadataInBatch)
 {
     ATRACE_CALL();
 
@@ -2635,7 +2639,8 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
 
             result.result = translateFromHalMetadata(metadata,
                     i->timestamp, i->request_id, i->jpegMetadata, i->pipeline_depth,
-                    i->capture_intent, i->hybrid_ae_enable, internalPproc, i->need_dynamic_blklvl);
+                    i->capture_intent, i->hybrid_ae_enable, internalPproc, i->need_dynamic_blklvl,
+                    firstMetadataInBatch);
 
             saveExifParams(metadata);
 
@@ -4026,7 +4031,8 @@ void QCamera3HardwareInterface::captureResultCb(mm_camera_super_buf_t *metadata_
             hdrPlusPerfLock(metadata_buf);
             pthread_mutex_lock(&mMutex);
             handleMetadataWithLock(metadata_buf,
-                    true /* free_and_bufdone_meta_buf */);
+                    true /* free_and_bufdone_meta_buf */,
+                    false /* first frame of batch metadata */ );
             pthread_mutex_unlock(&mMutex);
         }
     } else if (isInputBuffer) {
@@ -4200,10 +4206,18 @@ QCamera3HardwareInterface::translateFromHalMetadata(
                                  uint8_t capture_intent,
                                  uint8_t hybrid_ae_enable,
                                  bool pprocDone,
-                                 bool dynamic_blklvl)
+                                 bool dynamic_blklvl,
+                                 bool firstMetadataInBatch)
 {
     CameraMetadata camMetadata;
     camera_metadata_t *resultMetadata;
+
+    if (mBatchSize && !firstMetadataInBatch) {
+        /* In batch mode, use cached metadata from the first metadata
+            in the batch */
+        camMetadata.clear();
+        camMetadata = mCachedMetadata;
+    }
 
     if (jpegMetadata.entryCount())
         camMetadata.append(jpegMetadata);
@@ -4213,6 +4227,12 @@ QCamera3HardwareInterface::translateFromHalMetadata(
     camMetadata.update(ANDROID_REQUEST_PIPELINE_DEPTH, &pipeline_depth, 1);
     camMetadata.update(ANDROID_CONTROL_CAPTURE_INTENT, &capture_intent, 1);
     camMetadata.update(NEXUS_EXPERIMENTAL_2016_HYBRID_AE_ENABLE, &hybrid_ae_enable, 1);
+
+    if (mBatchSize && !firstMetadataInBatch) {
+        /* In batch mode, use cached metadata instead of parsing metadata buffer again */
+        resultMetadata = camMetadata.release();
+        return resultMetadata;
+    }
 
     IF_META_AVAILABLE(uint32_t, frame_number, CAM_INTF_META_FRAME_NUMBER, metadata) {
         int64_t fwk_frame_number = *frame_number;
@@ -4997,6 +5017,12 @@ QCamera3HardwareInterface::translateFromHalMetadata(
     IF_META_AVAILABLE(float, ispDigitalGain, CAM_INTF_META_ISP_DIGITAL_GAIN, metadata) {
         int32_t postRawSensitivity = static_cast<int32_t>(*ispDigitalGain * 100);
         camMetadata.update(ANDROID_CONTROL_POST_RAW_SENSITIVITY_BOOST, &postRawSensitivity, 1);
+    }
+
+    /* In batch mode, cache the first metadata in the batch */
+    if (mBatchSize && firstMetadataInBatch) {
+        mCachedMetadata.clear();
+        mCachedMetadata = camMetadata;
     }
 
     resultMetadata = camMetadata.release();
