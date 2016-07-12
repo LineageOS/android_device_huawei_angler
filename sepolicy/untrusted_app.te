@@ -1,0 +1,1 @@
+allow untrusted_app untrusted_app:unix_stream_socket 0x7704 ;

@@ -40,3 +40,6 @@ allow system_server tap2wake_dev:file rw_file_perms;
 
 # Vibrator
 allow system_server sysfs_vibrator:file rw_file_perms;
+
+# idfk
+allow system_server system_server:unix_stream_socket 0x7704;
