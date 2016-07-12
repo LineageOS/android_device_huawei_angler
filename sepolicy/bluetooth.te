@@ -1,0 +1,1 @@
+allow bluetooth bluetooth:unix_stream_socket 0x7704;
