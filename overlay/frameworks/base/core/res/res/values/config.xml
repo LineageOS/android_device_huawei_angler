@@ -325,18 +325,6 @@
     <!-- Operating volatage for wifi radio. 0 by default-->
     <integer translatable="false" name="config_wifi_operating_voltage_mv">3800</integer>
 
-    <!-- The color transforms for the built-in display. Each items corresponds
-         to a defined configuration mode:
-            1. Wide-gamut ("Vibrant")
-            2. Adobe RGB ("Natural")
-            3. sRGB ("Standard")
-    -->
-    <integer-array name="config_colorTransforms">
-        <item>0</item>
-        <item>8</item>
-        <item>7</item>
-    </integer-array>
-
     <!-- Config SoftAP 2G channel list -->
     <string  translatable="false" name="config_wifi_framework_sap_2G_channel_list">6</string>
 
