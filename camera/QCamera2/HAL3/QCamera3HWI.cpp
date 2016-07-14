@@ -2379,9 +2379,9 @@ void QCamera3HardwareInterface::handleBatchMetadata(
             if (last_frame_capture_time) {
                 //Infer timestamp
                 first_frame_capture_time = last_frame_capture_time -
-                        (((loopCount - 1) * NSEC_PER_SEC) / mHFRVideoFps);
+                        (((loopCount - 1) * NSEC_PER_SEC) / (double) mHFRVideoFps);
                 capture_time =
-                        first_frame_capture_time + (i * NSEC_PER_SEC / mHFRVideoFps);
+                        first_frame_capture_time + (i * NSEC_PER_SEC / (double) mHFRVideoFps);
                 ADD_SET_PARAM_ENTRY_TO_BATCH(metadata,
                         CAM_INTF_META_SENSOR_TIMESTAMP, capture_time);
                 CDBG_HIGH("%s: batch capture_time: %lld, capture_time: %lld",
