@@ -1711,7 +1711,7 @@
 
      <path name="unprocessed-handset-mic">
         <path name="adc1" />
-        <ctl name="ADC1 Volume" value="5" />
+        <ctl name="ADC1 Volume" value="4" />
     </path>
 
     <path name="anc-handset">
@@ -2271,6 +2271,27 @@
     </path>
 
     <path name="voice-tx">
+    </path>
+
+    <path name="unprocessed-stereo-mic">
+        <path name="voice-rec-dmic-ef" />
+        <ctl name="ADC1 Volume" value="4" />
+        <ctl name="ADC3 Volume" value="4" />
+    </path>
+
+    <path name="unprocessed-three-mic">
+        <path name="speaker-tmic" />
+        <ctl name="ADC1 Volume" value="4" />
+        <ctl name="ADC3 Volume" value="4" />
+        <ctl name="ADC4 Volume" value="4" />
+    </path>
+
+    <path name="unprocessed-quad-mic">
+        <path name="speaker-qmic" />
+    </path>
+
+    <path name="unprocessed-headset-mic">
+        <path name="headset-mic" />
     </path>
 
 </mixer>
