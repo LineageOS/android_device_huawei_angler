@@ -111,6 +111,8 @@
 /sys/module/msm_performance(/.*)?                                   u:object_r:sysfs_performance:s0
 /sys/module/msm_thermal(/.*)?                                       u:object_r:sysfs_thermal:s0
 
+# sysfs files used by wifi
+/sys/module/bcmdhd/parameters/firmware_path u:object_r:sysfs_wlan_fwpath:s0
 
 # wifi mac address
 /sys/devices/virtual/net/wlan0/address                   u:object_r:sysfs_mac_address:s0
