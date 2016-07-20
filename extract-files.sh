@@ -1,86 +1,92 @@
 #!/bin/bash -e
+#
+# Copyright (C) 2016 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 export VENDOR=huawei
-export DEVICE_VENDOR=huawei
 export DEVICE=angler
-export PROPRIETARY_FILES=proprietary-blobs.txt
 
-TMPDIR="/tmp/extractfiles.$$"
-mkdir "$TMPDIR"
+# Load extractutils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-# relative to SMALIBASE defined by 2nd cli arg to this script
-SMALIJAR=smali/build/libs/smali.jar
-BAKSMALIJAR=baksmali/build/libs/baksmali.jar
+REPO_ROOT="$MY_DIR"/../../..
+CM_ROOT="$REPO_ROOT"
+HELPER=
+for x in "${REPO_ROOT}"/vendor/*; do
+  if [ -f "$x/build/tools/extract_utils.sh" ]; then
+    HELPER="$x/build/tools/extract_utils.sh"
+    break;
+  fi
+done
+if [ ! -f "$HELPER" ]; then
+  echo "Unable to find helper script at $HELPER"
+  exit 1
+fi
+. "$HELPER"
 
-# Only supports extract from filesystem
-
-if [[ "$#" -ne 2 || ! -d "$1/vendor" || ! -d "$1/system" || ! -f "$2/$SMALIJAR" || ! -f "$2/$BAKSMALIJAR" ]]; then
-    echo "Usage: $0 <path to root dir of extracted filesystem> <smali base dir for git clone https://github.com/JesusFreke/smali> >"
-    echo "  root dir must contain at least system and vendor directions"
-    echo "  smali base must contain built jar objects (within smali base run: ./gradew build)"
-    exit 1
+if [ $# -eq 0 ]; then
+  SRC=adb
+else
+  if [ $# -eq 1 ]; then
+     SRC=$1
+  else
+     echo "$0: bad number of arguments"
+     echo ""
+     echo "usage: $0 [PATH_TO_EXPANDED_ROM]"
+     echo ""
+     echo "If PATH_TO_EXPANDED_ROM is not specified, blobs will be extracted from"
+     echo "the device using adb pull."
+     exit 1
+  fi
 fi
 
-COPY_FROM="$1"
-SMALIBASE="$2"
+setup_vendor "$DEVICE" "$VENDOR" "$REPO_ROOT"
 
-function oat2dex()
-{
-    OFILE="$1"
+# Extract the device specific files that always occur in /system
+extract "$MY_DIR/proprietary-blobs.txt" "$SRC"
 
-    OAT="`dirname $OFILE`/oat/arm64/`basename $OFILE ."${OFILE##*.}"`.odex"
-    if [ ! -e "$OAT" ]; then
-        return 0
-    fi
+## Handle blobs that may be in /system OR /vendor (only occurs when extracting from nexus images)
 
-    java -jar "$SMALIBASE/$BAKSMALIJAR" -x -o "$TMPDIR/dexout" -c boot.oat -d "$COPY_FROM/system/framework/arm64" "$OAT"
-    java -jar "$SMALIBASE/$SMALIJAR" "$TMPDIR/dexout" -o "$TMPDIR/classes.dex"
-    rm -rf "$TMPDIR/dexout"
-}
+# if we're extracting from factory images, pre-hardlink missing blobs from /vendor to /system
+if [ "$SRC" != "adb" ]; then
+  for file in $(egrep -v '(^#|^$)' "$MY_DIR"/proprietary-blobs-vendorimg.txt); do
 
-function extract() {
-    OUTBASE="$2"
-    for FILE in $(egrep -v '(^#|^$)' $1); do
-        echo "Extracting $FILE ..."
-        OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-        SRCFILE=$(echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g")
-        DESTFILE=${PARSING_ARRAY[1]}
-        if [ -z "$DESTFILE" ]; then
-            DESTFILE="$SRCFILE"
-        fi
-        DESTFILE=$(echo "$DESTFILE" | sed 's|^system/||')
-        DESTDIR=$(dirname "$DESTFILE")
-        if [ ! -d "$OUTBASE/$DESTDIR" ]; then
-            mkdir -p "$OUTBASE/$DESTDIR"
-        fi
+     oldifs=$IFS IFS=":" parsing_array=($file) IFS=$oldifs
 
-        cp "$COPY_FROM/$SRCFILE" "$OUTBASE/$DESTFILE"
+     srcfile=$(echo ${parsing_array[0]} | sed -e "s/^-//g")
+     destfile=${parsing_array[1]}
+     if [ -z "$destfile" ]; then
+       destfile="$srcfile"
+     fi
+     destdir=$(dirname "$destfile")
 
-        # Fixup xml files
-        if [[ "$OUTBASE/$DESTFILE" =~ .xml$ ]]; then
-            xmlheader=$(grep '^<?xml version' "$OUTBASE/$DESTFILE")
-            grep -v '^<?xml version' "$OUTBASE/$DESTFILE" > "$OUTBASE/$DESTFILE".temp
-            (echo "$xmlheader"; cat "$OUTBASE/$DESTFILE".temp ) > "$OUTBASE/$DESTFILE"
-            rm "$OUTBASE/$DESTFILE".temp
-        fi
-        if [[ "$DESTFILE" =~ .(apk|jar)$ ]]; then
-            oat2dex "$COPY_FROM/$SRCFILE"
-            if [ -e "$TMPDIR/classes.dex" ]; then
-                zip -gjq "$OUTBASE/$DESTFILE" "$TMPDIR/classes.dex"
-                rm "$TMPDIR/classes.dex"
-                echo "Updated $OUTBASE/$DESTFILE from odex files"
-            fi
-        fi
-    done
-}
+     if [ -f $SRC/system/$destfile ]; then
+       #skip already hardlinked files
+       continue;
+     fi
 
-DEVICE_BASE="../../../vendor/$VENDOR/$DEVICE/proprietary"
-rm -rf "$DEVICE_BASE"/*
+     if [ ! -d "$SRC/system/$destdir" ]; then
+       mkdir -p "$SRC/system/$destdir"
+     fi
 
-# Extract the device specific files
-extract "../../$DEVICE_VENDOR/$DEVICE/$PROPRIETARY_FILES" "$DEVICE_BASE"
+     ln -f $SRC/vendor/$srcfile $SRC/system/$destfile
+  done
+fi
 
-# clean temp dir
-rm -rf "$TMPDIR"
+# Extract "sometimes system" blobs
+extract "$MY_DIR/proprietary-blobs-vendorimg.txt" "$SRC"
 
-./setup-makefiles.sh
+"$MY_DIR"/setup-makefiles.sh
