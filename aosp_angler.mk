@@ -32,5 +32,5 @@ PRODUCT_MANUFACTURER := Huawei
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 $(call inherit-product, device/huawei/angler/device.mk)
-$(call inherit-product-if-exists, vendor/huawei/angler/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/huawei/angler/angler-vendor.mk)
 
