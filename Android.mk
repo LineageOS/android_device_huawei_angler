@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter angler, $(TARGET_DEVICE)),)
+ifneq ($(filter angler angler_treble, $(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
