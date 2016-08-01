@@ -17,9 +17,9 @@
 
 export VENDOR=huawei
 export DEVICE=angler
-export BUILD=mtc19x
-export FACTORY_URL=https://dl.google.com/dl/android/aosp/angler-mtc19x-factory-83a34810.tgz
-export FACTORY_MD5=0667d2bc7d65ee0dc104ebe5236edbbe
+export BUILD=mtc20f
+export FACTORY_URL=https://dl.google.com/dl/android/aosp/angler-mtc20f-factory-d62de11e.tgz
+export FACTORY_SHA256=7ece3483ded6d12a1a4c12b447932a5c8ac55131e177c3a42e5f015a0dfc8abe
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -27,19 +27,19 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 REPO_ROOT="$MY_DIR"/../../..
 
-function md5verify(){
-  local md5=$1
+function sha256verify(){
+  local sha256=$1
   local file=$2
-  md5sum --quiet -c <( echo "$md5 $file" )
+  sha256sum --quiet -c <( echo "$sha256 $file" )
   if [ $? -ne 0 ]; then
-    echo "$file failed MD5 hash check"
+    echo "$file failed SHA256 hash check"
     return 1
   fi
 }
 
 function fetch(){
   local url=$1
-  local md5=$2
+  local sha256=$2
   local cachedir=$REPO_ROOT/.fetchcache # need a better location
   local outfile=$cachedir/${url##*/}
 
@@ -48,11 +48,11 @@ function fetch(){
   if [ ! -f $outfile ]; then
     wget "$url" -O "$outfile"
   fi
-  if md5verify "$md5" "$outfile"; then
+  if sha256verify "$sha256" "$outfile"; then
     echo $outfile
   else
     rm $outfile
-    fetch $url $md5
+    fetch $url $sha256
   fi
 }
 
@@ -72,7 +72,7 @@ function checkutils() {
 
 function unpack_factory(){
   local outdir=$1
-  local factory_file=$(fetch "$FACTORY_URL" "$FACTORY_MD5")
+  local factory_file=$(fetch "$FACTORY_URL" "$FACTORY_SHA256")
   local device=$(basename $factory_file | sed 's/\(^\w\+\).*/\1/g')
   local build=$(basename $factory_file | sed 's/^\w\+-\([a-z0-9]\+\)-.*/\1/g')
 
