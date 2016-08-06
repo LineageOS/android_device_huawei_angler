@@ -15,5 +15,5 @@
 #
 include device/huawei/angler/BoardConfig.mk
 
-ENABLE_TREBLE := true
-BOARD_WRAPS_CONVENTIONAL_HALS := false
+# ENABLE_TREBLE := true
+# BOARD_WRAPS_CONVENTIONAL_HALS := false
