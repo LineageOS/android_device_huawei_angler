@@ -22,6 +22,24 @@
       "revId": "508db2b591e7e8345119799c0a76bfa380acf8e1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_7055e4c5",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-08-09T12:44:41Z",
+      "side": 0,
+      "message": "IIRC, this specifies that cache.img be built in EXT4. Removing won\u0027t really do any harm since I think it gets built in EXT4 anyway, but not keeping it is fine as well.",
+      "parentUuid": "3fa7e38b_79f07668",
+      "revId": "508db2b591e7e8345119799c0a76bfa380acf8e1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
