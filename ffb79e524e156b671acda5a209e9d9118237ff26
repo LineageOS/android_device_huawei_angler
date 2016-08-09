@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_501ea870",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 4567
+      },
+      "writtenOn": "2016-08-09T18:08:17Z",
+      "side": 1,
+      "message": "TARGET_USERIMAGES_USE_EXT4 being true makes it so TARGET_USERIMAGES_USE_F2FS no-ops... anyone intentionally compiling userdata.img and cache.img probably expects doing so to produce ext4 images, anyways",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "ffb79e524e156b671acda5a209e9d9118237ff26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
