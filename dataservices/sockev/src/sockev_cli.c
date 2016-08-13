@@ -79,7 +79,7 @@ int main(void)
 
 	while (1) {
 		recvfrom(skfd, nlh, sizeof(struct sknlsockevmsg) + 16, 0,
-			 (const struct sockaddr *)&src_addr, &addrlen);
+			 (struct sockaddr *)&src_addr, &addrlen);
 		msg = NLMSG_DATA(nlh);
 		printf("----------------------------\n");
 		printf("pid:\t%d\n", msg->pid);
