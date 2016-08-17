@@ -59,8 +59,7 @@
         <MediaCodec name="OMX.google.h264.encoder" type="video/avc" update="true">
             <!-- measured 98%:56-288 med:151 FLAKY(56 - 288 < mx=289.7) variance:2.3 -->
             <Limit name="measured-frame-rate-320x240" range="112-144" /> <!-- N=128 -->
-            <!-- measured 90%:22-53 med:47 FLAKY(17 - 68 < mx=109.3) -->
-            <Limit name="measured-frame-rate-720x480" range="34-34" /> <!-- N=128 v90%=1.5 -->
+            <Limit name="measured-frame-rate-720x480" range="49-75" /> <!-- N=128 v98%=1.7 -->
             <!-- measured 93%:10-27 med:22 FLAKY(9 - 34 < mx=65.7) -->
             <Limit name="measured-frame-rate-1280x720" range="17-17" /> <!-- N=128 v93%=1.6 -->
             <!-- measured 98%:4-14 med:10 FLAKY(4 - 16 < mx=23.7) -->
