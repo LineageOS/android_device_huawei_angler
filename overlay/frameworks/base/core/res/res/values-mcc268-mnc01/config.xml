@@ -34,7 +34,4 @@
         <item>INTERMEDIATE_POS=0</item>
         <item>SUPL_ES=0</item>
     </string-array>
-    <string-array translatable="false" name="config_default_vm_number">
-        <item>123</item>
-    </string-array>
 </resources>
