@@ -17,9 +17,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array translatable="false" name="config_default_vm_number">
-        <item>*86</item>
-    </string-array>
 
     <!-- Values for GPS configuration (Verizon) -->
     <string-array translatable="false" name="config_gpsParameters">
