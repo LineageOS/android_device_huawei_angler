@@ -17,9 +17,9 @@
 
 export VENDOR=huawei
 export DEVICE=angler
-export BUILD=mtc20f
-export FACTORY_URL=https://dl.google.com/dl/android/aosp/angler-mtc20f-factory-d62de11e.tgz
-export FACTORY_SHA256=7ece3483ded6d12a1a4c12b447932a5c8ac55131e177c3a42e5f015a0dfc8abe
+export BUILD=mtc20l
+export FACTORY_URL=https://dl.google.com/dl/android/aosp/angler-ota-mtc20l-095e81f7.zip
+export FACTORY_SHA256=095e81f70a6c898a4a05292e300ae59ed2cf6f913b7d95bb7d21dec792956e46
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
