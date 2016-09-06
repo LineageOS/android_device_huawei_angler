@@ -17,9 +17,9 @@
 
 export VENDOR=huawei
 export DEVICE=angler
-export BUILD=mtc20f
-export FACTORY_URL=https://dl.google.com/dl/android/aosp/angler-mtc20f-factory-d62de11e.tgz
-export FACTORY_SHA256=7ece3483ded6d12a1a4c12b447932a5c8ac55131e177c3a42e5f015a0dfc8abe
+export BUILD=mtc20l
+export FACTORY_URL=https://dl.google.com/dl/android/aosp/angler-mtc20l-factory-a74ad54f.zip
+export FACTORY_SHA256=a74ad54f0deab52cd869f81c85597212fe1a38228ddbfbbf370f9ec9a8ab142a
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -77,11 +77,13 @@ function unpack_factory(){
   local build=$(basename $factory_file | sed 's/^\w\+-\([a-z0-9]\+\)-.*/\1/g')
 
   mkdir -p $outdir/extracted
-
-  tar -C "$outdir" -xvzf "$factory_file"
+  local extension="$(echo "$factory_file" | sed 's/.*\.//g')"
+  case "$extension" in tgz) tar -C "$outdir" -xvzf "$factory_file";;
+                       zip) unzip -d "$outdir" "$factory_file";;
+                       *) echo "Unhandled factory image extension: $extension"; exit 1;;
+  esac
 
   unzip  -d $outdir -o $outdir/$DEVICE-$BUILD/image-$DEVICE-${BUILD}.zip
-
   echo -e "If you are asked to enter your password for sudo,\nroot is needed for mounting images to pull files from them"
   for image in system vendor; do
     simg2img $outdir/${image}.img $outdir/${image}.ext4.img
