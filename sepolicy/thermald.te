@@ -7,7 +7,6 @@ allow thermald shared_log_device:chr_file rw_file_perms;
 allow thermald thermal_engine_device:chr_file rw_file_perms;
 
 allow thermald self:socket create_socket_perms;
-allowxperm thermald self:socket ioctl msm_sock_ipc_ioctls;
 type_transition thermald socket_device:sock_file thermald_socket;
 allow thermald thermald_socket:sock_file create_file_perms;
 

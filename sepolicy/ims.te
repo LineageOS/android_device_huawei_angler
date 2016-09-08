@@ -15,10 +15,9 @@ allow ims ims_service:service_manager add;
 
 allow ims ims_socket:sock_file write;
 allow ims self:socket create_socket_perms;
-allowxperm ims self:socket ioctl msm_sock_ipc_ioctls;
 allow ims self:udp_socket create_socket_perms;
-allow ims self:netlink_socket create_socket_perms_no_ioctl;
-allow ims self:netlink_route_socket { create_socket_perms_no_ioctl nlmsg_write nlmsg_read };
+allow ims self:netlink_socket create_socket_perms;
+allow ims self:netlink_route_socket { create_socket_perms nlmsg_write nlmsg_read };
 
 allow ims sysfs_msm_subsys:dir r_dir_perms;
 allow ims sysfs_msm_subsys:lnk_file r_file_perms;
