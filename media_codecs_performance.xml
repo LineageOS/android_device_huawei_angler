@@ -39,8 +39,8 @@
             <Limit name="measured-frame-rate-1280x720" range="31-40" /> <!-- N=136 -->
             <!-- measured 98%:7-43 med:22 variance:2.4 -->
             <Limit name="measured-frame-rate-1920x1080" range="15-22" /> <!-- N=134 -->
-            <!-- measured 90%:2-11 med:7 FLAKY(2 - 12 < mx=25.5) variance:2.2 -->
-            <Limit name="measured-frame-rate-3840x2160" range="4-6" /> <!-- N=135 -->
+            <!-- measured 98%:5-26 med:9 variance:2.1 -->
+            <Limit name="measured-frame-rate-3840x2160" range="9-13" /> <!-- N=136 -->
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es" update="true">
             <Limit name="measured-frame-rate-176x144" range="283-283" /> <!-- N=136 v98%=1.4 -->
