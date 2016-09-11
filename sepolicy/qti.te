@@ -7,6 +7,7 @@ allow qti sysfs_msm_subsys:dir r_dir_perms;
 allow qti sysfs_msm_subsys:lnk_file r_file_perms;
 
 allow qti self:socket create_socket_perms;
+allowxperm qti self:socket ioctl msm_sock_ipc_ioctls;
 
 allow qti dpl_device:chr_file rw_file_perms;
 allow qti rmnet_device:chr_file rw_file_perms;
