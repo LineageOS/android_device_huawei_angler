@@ -408,6 +408,8 @@ typedef struct{
     /* Count is K/4 */
     uint8_t optical_black_region_count;
 
+    /* Whether camera timestamp is calibrated with sensor */
+    uint8_t timestamp_calibrated;
 } cam_capability_t;
 
 typedef enum {
