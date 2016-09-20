@@ -44,3 +44,7 @@ allow system_server graphics_device:chr_file rw_file_perms;
 
 # Access for thermal-engine
 allow system_server sysfs_thermal:file write;
+
+# use MSM ipc router ioctls
+allow system_server self:socket ioctl;
+allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
