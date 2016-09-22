@@ -117,7 +117,7 @@ int32_t QCameraStream::get_bufs_deffered(
     *initial_reg_flag   = stream->mRegFlags;
     *num_bufs           = stream->mNumBufs;
     *bufs               = stream->mBufDefs;
-    CDBG_HIGH("%s: stream type: %d, mRegFlags: 0x%x, numBufs: %d",
+    CDBG_HIGH("%s: stream type: %d, mRegFlags: %p, numBufs: %d",
             __func__, stream->getMyType(), stream->mRegFlags, stream->mNumBufs);
     return NO_ERROR;
 }
@@ -1211,8 +1211,8 @@ int32_t QCameraStream::getBufs(cam_frame_len_offset_t *offset,
     *num_bufs = mNumBufs;
     *initial_reg_flag = regFlags;
     *bufs = mBufDefs;
-    CDBG_HIGH("%s: stream type: %d, mRegFlags: 0x%x, numBufs: %d",
-            __func__, mStreamInfo->stream_type, regFlags, mBufDefs);
+    CDBG_HIGH("%s: stream type: %d, mRegFlags: %p, numBufs: %d",
+            __func__, mStreamInfo->stream_type, regFlags, mNumBufs);
 
     if (mNumBufsNeedAlloc > 0) {
         pthread_mutex_lock(&m_lock);
