@@ -5078,7 +5078,7 @@ int32_t QCameraParameters::initDefaultParameters()
             m_pCapability->hfr_tbl,
             m_pCapability->hfr_tbl_cnt);
     set(KEY_QC_SUPPORTED_HFR_SIZES, hfrSizeValues.string());
-    CDBG("HFR values %s HFR Sizes = %d", hfrValues.string(), hfrSizeValues.string());
+    CDBG("HFR values %s HFR Sizes = %s", hfrValues.string(), hfrSizeValues.string());
     setHighFrameRate(CAM_HFR_MODE_OFF);
 
     // Set Focus algorithms
@@ -5884,7 +5884,7 @@ int32_t  QCameraParameters::setFocusPosition(const char *typeStr, const char *po
         }
     }
 
-    ALOGE("%s, invalid params, type:%d, pos: %d", __func__, type, pos);
+    ALOGE("%s, invalid params, type:%d, pos: %f", __func__, type, pos);
     return BAD_VALUE;
 }
 
@@ -8836,6 +8836,7 @@ int32_t QCameraParameters::getStreamFormat(cam_stream_type_t streamType,
             format = m_pCapability->analysis_recommended_format;
         } else {
             ALOGE("%s:%d invalid analysis_recommended_format %d\n",
+                    __func__, __LINE__,
                     m_pCapability->analysis_recommended_format);
             format = mPreviewFormat;
         }
