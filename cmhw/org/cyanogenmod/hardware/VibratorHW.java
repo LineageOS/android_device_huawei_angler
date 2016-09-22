@@ -16,15 +16,14 @@
 
 package org.cyanogenmod.hardware;
 
-import org.cyanogenmod.hardware.util.FileUtils;
-import java.io.File;
+import org.cyanogenmod.internal.util.FileUtils;
 
 public class VibratorHW {
     private static String LEVEL_PATH_LIGHT  = "/sys/devices/virtual/timed_output/vibrator/vmax_mv_light";
     private static String LEVEL_PATH_STRONG = "/sys/devices/virtual/timed_output/vibrator/vmax_mv_strong";
 
     public static boolean isSupported() {
-        return new File(LEVEL_PATH_STRONG).exists();
+        return FileUtils.isFileWritable(LEVEL_PATH_STRONG);
     }
 
     /* angler kernel min/max and defaults are:
