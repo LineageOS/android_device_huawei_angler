@@ -26,7 +26,6 @@ type sysfs_power_management, fs_type, sysfs_type;
 type sysfs_prox_snsr, sysfs_type, fs_type;
 type sysfs_smdcntl_open_timeout, sysfs_type, fs_type;
 type sysfs_surfaceflinger, fs_type, sysfs_type;
-type sysfs_thermal, sysfs_type, fs_type;
 type thermald_socket, file_type;
 type time_data_file, file_type, data_file_type;
 type display_data_file, file_type, data_file_type;
