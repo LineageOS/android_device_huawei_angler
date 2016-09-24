@@ -186,3 +186,10 @@
 
 # NFC hal
 /system/bin/hw/nfc_hal_pn54x    u:object_r:nfc_hal_pn54x_exec:s0
+
+# TapToWake
+/sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input0/wake_gesture     u:object_r:tap2wake_dev:s0
+
+# Vibrator
+/sys/devices/virtual/timed_output/vibrator/vmax_mv_light                   u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/vmax_mv_strong                  u:object_r:sysfs_vibrator:s0
