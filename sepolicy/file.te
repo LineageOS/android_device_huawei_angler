@@ -37,3 +37,6 @@ type sysfs_wifi_sar, fs_type, sysfs_type;
 type sysfs_lcd_mipi, fs_type, sysfs_type;
 
 type nfc_vendor_data_file, file_type, data_file_type;
+
+type tap2wake_dev, fs_type, sysfs_type;
+type sysfs_vibrator, fs_type, sysfs_type;
