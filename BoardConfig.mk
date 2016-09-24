@@ -164,4 +164,10 @@ TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
 DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 
+# CMHW
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS := \
+    hardware/cyanogen/cmhw \
+    device/huawei/angler/cmhw
+
 -include vendor/huawei/angler/BoardConfigVendor.mk

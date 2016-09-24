@@ -45,3 +45,9 @@ allow system_server sysfs_thermal:file write;
 # use MSM ipc router ioctls
 allow system_server self:socket ioctl;
 allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
+
+# TapToWake
+allow system_server tap2wake_dev:file rw_file_perms;
+
+# Vibrator
+allow system_server sysfs_vibrator:file rw_file_perms;
