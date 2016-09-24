@@ -36,7 +36,7 @@
 /*
  * Change this to 1 to support battery notifications via BatteryService
  */
-#define LIGHTS_SUPPORT_BATTERY 0
+#define LIGHTS_SUPPORT_BATTERY 1
 
 #define DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS 255
 

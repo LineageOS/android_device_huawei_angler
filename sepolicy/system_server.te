@@ -44,3 +44,9 @@ allow system_server graphics_device:chr_file rw_file_perms;
 
 # Access for thermal-engine
 allow system_server sysfs_thermal:file write;
+
+# TapToWake
+allow system_server tap2wake_dev:file rw_file_perms;
+
+# Vibrator
+allow system_server sysfs_vibrator:file rw_file_perms;
