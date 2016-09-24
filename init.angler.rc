@@ -149,6 +149,13 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
+    # TapToWake
+    chown system system /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input0/wake_gesture
+
+    # Vibrator intensity
+    chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_light
+    chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_strong
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
