@@ -103,7 +103,7 @@ endif
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_SHARED_LIBRARIES:= \
-         libcutils libdl libmmcamera_interface
+         liblog libcutils libdl libmmcamera_interface
 
 LOCAL_MODULE_TAGS := optional
 
@@ -214,7 +214,7 @@ endif
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_SHARED_LIBRARIES:= \
-         libcutils libdl libmmcamera_interface
+         liblog libcutils libdl libmmcamera_interface
 
 LOCAL_MODULE_TAGS := optional
 
