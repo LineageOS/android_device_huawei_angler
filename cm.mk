@@ -22,5 +22,5 @@ TARGET_VENDOR := huawei
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
-    BUILD_FINGERPRINT=google/angler/angler:6.0/MDA89D/2294819:user/release-keys \
-    PRIVATE_BUILD_DESC="angler-user 6.0 MDA89D 2294819 release-keys"
+    BUILD_FINGERPRINT=google/angler/angler:7.0/NBD90X/3254009:user/release-keys \
+    PRIVATE_BUILD_DESC="angler-user 7.0 NBD90X 3254009 release-keys"
