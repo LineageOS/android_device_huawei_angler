@@ -16,6 +16,7 @@ LOCAL_POST_INSTALL_CMD := \
     ln -sf /vendor/etc/flp.conf $(PRODUCT_OUT)/system/etc/flp.conf; \
     ln -sf /vendor/etc/sap.conf $(PRODUCT_OUT)/system/etc/sap.conf; \
     ln -sf /vendor/etc/pp_calib_data_SAMSUNG_S6E3HA3X01_5P7_1440P_CMD_DUAL0.xml $(PRODUCT_OUT)/system/etc/pp_calib_data_SAMSUNG_S6E3HA3X01_5P7_1440P_CMD_DUAL0.xml; \
+    ln -sf /vendor/etc/lowi.conf $(PRODUCT_OUT)/system/etc/lowi.conf; \
     mkdir -p $(PRODUCT_OUT)/system/etc/data; \
     ln -sf /vendor/etc/data/dsi_config.xml $(PRODUCT_OUT)/system/etc/data/dsi_config.xml; \
     ln -sf /vendor/etc/data/netmgr_config.xml $(PRODUCT_OUT)/system/etc/data/netmgr_config.xml; \
