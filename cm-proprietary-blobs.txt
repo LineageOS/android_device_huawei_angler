@@ -1,0 +1,54 @@
+# Copyright (C) 2016 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# special prefix characters:
+# -  define as a prebuilt package
+#
+
+# <src relative to root of extracted filesystem>:<dst relative to system>
+
+bin/nanoapp_cmd
+bin/ssr_setup
+bin/subsystem_ramdump
+etc/diag/Angler_Radio-general.cfg
+etc/permissions/cneapiclient.xml
+etc/permissions/com.google.widevine.software.drm.xml
+etc/permissions/qcrilhook.xml
+-framework/com.google.widevine.software.drm.jar
+-framework/qcrilhook.jar
+lib64/hw/activity_recognition.angler.so
+lib64/hw/context_hub.default.so
+lib64/hw/nfc_nci.angler.so
+lib64/hw/sensors.angler.so
+lib64/libfilterpack_facedetect.so
+lib64/libhubconnection.so
+lib64/libManufacture.so
+lib64/libprotobuf-cpp-full.so
+lib64/librmnetctl.so
+lib64/libtinyxml.so
+lib/hw/activity_recognition.angler.so
+lib/hw/context_hub.default.so
+lib/hw/nfc_nci.angler.so
+lib/hw/sensors.angler.so
+lib/libdmengine.so
+lib/libdmjavaplugin.so
+lib/libfilterpack_facedetect.so
+lib/libhubconnection.so
+lib/libmm-qcamera.so
+lib/librmnetctl.so
+lib/libtinyxml.so
+lib/soundfx/libfmas.so
+-priv-app/CNEService/CNEService.apk
+-priv-app/HotwordEnrollment/HotwordEnrollment.apk:PRESIGNED
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
