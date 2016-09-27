@@ -1,5 +1,5 @@
 # Create links from /vendor to /system for AOSP without vendor builds
-ifneq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
+#ifneq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
 
 LOCAL_PATH := $(call my-dir)
 
@@ -15,6 +15,7 @@ LOCAL_POST_INSTALL_CMD := \
     ln -sf /vendor/etc/izat.conf $(PRODUCT_OUT)/system/etc/izat.conf; \
     ln -sf /vendor/etc/flp.conf $(PRODUCT_OUT)/system/etc/flp.conf; \
     ln -sf /vendor/etc/sap.conf $(PRODUCT_OUT)/system/etc/sap.conf; \
+    ln -sf /vendor/etc/lowi.conf $(PRODUCT_OUT)/system/etc/lowi.conf; \
     ln -sf /vendor/etc/pp_calib_data_SAMSUNG_S6E3HA3X01_5P7_1440P_CMD_DUAL0.xml $(PRODUCT_OUT)/system/etc/pp_calib_data_SAMSUNG_S6E3HA3X01_5P7_1440P_CMD_DUAL0.xml; \
     mkdir -p $(PRODUCT_OUT)/system/etc/data; \
     ln -sf /vendor/etc/data/dsi_config.xml $(PRODUCT_OUT)/system/etc/data/dsi_config.xml; \
@@ -29,4 +30,4 @@ LOCAL_POST_INSTALL_CMD := \
 
 include $(BUILD_PHONY_PACKAGE)
 
-endif # aosp_angler
+#endif # aosp_angler
