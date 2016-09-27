@@ -101,7 +101,11 @@
 #ifndef _LINUX_FUSE_H
 #define _LINUX_FUSE_H
 
+#ifdef __KERNEL__
+#include <linux/types.h>
+#else
 #include <stdint.h>
+#endif
 
 /*
  * Version negotiation:
@@ -237,8 +241,6 @@ struct fuse_file_lock {
 #define FUSE_READDIRPLUS_AUTO	(1 << 14)
 #define FUSE_ASYNC_DIO		(1 << 15)
 #define FUSE_WRITEBACK_CACHE	(1 << 16)
-
-#define FUSE_SHORTCIRCUIT	(1 << 31)
 
 /**
  * CUSE INIT request/reply flags
@@ -463,7 +465,10 @@ struct fuse_create_in {
 struct fuse_open_out {
 	uint64_t	fh;
 	uint32_t	open_flags;
-	int32_t         lower_fd;/* lower layer file descriptor */
+        union {
+                int32_t  lower_fd;
+	        uint32_t padding;
+        };
 };
 
 struct fuse_release_in {
