@@ -242,6 +242,8 @@ struct fuse_file_lock {
 #define FUSE_ASYNC_DIO		(1 << 15)
 #define FUSE_WRITEBACK_CACHE	(1 << 16)
 
+#define FUSE_SHORTCIRCUIT (1 << 31)
+
 /**
  * CUSE INIT request/reply flags
  *
