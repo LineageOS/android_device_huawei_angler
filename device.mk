@@ -268,7 +268,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
-    Tag
+    Tag \
+    android.hardware.nfc@1.0-impl \
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-service
+endif
 
 ifeq ($(TARGET_PRODUCT), angler_treble)
 PRODUCT_PACKAGES += \
