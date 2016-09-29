@@ -264,7 +264,13 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     nfc_nci.angler \
     NfcNci \
-    Tag
+    Tag \
+    android.hardware.nfc@1.0-impl \
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-service
+endif
 
 # Power HAL
 PRODUCT_PACKAGES += \
