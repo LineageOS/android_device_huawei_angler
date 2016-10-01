@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_36d79026",
+        "filename": "init.angler.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1053
+      },
+      "writtenOn": "2016-10-01T04:33:27Z",
+      "side": 1,
+      "message": "Already in vendor_cm\n\nhttps://github.com/CyanogenMod/android_vendor_cm/blob/cm-14.0/prebuilt/common/etc/init.local.rc#L126",
+      "revId": "280db955dbb79788f092c2a55963c2dba7ca8f31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
