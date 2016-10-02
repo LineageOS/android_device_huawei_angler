@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_57c68e18",
+        "filename": "aosp/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-10-02T10:20:54Z",
+      "side": 1,
+      "message": "What about adding cm_angler in this check instead?",
+      "revId": "8b5d4e67958e1c2193e9e10d4541caf7d4e86442",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
