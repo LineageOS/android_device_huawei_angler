@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!-- This is a place for device-specific config values. The format and
+     filtering rules are the same as those in carrier_config*.xml files. This
+     file is read after any specific config file from the assets folder, so it
+     must use explicit filters for MCC ad MNC if that is desired. -->
+<carrier_config_list>
+    <carrier_config mcc="204" mnc="08">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="206" mnc="01">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="206" mnc="05">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="222" mnc="99">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="228" mnc="02">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="232" mnc="05">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="232" mnc="10">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="238" mnc="01">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="238" mnc="06">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="238" mnc="20">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="240" mnc="02">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="240" mnc="07">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="242" mnc="01">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="262" mnc="07">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="272" mnc="01">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="10">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="20">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="14">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="505" mnc="02">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="505" mnc="03">
+        <!-- The list of ril radio technologies (see ServiceState.java) which only support
+             a single data connection at one time.  This may change by carrier via
+             overlays (some don't support multiple pdp on UMTS).  All unlisted radio
+             tech types support unlimited types (practically only 2-4 used). -->
+        <int-array name="only_single_dc_allowed_int_array" num="15">
+            <item value="1" />  <!-- GPRS -->
+            <item value="2" />  <!-- EDGE -->
+            <item value="3" />  <!-- UMTS -->
+            <item value="4" />  <!-- IS95A -->
+            <item value="5" />  <!-- IS95B -->
+            <item value="6" />  <!-- 1xRTT -->
+            <item value="7" />  <!-- EVDO_0 -->
+            <item value="8" />  <!-- EVDO_A -->
+            <item value="9" />  <!-- HSDPA -->
+            <item value="10" /> <!-- HSUPA -->
+            <item value="11" /> <!-- HSPA -->
+            <item value="12" /> <!-- EVDO_B -->
+            <item value="13" /> <!-- EHRPD -->
+            <item value="14" /> <!-- LTE -->
+            <item value="15" /> <!-- HSPAP -->
+        </int-array>
+    </carrier_config>
+</carrier_config_list>
