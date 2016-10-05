@@ -256,6 +256,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     wlutil \
     wificond \
+    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 
