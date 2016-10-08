@@ -288,10 +288,12 @@ endif
 # Power HAL
 PRODUCT_PACKAGES += \
     power.angler \
-    thermal.angler
+    thermal.angler \
+    android.hardware.power@1.0-impl \
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service \
     android.hardware.memtrack@1.0-service
 endif
 
