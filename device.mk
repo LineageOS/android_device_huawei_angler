@@ -183,8 +183,12 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8994 \
     libgenlock \
     memtrack.msm8994 \
-    lights.angler \
     android.hardware.memtrack@1.0-impl
+
+# Light HAL
+PRODUCT_PACKAGES += \
+    lights.angler \
+    android.hardware.light@2.0-impl
 
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
