@@ -277,9 +277,13 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service
 endif
 
+# TODO(b/31817599) remove when bullhead_treble goes away
 ifeq ($(TARGET_PRODUCT), angler_treble)
 PRODUCT_PACKAGES += \
-    nfc_hal_pn54x
+    nfc_nci.angler_treble \
+    android.hardware.nfc@1.0-service
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.nfc_nci=angler_treble
 else
 PRODUCT_PACKAGES += \
     nfc_nci.angler
