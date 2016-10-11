@@ -183,7 +183,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8994 \
     libgenlock \
     memtrack.msm8994 \
-    lights.angler
+    lights.angler \
+    android.hardware.memtrack@1.0-impl
 
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
@@ -293,6 +294,11 @@ endif
 PRODUCT_PACKAGES += \
     power.angler \
     thermal.angler
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-service
+endif
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
