@@ -290,6 +290,10 @@ PRODUCT_PACKAGES += \
     nfc_nci.angler
 endif
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # Power HAL
 PRODUCT_PACKAGES += \
     power.angler \
