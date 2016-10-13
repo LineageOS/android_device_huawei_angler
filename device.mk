@@ -279,14 +279,16 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-service
+    android.hardware.nfc@1.0-service \
+    android.hardware.vibrator@1.0-service
 endif
 
-# TODO(b/31817599) remove when bullhead_treble goes away
+# TODO(b/31817599) remove when angler_treble goes away
 ifeq ($(TARGET_PRODUCT), angler_treble)
 PRODUCT_PACKAGES += \
     nfc_nci.angler_treble \
-    android.hardware.nfc@1.0-service
+    android.hardware.nfc@1.0-service \
+    android.hardware.vibrator@1.0-service
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=angler_treble
 else
