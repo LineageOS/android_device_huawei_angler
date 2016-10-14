@@ -481,7 +481,7 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/location/etc/gps.conf:system/etc/gps.conf:qcom
+    device/huawei/angler/gps.conf:system/etc/gps.conf:qcom
 
 # setup dm-verity configs.
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
