@@ -199,6 +199,20 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     dsm_ctrl
 
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service
+endif
+
+PRODUCT_PACKAGES += \
+    android.hardware.soundtrigger@2.0-impl
+
+# TODO(b/31817599) remove when angler_treble goes away
+ifeq ($(TARGET_PRODUCT), angler_treble)
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service
+endif
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
