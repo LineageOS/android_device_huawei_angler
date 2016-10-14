@@ -2580,17 +2580,22 @@ void QCamera3HardwareInterface::handleMetadataWithLock(
                 i++;
                 continue;
             } else {
-                ALOGE("%s: Fatal: Missing metadata buffer for frame number %d", __func__, i->frame_number);
-                if (free_and_bufdone_meta_buf) {
-                    mMetadataChannel->bufDone(metadata_buf);
-                    free(metadata_buf);
-                }
+                ALOGE("%s: Missing metadata buffer for frame number %d, reporting CAMERA3_MSG_ERROR_RESULT",
+                     __func__, i->frame_number);
+
+                mPendingLiveRequest--;
+
+                CameraMetadata dummyMetadata;
+                dummyMetadata.update(ANDROID_REQUEST_ID, &(i->request_id), 1);
+                result.result = dummyMetadata.release();
+
                 camera3_notify_msg_t notify_msg;
                 memset(&notify_msg, 0, sizeof(notify_msg));
                 notify_msg.type = CAMERA3_MSG_ERROR;
-                notify_msg.message.error.error_code = CAMERA3_MSG_ERROR_DEVICE;
+                notify_msg.message.error.error_code = CAMERA3_MSG_ERROR_RESULT;
+                notify_msg.message.error.error_stream = NULL;
+                notify_msg.message.error.frame_number = i->frame_number;
                 mCallbackOps->notify(mCallbackOps, &notify_msg);
-                goto done_metadata;
             }
         } else {
             i->partial_result_cnt++;
