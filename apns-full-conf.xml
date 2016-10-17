@@ -25189,6 +25189,24 @@
       authtype="2"
   />
 
+  <apn carrier="KDDI IA"
+      mcc="440"
+      mnc="50"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+  />
+
+  <apn carrier="KDDI IMS"
+      mcc="440"
+      mnc="50"
+      apn="ims"
+      type="ims"
+      protocol="IPV6"
+      user_visible="false"
+  />
+
   <apn carrier="au.au-net.ne.jp"
       mcc="440"
       mnc="50"
