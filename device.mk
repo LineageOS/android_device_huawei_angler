@@ -351,7 +351,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # VR HAL
 PRODUCT_PACKAGES += \
-    vr.angler
+    vr.angler \
+    android.hardware.vr@1.0-impl
+
+ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.vr@1.0-service
+endif
 
 # Enable low power video mode for 4K encode
 PRODUCT_PROPERTY_OVERRIDES += \
