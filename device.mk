@@ -260,6 +260,10 @@ PRODUCT_PACKAGES += \
     context_hub.default \
     android.hardware.sensors@1.0-impl \
 
+# new gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl
+
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
     sensortool.angler \
@@ -294,13 +298,15 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
-    android.hardware.nfc@1.0-impl
+    android.hardware.nfc@1.0-impl \
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service \
-    android.hardware.vibrator@1.0-service \
-    android.hardware.thermal@1.0-service
+    android.hardware.vibrator@1.0-service   \
+    android.hardware.thermal@1.0-service    \
+    android.hardware.gatekeeper@1.0-service \
+
 endif
 
 # TODO(b/31817599) remove when angler_treble goes away
