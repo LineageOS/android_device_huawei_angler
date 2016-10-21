@@ -112,7 +112,6 @@ lib64/libloc_ds_api.so
 lib64/libloc_eng.so
 lib64/libManufacture.so
 lib64/libtinyxml.so
-lib/hw/camera.msm8994.so
 lib/hw/gps.msm8994.so
 lib/hw/nfc_nci.angler.so
 lib/libdmengine.so
