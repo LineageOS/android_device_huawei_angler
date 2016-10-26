@@ -291,6 +291,12 @@ PRODUCT_PACKAGES += \
     power.angler \
     thermal.angler
 
+# Test HAL for hwbinder performance benchamrk  (only for userdebug and eng builds)
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    android.hardware.tests.libhwbinder@1.0-impl
+endif
+
 PRODUCT_COPY_FILES += \
     device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
