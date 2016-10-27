@@ -269,8 +269,8 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             int duration_hint = 0;
             static struct timespec previous_boost_timespec = {0, 0};
 
-            // If we are in sustained perforamnce Mode, touch boost should be
-            // ignored.
+            // If we are in sustained performance mode or VR mode, touch boost
+            // should be ignored.
             pthread_mutex_lock(&lock);
             if (sustained_performance_mode || vr_mode) {
                 pthread_mutex_unlock(&lock);

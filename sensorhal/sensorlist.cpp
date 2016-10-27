@@ -135,8 +135,8 @@ extern const sensor_t kSensorList[] = {
         kVersion,
         COMMS_SENSOR_GYRO,
         SENSOR_TYPE_GYROSCOPE,
-        2000.0f * M_PI / 180.0f,                   // maxRange
-        2000.0f * M_PI / (180.0f * 32768.0f),      // resolution
+        1000.0f * M_PI / 180.0f,                   // maxRange
+        1000.0f * M_PI / (180.0f * 32768.0f),      // resolution
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzGyro),  // minDelay
         kMinFifoReservedEventCount,                // XXX fifoReservedEventCount
@@ -153,8 +153,8 @@ extern const sensor_t kSensorList[] = {
         kVersion,
         COMMS_SENSOR_GYRO_UNCALIBRATED,
         SENSOR_TYPE_GYROSCOPE_UNCALIBRATED,
-        2000.0f * M_PI / 180.0f,                   // maxRange
-        2000.0f * M_PI / (180.0f * 32768.0f),      // resolution
+        1000.0f * M_PI / 180.0f,                   // maxRange
+        1000.0f * M_PI / (180.0f * 32768.0f),      // resolution
         0.0f,                                      // XXX power
         (int32_t)(1.0E6f / kMaxSampleRateHzGyro),  // minDelay
         kMinFifoReservedEventCount,                // XXX fifoReservedEventCount
