@@ -227,6 +227,14 @@ on post-fs-data
     chmod 0440 /persist/data/st_offset
     chmod 0440 /persist/data/st_xtalk
 
+    # File flags for prebuilt ril db file
+    write /data/misc/radio/prebuilt_db_support 1
+    chown radio radio /data/misc/radio/prebuilt_db_support
+    chmod 0400 /data/misc/radio/prebuilt_db_support
+    write /data/misc/radio/db_check_done 0
+    chown radio radio /data/misc/radio/db_check_done
+    chmod 0660 /data/misc/radio/db_check_done
+
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
     chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
@@ -463,6 +471,12 @@ service mcfg-sh /system/bin/init.mcfg.sh
    user radio
    group radio system
    oneshot
+
+service radio-sh /system/bin/init.radio.sh
+    class late_start
+    user radio
+    group root radio
+    oneshot
 
 service oem_qmi_server /vendor/bin/oem_qmi_server
     class main
