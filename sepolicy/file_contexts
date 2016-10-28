@@ -125,6 +125,7 @@
 /system/bin/init\.angler\.power\.sh      u:object_r:init-power-sh_exec:s0
 /system/bin/init\.angler\.qseecomd\.sh   u:object_r:init-angler-qseecomd-sh_exec:s0
 /system/bin/init\.mcfg\.sh               u:object_r:init-mcfg-sh_exec:s0
+/system/bin/init\.radio\.sh              u:object_r:init-radio-sh_exec:s0
 /vendor/bin/irsc_util                    u:object_r:irsc_util_exec:s0
 /vendor/bin/loc_launcher                 u:object_r:location_exec:s0
 /system/bin/location-mq                  u:object_r:location_exec:s0
