@@ -290,7 +290,7 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
-    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-impl
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
@@ -318,8 +318,12 @@ PRODUCT_PACKAGES += \
 # Power HAL
 PRODUCT_PACKAGES += \
     power.angler \
-    thermal.angler \
     android.hardware.power@1.0-impl \
+
+# Thermal HAL
+PRODUCT_PACKAGES += \
+    thermal.angler \
+    android.hardware.thermal@1.0-impl
 
 ifeq ($(ENABLE_TREBLE), true)
 PRODUCT_PACKAGES += \
