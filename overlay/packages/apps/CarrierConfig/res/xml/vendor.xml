@@ -882,6 +882,14 @@
         </int-array>
     </carrier_config>
 
+    <carrier_config mcc="440" mnc="50">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="51">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
+
     <carrier_config mcc="450" mnc="05">
         <int name="smsToMmsTextThreshold" value="1" />
     </carrier_config>
