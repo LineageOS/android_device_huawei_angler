@@ -325,12 +325,6 @@ PRODUCT_PACKAGES += \
     thermal.angler \
     android.hardware.thermal@1.0-impl
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service \
-    android.hardware.memtrack@1.0-service
-endif
-
 # Test HAL for hwbinder performance benchamrk  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
