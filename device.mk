@@ -556,7 +556,7 @@ $(call inherit-product, build/target/product/verity.mk)
 # b/28992626
 # For app investigation, make ASAN-lite only sanitize 32-bit.
 ifeq (true,$(SANITIZE_LITE))
-  SANITIZE_ARCH := 32
+  SANITIZE_TARGET_ARCH := arm
 endif
 
 # b/29995499
