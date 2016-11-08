@@ -280,10 +280,10 @@ on property:persist.sys.ssr.enable_ramdumps=1
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
 
-service charger /sbin/healthd -c
+service charger /charger
     class charger
     group log
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
     writepid /dev/cpuset/system-background/tasks
 
 service per_mgr /vendor/bin/pm-service
