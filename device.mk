@@ -230,6 +230,9 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc
 
+PRODUCT_PACKAGES += \
+    android.hardware.audio.effect@2.0-impl
+
 #CAMERA
 PRODUCT_PACKAGES += \
     camera.msm8994 \
