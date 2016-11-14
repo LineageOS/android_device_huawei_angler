@@ -23,11 +23,7 @@
 TARGET_USES_CHINOOK_SENSORHUB := false
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    ifeq ($(TARGET_PRODUCT),angler_treble)
-      LOCAL_KERNEL := device/huawei/angler-kernel/Image_treble.gz-dtb
-    else
-      LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
-    endif
+  LOCAL_KERNEL := device/huawei/angler-kernel/Image.gz-dtb
 else
   LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -208,12 +204,6 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl
 
-# TODO(b/31817599) remove when angler_treble goes away
-ifeq ($(TARGET_PRODUCT), angler_treble)
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service
-endif
-
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
@@ -301,6 +291,7 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
+    nfc_nci.angler \
     android.hardware.nfc@1.0-impl \
 
 ifeq ($(ENABLE_TREBLE), true)
@@ -310,20 +301,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service    \
     android.hardware.gatekeeper@1.0-service \
 
-endif
-
-# TODO(b/31817599) remove when angler_treble goes away
-ifeq ($(TARGET_PRODUCT), angler_treble)
-PRODUCT_PACKAGES += \
-    nfc_nci.angler_treble \
-    android.hardware.nfc@1.0-service \
-    android.hardware.vibrator@1.0-service \
-    android.hardware.thermal@1.0-service
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.nfc_nci=angler_treble
-else
-PRODUCT_PACKAGES += \
-    nfc_nci.angler
 endif
 
 # Vibrator
@@ -509,10 +486,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter aosp_angler aosp_angler_treble, $(TARGET_PRODUCT)))
+ifeq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
     NexusLogger
-endif # aosp_angler || aosp_angler_treble
+endif # aosp_angler
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
