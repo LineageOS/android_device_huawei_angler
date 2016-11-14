@@ -20,4 +20,8 @@
 
     <!-- Restart preview for front camera onPictureTaken -->
     <bool name="front_camera_restart_preview_onPictureTaken">true</bool>
+
+    <!-- Disable use of camera hal v1 -->
+    <bool name="front_camera_open_legacy">false</bool>
+    <bool name="back_camera_open_legacy">false</bool>
 </resources>
