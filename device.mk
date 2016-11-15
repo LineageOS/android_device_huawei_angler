@@ -205,6 +205,7 @@ PRODUCT_PACKAGES += \
     libmmcamera_interface2 \
     libmmjpeg_interface \
     libqomx_core \
+    libmm-qcamera \
     mm-qcamera-app \
     Snap
 
@@ -219,6 +220,11 @@ PRODUCT_PACKAGES += \
 # Gello
 PRODUCT_PACKAGES += \
     Gello
+
+# Extra packages we can compile from source
+PRODUCT_PACKAGES += \
+    libtinyxml \
+    libprotobuf-cpp-full
 
 # Sensor & activity_recognition HAL
 TARGET_USES_NANOHUB_SENSORHAL := true
