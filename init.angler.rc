@@ -60,6 +60,9 @@ on early-boot
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
 
+    # Busy loop to wait for devices booted by devstart_sh just in case device not ready
+    exec - root root system -- /system/bin/init.qcom.devwait.sh
+
 on boot
     # execute script to set initial CPU settings
     # don't run as a service to avoid race conditions
@@ -150,7 +153,10 @@ on post-fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
     start qseecomd
+    # Busy loop to wait for qseecomd started
     exec - root root system -- /system/bin/init.angler.qseecomd.sh
+    # Start devices by sysfs trigger
+    start devstart_sh
 
 on post-fs-data
     # boot time fs tune
@@ -162,8 +168,6 @@ on post-fs-data
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
     write /sys/block/dm-2/queue/read_ahead_kb 2048
-
-    write /sys/kernel/boot_adsp/boot 1
 
     # Ecc_Handler qcril.db
     mkdir /data/misc/radio 0770 system radio
@@ -499,3 +503,9 @@ service diag_test_server /vendor/bin/diag_test_server
 on property:ro.boot.mode=hw-factory
     start diag_test_server
 
+service devstart_sh /system/bin/init.qcom.devstart.sh
+    class main
+    user root
+    group root system
+    disabled
+    oneshot

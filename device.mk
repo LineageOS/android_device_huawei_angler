@@ -42,7 +42,9 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/init.recovery.angler.rc:root/init.recovery.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh \
-    device/huawei/angler/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
+    device/huawei/angler/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
+    device/huawei/angler/init.qcom.devwait.sh:system/bin/init.qcom.devwait.sh \
+    device/huawei/angler/init.qcom.devstart.sh:system/bin/init.qcom.devstart.sh
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_COPY_FILES += \
