@@ -92,7 +92,8 @@ PRODUCT_PACKAGES += \
 
 # include fingerprintd
 PRODUCT_PACKAGES += \
-    fingerprintd
+    fingerprintd \
+    android.hardware.biometrics.fingerprint@2.1-impl
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
