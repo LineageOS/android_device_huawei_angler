@@ -222,3 +222,19 @@ LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 
 LOCAL_MODULE:= libmm-qcamera
 include $(BUILD_SHARED_LIBRARY)
+
+# Build cam_semaphore_tests
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := src/cam_semaphore_tests.cpp
+
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../common
+
+LOCAL_CFLAGS := -Wall -Wextra -Werror
+
+LOCAL_MODULE := cam_semaphore_tests
+LOCAL_MODULE_TAGS := tests
+
+include $(BUILD_NATIVE_TEST)
+
+LOCAL_PATH := $(OLD_LOCAL_PATH)
