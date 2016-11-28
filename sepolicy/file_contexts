@@ -79,6 +79,7 @@
 /persist/sensors(/.*)?                                              u:object_r:persist_sensors_file:s0
 
 /sys/bus/msm_subsys(/.*)?                                                                                  u:object_r:sysfs_msm_subsys:s0
+/sys/kernel/boot_adsp/boot                                                                                 u:object_r:sysfs_msm_subsys:s0
 /sys/devices/bt_bcm4358\.[0-9]+/rfkill/rfkill0/state                                                           u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level                                                u:object_r:sysfs_msm_subsys_toggle:s0
 /sys/devices/soc\.0/fd900000\.qcom,mdss_mdp/qcom,mdss_fb_primary\.[0-9]+/leds(/.*)?                        u:object_r:sysfs_led:s0
@@ -126,6 +127,8 @@
 /vendor/bin/ims_rtp_daemon               u:object_r:ims_exec:s0
 /system/bin/init\.angler\.power\.sh      u:object_r:init-power-sh_exec:s0
 /system/bin/init\.angler\.qseecomd\.sh   u:object_r:init-angler-qseecomd-sh_exec:s0
+/system/bin/init\.qcom\.devstart\.sh     u:object_r:init-qcom-devstart-sh_exec:s0
+/system/bin/init\.qcom\.devwait\.sh      u:object_r:init-qcom-devwait-sh_exec:s0
 /system/bin/init\.mcfg\.sh               u:object_r:init-mcfg-sh_exec:s0
 /vendor/bin/irsc_util                    u:object_r:irsc_util_exec:s0
 /vendor/bin/loc_launcher                 u:object_r:location_exec:s0
