@@ -317,6 +317,10 @@ PRODUCT_PACKAGES += \
     thermal.angler \
     android.hardware.thermal@1.0-impl
 
+#GNSS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl
+
 # Test HAL for hwbinder performance benchamrk  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
