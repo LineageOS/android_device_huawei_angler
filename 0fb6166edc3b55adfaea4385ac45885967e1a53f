@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_42734781",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2016-12-04T03:57:34Z",
+      "side": 0,
+      "message": "Some of these are from aosp rather than something we put in though.  Is there any benefit in removing them ?\n\nThe downside is merge conflicts later on.  It\u0027s never a big deal per patch but they all add up at some point.",
+      "revId": "0fb6166edc3b55adfaea4385ac45885967e1a53f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
