@@ -9535,7 +9535,7 @@
       apn="us.vodafone.com"
       type="default,mms"
       protocol="IPV6"
-      roaming_protocol="IPV4"
+      roaming_protocol="IP"
       mmsc="http://wholesale.mmsmvno.com/mms/wapenc"
       mvno_type="gid"
       mvno_match_data="2801"
@@ -9547,9 +9547,10 @@
       apn="ims"
       type="ims"
       protocol="IPV6"
-      roaming_protocol="IPV4"
+      roaming_protocol="IP"
       mvno_type="gid"
       mvno_match_data="2801"
+      user_visible="false"
   />
 
   <apn carrier="Vodafone US Service"
@@ -9558,10 +9559,11 @@
       apn="service"
       type="mms"
       protocol="IPV6"
-      roaming_protocol="IPV4"
+      roaming_protocol="IP"
       mmsc="http://wholesale.mmsmvno.com/mms/wapenc"
       mvno_type="gid"
       mvno_match_data="2801"
+      user_visible="false"
   />
 
   <apn carrier="Vodafone US"
@@ -9569,8 +9571,8 @@
       mnc="04"
       apn="us.vodafone.com"
       type="default,mms"
-      protocol="IPV4"
-      roaming_protocol="IPV4"
+      protocol="IP"
+      roaming_protocol="IP"
       mmsc="http://wholesale.mmsmvno.com/mms/wapenc"
       mvno_type="gid"
       mvno_match_data="2801"
@@ -25187,9 +25189,55 @@
       authtype="2"
   />
 
+  <apn carrier="KDDI IA"
+      mcc="440"
+      mnc="50"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+  />
+
+  <apn carrier="KDDI IMS"
+      mcc="440"
+      mnc="50"
+      apn="ims"
+      type="ims"
+      protocol="IPV6"
+      user_visible="false"
+  />
+
   <apn carrier="au.au-net.ne.jp"
       mcc="440"
       mnc="50"
+      apn="au.au-net.ne.jp"
+      user="user@au.au-net.ne.jp"
+      password="au"
+      authtype="2"
+      type="default,supl"
+  />
+
+  <apn carrier="KDDI IA"
+      mcc="440"
+      mnc="51"
+      apn=""
+      type="ia"
+      protocol="IPV4V6"
+      roaming_protocol="IP"
+  />
+
+  <apn carrier="KDDI IMS"
+      mcc="440"
+      mnc="51"
+      apn="ims"
+      type="ims"
+      protocol="IPV6"
+      user_visible="false"
+  />
+
+  <apn carrier="au.au-net.ne.jp"
+      mcc="440"
+      mnc="51"
       apn="au.au-net.ne.jp"
       user="user@au.au-net.ne.jp"
       password="au"
