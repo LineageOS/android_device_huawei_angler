@@ -143,6 +143,9 @@ on boot
     write /sys/block/mmcblk0/queue/rq_affinity 0
     write /sys/block/mmcblk0/queue/scheduler noop
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
