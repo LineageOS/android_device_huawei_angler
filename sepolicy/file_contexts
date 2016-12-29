@@ -121,6 +121,7 @@
 # System files
 /vendor/bin/ATFWD-daemon                 u:object_r:atfwd_exec:s0
 /vendor/bin/cnd                          u:object_r:cnd_exec:s0
+/vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.angler      u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/imscmservice                 u:object_r:ims_exec:s0
 /vendor/bin/imsdatadaemon                u:object_r:ims_exec:s0
 /vendor/bin/imsqmidaemon                 u:object_r:ims_exec:s0
