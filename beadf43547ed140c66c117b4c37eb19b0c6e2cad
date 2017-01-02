@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_d81c4516",
+        "filename": "lineage.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2017-01-02T21:52:26Z",
+      "side": 1,
+      "message": "Might as well change this too now, no?",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "beadf43547ed140c66c117b4c37eb19b0c6e2cad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
