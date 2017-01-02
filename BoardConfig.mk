@@ -34,7 +34,7 @@ ENABLE_CPUSETS := true
 # Inline kernel building
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
-TARGET_KERNEL_CONFIG := cyanogenmod_angler_defconfig
+TARGET_KERNEL_CONFIG := lineageos_angler_defconfig
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
