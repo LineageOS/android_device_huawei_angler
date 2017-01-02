@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -47,9 +48,9 @@ setup_vendor "$DEVICE" "$VENDOR" "$REPO_ROOT"
 write_headers
 
 # The standard blobs
-write_makefiles "$MY_DIR"/cm-proprietary-blobs.txt
+write_makefiles "$MY_DIR"/lineage-proprietary-blobs.txt
 
-write_makefiles "$MY_DIR"/cm-proprietary-blobs-vendorimg.txt
+write_makefiles "$MY_DIR"/lineage-proprietary-blobs-vendorimg.txt
 
 # We are done!
 write_footers
