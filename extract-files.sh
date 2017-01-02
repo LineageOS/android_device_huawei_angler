@@ -56,7 +56,7 @@ fi
 setup_vendor "$DEVICE" "$VENDOR" "$REPO_ROOT"
 
 # Extract the device specific files that always occur in /system
-extract "$MY_DIR/cm-proprietary-blobs.txt" "$SRC"
+extract "$MY_DIR/lineage-proprietary-blobs.txt" "$SRC"
 
 ## Handle blobs that may be in /system OR /vendor (only occurs when extracting from nexus images)
 
@@ -87,6 +87,6 @@ if [ "$SRC" != "adb" ]; then
 fi
 
 # Extract "sometimes system" blobs
-extract "$MY_DIR/cm-proprietary-blobs-vendorimg.txt" "$SRC"
+extract "$MY_DIR/lineage-proprietary-blobs-vendorimg.txt" "$SRC"
 
 "$MY_DIR"/setup-makefiles.sh
