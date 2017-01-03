@@ -22,6 +22,30 @@
       "revId": "beadf43547ed140c66c117b4c37eb19b0c6e2cad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_e621a6b5",
+        "filename": "lineage.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-01-03T22:14:33Z",
+      "side": 1,
+      "message": "I thought it might confuse gerrit and show cm.mk rename as a delete / new file sequence instead (so was planning to do in separate commit) but I see from other commits that this isn\u0027t the case.  Will add.",
+      "parentUuid": "fa3479d7_d81c4516",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "beadf43547ed140c66c117b4c37eb19b0c6e2cad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
