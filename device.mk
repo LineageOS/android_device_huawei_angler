@@ -51,6 +51,9 @@ endif
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/bin/init.mcfg.sh
 
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.radio.sh:system/bin/init.radio.sh
+
 # Thermal configuration
 PRODUCT_COPY_FILES += \
     device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
