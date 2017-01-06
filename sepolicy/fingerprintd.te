@@ -7,3 +7,5 @@ allow fingerprintd input_device:chr_file r_file_perms;
 allow fingerprintd sysfs_fingerprintd:file rw_file_perms;
 allow fingerprintd sysfs_fingerprintd:dir search;
 allow fingerprintd sysfs_fingerprintd:dir r_dir_perms;
+# open/write/ioctl /dev/uinput
+allow fingerprintd uhid_device:chr_file { open write ioctl };
