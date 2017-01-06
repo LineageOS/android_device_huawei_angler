@@ -396,4 +396,7 @@
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
     </string-array>
 
+    <!-- Enable system navigation keys. -->
+    <bool name="config_supportSystemNavigationKeys">true</bool>
+
 </resources>
