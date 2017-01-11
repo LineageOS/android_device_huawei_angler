@@ -541,7 +541,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=1
 
 # OEM Unlock reporting
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
 
 # In userdebug, add minidebug info the the boot image and the system server to support
