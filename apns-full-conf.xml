@@ -24651,29 +24651,15 @@
       type="mms"
   />
 
-  <apn carrier="Mozaic Mob"
-      mcc="427"
-      mnc="01"
-      apn="gprs.qtel"
-      user="gprs"
-      password="gprs"
-      authtype="1"
-      proxy="10.23.8.3"
-      port="8080"
-      type="default,supl"
-  />
-
-  <apn carrier="Qtel MMS"
-      mcc="427"
-      mnc="01"
-      apn="mms.qtel"
-      user="10"
-      password="11"
-      authtype="1"
-      mmsproxy="10.23.8.3"
-      mmsport="8080"
-      mmsc="http://mmsr.qtelmms.qa"
-      type="mms"
+  <apn carrier="Ooredoo data"
+    mcc="427"
+    mnc="01"
+    apn="data"
+    mmsproxy="10.23.8.3"
+    mmsport="8080"
+    mmsc="http://mmsr.ooredoomms.qa"
+    type="default,supl,mms"
+    authtype="1"
   />
 
   <apn carrier="Voda internet"
@@ -24815,12 +24801,10 @@
       type="mms"
   />
 
-  <apn carrier="Irancell-GPRS"
+  <apn carrier="Irancell-Internet"
       mcc="432"
       mnc="35"
       apn="mtnirancell"
-      proxy="10.131.26.138"
-      port="8080"
       type="default,supl"
   />
 
