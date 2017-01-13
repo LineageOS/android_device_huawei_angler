@@ -95,10 +95,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AnglerLayout
 
-# include fingerprintd
+# Fingerprint Sensor
 PRODUCT_PACKAGES += \
-    fingerprintd \
-    android.hardware.biometrics.fingerprint@2.1-impl
+    fingerprint.angler \
+    android.hardware.biometrics.fingerprint@2.1-service
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
