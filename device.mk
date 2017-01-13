@@ -305,10 +305,16 @@ PRODUCT_PACKAGES += \
     power.angler \
     thermal.angler
 
-# Test HAL for hwbinder performance benchamrk  (only for userdebug and eng builds)
+# Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+# Test HAL for hwbinder performance benchamrk.
 PRODUCT_PACKAGES += \
-    android.hardware.tests.libhwbinder@1.0-impl
+     android.hardware.tests.libhwbinder@1.0-impl
+
+# For VTS profiling.
+PRODUCT_PACKAGES += \
+     libvts_profiling \
+     libvts_multidevice_proto
 endif
 
 PRODUCT_COPY_FILES += \
