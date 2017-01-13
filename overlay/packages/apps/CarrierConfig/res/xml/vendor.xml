@@ -17,11 +17,10 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
-        <string-array name="signal_redirection_receiver_string_array" num="1">
-            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
-        </string-array>
-        <string-array name="signal_dcfailure_receiver_string_array" num="1">
-            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
+        <string-array name="carrier_app_wake_signal_config" num="1">
+            <item value="com.google.android.carriersetup/.VzwActivationReceiver:
+            android.intent.action.CARRIER_SIGNAL_REDIRECTED,
+            android.intent.action.CARRIER_SIGNAL_REQUEST_NETWORK_FAILED" />
         </string-array>
     </carrier_config>
 
@@ -685,11 +684,10 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
-        <string-array name="signal_redirection_receiver_string_array" num="1">
-            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
-        </string-array>
-        <string-array name="signal_dcfailure_receiver_string_array" num="1">
-            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
+        <string-array name="carrier_app_wake_signal_config" num="1">
+            <item value="com.google.android.carriersetup/.VzwActivationReceiver:
+            android.intent.action.CARRIER_SIGNAL_REDIRECTED,
+            android.intent.action.CARRIER_SIGNAL_REQUEST_NETWORK_FAILED" />
         </string-array>
     </carrier_config>
 
@@ -712,11 +710,10 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
-        <string-array name="signal_redirection_receiver_string_array" num="1">
-            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
-        </string-array>
-        <string-array name="signal_dcfailure_receiver_string_array" num="1">
-            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
+        <string-array name="carrier_app_wake_signal_config" num="1">
+            <item value="com.google.android.carriersetup/.VzwActivationReceiver:
+            android.intent.action.CARRIER_SIGNAL_REDIRECTED,
+            android.intent.action.CARRIER_SIGNAL_REQUEST_NETWORK_FAILED" />
         </string-array>
     </carrier_config>
 
