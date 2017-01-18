@@ -17,9 +17,11 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
-        <string-array name="sim_state_detection_carrier_app_string_array" num="2">
-            <item value="com.google.android.carrierentitlement" />
-            <item value="com.google.android.carrierentitlement.VzwActivationReceiver" />
+        <string-array name="signal_redirection_receiver_string_array" num="1">
+            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
+        </string-array>
+        <string-array name="signal_dcfailure_receiver_string_array" num="1">
+            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
         </string-array>
     </carrier_config>
 
@@ -683,9 +685,11 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
-        <string-array name="sim_state_detection_carrier_app_string_array" num="2">
-            <item value="com.google.android.carrierentitlement" />
-            <item value="com.google.android.carrierentitlement.VzwActivationReceiver" />
+        <string-array name="signal_redirection_receiver_string_array" num="1">
+            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
+        </string-array>
+        <string-array name="signal_dcfailure_receiver_string_array" num="1">
+            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
         </string-array>
     </carrier_config>
 
@@ -708,9 +712,11 @@
         <string name="ci_action_on_sys_update_extra_val_string">com.vzwdmserver</string>
         <boolean name="config_wifi_disable_in_ecbm" value="true" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
-        <string-array name="sim_state_detection_carrier_app_string_array" num="2">
-            <item value="com.google.android.carrierentitlement" />
-            <item value="com.google.android.carrierentitlement.VzwActivationReceiver" />
+        <string-array name="signal_redirection_receiver_string_array" num="1">
+            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
+        </string-array>
+        <string-array name="signal_dcfailure_receiver_string_array" num="1">
+            <item value="com.google.android.carrierentitlement/.VzwActivationReceiver" />
         </string-array>
     </carrier_config>
 
@@ -872,6 +878,14 @@
             <item value="13" /> <!-- EHRPD -->
             <item value="15" /> <!-- HSPAP -->
         </int-array>
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="50">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
+
+    <carrier_config mcc="440" mnc="51">
+        <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
 
     <carrier_config mcc="450" mnc="05">
