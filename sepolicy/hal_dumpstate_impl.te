@@ -1,6 +1,7 @@
-type hal_dumpstate_impl, domain, hal_dumpstate;
-type hal_dumpstate_impl_exec, exec_type, file_type;
+type hal_dumpstate_impl, domain;
+hal_impl_domain(hal_dumpstate_impl, hal_dumpstate)
 
+type hal_dumpstate_impl_exec, exec_type, file_type;
 init_daemon_domain(hal_dumpstate_impl)
 
 # Access to files for dumping
