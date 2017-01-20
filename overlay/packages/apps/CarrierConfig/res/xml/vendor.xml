@@ -298,7 +298,6 @@
     </carrier_config>
 
     <carrier_config mcc="238" mnc="01">
-        <int name="smsToMmsTextThreshold" value="5" />
         <!-- The list of ril radio technologies (see ServiceState.java) which only support
              a single data connection at one time.  This may change by carrier via
              overlays (some don't support multiple pdp on UMTS).  All unlisted radio
@@ -859,7 +858,6 @@
     <carrier_config mcc="440" mnc="20">
         <int name="ims_dtmf_tone_delay_int" value="300" />
         <int name="gsm_dtmf_tone_delay_int" value="300" />
-        <int name="smsToMmsTextThreshold" value="5" />
         <!-- The list of ril radio technologies (see ServiceState.java) which only support
              a single data connection at one time.  This may change by carrier via
              overlays (some don't support multiple pdp on UMTS).  All unlisted radio
