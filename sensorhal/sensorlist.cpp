@@ -507,6 +507,24 @@ extern const sensor_t kSensorList[] = {
         SENSOR_FLAG_ON_CHANGE_MODE,
         { NULL, NULL }
     },
+    {
+        "BMI160 accelerometer (uncalibrated)",
+        "Bosch",
+        kVersion,
+        COMMS_SENSOR_ACCEL_UNCALIBRATED,
+        SENSOR_TYPE_ACCELEROMETER_UNCALIBRATED,
+        GRAVITY_EARTH * 8.0f,                      // maxRange
+        GRAVITY_EARTH * 8.0f / 32768.0f,           // resolution
+        0.0f,                                      // XXX power
+        (int32_t)(1.0E6f / kMaxSampleRateHzAccel), // minDelay
+        3000,                                      // XXX fifoReservedEventCount
+        kMaxRawThreeAxisEventCount,                // XXX fifoMaxEventCount
+        SENSOR_STRING_TYPE_ACCELEROMETER_UNCALIBRATED,
+        "",                                        // requiredPermission
+        (long)(1.0E6f / kMinSampleRateHzAccel),    // maxDelay
+        SENSOR_FLAG_CONTINUOUS_MODE,
+        { NULL, NULL }
+    },
 };
 
 extern const size_t kSensorCount = sizeof(kSensorList) / sizeof(sensor_t);
