@@ -572,7 +572,8 @@ endif
 ANGLER_DONT_DEXPREOPT_MODULES := \
     BetterBug \
     GoogleHindiIME \
-    CloudPrint2
+    CloudPrint2 \
+    Volta \
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
 
