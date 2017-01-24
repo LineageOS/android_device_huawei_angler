@@ -21,6 +21,8 @@ on boot
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+    chown root system /sys/class/dual_role_usb/otg_default/mode
+    chmod 664 /sys/class/dual_role_usb/otg_default/mode
 
 on post-fs
     mkdir /dev/usb-ffs 0775 shell shell
