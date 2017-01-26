@@ -193,6 +193,14 @@ PRODUCT_PACKAGES += \
     lights.angler \
     android.hardware.light@2.0-impl
 
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+
+#ifeq ($(ENABLE_TREBLE), true)
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-service
+#endif
+
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
     audio.primary.msm8994 \
