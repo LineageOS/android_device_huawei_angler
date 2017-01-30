@@ -39,6 +39,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.recovery.angler.rc:root/init.recovery.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh \
     device/huawei/angler/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
+    device/huawei/angler/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
     device/huawei/angler/init.qcom.devwait.sh:system/bin/init.qcom.devwait.sh \
     device/huawei/angler/init.qcom.devstart.sh:system/bin/init.qcom.devstart.sh
 
@@ -99,6 +100,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprint.angler \
     android.hardware.biometrics.fingerprint@2.1-service
+
+$(call inherit-product-if-exists, vendor/fpc/device/device.mk)
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
