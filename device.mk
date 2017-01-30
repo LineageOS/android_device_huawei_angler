@@ -252,6 +252,10 @@ PRODUCT_PACKAGES += \
     libqomx_core \
     mm-qcamera-app
 
+# Disable camera Treble path temporarily, b/34786432
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_treble=true
+
 # GPS
 PRODUCT_PACKAGES += \
     libgps.utils \
