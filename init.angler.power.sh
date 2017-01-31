@@ -98,6 +98,25 @@ write /proc/sys/kernel/sched_downmigrate 85
 write /proc/sys/kernel/sched_freq_inc_notify 400000
 write /proc/sys/kernel/sched_freq_dec_notify 400000
 
+# Configure core_ctl
+write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
+write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 1
+write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
+write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
+write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
+write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
+write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
+write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 100
+write /sys/devices/system/cpu/cpu0/core_ctl/not_preferred 1
+chown system:system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+chown system:system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+chown system:system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+chown system:system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
+
 # android background processes are set to nice 10. Never schedule these on the a57s.
 write /proc/sys/kernel/sched_upmigrate_min_nice 9
 
