@@ -49,6 +49,10 @@
 #include "performance.h"
 #include "power-common.h"
 
+#define B_MAX_CPU_PATH "/sys/devices/system/cpu/cpu4/core_ctl/max_cpus"
+#define L_MAX_CPU_PATH "/sys/devices/system/cpu/cpu0/core_ctl/max_cpus"
+#define L_MIN_CPU_PATH "/sys/devices/system/cpu/cpu0/core_ctl/min_cpus"
+
 pthread_mutex_t video_encode_lock = PTHREAD_MUTEX_INITIALIZER;
 uintptr_t video_encode_hint_counter = 0;
 bool video_encode_hint_should_enable = false;
@@ -198,6 +202,9 @@ int set_interactive_override(struct power_module *module, int on)
                 return HINT_HANDLED;
             }
         }
+        sysfs_write(B_MAX_CPU_PATH, "1");
+        sysfs_write(L_MAX_CPU_PATH, "1");
+        sysfs_write(L_MIN_CPU_PATH, "1");
     } else {
         /* Display on */
         if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
@@ -206,6 +213,9 @@ int set_interactive_override(struct power_module *module, int on)
             display_hint_sent = 0;
             return HINT_HANDLED;
         }
+        sysfs_write(B_MAX_CPU_PATH, "4");
+        sysfs_write(L_MAX_CPU_PATH, "4");
+        sysfs_write(L_MIN_CPU_PATH, "4");
     }
     return HINT_NONE;
 }
