@@ -328,7 +328,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # for perfd
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.min_freq_0=384000 \
-    ro.min_freq_4=384000
+    ro.min_freq_4=384000 \
+    ro.core_ctl_min_cpu=1 \
+    ro.core_ctl_max_cpu=4
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
