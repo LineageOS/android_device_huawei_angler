@@ -23,6 +23,7 @@ on boot
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     chown root system /sys/class/dual_role_usb/otg_default/mode
     chmod 664 /sys/class/dual_role_usb/otg_default/mode
+    write /sys/module/dwc3/boot_finished 1
 
 on post-fs
     mkdir /dev/usb-ffs 0775 shell shell
