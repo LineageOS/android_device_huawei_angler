@@ -33,6 +33,7 @@
 #include "QCameraParameters.h"
 #include "QCamera2HWI.h"
 #include "QCameraChannel.h"
+#include <media/hardware/HardwareAPI.h>
 
 using namespace android;
 
@@ -804,6 +805,17 @@ int32_t QCameraVideoChannel::releaseFrame(const void * opaque, bool isMetaData)
     }
 
     int32_t rc = pVideoStream->bufDone(opaque, isMetaData);
+
+    const VideoNativeHandleMetadata *packet =
+            static_cast<const VideoNativeHandleMetadata *> (opaque);
+    if (kMetadataBufferTypeNativeHandleSource == packet->eType) {
+        native_handle_close(packet->pHandle);
+        native_handle_delete(packet->pHandle);
+    } else {
+        ALOGE("%s Received unexpected video buffer type: %d",
+                __func__, packet->eType);
+    }
+
     return rc;
 }
 

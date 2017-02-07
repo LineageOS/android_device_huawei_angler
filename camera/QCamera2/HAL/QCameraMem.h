@@ -209,6 +209,7 @@ public:
 
 private:
     camera_memory_t *mMetadata[MM_CAMERA_MAX_NUM_FRAMES];
+    native_handle_t *mNativeHandles[MM_CAMERA_MAX_NUM_FRAMES];
     uint8_t mMetaBufCount;
 };
 
