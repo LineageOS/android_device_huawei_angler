@@ -118,7 +118,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
     device/huawei/angler/bcmdhd-pme.cal:system/etc/wifi/bcmdhd-pme.cal \
     device/huawei/angler/bcmdhd-high.cal:system/etc/wifi/bcmdhd-high.cal \
-    device/huawei/angler/bcmdhd-low.cal:system/etc/wifi/bcmdhd-low.cal
+    device/huawei/angler/bcmdhd-low.cal:system/etc/wifi/bcmdhd-low.cal \
+    device/huawei/angler/filter_ie:system/etc/wifi/filter_ie
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
