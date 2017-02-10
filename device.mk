@@ -589,8 +589,16 @@ ANGLER_DONT_DEXPREOPT_MODULES := \
     BetterBug \
     GoogleHindiIME \
     CloudPrint2 \
+    KoreanIME \
     PlayGames \
-    Volta \
+    Volta
+
+ifneq (,$(filter address,$(SANITIZE_TARGET)))
+# Blacklist more apps in ASANitized builds.
+ANGLER_DONT_DEXPREOPT_MODULES += \
+    GooglePinyinIME \
+    Videos
+endif
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
 
