@@ -917,6 +917,55 @@ int QCamera3HardwareInterface::validateStreamDimensions(
     return rc;
 }
 
+/*===========================================================================
+ * FUNCTION   : validateUsageFlags
+ *
+ * DESCRIPTION: Check if the configuration usage flags are supported
+ *
+ * PARAMETERS :
+ *   @stream_list : streams to be configured
+ *
+ * RETURN     :
+ *   NO_ERROR if the usage flags are supported
+ *   error code if usage flags are not supported
+ *
+ *==========================================================================*/
+int QCamera3HardwareInterface::validateUsageFlags(
+        const camera3_stream_configuration_t* streamList)
+{
+    for (size_t j = 0; j < streamList->num_streams; j++) {
+        const camera3_stream_t *newStream = streamList->streams[j];
+
+        if (newStream->format != HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED ||
+            (newStream->stream_type != CAMERA3_STREAM_OUTPUT &&
+             newStream->stream_type != CAMERA3_STREAM_BIDIRECTIONAL)) {
+            continue;
+        }
+
+        bool isVideo = IS_USAGE_VIDEO(newStream->usage);
+        bool isPreview = IS_USAGE_PREVIEW(newStream->usage);
+        bool isZSL = IS_USAGE_ZSL(newStream->usage);
+
+        // Color space for this camera device is guaranteed to be ITU_R_601_FR.
+        // So color spaces will always match.
+
+        // Check whether underlying formats of shared streams match.
+        if (isVideo && isPreview) {
+            ALOGE("Combined video and preview usage flag is not supported");
+            return -EINVAL;
+        }
+        if (isPreview && isZSL) {
+            ALOGE("Combined preview and zsl usage flag is not supported");
+            return -EINVAL;
+        }
+        if (isVideo && isZSL) {
+            ALOGE("Combined video and zsl usage flag is not supported");
+            return -EINVAL;
+        }
+    }
+    return NO_ERROR;
+}
+
 /*==============================================================================
  * FUNCTION   : isSupportChannelNeeded
  *
@@ -1118,6 +1167,11 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         ALOGE("%s: Maximum number of streams %d exceeded: %d", __func__,
                 MAX_NUM_STREAMS, streamList->num_streams);
         return BAD_VALUE;
+    }
+
+    rc = validateUsageFlags(streamList);
+    if (rc != NO_ERROR) {
+        return rc;
     }
 
     mOpMode = streamList->operation_mode;
