@@ -589,6 +589,7 @@ ANGLER_DONT_DEXPREOPT_MODULES := \
     BetterBug \
     GoogleHindiIME \
     CloudPrint2 \
+    PlayGames \
     Volta \
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
