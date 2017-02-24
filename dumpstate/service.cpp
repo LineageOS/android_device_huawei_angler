@@ -30,6 +30,6 @@ using ::android::sp;
 int main(int /* argc */, char* /* argv */ []) {
   sp<IDumpstateDevice> dumpstate = new DumpstateDevice;
   configureRpcThreadpool(1, true);
-  dumpstate->registerAsService("dumpstate");
+  dumpstate->registerAsService();
   joinRpcThreadpool();
 }
