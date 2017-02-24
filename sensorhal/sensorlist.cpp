@@ -26,12 +26,14 @@ const int kVersion = 1;
 
 const float kMinSampleRateHzAccel = 6.250f;
 const float kMaxSampleRateHzAccel = 400.0f;
+extern const float kScaleAccel = (8.0f * 9.81f / 32768.0f);
 
 const float kMinSampleRateHzGyro = 6.250f;
 const float kMaxSampleRateHzGyro = 400.0f;
 
 const float kMinSampleRateHzMag = 3.125f;
 const float kMaxSampleRateHzMag = 50.0f;
+extern const float kScaleMag = 0.0625f;         // 1.0f / 16.0f
 
 const float kMinSampleRateHzPolling = 0.1f;
 const float kMaxSampleRateHzPolling = 25.0f;
