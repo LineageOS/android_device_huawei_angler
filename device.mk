@@ -597,8 +597,7 @@ ANGLER_DONT_DEXPREOPT_MODULES := \
 ifneq (,$(filter address,$(SANITIZE_TARGET)))
 # Blacklist more apps in ASANitized builds.
 ANGLER_DONT_DEXPREOPT_MODULES += \
-    GooglePinyinIME \
-    Videos
+    GooglePinyinIME
 endif
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
