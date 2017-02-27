@@ -590,8 +590,6 @@ ANGLER_DONT_DEXPREOPT_MODULES := \
     GoogleHindiIME \
     CloudPrint2 \
     KoreanIME \
-    PlayGames \
-    Videos \
     Volta
 
 ifneq (,$(filter address,$(SANITIZE_TARGET)))
