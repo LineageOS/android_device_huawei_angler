@@ -50,4 +50,7 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/angler/proprietary/libmm-qcamera.so:system/lib/libmm-qcamera.so:qcom \
     vendor/qcom/angler/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
     vendor/qcom/angler/proprietary/iperf3:system/xbin/iperf3:qcom \
-
+    vendor/qcom/angler/proprietary/lib64/android.hardware.biometrics.fingerprint@2.1.so:system/lib64/android.hardware.biometrics.fingerprint@2.1.so:qcom \
+    vendor/qcom/angler/proprietary/lib64/android.hardware.configstore@1.0.so:system/lib64/android.hardware.configstore@1.0.so:qcom \
+    vendor/qcom/angler/proprietary/lib64/android.hardware.usb@1.0.so:system/lib64/android.hardware.usb@1.0.so:qcom \
+    vendor/qcom/angler/proprietary/lib64/android.hardware.wifi@1.0.so:system/lib64/android.hardware.wifi@1.0.so:qcom \
