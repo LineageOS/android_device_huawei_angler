@@ -37,7 +37,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/angler/proprietary/ssr_setup:system/bin/ssr_setup:qcom \
     vendor/qcom/angler/proprietary/subsystem_ramdump:system/bin/subsystem_ramdump:qcom \
     vendor/qcom/angler/proprietary/test_diag:system/bin/test_diag:qcom \
-    vendor/qcom/angler/proprietary/Angler_Radio-general.cfg:system/etc/diag/Angler_Radio-general.cfg:qcom \
     vendor/qcom/angler/proprietary/cneapiclient.xml:system/etc/permissions/cneapiclient.xml:qcom \
     vendor/qcom/angler/proprietary/embms.xml:system/etc/permissions/embms.xml:qcom \
     vendor/qcom/angler/proprietary/qcrilhook.xml:system/etc/permissions/qcrilhook.xml:qcom \

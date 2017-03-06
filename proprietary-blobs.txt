@@ -37,7 +37,6 @@
 /system/bin/ssr_setup
 /system/bin/subsystem_ramdump
 /system/bin/test_diag
-/system/etc/diag/Angler_Radio-general.cfg
 /system/etc/permissions/cneapiclient.xml
 /system/etc/permissions/embms.xml
 /system/etc/permissions/qcrilhook.xml
