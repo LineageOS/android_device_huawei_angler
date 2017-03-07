@@ -587,15 +587,18 @@ endif
 # Sorted by *.odex size
 ANGLER_DONT_DEXPREOPT_MODULES := \
     BetterBug \
-    GoogleHindiIME \
     CloudPrint2 \
+    GoogleHindiIME \
+    GooglePinyinIME \
     KoreanIME \
+    PlayGames \
+    Videos \
     Volta
 
 ifneq (,$(filter address,$(SANITIZE_TARGET)))
 # Blacklist more apps in ASANitized builds.
 ANGLER_DONT_DEXPREOPT_MODULES += \
-    GooglePinyinIME
+    Hangouts
 endif
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
