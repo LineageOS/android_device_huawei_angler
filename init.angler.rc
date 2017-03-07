@@ -392,7 +392,7 @@ service fingerprintd /system/bin/fingerprintd
     group input
     writepid /dev/cpuset/system-background/tasks
 
-service wpa_supplicant /system/bin/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
         -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
         -I/system/etc/wifi/p2p_supplicant_overlay.conf \
         -O/data/misc/wifi/sockets \
