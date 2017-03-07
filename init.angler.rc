@@ -146,6 +146,9 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
