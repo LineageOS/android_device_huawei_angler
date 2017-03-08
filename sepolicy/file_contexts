@@ -81,7 +81,7 @@
 /sys/bus/msm_subsys(/.*)?                                                                                  u:object_r:sysfs_msm_subsys:s0
 /sys/devices/bt_bcm4358\.[0-9]+/rfkill/rfkill0/state                                                           u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/soc\.0/\w+\.qcom,\w+/subsys[0-9]/restart_level                                                u:object_r:sysfs_msm_subsys_toggle:s0
-/sys/devices/soc\.0/fd900000\.qcom,mdss_mdp/qcom,mdss_fb_primary\.[0-9]+/leds(/.*)?                        u:object_r:sysfs_led:s0
+/sys/devices/soc\.0/fd900000\.qcom,mdss_mdp/qcom,mdss_fb_primary\.[0-9]+/leds(/.*)?                        u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/f9200000\.ssusb(/.*)?                           u:object_r:sysfs_usb:s0
 /sys/devices/soc\.0/qcom,bcl\.[0-9]+(/.*)?                                                                 u:object_r:sysfs_thermal:s0
 /sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)?                                    u:object_r:sysfs_devices_system_cpu:s0
