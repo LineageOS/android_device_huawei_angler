@@ -17,7 +17,6 @@ type proc_irq, fs_type;
 type proc_kernel_sched, fs_type;
 type qmuxd_socket, file_type;
 type ssr_data_file, file_type, data_file_type;
-type sysfs_led, sysfs_type, fs_type;
 type sysfs_gpu_tuning, sysfs_type, fs_type;
 type sysfs_fingerprintd, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
