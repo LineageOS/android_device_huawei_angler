@@ -138,4 +138,7 @@ USE_CLANG_PLATFORM_BUILD := true
 
 TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 
+# Disable Dex preopting altogether.
+WITH_DEXPREOPT := false
+
 -include vendor/huawei/angler/BoardConfigVendor.mk

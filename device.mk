@@ -603,6 +603,10 @@ endif
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
 
+# Run with interpreter + JIT (no AOT) for both the boot image and apps.
+PRODUCT_DEX_PREOPT_BOOT_FLAGS := --compiler-filter=interpret-only
+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=interpret-only
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
