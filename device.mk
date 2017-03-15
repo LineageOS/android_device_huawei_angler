@@ -190,11 +190,6 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     dsm_ctrl
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service
-endif
-
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl
 
@@ -279,11 +274,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-service
-endif
-
 # NFC
 PRODUCT_PACKAGES += \
     libnfc-nci \
@@ -291,11 +281,6 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     android.hardware.nfc@1.0-impl \
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-service
-endif
 
 # Power HAL
 PRODUCT_PACKAGES += \
