@@ -585,7 +585,8 @@ ANGLER_DONT_DEXPREOPT_MODULES := \
     KoreanIME \
     PlayGames \
     Videos \
-    Volta
+    Volta \
+    Wallet \
 
 ifneq (,$(filter address,$(SANITIZE_TARGET)))
 # Blacklist more apps in ASANitized builds.
