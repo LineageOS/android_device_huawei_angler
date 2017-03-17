@@ -56,6 +56,8 @@
         <device name="SND_DEVICE_OUT_SPEAKER_SAFE_AND_LINE" backend="speaker-and-headphones" interface="QUAT_MI2S_RX-and-SLIMBUS_0_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="QUAT_MI2S_RX-and-SLIMBUS_0_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_SAFE_AND_HEADPHONES" backend="speaker-and-headphones" interface="QUAT_MI2S_RX-and-SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO" backend="speaker-and-bt-sco" interface="QUAT_MI2S_RX-and-SEC_AUX_PCM_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="QUAT_MI2S_RX-and-SEC_AUX_PCM_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" backend="speaker" interface="QUAT_MI2S_RX"/>
     </backend_names>
 
