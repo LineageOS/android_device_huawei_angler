@@ -202,11 +202,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-service
-endif
-
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
     audio.primary.msm8994 \
@@ -317,22 +312,9 @@ PRODUCT_PACKAGES += \
     nfc_nci.angler \
     android.hardware.nfc@1.0-impl \
 
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service   \
-    android.hardware.thermal@1.0-service    \
-    android.hardware.gatekeeper@1.0-service \
-
-endif
-
 # Keymaster HAL
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-service
-endif
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -411,11 +393,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     vr.angler \
     android.hardware.vr@1.0-impl
-
-ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-service
-endif
 
 # Enable low power video mode for 4K encode
 PRODUCT_PROPERTY_OVERRIDES += \
