@@ -253,6 +253,9 @@ PRODUCT_PACKAGES += \
     libgps.utils \
     gps.msm8994
 
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl
+
 # Sensor & activity_recognition HAL
 TARGET_USES_NANOHUB_SENSORHAL := true
 NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
