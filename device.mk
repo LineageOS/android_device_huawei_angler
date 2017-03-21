@@ -534,10 +534,6 @@ endif # userdebug eng
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.redir_party_num=0
 
-# Use Sdcardfs
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=1
-
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
