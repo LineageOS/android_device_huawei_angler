@@ -568,10 +568,15 @@ ANGLER_DONT_DEXPREOPT_MODULES := \
     Volta \
     Wallet \
 
-ifneq (,$(filter address,$(SANITIZE_TARGET)))
-# Blacklist more apps in ASANitized builds.
+# Get rid of dex preoptimization for additional modules for sanitized builds.
+ifneq (,$(filter asan,$(PRODUCT_NAME)))
 ANGLER_DONT_DEXPREOPT_MODULES += \
-    Hangouts
+    Chrome \
+    com.google.android.camera.experimental2016 \
+    Hangouts \
+    Maps \
+    Music2 \
+    Youtube
 endif
 
 $(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
