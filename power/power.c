@@ -97,7 +97,6 @@ static int saved_interactive_mode = -1;
 static int slack_node_rw_failed = 0;
 static int display_hint_sent;
 static int sustained_performance_mode = 0;
-static int vr_mode = 0;
 int display_boost;
 static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
@@ -264,10 +263,10 @@ static void power_hint(struct power_module *module, power_hint_t hint,
             int duration_hint = 0;
             static struct timespec previous_boost_timespec = {0, 0};
 
-            // If we are in sustained performance mode or VR mode, touch boost
+            // If we are in sustained performance mode, touch boost
             // should be ignored.
             pthread_mutex_lock(&lock);
-            if (sustained_performance_mode || vr_mode) {
+            if (sustained_performance_mode) {
                 pthread_mutex_unlock(&lock);
                 return;
             }
@@ -372,52 +371,19 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                                         sizeof(resources)/sizeof(resources[0]),
                                         resources);
                 sysfs_write(GPU_MAX_FREQ_PATH, "305000000");
-                if (vr_mode == 0) {
-                    handle_hotplug = interaction_with_handle(handle_hotplug, duration,
-                                        sizeof(resources_hotplug)/sizeof(resources_hotplug[0]),
-                                        resources_hotplug);
-                }
+                handle_hotplug = interaction_with_handle(handle_hotplug, duration,
+                                    sizeof(resources_hotplug)/sizeof(resources_hotplug[0]),
+                                    resources_hotplug);
                 sustained_performance_mode = 1;
             } else if (sustained_performance_mode == 1){
                 release_request(handle);
                 sysfs_write(GPU_MAX_FREQ_PATH, "600000000");
-                if (vr_mode == 0) {
-                    release_request(handle_hotplug);
-                }
+                release_request(handle_hotplug);
                 sustained_performance_mode = 0;
            }
            pthread_mutex_unlock(&lock);
         }
         break;
-        case POWER_HINT_VR_MODE:
-        {
-            static int handle_vr = 0;
-            pthread_mutex_lock(&lock);
-            if (data && vr_mode == 0) {
-                int resources[] = {0x206};
-                int duration = 0;
-                handle_vr = interaction_with_handle(handle_vr, duration,
-                                        sizeof(resources)/sizeof(resources[0]),
-                                        resources);
-                sysfs_write(GPU_MIN_FREQ_PATH, "305000000");
-                sysfs_write(BUS_SPEED_PATH, "7904");
-                if (sustained_performance_mode == 0) {
-                    handle_hotplug = interaction_with_handle(handle_hotplug, duration,
-                                        sizeof(resources_hotplug)/sizeof(resources_hotplug[0]),
-                                        resources_hotplug);
-                }
-                vr_mode = 1;
-            } else if (vr_mode == 1){
-                release_request(handle_vr);
-                sysfs_write(GPU_MIN_FREQ_PATH, "180000000");
-                sysfs_write(BUS_SPEED_PATH, "0");
-                if (sustained_performance_mode == 0) {
-                    release_request(handle_hotplug);
-                }
-                vr_mode = 0;
-            }
-            pthread_mutex_unlock(&lock);
-        }
     }
 }
 
