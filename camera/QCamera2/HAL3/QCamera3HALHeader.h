@@ -41,6 +41,10 @@ namespace qcamera {
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
+#define IS_USAGE_VIDEO(usage)  (((usage) & (GRALLOC_USAGE_HW_VIDEO_ENCODER)) \
+                         == GRALLOC_USAGE_HW_VIDEO_ENCODER)
+#define IS_USAGE_PREVIEW(usage) (((usage) & (GRALLOC_USAGE_HW_TEXTURE)) \
+                         == GRALLOC_USAGE_HW_TEXTURE)
 #define IS_USAGE_ZSL(usage)  (((usage) & (GRALLOC_USAGE_HW_CAMERA_ZSL)) \
         == (GRALLOC_USAGE_HW_CAMERA_ZSL))
 
