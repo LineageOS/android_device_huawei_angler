@@ -105,8 +105,6 @@ PRODUCT_PACKAGES += \
     fingerprint.angler \
     android.hardware.biometrics.fingerprint@2.1-service
 
-$(call inherit-product-if-exists, vendor/fpc/device/device.mk)
-
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
     ro.config.ringtone \
