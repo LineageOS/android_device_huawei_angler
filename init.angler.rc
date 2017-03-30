@@ -227,6 +227,7 @@ on post-fs-data
 
     # Create nfc local data
     mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/vendor/nfc 0770 nfc nfc
 
     #modify access for speaker calibdata
     chown system system /persist/audio/speaker_calibdata.bin

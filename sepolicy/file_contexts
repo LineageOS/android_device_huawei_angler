@@ -168,6 +168,7 @@
 /data/misc/perfd(/.*)?           u:object_r:perfd_data_file:s0
 /data/misc/radio(/.*)?           u:object_r:radio_data_file:s0
 /data/nfc(/.*)?                  u:object_r:nfc_data_file:s0
+/data/vendor/nfc(/.*)?           u:object_r:nfc_vendor_data_file:s0
 /data/ramdump(/.*)?              u:object_r:ssr_data_file:s0
 /data/system/perfd(/.*)?         u:object_r:perfd_data_file:s0
 /data/time(/.*)?                 u:object_r:time_data_file:s0
