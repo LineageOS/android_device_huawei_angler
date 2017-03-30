@@ -24,12 +24,18 @@ using ::android::hardware::configureRpcThreadpool;
 using ::android::hardware::dumpstate::V1_0::IDumpstateDevice;
 using ::android::hardware::dumpstate::V1_0::implementation::DumpstateDevice;
 using ::android::hardware::joinRpcThreadpool;
+using ::android::OK;
 using ::android::sp;
 
-
 int main(int /* argc */, char* /* argv */ []) {
-  sp<IDumpstateDevice> dumpstate = new DumpstateDevice;
-  configureRpcThreadpool(1, true);
-  dumpstate->registerAsService();
-  joinRpcThreadpool();
+    sp<IDumpstateDevice> dumpstate = new DumpstateDevice;
+    configureRpcThreadpool(1, true /* will join */);
+    if (dumpstate->registerAsService() != OK) {
+        ALOGE("Could not register service.");
+        return 1;
+    }
+    joinRpcThreadpool();
+
+    ALOGE("Service exited!");
+    return 1;
 }
