@@ -555,35 +555,6 @@ ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
 
-# Get rid of dex preoptimization to save space within system.img at the one
-# time cost of dexing on first boot.  This list can be found by running:
-# grep odex $ANDROID_PRODUCT_OUT/installed-files.txt
-# Sorted by *.odex size
-ANGLER_DONT_DEXPREOPT_MODULES := \
-    BetterBug \
-    CloudPrint2 \
-    GoogleHindiIME \
-    GooglePinyinIME \
-    KoreanIME \
-    Photos \
-    PlayGames \
-    Videos \
-    Volta \
-    Wallet \
-
-# Get rid of dex preoptimization for additional modules for sanitized builds.
-ifneq (,$(filter asan,$(PRODUCT_NAME)))
-ANGLER_DONT_DEXPREOPT_MODULES += \
-    Chrome \
-    com.google.android.camera.experimental2016 \
-    Hangouts \
-    Maps \
-    Music2 \
-    Youtube
-endif
-
-$(call add-product-dex-preopt-module-config,$(ANGLER_DONT_DEXPREOPT_MODULES),disable)
-
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
