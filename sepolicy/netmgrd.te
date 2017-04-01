@@ -24,6 +24,7 @@ allow netmgrd net_data_file:file r_file_perms;
 
 allow netmgrd shell_exec:file rx_file_perms;
 allow netmgrd system_file:file rx_file_perms;
+allow netmgrd vendor_file_type:file rx_file_perms;
 
 allow netmgrd sysfs_msm_subsys:dir r_dir_perms;
 allow netmgrd sysfs_msm_subsys:lnk_file r_file_perms;
