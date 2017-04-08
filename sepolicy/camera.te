@@ -29,4 +29,5 @@ allow camera persist_file:dir search;
 allow camera persist_data_file:dir search;
 allow camera persist_data_file:file r_file_perms;
 
-allow camera { cameraserver surfaceflinger hal_graphics_allocator }:fd use;
+allow camera { cameraserver surfaceflinger }:fd use;
+hal_client_domain(camera, hal_graphics_allocator)
