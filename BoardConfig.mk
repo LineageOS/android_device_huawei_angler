@@ -77,9 +77,7 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 
 HAVE_ADRENO_SOURCE:= false
 
-# Bug: 36902991
-# Disable the GPU RS driver until we get a working drop.
-# OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # Enable auto suspend in poweroff charging to save power
 BOARD_CHARGER_ENABLE_SUSPEND := true
