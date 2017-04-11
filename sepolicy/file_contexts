@@ -154,7 +154,7 @@
 /system/bin/subsystem_ramdump            u:object_r:ssr_exec:s0
 /vendor/bin/thermal-engine               u:object_r:thermald_exec:s0
 /vendor/bin/time_daemon                  u:object_r:time_exec:s0
-/system/bin/nanoapp_cmd                  u:object_r:nanoapp_cmd_exec:s0
+/vendor/bin/nanoapp_cmd                  u:object_r:nanoapp_cmd_exec:s0
 /vendor/bin/diag_test_server             u:object_r:diag_exec:s0
 /vendor/bin/InputEventFind               u:object_r:inputeventfind_exec:s0
 /vendor/bin/oem_qmi_server               u:object_r:oem_qmi_server_exec:s0
