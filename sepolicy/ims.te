@@ -10,6 +10,7 @@ binder_use(ims)
 set_prop(ims, qcom_ims_prop)
 qmux_socket(ims)
 unix_socket_connect(ims, cnd, cnd)
+allowxperm ims self:udp_socket ioctl SIOCDEVPRIVATE_D;
 
 allow ims ims_service:service_manager add;
 
