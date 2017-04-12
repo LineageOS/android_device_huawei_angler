@@ -5,6 +5,6 @@ on post-fs
     ## Update Nanohub FW if needed
     start flash-nanohub-fw
 
-service flash-nanohub-fw /system/bin/nanoapp_cmd download
+service flash-nanohub-fw /vendor/bin/nanoapp_cmd download
     oneshot
     disabled
