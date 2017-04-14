@@ -43,6 +43,7 @@
 #include "mm_camera_sock.h"
 #include "mm_camera_interface.h"
 #include "mm_camera.h"
+#include "cam_cond.h"
 
 #define SET_PARM_BIT32(parm, parm_arr) \
     (parm_arr[parm/32] |= (1<<(parm%32)))
@@ -340,7 +341,7 @@ int32_t mm_camera_open(mm_camera_obj_t *my_obj)
 
     pthread_mutex_init(&my_obj->cb_lock, NULL);
     pthread_mutex_init(&my_obj->evt_lock, NULL);
-    pthread_cond_init(&my_obj->evt_cond, NULL);
+    PTHREAD_COND_INIT(&my_obj->evt_cond);
 
     CDBG("%s : Launch evt Thread in Cam Open",__func__);
     snprintf(my_obj->evt_thread.threadName, THREAD_NAME_SIZE, "CAM_Dispatch");
@@ -1713,7 +1714,7 @@ void mm_camera_util_wait_for_event(mm_camera_obj_t *my_obj,
 
     pthread_mutex_lock(&my_obj->evt_lock);
     while (!(my_obj->evt_rcvd.server_event_type & evt_mask)) {
-        clock_gettime(CLOCK_REALTIME, &ts);
+        clock_gettime(CLOCK_MONOTONIC, &ts);
         ts.tv_sec += WAIT_TIMEOUT;
         rc = pthread_cond_timedwait(&my_obj->evt_cond, &my_obj->evt_lock, &ts);
         if (rc == ETIMEDOUT) {

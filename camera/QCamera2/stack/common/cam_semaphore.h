@@ -30,6 +30,11 @@
 #ifndef __QCAMERA_SEMAPHORE_H__
 #define __QCAMERA_SEMAPHORE_H__
 
+// System dependencies
+#include <pthread.h>
+#include <errno.h>
+#include "cam_cond.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -48,7 +53,7 @@ typedef struct {
 static inline void cam_sem_init(cam_semaphore_t *s, int n)
 {
     pthread_mutex_init(&(s->mutex), NULL);
-    pthread_cond_init(&(s->cond), NULL);
+    PTHREAD_COND_INIT(&(s->cond));
     s->val = n;
 }
 
@@ -68,6 +73,27 @@ static inline int cam_sem_wait(cam_semaphore_t *s)
         rc = pthread_cond_wait(&(s->cond), &(s->mutex));
     s->val--;
     pthread_mutex_unlock(&(s->mutex));
+    return rc;
+}
+
+static inline int cam_sem_timedwait(cam_semaphore_t *s, const struct timespec *abs_timeout)
+{
+    int rc = 0;
+    pthread_mutex_lock(&(s->mutex));
+    while (s->val == 0 && rc != ETIMEDOUT)
+        rc = pthread_cond_timedwait(&(s->cond), &(s->mutex), abs_timeout);
+
+    if (s->val > 0)
+        s->val--;
+
+    pthread_mutex_unlock(&(s->mutex));
+
+    /* sem_timedwait returns -1 for failure case, and failure code is in errno
+     */
+    if (rc != 0) {
+        errno = rc;
+        rc = -1;
+    }
     return rc;
 }
 

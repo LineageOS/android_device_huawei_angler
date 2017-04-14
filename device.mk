@@ -27,6 +27,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/fstab.angler:root/fstab.angler \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
+    device/huawei/angler/init.recovery.angler.rc:root/init.recovery.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh \
     device/huawei/angler/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
 
@@ -40,6 +41,9 @@ endif
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/bin/init.mcfg.sh
+
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.radio.sh:system/bin/init.radio.sh
 
 # Thermal configuration
 PRODUCT_COPY_FILES += \
@@ -465,6 +469,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # OEM Unlock reporting
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.oem_unlock_supported=1
+
+# ro.product.first_api_level indicates the first api level the device has commercially launched on.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.first_api_level=23
 
 # In userdebug, add minidebug info the the boot image and the system server to support
 # diagnosing native crashes.

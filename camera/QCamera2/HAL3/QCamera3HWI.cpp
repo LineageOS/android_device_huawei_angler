@@ -50,6 +50,7 @@
 #include "QCamera3Channel.h"
 #include "QCamera3PostProc.h"
 #include "QCamera3VendorTags.h"
+#include "cam_cond.h"
 
 using namespace android;
 
@@ -364,7 +365,8 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(uint32_t cameraId,
     // TODO: hardcode for now until mctl add support for min_num_pp_bufs
     //TBD - To see if this hardcoding is needed. Check by printing if this is filled by mctl to 3
     gCamCapability[cameraId]->min_num_pp_bufs = 3;
-    pthread_cond_init(&mRequestCond, NULL);
+
+    PTHREAD_COND_INIT(&mRequestCond);
     mPendingLiveRequest = 0;
     mCurrentRequestId = -1;
     pthread_mutex_init(&mMutex, NULL);
@@ -3826,7 +3828,7 @@ no_error:
     // Added a timed condition wait
     struct timespec ts;
     uint8_t isValidTimeout = 1;
-    rc = clock_gettime(CLOCK_REALTIME, &ts);
+    rc = clock_gettime(CLOCK_MONOTONIC, &ts);
     if (rc < 0) {
       isValidTimeout = 0;
       ALOGE("%s: Error reading the real time clock!!", __func__);
@@ -9486,7 +9488,9 @@ int32_t QCamera3HardwareInterface::stopAllChannels()
     for (List<stream_info_t *>::iterator it = mStreamInfo.begin();
         it != mStreamInfo.end(); it++) {
         QCamera3Channel *channel = (QCamera3Channel *)(*it)->stream->priv;
-        channel->stop();
+        if (channel != nullptr) {
+            channel->stop();
+        }
         (*it)->status = INVALID;
     }
 
