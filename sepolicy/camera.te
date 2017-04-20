@@ -31,3 +31,4 @@ allow camera persist_data_file:file r_file_perms;
 
 allow camera { cameraserver surfaceflinger }:fd use;
 hal_client_domain(camera, hal_graphics_allocator)
+allow camera hal_renderscript_hwservice:hwservice_manager find;
