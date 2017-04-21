@@ -5,6 +5,11 @@ on post-fs
     ## Update Nanohub FW if needed
     start flash-nanohub-fw
 
+on post-fs-data
+    mkdir /data/vendor/sensor
+    chown root system /data/vendor/sensor
+    chmod 0770 /data/vendor/sensor
+
 service flash-nanohub-fw /vendor/bin/nanoapp_cmd download
     oneshot
     disabled
