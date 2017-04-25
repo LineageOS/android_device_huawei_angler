@@ -28,10 +28,8 @@ etc/permissions/com.google.widevine.software.drm.xml
 etc/permissions/qcrilhook.xml
 -framework/com.google.widevine.software.drm.jar
 -framework/qcrilhook.jar
-lib64/hw/nfc_nci.angler.so
 lib64/libfilterpack_facedetect.so
 lib64/libManufacture.so
-lib/hw/nfc_nci.angler.so
 lib/libdmengine.so
 lib/libdmengine.so:priv-app/DMService/lib/arm/libdmengine.so
 lib/libdmjavaplugin.so
