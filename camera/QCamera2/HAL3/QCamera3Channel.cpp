@@ -4242,6 +4242,14 @@ int32_t QCamera3ReprocessChannel::overrideFwkMetadata(
         ALOGE("%s: Input buffer memory map failed: %d", __func__, rc);
     }
 
+    if (rc != NO_ERROR) {
+        //Try to recover by returning input with error status
+        camera3_stream_buffer_t result;
+        memset(&result, 0, sizeof(result));
+        result.status = CAMERA3_BUFFER_STATUS_ERROR;
+        mChannelCB(NULL, &result, frame->frameNumber, true, mUserData);
+    }
+
     return rc;
 }
 
