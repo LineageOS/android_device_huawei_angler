@@ -44,10 +44,8 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/angler/proprietary/embmslibrary.jar:system/framework/embmslibrary.jar:qcom \
     vendor/qcom/angler/proprietary/qcrilhook.jar:system/framework/qcrilhook.jar:qcom \
     vendor/qcom/angler/proprietary/lib64/libiperf.so:system/lib64/libiperf.so:qcom \
-    vendor/qcom/angler/proprietary/lib64/libtinyxml.so:system/lib64/libtinyxml.so:qcom \
     vendor/qcom/angler/proprietary/libiperf.so:system/lib/libiperf.so:qcom \
     vendor/qcom/angler/proprietary/libmm-qcamera.so:system/lib/libmm-qcamera.so:qcom \
-    vendor/qcom/angler/proprietary/libtinyxml.so:system/lib/libtinyxml.so:qcom \
     vendor/qcom/angler/proprietary/iperf3:system/xbin/iperf3:qcom \
     vendor/qcom/angler/proprietary/lib64/android.hardware.biometrics.fingerprint@2.1.so:system/lib64/android.hardware.biometrics.fingerprint@2.1.so:qcom \
     vendor/qcom/angler/proprietary/lib64/android.hardware.configstore@1.0.so:system/lib64/android.hardware.configstore@1.0.so:qcom \
