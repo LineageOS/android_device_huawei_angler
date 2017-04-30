@@ -2877,12 +2877,15 @@ void QCamera3HardwareInterface::hdrPlusPerfLock(
  *
  * DESCRIPTION: Handles input buffer and shutter callback with mMutex lock held.
  *
- * PARAMETERS : @frame_number: frame number of the input buffer
+ * PARAMETERS :
+ *  @buffer: contains status information about the processed buffer
+ *  @frame_number: frame number of the input buffer
  *
  * RETURN     :
  *
  *==========================================================================*/
-void QCamera3HardwareInterface::handleInputBufferWithLock(uint32_t frame_number)
+void QCamera3HardwareInterface::handleInputBufferWithLock(
+        camera3_stream_buffer_t *buffer, uint32_t frame_number)
 {
     ATRACE_CALL();
     pendingRequestIterator i = mPendingRequestsList.begin();
@@ -2925,14 +2928,55 @@ void QCamera3HardwareInterface::handleInputBufferWithLock(uint32_t frame_number)
            }
         }
 
-        camera3_capture_result result;
-        memset(&result, 0, sizeof(camera3_capture_result));
-        result.frame_number = frame_number;
-        result.result = i->settings;
-        result.input_buffer = i->input_buffer;
-        result.partial_result = PARTIAL_RESULT_COUNT;
+        if ((nullptr != buffer) && (CAMERA3_BUFFER_STATUS_OK != buffer->status)) {
+            camera3_notify_msg_t notify_msg;
+            memset(&notify_msg, 0, sizeof(camera3_notify_msg_t));
+            notify_msg.type = CAMERA3_MSG_ERROR;
+            notify_msg.message.error.error_code = CAMERA3_MSG_ERROR_REQUEST;
+            notify_msg.message.error.error_stream = NULL;
+            notify_msg.message.error.frame_number = frame_number;
+            mCallbackOps->notify(mCallbackOps, &notify_msg);
 
-        mCallbackOps->process_capture_result(mCallbackOps, &result);
+            Vector<camera3_stream_buffer_t> pendingBuffers;
+            camera3_stream_buffer_t pending;
+            memset(&pending, 0, sizeof(pending));
+            pending.acquire_fence = -1;
+            pending.release_fence = -1;
+            pending.status = CAMERA3_BUFFER_STATUS_ERROR;
+            for (List<PendingBufferInfo>::iterator k =
+                    mPendingBuffersMap.mPendingBufferList.begin();
+                    k != mPendingBuffersMap.mPendingBufferList.end();) {
+                if (k->frame_number == frame_number) {
+                    pending.buffer = k->buffer;
+                    pending.stream = k->stream;
+                    pendingBuffers.add(pending);
+
+                    mPendingBuffersMap.num_buffers--;
+                    k = mPendingBuffersMap.mPendingBufferList.erase(k);
+                } else {
+                    k++;
+                }
+            }
+
+            camera3_capture_result result;
+            memset(&result, 0, sizeof(camera3_capture_result));
+            result.input_buffer = i->input_buffer;
+            result.num_output_buffers = pendingBuffers.size();
+            result.output_buffers = pendingBuffers.array();
+            result.result = NULL;
+            result.frame_number = frame_number;
+            mCallbackOps->process_capture_result(mCallbackOps, &result);
+        } else {
+            camera3_capture_result result;
+            memset(&result, 0, sizeof(camera3_capture_result));
+            result.frame_number = frame_number;
+            result.result = i->settings;
+            result.input_buffer = i->input_buffer;
+
+            result.partial_result = PARTIAL_RESULT_COUNT;
+
+            mCallbackOps->process_capture_result(mCallbackOps, &result);
+        }
         CDBG("%s: Input request metadata and input buffer frame_number = %u",
                        __func__, i->frame_number);
         i = erasePendingRequest(i);
@@ -4107,7 +4151,7 @@ void QCamera3HardwareInterface::captureResultCb(mm_camera_super_buf_t *metadata_
         }
     } else if (isInputBuffer) {
         pthread_mutex_lock(&mMutex);
-        handleInputBufferWithLock(frame_number);
+        handleInputBufferWithLock(buffer, frame_number);
         pthread_mutex_unlock(&mMutex);
     } else {
         pthread_mutex_lock(&mMutex);
