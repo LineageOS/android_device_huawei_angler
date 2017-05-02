@@ -243,7 +243,8 @@ private:
             bool free_and_bufdone_meta_buf);
     void handleBufferWithLock(camera3_stream_buffer_t *buffer,
             uint32_t frame_number);
-    void handleInputBufferWithLock(uint32_t frame_number);
+    void handleInputBufferWithLock(camera3_stream_buffer_t *buffer,
+            uint32_t frame_number);
     void unblockRequestIfNecessary();
     void dumpMetadataToFile(tuning_params_t &meta, uint32_t &dumpFrameCount,
             bool enabled, const char *type, uint32_t frameNumber);
