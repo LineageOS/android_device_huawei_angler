@@ -7,7 +7,6 @@ allow hal_fingerprint input_device:chr_file r_file_perms;
 
 # for SW20.6 navigation
 allow hal_fingerprint uhid_device:chr_file rw_file_perms;
-allow hal_fingerprint fingerprintd_data_file:sock_file create_file_perms;
 
 # write /sys/bus/spi/devices/spi12.0/spi_prepare
 allow hal_fingerprint sysfs_fingerprintd:file rw_file_perms;
