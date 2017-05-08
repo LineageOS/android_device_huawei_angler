@@ -29,9 +29,9 @@ system/etc/permissions/rcsservice.xml:qcom
 system/framework/embmslibrary.jar:qcom
 system/framework/qcrilhook.jar:qcom
 system/lib64/libiperf.so:qcom
-system/lib64/libtinyxml.so:qcom
+system/lib64/libtinyxml2.so:qcom
 system/lib/libiperf.so:qcom
 system/lib/libmm-qcamera.so:qcom
-system/lib/libtinyxml.so:qcom
+system/lib/libtinyxml2.so:qcom
 system/xbin/iperf3:qcom
 IMAGES/vendor.img:huawei

@@ -36,10 +36,10 @@
             system/framework/embmslibrary.jar \
             system/framework/qcrilhook.jar \
             system/lib64/libiperf.so \
-            system/lib64/libtinyxml.so \
+            system/lib64/libtinyxml2.so \
             system/lib/libiperf.so \
             system/lib/libmm-qcamera.so \
-            system/lib/libtinyxml.so \
+            system/lib/libtinyxml2.so \
             system/xbin/iperf3 \
             "
     ;;
