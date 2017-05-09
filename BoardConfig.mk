@@ -142,5 +142,6 @@ USE_CLANG_PLATFORM_BUILD := true
 TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 
 DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
+DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
