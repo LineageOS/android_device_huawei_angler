@@ -342,14 +342,6 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-# Test HAL for hwbinder performance benchmark.
-PRODUCT_PACKAGES += \
-     android.hardware.tests.libhwbinder@1.0-impl
-
-# Test HAL for FMQ performance benchmark.
-PRODUCT_PACKAGES += \
-     android.hardware.tests.msgq@1.0-impl
-
 # For VTS profiling.
 PRODUCT_PACKAGES += \
      libvts_profiling \
