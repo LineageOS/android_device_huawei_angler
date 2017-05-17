@@ -804,7 +804,7 @@ int QCamera3HardwareInterface::validateStreamDimensions(
     for (size_t i = 0; i< streamList->num_streams; i++) {
         if (streamList->streams[i]->stream_type == CAMERA3_STREAM_INPUT) {
             if (inputStream != NULL) {
-                ALOGE("%s: Error, Multiple input streams requested");
+                ALOGE("%s: Error, Multiple input streams requested", __func__);
                 return -EINVAL;
             }
             inputStream = streamList->streams[i];
@@ -2075,7 +2075,7 @@ int QCamera3HardwareInterface::validateCaptureRequest(
         return BAD_VALUE;
     }
     if (request->num_output_buffers >= MAX_NUM_STREAMS) {
-        ALOGE("%s: Number of buffers %d equals or is greater than maximum number of streams!",
+        ALOGE("%s: Number of buffers %d equals or is greater than maximum number of streams %d!",
                 __func__, request->num_output_buffers, MAX_NUM_STREAMS);
         return BAD_VALUE;
     }
@@ -4265,7 +4265,7 @@ template <typename fwkType, class mapType> int lookupHalName(const mapType *arr,
         }
     }
 
-    ALOGE("%s: Cannot find matching hal type fwk_name=%d", __func__, fwk_name);
+    ALOGE("%s: Cannot find matching hal type fwk_name=%d", __func__, (int)fwk_name);
     return NAME_NOT_FOUND;
 }
 
