@@ -34,7 +34,7 @@ namespace implementation {
 
 // Methods from ::android::hardware::dumpstate::V1_0::IDumpstateDevice follow.
 Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
-    if (handle->numFds < 1) {
+    if (handle == nullptr || handle->numFds < 1) {
         ALOGE("no FDs\n");
         return Void();
     }
