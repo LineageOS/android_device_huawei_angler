@@ -533,3 +533,7 @@ endif
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
 $(call add-product-sanitizer-module-config,mm-qcamera-daemon,never)
+
+ifeq ($(WITH_GAPPS),true)
+include vendor/gapps/arm64/arm64-vendor.mk
+endif
