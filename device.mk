@@ -201,6 +201,10 @@ PRODUCT_PACKAGES += \
     lights.angler \
     android.hardware.light@2.0-impl
 
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
 
