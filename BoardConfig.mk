@@ -168,3 +168,7 @@ BOARD_HARDWARE_CLASS := \
     device/huawei/angler/cmhw
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
+
+ifeq ($(WITH_GAPPS),true)
+include vendor/gapps/arm64/arm64-vendor.mk
+endif
