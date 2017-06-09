@@ -32,7 +32,7 @@
             <Limit name="measured-frame-rate-1280x720" range="62-62" /> <!-- N=40 v95%=1.5 -->
             <Limit name="measured-frame-rate-1920x1080" range="30-30" /> <!-- N=40 v95%=1.4 -->
             <!-- measured 95%:5-20 med:9 SLOW -->
-            <Limit name="measured-frame-rate-3840x2160" range="8-11" /> <!-- N=40 v95%=1.9 -->
+            <Limit name="measured-frame-rate-3840x2160" range="8-16" /> <!-- TWEAKED -->
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es" update="true">
             <Limit name="measured-frame-rate-176x144" range="380-380" /> <!-- N=40 v95%=1.0 -->
@@ -54,7 +54,7 @@
             <Limit name="measured-frame-rate-720x480" range="76-76" /> <!-- N=40 v95%=1.6 -->
             <!-- measured 95%:21-53 med:26 SLOW -->
             <Limit name="measured-frame-rate-1280x720" range="25-34" /> <!-- N=40 v95%=1.6 -->
-            <Limit name="measured-frame-rate-1920x1080" range="12-12" /> <!-- N=40 v95%=1.1 -->
+            <Limit name="measured-frame-rate-1920x1080" range="12-17.5" /> <!-- TWEAKED -->
         </MediaCodec>
         <MediaCodec name="OMX.google.mpeg4.encoder" type="video/mp4v-es" update="true">
             <Limit name="measured-frame-rate-176x144" range="275-293" /> <!-- N=40 v93%=1.2 -->
