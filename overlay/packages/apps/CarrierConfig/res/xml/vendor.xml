@@ -943,6 +943,9 @@
             <item value="14" /> <!-- LTE -->
             <item value="15" /> <!-- HSPAP -->
         </int-array>
+        <string-array name="non_roaming_operator_string_array" num="1">
+            <item value="505" />
+        </string-array>
     </carrier_config>
 
     <carrier_config mcc="655" mnc="01">
