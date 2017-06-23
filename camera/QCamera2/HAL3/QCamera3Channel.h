@@ -198,13 +198,13 @@ public:
     int32_t getStreamSize(cam_dimension_t &dim);
 
     QCamera3PostProcessor m_postprocessor; // post processor
+    int32_t releaseOfflineMemory(uint32_t resultFrameNumber);
 
 protected:
     bool isWNREnabled() {return m_bWNROn;};
     void startPostProc(const reprocess_config_t &reproc_cfg);
     void issueChannelCb(buffer_handle_t *resultBuffer,
             uint32_t resultFrameNumber);
-    int32_t releaseOfflineMemory(uint32_t resultFrameNumber);
 
     QCamera3StreamMem mMemory; //output buffer allocated by fwk
     camera3_stream_t *mCamera3Stream;
