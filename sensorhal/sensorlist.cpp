@@ -417,7 +417,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_TILT_DETECTOR,
         "",                                     // requiredPermission
         0,                                      // maxDelay
-        SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_SPECIAL_REPORTING_MODE,
+        SENSOR_FLAG_SPECIAL_REPORTING_MODE,
         { NULL, NULL }
     },
     {
