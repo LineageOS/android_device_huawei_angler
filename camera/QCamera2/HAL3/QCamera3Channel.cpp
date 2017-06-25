@@ -3571,6 +3571,8 @@ void QCamera3ReprocessChannel::streamCbRoutine(mm_camera_super_buf_t *super_fram
         *frame = *super_frame;
 
         /* Since reprocessing is done, send the callback to release the input buffer */
+        // Release offline buffers.
+        obj->releaseOfflineMemory(resultFrameNumber);
         if (mChannelCB) {
             mChannelCB(NULL, NULL, resultFrameNumber, true, mUserData);
         }
