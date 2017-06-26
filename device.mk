@@ -546,17 +546,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=23
 
-# In userdebug, add minidebug info the the boot image and the system server to support
-# diagnosing native crashes.
-ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
-    # Boot image.
-    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
-    # System server and some of its services.
-    # Note: we cannot use PRODUCT_SYSTEM_SERVER_JARS, as it has not been expanded at this point.
-    $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
-    $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
-endif
-
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
