@@ -17,7 +17,7 @@
 <MediaCodecs>
     <Encoders>
         <MediaCodec name="OMX.qcom.video.encoder.h263" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="443-443" /> <!-- N=40 v95%=1.2 -->
+            <Limit name="measured-frame-rate-176x144" range="315-443" /> <!-- TWEAKED -->
             <Limit name="measured-frame-rate-352x288" range="248-248" /> <!-- N=40 v95%=1.4 -->
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.avc" type="video/avc" update="true">
@@ -54,7 +54,7 @@
             <Limit name="measured-frame-rate-720x480" range="76-76" /> <!-- N=40 v95%=1.6 -->
             <!-- measured 95%:21-53 med:26 SLOW -->
             <Limit name="measured-frame-rate-1280x720" range="25-34" /> <!-- N=40 v95%=1.6 -->
-            <Limit name="measured-frame-rate-1920x1080" range="12-19.5" /> <!-- TWEAKED -->
+            <Limit name="measured-frame-rate-1920x1080" range="12-20" /> <!-- TWEAKED -->
         </MediaCodec>
         <MediaCodec name="OMX.google.mpeg4.encoder" type="video/mp4v-es" update="true">
             <Limit name="measured-frame-rate-176x144" range="275-293" /> <!-- N=40 v93%=1.2 -->
