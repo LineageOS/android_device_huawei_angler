@@ -136,8 +136,6 @@ NXP_CHIP_TYPE := 2
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
-USE_CLANG_PLATFORM_BUILD := true
-
 TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 
 DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
