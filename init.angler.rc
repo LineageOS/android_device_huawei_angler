@@ -39,6 +39,8 @@ on fs
     mount_all ./fstab.angler
     swapon_all ./fstab.angler
 
+    setprop sys.usb.ffs.aio_compat 1
+
     restorecon_recursive /persist
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
