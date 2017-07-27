@@ -6,3 +6,9 @@ userdebug_or_eng(`
 ')
 
 allow platform_app oem_qmi_server:unix_stream_socket connectto;
+
+# TODO scope this down. Granting these here is not granting new permissions,
+# just moving existing permissions from domain_deprecated to platform_app as
+# part of b/28760354 in order to deprivilege other processes which do not need
+# access.
+r_dir_file(platform_app, sysfs)
