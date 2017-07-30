@@ -479,7 +479,7 @@ service mcfg-sh /system/bin/init.mcfg.sh
    oneshot
 
 service radio-sh /system/bin/init.radio.sh
-    class late_start
+    class main
     user radio
     group root radio
     oneshot
