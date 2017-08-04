@@ -82,8 +82,8 @@
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/frp 0600 system system
 # sensor HUB
 /dev/spich                0660   system     system
-/dev/nanohub              0640   system     system
-/dev/nanohub_comms        0640   system     system
+/dev/nanohub              0660   system     system
+/dev/nanohub_comms        0660   system     system
 /dev/pn54x                0660   nfc        nfc
 #add audio calib device for audio
 /dev/msm_audio_cal        0664   system     audio
