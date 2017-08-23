@@ -1,0 +1,55 @@
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# special prefix characters:
+# -  define as a prebuilt package
+#
+
+# <src relative to root of extracted filesystem>:<dst relative to system>
+
+bin/ssr_setup
+bin/subsystem_ramdump
+# this moved to vendor
+# etc/diag/Angler_Radio-general.cfg
+etc/permissions/cneapiclient.xml
+etc/permissions/com.android.omadm.service.xml
+# no longer exists
+#etc/permissions/com.google.widevine.software.drm.xml
+etc/permissions/qcrilhook.xml
+# no longer exists
+#-framework/com.google.widevine.software.drm.jar
+-framework/qcrilhook.jar
+lib64/libfilterpack_facedetect.so
+lib64/libManufacture.so
+lib/libdmengine.so
+lib/libdmengine.so:priv-app/DMService/lib/arm/libdmengine.so
+lib/libdmjavaplugin.so
+lib/libdmjavaplugin.so:priv-app/DMService/lib/arm/libdmjavaplugin.so
+lib/libfilterpack_facedetect.so
+# has moved to vendor
+#lib/soundfx/libfmas.so
+-app/Tycho/Tycho.apk:app/Tycho/Tycho.apk:PRESIGNED
+-priv-app/CarrierServices/CarrierServices.apk:priv-app/CarrierServices/CarrierServices.apk:PRESIGNED
+-priv-app/CNEService/CNEService.apk
+-priv-app/ConnMO/ConnMO.apk
+-priv-app/DCMO/DCMO.apk
+-priv-app/DiagMon/DiagMon.apk
+-priv-app/DMService/DMService.apk
+-priv-app/GCS/GCS.apk:priv-app/GCS/GCS.apk:PRESIGNED
+-priv-app/HiddenMenu/HiddenMenu.apk
+-priv-app/HotwordEnrollmentWCD9330/HotwordEnrollmentWCD9330.apk:priv-app/HotwordEnrollmentWCD9330/HotwordEnrollmentWCD9330.apk:PRESIGNED
+-priv-app/SprintDM/SprintDM.apk
+-priv-app/atfwd/atfwd.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
