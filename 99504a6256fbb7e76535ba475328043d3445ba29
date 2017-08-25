@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9886fdcc_a020a00e",
+        "filename": "media_codecs.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2017-08-25T09:54:53Z",
+      "side": 1,
+      "message": "Breaks YouTube and various other media on lineage-15.0 (no ffmpeg)",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 46
+      },
+      "revId": "99504a6256fbb7e76535ba475328043d3445ba29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
