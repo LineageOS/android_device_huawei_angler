@@ -36,6 +36,8 @@ on post-fs
     setprop sys.usb.ffs.max_read 262144
     setprop sys.usb.mtp.device_type 3
 
+    setprop sys.usb.ffs.aio_compat 1
+
 on charger
     setprop persist.sys.usb.config charging
 
