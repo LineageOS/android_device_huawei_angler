@@ -53,8 +53,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
 
 # Vendor Interface Manifest
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/manifest.xml:vendor/manifest.xml
+#PRODUCT_COPY_FILES += \
+#    device/huawei/angler/manifest.xml:vendor/manifest.xml
 
 # Media
 PRODUCT_COPY_FILES += \
