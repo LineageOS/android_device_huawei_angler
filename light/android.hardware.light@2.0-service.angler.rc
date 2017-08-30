@@ -21,7 +21,7 @@ on early-boot
     chown system system /sys/devices/soc.0/fd900000.qcom,mdss_mdp/qcom,mdss_fb_primary.182/leds/lcd-backlight/max_brightness
     chmod 664 /sys/devices/soc.0/fd900000.qcom,mdss_mdp/qcom,mdss_fb_primary.182/leds/lcd-backlight/max_brightness
 
-service light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.angler
+service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.angler
     class hal
     user system
     group system
