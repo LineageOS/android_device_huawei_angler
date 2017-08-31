@@ -79,7 +79,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml
 
 # Input device files
 PRODUCT_COPY_FILES += \
@@ -268,7 +268,7 @@ PRODUCT_PACKAGES += \
     activity_recognition.angler \
     context_hub.default \
     android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl \
+    android.hardware.contexthub@1.0-impl
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -316,7 +316,7 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     nfc_nci.angler \
-    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-impl
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
