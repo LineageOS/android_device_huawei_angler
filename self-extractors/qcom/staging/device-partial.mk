@@ -15,7 +15,6 @@
 # Qualcomm blob(s) necessary for Shamu hardware
 PRODUCT_COPY_FILES := \
     vendor/qcom/angler/proprietary/diag_qshrink4_daemon:system/bin/diag_qshrink4_daemon:qcom \
-    vendor/qcom/angler/proprietary/halutil:system/bin/halutil:qcom \
     vendor/qcom/angler/proprietary/mm-audio-alsa-test:system/bin/mm-audio-alsa-test:qcom \
     vendor/qcom/angler/proprietary/PktRspTest:system/bin/PktRspTest:qcom \
     vendor/qcom/angler/proprietary/check_system_health:system/bin/qmi-framework-tests/check_system_health:qcom \
