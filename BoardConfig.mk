@@ -177,6 +177,6 @@ DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS := \
     hardware/cyanogen/cmhw \
-    device/huawei/angler/cmhw
+    device/huawei/angler/lineagehw
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
