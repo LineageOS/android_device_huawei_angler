@@ -36,6 +36,7 @@ lib/libdmjavaplugin.so
 lib/libdmjavaplugin.so:priv-app/DMService/lib/arm/libdmjavaplugin.so
 lib/libfilterpack_facedetect.so
 lib/soundfx/libfmas.so
+-app/HwSarControlService/HwSarControlService.apk
 -app/Tycho/Tycho.apk:app/Tycho/Tycho.apk:PRESIGNED
 -priv-app/CarrierServices/CarrierServices.apk:priv-app/CarrierServices/CarrierServices.apk:PRESIGNED
 -priv-app/CNEService/CNEService.apk
