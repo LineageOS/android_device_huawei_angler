@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d768c242_3b0577b7",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-13T06:10:46Z",
+      "side": 1,
+      "message": "Don\u0027t forget to remove this.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 36
+      },
+      "revId": "df6b332a5ed308b94a5a9e6f638cbd98fde43e9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5d197e_110efd35",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-10-13T06:10:46Z",
+      "side": 1,
+      "message": "What about this? You will still want to include those classes, right? So far, they haven\u0027t moved to anywhere.",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "df6b332a5ed308b94a5a9e6f638cbd98fde43e9e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
