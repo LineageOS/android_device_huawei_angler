@@ -732,6 +732,7 @@ static int power_open(const hw_module_t* module, const char* name,
             dev->init = power_init;
             dev->powerHint = power_hint;
             dev->setInteractive = set_interactive;
+            dev->setFeature = set_feature;
             dev->get_number_of_platform_modes = get_number_of_platform_modes;
             dev->get_platform_low_power_stats = get_platform_low_power_stats;
             dev->get_voter_list = get_voter_list;
