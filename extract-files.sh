@@ -59,34 +59,6 @@ setup_vendor "$DEVICE" "$VENDOR" "$REPO_ROOT"
 # Extract the device specific files that always occur in /system
 extract "$MY_DIR/lineage-proprietary-blobs.txt" "$SRC"
 
-## Handle blobs that may be in /system OR /vendor (only occurs when extracting from nexus images)
-
-# if we're extracting from factory images, pre-hardlink missing blobs from /vendor to /system
-if [ "$SRC" != "adb" ]; then
-  for file in $(egrep -v '(^#|^$)' "$MY_DIR"/lineage-proprietary-blobs-vendorimg.txt); do
-
-     oldifs=$IFS IFS=":" parsing_array=($file) IFS=$oldifs
-
-     srcfile=$(echo ${parsing_array[0]} | sed -e "s/^-//g")
-     destfile=${parsing_array[1]}
-     if [ -z "$destfile" ]; then
-       destfile="$srcfile"
-     fi
-     destdir=$(dirname "$destfile")
-
-     if [ -f $SRC/system/$destfile ]; then
-       #skip already hardlinked files
-       continue;
-     fi
-
-     if [ ! -d "$SRC/system/$destdir" ]; then
-       mkdir -p "$SRC/system/$destdir"
-     fi
-
-     ln -f $SRC/vendor/$srcfile $SRC/system/$destfile
-  done
-fi
-
 # Extract "sometimes system" blobs
 extract "$MY_DIR/lineage-proprietary-blobs-vendorimg.txt" "$SRC"
 
