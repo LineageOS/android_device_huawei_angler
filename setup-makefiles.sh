@@ -52,7 +52,8 @@ write_headers
 # The standard blobs
 write_makefiles "$MY_DIR"/lineage-proprietary-blobs.txt
 
-write_makefiles "$MY_DIR"/lineage-proprietary-blobs-vendorimg.txt
+# Set 2nd arg to true to write contents to vendor
+write_makefiles "$MY_DIR"/lineage-proprietary-blobs-vendorimg.txt true
 
 # We are done!
 write_footers

@@ -17,5 +17,8 @@ TARGET_VENDOR := huawei
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
-    BUILD_FINGERPRINT=google/angler/angler:8.0.0/OPR5.170623.007/4302479:user/release-keys \
     PRIVATE_BUILD_DESC="angler-user 8.0.0 OPR5.170623.007 4302479 release-keys"
+
+# Set BUILD_FINGERPRINT variable so that it's picked up by both
+# system and vendor build.prop
+BUILD_FINGERPRINT := google/angler/angler:8.0.0/OPR5.170623.007/4302479:user/release-keys
