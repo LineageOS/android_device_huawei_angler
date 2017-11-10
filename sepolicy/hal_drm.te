@@ -1,0 +1,3 @@
+# Allow access to app_data and media_data_files
+allow hal_drm media_data_file:dir create_dir_perms;
+allow hal_drm media_data_file:file create_file_perms;

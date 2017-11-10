@@ -15,3 +15,7 @@ allow hal_fingerprint sysfs_fingerprintd:dir r_dir_perms;
 
 # read sysfs (required for fpc driver to read SOC files)
 allow hal_fingerprint sysfs:dir { read open };
+
+# allow HAL module to read/write dir contents and read/write/unlink files
+allow hal_fingerprint fingerprintd_data_file:file create_file_perms;
+allow hal_fingerprint fingerprintd_data_file:dir rw_dir_perms;
