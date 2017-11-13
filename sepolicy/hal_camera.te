@@ -6,3 +6,7 @@ allow hal_camera camera_data_file:sock_file write;
 allow hal_camera perfd_data_file:dir search;
 allow hal_camera perfd:unix_stream_socket connectto;
 allow hal_camera perfd_data_file:sock_file write;
+
+# access /data/misc/camera
+allow hal_camera camera_data_file:dir create_dir_perms;
+allow hal_camera camera_data_file:file create_file_perms;
