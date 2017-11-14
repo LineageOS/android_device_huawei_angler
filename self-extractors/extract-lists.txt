@@ -38,9 +38,5 @@
             system/lib/libiperf.so \
             system/lib/libmm-qcamera.so \
             system/xbin/iperf3 \
-            system/lib64/android.hardware.biometrics.fingerprint@2.1.so \
-            system/lib64/android.hardware.configstore@1.0.so \
-            system/lib64/android.hardware.usb@1.0.so \
-            system/lib64/android.hardware.wifi@1.0.so \
             "
     ;;
