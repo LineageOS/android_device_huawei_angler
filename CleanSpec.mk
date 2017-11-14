@@ -61,3 +61,5 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/ETC/system_build_prop_intermedi
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/build.prop)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/ETC/system_build_prop_intermediates/build.prop)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/build.prop)
+$(call add-clean-step, rm -f $(PRODUCT_OUT)/system/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
+$(call add-clean-step, rm -f $(PRODUCT_OUT)/system/lib64/hw/android.hardware.broadcastradio@1.0-impl.so)
