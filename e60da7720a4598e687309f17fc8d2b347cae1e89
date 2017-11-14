@@ -22,6 +22,30 @@
       "revId": "e60da7720a4598e687309f17fc8d2b347cae1e89",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ec9095c_3f5f2e4e",
+        "filename": "overlay/lineage-sdk/lineage/res/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-11-14T23:24:43Z",
+      "side": 1,
+      "message": "I initially didn\u0027t intend to (only in the lineage-sdk commit) but I think you\u0027re right to call it out because that example is now open to misinterpretation since RGB_BATTERY_LED and BATTERY_LED both exist.\n\nWill update.",
+      "parentUuid": "31db49d6_035870eb",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 50
+      },
+      "revId": "e60da7720a4598e687309f17fc8d2b347cae1e89",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
