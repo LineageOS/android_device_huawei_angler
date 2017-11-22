@@ -225,7 +225,6 @@ on post-fs-data
     chown bluetooth bluetooth /dev/ttyHS0
 
     # Create nfc local data
-    mkdir /data/nfc 0770 nfc nfc
     mkdir /data/vendor/nfc 0770 nfc nfc
 
     #modify access for speaker calibdata
