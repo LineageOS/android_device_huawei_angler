@@ -1,5 +1,4 @@
 system/bin/diag_qshrink4_daemon:qcom
-system/bin/halutil:qcom
 system/bin/mm-audio-alsa-test:qcom
 system/bin/PktRspTest:qcom
 system/bin/qmi-framework-tests/check_system_health:qcom

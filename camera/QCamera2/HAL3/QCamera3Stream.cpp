@@ -588,9 +588,9 @@ void *QCamera3Stream::dataProcRoutine(void *data)
             break;
         case CAMERA_CMD_TYPE_EXIT:
             CDBG_HIGH("%s: Exit", __func__);
+            pme->flushFreeBatchBufQ();
             /* flush data buf queue */
             pme->mDataQ.flush();
-            pme->flushFreeBatchBufQ();
             running = 0;
             break;
         default:
