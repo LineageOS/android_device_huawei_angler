@@ -436,10 +436,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp
 
-# For SPN display
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/spn-conf.xml:system/etc/spn-conf.xml
-
 # Request modem to send PLMN name always irrespective
 # of display condition in EFSPN.
 # RIL uses this property.
