@@ -421,7 +421,7 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
         -O/data/vendor/wifi/wpa/sockets \
         -puse_p2p_group_interface=1p2p_device=1 \
-        -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
+        -g@android:wpa_wlan0
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default
     class main
