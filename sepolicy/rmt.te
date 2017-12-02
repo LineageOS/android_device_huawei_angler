@@ -17,3 +17,8 @@ allow rmt self:socket create_socket_perms;
 allow rmt root_block_device:blk_file r_file_perms;
 allow rmt modem_block_device:blk_file rw_file_perms;
 allow rmt block_device:dir search;
+#debugfs access
+userdebug_or_eng(`
+typeattribute rmt qti_debugfs_domain;
+allow rmt debugfs:file write;
+')
