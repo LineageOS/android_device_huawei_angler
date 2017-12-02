@@ -65,9 +65,6 @@ on boot
     # don't run as a service to avoid race conditions
     exec - root system -- /system/bin/init.angler.power.sh
 
-    # Enable DEBUG_SUSPEND, DEBUG_EXIT_SUSPEND, and DEBUG_WAKEUP
-    write /sys/module/wakelock/parameters/debug_mask 7
-
     # add a cpuset for the camera daemon
     # we want all the little cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -116,11 +113,6 @@ on boot
     #compass compensation
     chown root system /sys/class/power_supply/battery/compass_compensation
 
-    write /sys/bus/platform/drivers/xhci_msm_hsic/unbind msm_hsic_host
-    write /sys/module/rmnet_usb/parameters/mux_enabled 1
-    write /sys/module/rmnet_usb/parameters/no_fwd_rmnet_links 8
-    write /sys/module/rmnet_usb/parameters/no_rmnet_insts_per_dev 17
-    write /sys/module/rmnet_usb/parameters/rmnet_data_init 1
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
     # Assign TCP buffer thresholds to be ceiling value of technology maximums
