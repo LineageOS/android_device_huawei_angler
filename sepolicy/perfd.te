@@ -13,6 +13,8 @@ allow perfd sysfs_performance:dir r_dir_perms;
 allow perfd sysfs_performance:file rw_file_perms;
 allow perfd proc_kernel_sched:file rw_file_perms;
 
+allow perfd system_server:process signull;
+
 allow perfd sysfs_thermal:dir search;
 allow perfd sysfs_thermal:file rw_file_perms;
 
