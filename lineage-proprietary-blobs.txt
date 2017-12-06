@@ -49,7 +49,9 @@ lib/libfilterpack_facedetect.so
 -priv-app/DMService/DMService.apk
 -priv-app/GCS/GCS.apk:priv-app/GCS/GCS.apk:PRESIGNED
 -priv-app/HiddenMenu/HiddenMenu.apk
--priv-app/HotwordEnrollmentWCD9330/HotwordEnrollmentWCD9330.apk:priv-app/HotwordEnrollmentWCD9330/HotwordEnrollmentWCD9330.apk:PRESIGNED
+-priv-app/HotwordEnrollmentTGoogleWCD9330/HotwordEnrollmentTGoogleWCD9330.apk:priv-app/HotwordEnrollmentTGoogleWCD9330/HotwordEnrollmentTGoogleWCD9330.apk:PRESIGNED
+-priv-app/HotwordEnrollmentXGoogleWCD9330/HotwordEnrollmentXGoogleWCD9330.apk:priv-app/HotwordEnrollmentXGoogleWCD9330/HotwordEnrollmentXGoogleWCD9330.apk:PRESIGNED
+-priv-app/HotwordEnrollmentOKGoogleWCD9330/HotwordEnrollmentOKGoogleWCD9330.apk:priv-app/HotwordEnrollmentOKGoogleWCD9330/HotwordEnrollmentOKGoogleWCD9330.apk:PRESIGNED
 -priv-app/SprintDM/SprintDM.apk
 -priv-app/atfwd/atfwd.apk
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
