@@ -6,7 +6,6 @@
   qcom)
     TO_EXTRACT="\
             system/bin/diag_qshrink4_daemon \
-            system/bin/halutil \
             system/bin/mm-audio-alsa-test \
             system/bin/PktRspTest \
             system/bin/qmi-framework-tests/check_system_health \
