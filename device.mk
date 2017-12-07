@@ -349,7 +349,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/huawei/angler/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
     device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
