@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec878bdd_7c68edfc",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2017-12-16T00:50:34Z",
+      "side": 1,
+      "message": "Was this inclusion accidental? This flag is deprecated.\nhttps://android-review.googlesource.com/#/q/topic:remove-cpusets",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "d32391017b559a7d572c7c2eed15d2d60af64edb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
