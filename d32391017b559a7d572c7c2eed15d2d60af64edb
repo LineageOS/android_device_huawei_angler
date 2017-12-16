@@ -22,6 +22,30 @@
       "revId": "d32391017b559a7d572c7c2eed15d2d60af64edb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35ff9ef1_2c2621eb",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2017-12-16T00:54:58Z",
+      "side": 1,
+      "message": "yep, derp",
+      "parentUuid": "ec878bdd_7c68edfc",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "d32391017b559a7d572c7c2eed15d2d60af64edb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
