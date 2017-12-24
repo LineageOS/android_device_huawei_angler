@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81408628_a432a294",
+        "filename": "device.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2017-12-24T03:08:03Z",
+      "side": 1,
+      "message": "Was this added on purpose?",
+      "range": {
+        "startLine": 549,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 5
+      },
+      "revId": "a61e8ad9ab2138cb41c4d2a12965dc4da78e0e43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66231b12_5eed4d13",
+        "filename": "device.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2017-12-24T03:08:03Z",
+      "side": 1,
+      "message": "I thought we decided to leave out the bfq changes for now?",
+      "range": {
+        "startLine": 560,
+        "startChar": 0,
+        "endLine": 562,
+        "endChar": 24
+      },
+      "revId": "a61e8ad9ab2138cb41c4d2a12965dc4da78e0e43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
