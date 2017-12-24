@@ -45,6 +45,29 @@
       "revId": "a61e8ad9ab2138cb41c4d2a12965dc4da78e0e43",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b26e39a3_dad49350",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2017-12-24T13:28:27Z",
+      "side": 1,
+      "message": "This is no longer needed. I just realized the other day we\u0027ve have it enabled globally for a little over a year now.\nhttps://github.com/LineageOS/android_vendor_lineage/blob/staging/lineage-15.1/overlay/common/frameworks/base/core/res/res/values/config.xml#L63",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 56
+      },
+      "revId": "a61e8ad9ab2138cb41c4d2a12965dc4da78e0e43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
