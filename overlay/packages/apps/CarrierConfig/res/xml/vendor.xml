@@ -450,4 +450,8 @@
     <carrier_config mcc="450" mnc="08">
         <boolean name="carrier_instant_lettering_available_bool" value="false" />
     </carrier_config>
+    <carrier_config mcc="260" mnc="06">
+        <int name="maxMessageSize" value="307200" />
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+    </carrier_config>
 </carrier_config_list>
