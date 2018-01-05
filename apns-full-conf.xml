@@ -26466,6 +26466,13 @@
       mmsport="80"
   />
 
+  <apn carrier="Telstra Tethering"
+       mcc="505"
+       mnc="01"
+       apn="telstra.internet"
+       type="dun"
+  />
+
   <apn carrier="Optus Yes Internet"
       mcc="505"
       mnc="02"
