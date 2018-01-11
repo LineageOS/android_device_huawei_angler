@@ -1,0 +1,14 @@
+/boot            emmc    /dev/block/bootdevice/by-name/boot
+/system          ext4    /dev/block/bootdevice/by-name/system
+/system_image    emmc    /dev/block/bootdevice/by-name/system
+/vendor          ext4    /dev/block/bootdevice/by-name/vendor       flags=display="Vendor";backup=1
+/vendor_image    emmc    /dev/block/bootdevice/by-name/vendor
+/data            ext4    /dev/block/bootdevice/by-name/userdata     flags=encryptable=/dev/block/bootdevice/by-name/metadata
+/cache           ext4    /dev/block/bootdevice/by-name/cache
+/misc            emmc    /dev/block/bootdevice/by-name/misc
+/recovery        emmc    /dev/block/bootdevice/by-name/recovery     flags=backup=1
+/efs1            emmc    /dev/block/bootdevice/by-name/modemst1     flags=backup=1;display=EFS
+/efs2            emmc    /dev/block/bootdevice/by-name/modemst2     flags=backup=1;subpartitionof=/efs1
+
+/usb-otg         vfat    /dev/block/sda1      /dev/block/sda        flags=removable;storage;display=USB-OTG
+

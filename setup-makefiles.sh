@@ -52,5 +52,12 @@ write_headers
 # The standard blobs
 write_makefiles "$MY_DIR"/lineage-proprietary-blobs.txt
 
+# Blobs for TWRP decryption
+cat << EOF >> "$BOARDMK"
+ifeq (\$(WITH_TWRP),true)
+TARGET_RECOVERY_DEVICE_DIRS += vendor/$VENDOR/$DEVICE/proprietary
+endif
+EOF
+
 # We are done!
 write_footers
