@@ -58,4 +58,15 @@ setup_vendor "$DEVICE" "$VENDOR" "$REPO_ROOT"
 
 extract "$MY_DIR/lineage-proprietary-blobs.txt" "$SRC"
 
+# Extract blobs needed for TWRP decryption
+extract "$MY_DIR/lineage-proprietary-blobs-twrp.txt" "$SRC"
+
+TWRP_QSEECOMD="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/recovery/root/sbin/qseecomd
+TWRP_HWSERVICEMANAGER="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/recovery/root/sbin/hwservicemanager
+TWRP_SERVICEMANAGER="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/recovery/root/sbin/servicemanager
+
+sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_QSEECOMD"
+sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_HWSERVICEMANAGER"
+sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_SERVICEMANAGER"
+
 "$MY_DIR"/setup-makefiles.sh
