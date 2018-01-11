@@ -171,4 +171,8 @@ TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
 DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 
+ifeq ($(WITH_TWRP),true)
+include device/huawei/angler/twrp.mk
+endif
+
 -include vendor/huawei/angler/BoardConfigVendor.mk
