@@ -1,5 +1,5 @@
 type oem_qmi_server, domain, device_domain_deprecated, mlstrustedsubject;
-type oem_qmi_server_exec, exec_type, file_type;
+type oem_qmi_server_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(oem_qmi_server)
 

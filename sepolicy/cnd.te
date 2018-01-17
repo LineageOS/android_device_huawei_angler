@@ -1,5 +1,5 @@
 type cnd, domain, device_domain_deprecated;
-type cnd_exec, exec_type, file_type;
+type cnd_exec, exec_type, vendor_file_type, file_type;
 
 # Started by init
 init_daemon_domain(cnd)

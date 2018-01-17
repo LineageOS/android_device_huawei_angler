@@ -1,4 +1,4 @@
 type diag, domain, device_domain_deprecated;
-type diag_exec, exec_type, file_type;
+type diag_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(diag)
