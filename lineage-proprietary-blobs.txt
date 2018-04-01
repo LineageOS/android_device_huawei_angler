@@ -41,13 +41,11 @@ lib/libdmjavaplugin.so:priv-app/DMService/lib/arm/libdmjavaplugin.so
 lib/libfilterpack_facedetect.so
 -app/HwSarControlService/HwSarControlService.apk
 -app/Tycho/Tycho.apk;PRESIGNED
--priv-app/CarrierServices/CarrierServices.apk;PRESIGNED
 -priv-app/CNEService/CNEService.apk
 -priv-app/ConnMO/ConnMO.apk
 -priv-app/DCMO/DCMO.apk
 -priv-app/DiagMon/DiagMon.apk
 -priv-app/DMService/DMService.apk
--priv-app/GCS/GCS.apk;PRESIGNED
 -priv-app/HiddenMenu/HiddenMenu.apk
 -priv-app/HotwordEnrollmentTGoogleWCD9330/HotwordEnrollmentTGoogleWCD9330.apk;PRESIGNED
 -priv-app/HotwordEnrollmentXGoogleWCD9330/HotwordEnrollmentXGoogleWCD9330.apk;PRESIGNED
