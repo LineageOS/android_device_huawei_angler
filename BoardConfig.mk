@@ -63,8 +63,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/angler/bluetooth
 
 BOARD_USES_SECURE_SERVICES := true
 
-BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
-
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_INFO_FILE := device/huawei/angler/board-info.txt
@@ -126,7 +124,7 @@ TARGET_AUX_OS_VARIANT_LIST := angler
 
 TARGET_RECOVERY_FSTAB = device/huawei/angler/fstab.angler
 # write vendor modules to system
-TARGET_COPY_OUT_VENDOR := system
+TARGET_COPY_OUT_VENDOR := vendor
 TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler
 
 BOARD_SEPOLICY_DIRS += \
