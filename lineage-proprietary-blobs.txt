@@ -35,9 +35,7 @@ etc/sysconfig/whitelist_com.android.omadm.service.xml
 lib64/libfilterpack_facedetect.so
 lib64/libManufacture.so
 lib/libdmengine.so
-lib/libdmengine.so:priv-app/DMService/lib/arm/libdmengine.so
 lib/libdmjavaplugin.so
-lib/libdmjavaplugin.so:priv-app/DMService/lib/arm/libdmjavaplugin.so
 lib/libfilterpack_facedetect.so
 -app/HwSarControlService/HwSarControlService.apk
 -app/Tycho/Tycho.apk;PRESIGNED
