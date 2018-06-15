@@ -1,1 +1,2 @@
-allow hal_light_default sysfs_leds:file rw_file_perms;
+allow hal_light_default sysfs_qpnp_26:dir open;
+allow hal_light_default sysfs_qpnp_26:file { write getattr open };
