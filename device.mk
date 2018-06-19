@@ -27,6 +27,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/privapp-permissions-angler.xml:system/etc/permissions/privapp-permissions-angler.xml
 
+# Setting vendor SPL
+VENDOR_SECURITY_PATCH = "2018-12-05"
+
 # Enable support for chinook sensorhub
 TARGET_USES_CHINOOK_SENSORHUB := false
 
