@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+BUILD_BROKEN_DUP_RULES := true
+
 TARGET_BOARD_PLATFORM := msm8994
 TARGET_BOOTLOADER_BOARD_NAME := angler
 
