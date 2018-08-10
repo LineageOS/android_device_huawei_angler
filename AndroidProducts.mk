@@ -15,4 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_angler.mk
+    $(LOCAL_DIR)/aosp_angler.mk \
+    $(LOCAL_DIR)/lineage_angler.mk
