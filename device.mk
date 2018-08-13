@@ -583,6 +583,14 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 PRODUCT_COPY_FILES += \
     device/huawei/angler/gps.conf:system/etc/gps.conf:qcom
 
+# services
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0-service.rc \
+    android.hardware.gatekeeper@1.0-service \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-service
+
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
 $(call add-product-sanitizer-module-config,mm-qcamera-daemon,never)
