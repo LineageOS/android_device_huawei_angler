@@ -1,4 +1,3 @@
--vendor/app/ims/ims.apk
 -vendor/app/TimeService/TimeService.apk
 vendor/lib64/libimscamera_jni.so:vendor/app/ims/lib/arm64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so:vendor/app/ims/lib/arm64/libimsmedia_jni.so
