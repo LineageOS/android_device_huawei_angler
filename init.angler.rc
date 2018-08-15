@@ -193,6 +193,10 @@ on post-fs-data
     #Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
+    #Create folder for wpa_supplicant
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+
     #Create folder for display calibration data
     mkdir /data/misc/display 0770 system graphics
 
