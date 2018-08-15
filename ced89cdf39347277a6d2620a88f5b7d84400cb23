@@ -22,6 +22,30 @@
       "revId": "ced89cdf39347277a6d2620a88f5b7d84400cb23",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cc07fec_ba1bf0e6",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 18590
+      },
+      "writtenOn": "2018-08-15T04:08:38Z",
+      "side": 1,
+      "message": "it isn\u0027t",
+      "parentUuid": "b6a20e50_d4c1aa49",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 34
+      },
+      "revId": "ced89cdf39347277a6d2620a88f5b7d84400cb23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
