@@ -349,8 +349,8 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
-    device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
+    device/huawei/angler/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    device/huawei/angler/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/huawei/angler/overlay
