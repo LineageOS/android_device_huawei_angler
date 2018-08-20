@@ -22,9 +22,9 @@ LOCAL_MODULE := librecovery_ui_nanohub
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_C_INCLUDES += bootable/recovery
-
 LOCAL_SRC_FILES := nanohub_recovery_ui.cpp
+
+LOCAL_SHARED_LIBRARIES := librecovery_ui
 
 include $(BUILD_STATIC_LIBRARY)
 endif
