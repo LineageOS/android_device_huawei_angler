@@ -20,8 +20,8 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include "device.h"
-#include "screen_ui.h"
+#include "recovery_ui/device.h"
+#include "recovery_ui/screen_ui.h"
 
 class Nanohub_Device : public Device
 {
