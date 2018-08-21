@@ -487,6 +487,7 @@ vendor/lib/libnetmgr.so
 vendor/lib/liboemcamera.so
 vendor/lib/liboemcrypto.so
 vendor/lib/libperipheral_client.so
+vendor/lib/libpn548ad_fw.so
 vendor/lib/libprocessgroup.so
 vendor/lib/libqcci_legacy.so
 vendor/lib/libqdi.so
