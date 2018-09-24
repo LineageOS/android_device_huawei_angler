@@ -111,6 +111,7 @@ on boot
     chmod 2770 /dev/socket/qmux_gps
 
     setprop wifi.interface wlan0
+    setprop wifi.direct.interface p2p-dev-wlan0
 
     #wifi sar
     chown radio radio /sys/module/wifi_sar/parameters/wifi_tx_power_limit
