@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f1fd792_faf6d6f0",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-10-08T01:29:20Z",
+      "side": 1,
+      "message": "done. removed line",
+      "parentUuid": "5aea0043_8ff221f9",
+      "range": {
+        "startLine": 128,
+        "startChar": 26,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "263b627e9a174da1bb5a710c91e02b1ea11a1ba6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79dbbb19_69f5b744",
         "filename": "device.mk",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-09-08T15:28:46Z",
       "side": 1,
       "message": "Shouldn\u0027t have this here. Best to revert all the changes we made on this line.\nhttps://review.lineageos.org/#/c/LineageOS/android_device_huawei_angler/+/17892/2/device.mk",
+      "range": {
+        "startLine": 67,
+        "startChar": 88,
+        "endLine": 67,
+        "endChar": 94
+      },
+      "revId": "263b627e9a174da1bb5a710c91e02b1ea11a1ba6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8eedf1dd_98a0aba1",
+        "filename": "device.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-10-08T01:29:20Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "79dbbb19_69f5b744",
       "range": {
         "startLine": 67,
         "startChar": 88,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6319612f_9c0aed45",
+        "filename": "lineage-proprietary-blobs-vendorimg.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-10-08T01:29:20Z",
+      "side": 1,
+      "message": "done. https://review.lineageos.org/231187",
+      "parentUuid": "c3b3bd03_b4dab5f6",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 75
+      },
+      "revId": "263b627e9a174da1bb5a710c91e02b1ea11a1ba6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c8a1af4_48f401fc",
         "filename": "lineage-proprietary-blobs-vendorimg.txt",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2018-09-08T15:28:46Z",
       "side": 1,
       "message": "Shouldn\u0027t need these here. Just revert https://review.lineageos.org/184729",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 29
+      },
+      "revId": "263b627e9a174da1bb5a710c91e02b1ea11a1ba6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3eb988f_dd400a40",
+        "filename": "lineage-proprietary-blobs-vendorimg.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2018-10-08T01:29:20Z",
+      "side": 1,
+      "message": "done. https://review.lineageos.org/230758",
+      "parentUuid": "4c8a1af4_48f401fc",
       "range": {
         "startLine": 108,
         "startChar": 0,
