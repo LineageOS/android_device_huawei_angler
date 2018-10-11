@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c507a7e_d5bc4c45",
+        "filename": "init.angler.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 20409
+      },
+      "writtenOn": "2018-10-11T02:52:03Z",
+      "side": 1,
+      "message": "# required to get wifi working on first boot\nmkdir /data/vendor/wifi 0771 wifi wifi",
+      "revId": "834f5c3d17b08b3ad6cb0627a5bf2ca1ce73cedb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
