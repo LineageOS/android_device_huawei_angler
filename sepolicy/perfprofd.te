@@ -1,0 +1,3 @@
+userdebug_or_eng(`
+  r_dir_file(perfprofd, sysfs_type)
+')

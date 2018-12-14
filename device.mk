@@ -312,7 +312,7 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
-    nfc_nci.angler \
+    nfc_nci.msm8994 \
     android.hardware.nfc@1.0-impl \
 
 # Keymaster HAL
@@ -349,7 +349,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/huawei/angler/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
     device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
@@ -435,10 +435,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp
-
-# For SPN display
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/spn-conf.xml:system/etc/spn-conf.xml
 
 # Request modem to send PLMN name always irrespective
 # of display condition in EFSPN.

@@ -1,0 +1,8 @@
+# hostapd can read and write WiFi related data and configuration.
+allow hostapd wifi_data_file:file rw_file_perms;
+r_dir_file(hostapd, wifi_data_file)
+
+# hostapd wants to create the directory holding its control socket.
+allow hostapd hostapd_socket:dir create_dir_perms;
+# hostapd needs to create, bind to, read, and write its control socket.
+allow hostapd hostapd_socket:sock_file create_file_perms;

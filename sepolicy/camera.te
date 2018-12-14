@@ -1,5 +1,5 @@
 type camera, domain, device_domain_deprecated;
-type camera_exec, exec_type, file_type;
+type camera_exec, exec_type, vendor_file_type, file_type;
 
 # Started by init
 init_daemon_domain(camera)

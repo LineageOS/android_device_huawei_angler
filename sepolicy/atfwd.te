@@ -1,5 +1,5 @@
 type atfwd, domain, device_domain_deprecated;
-type atfwd_exec, exec_type, file_type;
+type atfwd_exec, exec_type, vendor_file_type, file_type;
 
 # Started by init
 init_daemon_domain(atfwd)
