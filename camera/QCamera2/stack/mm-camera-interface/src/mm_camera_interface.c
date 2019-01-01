@@ -404,7 +404,6 @@ static int32_t mm_camera_intf_close(uint32_t camera_handle)
 static int32_t mm_camera_intf_error_close(uint32_t camera_handle)
 {
     int32_t rc = -1;
-    uint8_t cam_idx = camera_handle & 0x00ff;
     mm_camera_obj_t * my_obj = NULL;
 
     CDBG("%s E: camera_handler = %d ", __func__, camera_handle);
