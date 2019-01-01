@@ -533,7 +533,7 @@ int32_t mm_camera_poll_thread_launch(mm_camera_poll_thread_t * poll_cb,
     if(!poll_cb->status) {
         pthread_cond_wait(&poll_cb->cond_v, &poll_cb->mutex);
     }
-    if (!poll_cb->threadName) {
+    if (poll_cb->threadName[0] == '\0') {
         pthread_setname_np(poll_cb->pid, "CAM_poll");
     } else {
         pthread_setname_np(poll_cb->pid, poll_cb->threadName);
@@ -638,7 +638,7 @@ int32_t mm_camera_cmd_thread_launch(mm_camera_cmd_thread_t * cmd_thread,
                    mm_camera_cmd_thread,
                    (void *)cmd_thread);
 
-    if (!cmd_thread->threadName) {
+    if (cmd_thread->threadName[0] == '\0') {
         pthread_setname_np(cmd_thread->cmd_pid, "CAM_launch");
     } else {
         pthread_setname_np(cmd_thread->cmd_pid, cmd_thread->threadName);
