@@ -4,8 +4,6 @@ LOCAL_PATH := $(call my-dir)
 include $(LOCAL_PATH)/../../../common.mk
 include $(CLEAR_VARS)
 
-# Too many clang warnings/errors, see b/23163853.
-LOCAL_CLANG := false
 LOCAL_CXX_STL := none
 
 MM_CAM_FILES := \
