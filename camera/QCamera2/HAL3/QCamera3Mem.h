@@ -120,7 +120,6 @@ private:
     int allocOneBuffer(struct QCamera3MemInfo &memInfo,
             unsigned int heap_id, size_t size);
     void deallocOneBuffer(struct QCamera3MemInfo &memInfo);
-    bool mQueueAll;
     uint32_t mMaxCnt;
 };
 
