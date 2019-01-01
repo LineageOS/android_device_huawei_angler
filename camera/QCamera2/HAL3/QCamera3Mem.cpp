@@ -579,7 +579,6 @@ ALLOC_FAILED:
 int QCamera3HeapMemory::allocateOne(size_t size)
 {
     unsigned int heap_id_mask = 0x1 << ION_IOMMU_HEAP_ID;
-    uint32_t i;
     int rc = NO_ERROR;
 
     //Note that now we allow incremental allocation. In other words, we allow

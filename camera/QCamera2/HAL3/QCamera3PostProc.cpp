@@ -526,7 +526,6 @@ int32_t QCamera3PostProcessor::processData(mm_camera_super_buf_t *input,
         buffer_handle_t *output, uint32_t frameNumber)
 {
     CDBG("%s: E", __func__);
-    QCamera3HardwareInterface* hal_obj = (QCamera3HardwareInterface*)m_parent->mUserData;
     pthread_mutex_lock(&mReprocJobLock);
 
     // enqueue to post proc input queue
@@ -568,7 +567,6 @@ int32_t QCamera3PostProcessor::processData(mm_camera_super_buf_t *input,
  *==========================================================================*/
 int32_t QCamera3PostProcessor::processData(qcamera_fwk_input_pp_data_t *frame)
 {
-    QCamera3HardwareInterface* hal_obj = (QCamera3HardwareInterface*)m_parent->mUserData;
     if (frame->reproc_config.reprocess_type != REPROCESS_TYPE_NONE) {
         pthread_mutex_lock(&mReprocJobLock);
         // enqueu to post proc input queue
