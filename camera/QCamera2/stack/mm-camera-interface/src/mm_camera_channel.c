@@ -843,7 +843,6 @@ int32_t mm_channel_fsm_fn_active(mm_channel_t *my_obj,
         {
             mm_camera_generic_cmd_t gen_cmd;
             cam_capture_frame_config_t *input;
-            uint32_t i = 0;
             gen_cmd.type = MM_CAMERA_GENERIC_CMD_TYPE_CAPTURE_SETTING;
             CDBG_HIGH("MM_CAMERA_EVT_CAPTURE_SETTING");
             if (in_val == NULL) {

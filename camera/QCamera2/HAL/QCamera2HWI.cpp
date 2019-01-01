@@ -2061,7 +2061,6 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamUserBuf(
 {
     int rc = NO_ERROR;
     QCameraMemory *mem = NULL;
-    int bufferCnt = 0;
     int size = 0;
 
     if (streamInfo->streaming_mode != CAM_STREAMING_MODE_BATCH) {

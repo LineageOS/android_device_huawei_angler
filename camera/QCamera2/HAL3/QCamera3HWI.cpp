@@ -1245,7 +1245,6 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
     uint8_t eis_prop_set;
     uint32_t maxEisWidth = 0;
     uint32_t maxEisHeight = 0;
-    int32_t hal_version = CAM_HAL_V3;
 
     memset(&mInputStreamInfo, 0, sizeof(mInputStreamInfo));
 
@@ -4179,7 +4178,6 @@ void QCamera3HardwareInterface::captureResultCb(mm_camera_super_buf_t *metadata_
  *==========================================================================*/
 int32_t QCamera3HardwareInterface::getReprocessibleOutputStreamId(uint32_t &id)
 {
-    stream_info_t* stream = NULL;
 
     /* check if any output or bidirectional stream with the same size and format
        and return that stream */
@@ -4393,7 +4391,6 @@ QCamera3HardwareInterface::translateFromHalMetadata(
 
     IF_META_AVAILABLE(cam_edge_application_t, edgeApplication,
             CAM_INTF_META_EDGE_MODE, metadata) {
-        uint8_t edgeStrength = (uint8_t) edgeApplication->sharpness;
         camMetadata.update(ANDROID_EDGE_MODE, &(edgeApplication->edge_mode), 1);
     }
 
@@ -5334,7 +5331,6 @@ void QCamera3HardwareInterface::dumpMetadataToFile(tuning_params_t &meta,
                                                    const char *type,
                                                    uint32_t frameNumber)
 {
-    uint32_t frm_num = 0;
 
     //Some sanity checks
     if (meta.tuning_sensor_data_size > TUNING_SENSOR_DATA_MAX) {
