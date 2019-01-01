@@ -326,7 +326,7 @@ int process_sensor_data(cam_sensor_params_t *p_sensor_params,
   }
 
   /*Flash*/
-  short val_short;
+  short val_short = 0;
   int flash_mode_exif, flash_fired;
   if (p_sensor_params->flash_state == CAM_FLASH_STATE_FIRED) {
     flash_fired = 1;
