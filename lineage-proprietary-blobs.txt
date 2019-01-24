@@ -26,7 +26,6 @@ etc/permissions/com.android.omadm.service.xml
 etc/permissions/com.android.sdm.plugins.connmo.xml
 etc/permissions/com.android.sdm.plugins.sprintdm.xml
 etc/permissions/com.google.android.camera.experimental2016.xml
-etc/permissions/privapp-permissions-angler.xml
 etc/permissions/qcrilhook.xml
 etc/sysconfig/angler_common.xml
 etc/sysconfig/whitelist_com.android.omadm.service.xml
