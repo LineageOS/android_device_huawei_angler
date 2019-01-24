@@ -38,7 +38,6 @@ lib/libdmengine.so
 lib/libdmjavaplugin.so
 lib/libfilterpack_facedetect.so
 -app/HwSarControlService/HwSarControlService.apk
--app/Tycho/Tycho.apk;PRESIGNED
 -priv-app/CNEService/CNEService.apk
 -priv-app/ConnMO/ConnMO.apk
 -priv-app/DCMO/DCMO.apk
