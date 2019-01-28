@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "541a80c7_da3e2f46",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 7118
+      },
+      "writtenOn": "2019-01-28T14:03:47Z",
+      "side": 1,
+      "message": "add missing :",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "2a0dfb5ff1d8c153eaa06a78c3e8501519a5606b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
