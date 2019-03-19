@@ -48,6 +48,8 @@ on fs
     swapon_all ./fstab.angler
 
     setprop sys.usb.ffs.aio_compat 1
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
 
     restorecon_recursive /persist
     mkdir /persist/data/sfs 0700 system system
