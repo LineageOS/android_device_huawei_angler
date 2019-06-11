@@ -23,10 +23,6 @@ on early-init
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
-    # Set permissions for persist partition
-    mkdir /persist 0771 system system
-    mkdir /firmware 0771 system system
-
     symlink /sdcard /storage/sdcard0
 
     # Setup zram options
@@ -36,6 +32,8 @@ on init
     write /proc/sys/vm/page-cluster 0
 
 on fs
+    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
+
     mount_all ./fstab.angler
     swapon_all ./fstab.angler
 
@@ -159,8 +157,6 @@ on property:sys.shutdown.requested=*
     stop per_proxy
 
 on post-fs
-    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
-
     start qseecomd
     # Busy loop to wait for qseecomd started
     exec - root root system -- /system/bin/init.angler.qseecomd.sh
