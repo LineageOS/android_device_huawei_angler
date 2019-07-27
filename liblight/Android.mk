@@ -28,5 +28,6 @@ LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_CFLAGS := $(common_flags) -DLOG_TAG=\"anglerlights\"
 LOCAL_MODULE := lights.angler
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
