@@ -1982,6 +1982,7 @@ QCameraHeapMemory *QCamera2HardwareInterface::allocateStreamInfoBuf(
                     streamInfo->user_buf_info.frame_buf_cnt,
                     streamInfo->user_buf_info.frameInterval);
         }
+        break;
     case CAM_STREAM_TYPE_PREVIEW:
         if (mParameters.getRecordingHintValue()) {
             const char* dis_param = mParameters.get(QCameraParameters::KEY_QC_DIS);
@@ -4305,6 +4306,7 @@ void QCamera2HardwareInterface::camEvtHandle(uint32_t /*camera_handle*/,
                         obj->mDeffCond.broadcast();
                         CDBG_HIGH("%s: broadcast mDeffCond signal\n", __func__);
                     }
+                    break;
                 default:
                     obj->processEvt(QCAMERA_SM_EVT_EVT_NOTIFY, payload);
                     break;
