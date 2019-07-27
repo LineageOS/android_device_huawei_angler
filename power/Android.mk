@@ -25,4 +25,5 @@ endif
 
 LOCAL_MODULE := power.angler
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
