@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 
 # Make modem config folder and copy firmware config to that folder
 rm -rf /data/misc/radio/modem_config

@@ -1,5 +1,5 @@
 type init-mcfg-sh, domain, device_domain_deprecated;
-type init-mcfg-sh_exec, exec_type, file_type;
+type init-mcfg-sh_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(init-mcfg-sh)
 
