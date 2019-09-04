@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 
 registered="`getprop sys.listeners.registered`"
 while [ "$registered" != "true" ]

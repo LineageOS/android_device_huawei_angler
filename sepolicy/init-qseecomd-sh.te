@@ -1,5 +1,5 @@
 type init-angler-qseecomd-sh, domain;
-type init-angler-qseecomd-sh_exec, exec_type, file_type;
+type init-angler-qseecomd-sh_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(init-angler-qseecomd-sh)
 

@@ -1,6 +1,6 @@
-# /system/bin/init.radio.sh
+# /vendor/bin/init.radio.sh
 type init-radio-sh, domain;
-type init-radio-sh_exec, exec_type, file_type;
+type init-radio-sh_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(init-radio-sh)
 

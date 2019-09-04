@@ -55,12 +55,12 @@ on early-boot
     setrlimit 8 67108864 67108864
 
     # Busy loop to wait for devices booted by devstart_sh just in case device not ready
-    exec - root root system -- /system/bin/init.qcom.devwait.sh
+    exec - root root system -- /vendor/bin/init.qcom.devwait.sh
 
 on boot
     # execute script to set initial CPU settings
     # don't run as a service to avoid race conditions
-    exec - root system -- /system/bin/init.angler.power.sh
+    exec - root system -- /vendor/bin/init.angler.power.sh
 
     # Enable DEBUG_SUSPEND, DEBUG_EXIT_SUSPEND, and DEBUG_WAKEUP
     write /sys/module/wakelock/parameters/debug_mask 7
@@ -159,7 +159,7 @@ on property:sys.shutdown.requested=*
 on post-fs
     start qseecomd
     # Busy loop to wait for qseecomd started
-    exec - root root system -- /system/bin/init.angler.qseecomd.sh
+    exec - root root system -- /vendor/bin/init.angler.qseecomd.sh
     # Start devices by sysfs trigger
     start devstart_sh
 
@@ -476,13 +476,13 @@ on property:ro.boot.wifi_cal=3
 on property:ro.boot.hardware.sku=H1511
     setprop ro.boot.wificountrycode US
 
-service mcfg-sh /system/bin/init.mcfg.sh
+service mcfg-sh /vendor/bin/init.mcfg.sh
    class late_start
    user radio
    group radio system
    oneshot
 
-service radio-sh /system/bin/init.radio.sh
+service radio-sh /vendor/bin/init.radio.sh
     class main
     user radio
     group root radio
@@ -523,7 +523,7 @@ service diag_test_server /vendor/bin/diag_test_server
 on property:ro.boot.mode=hw-factory
     start diag_test_server
 
-service devstart_sh /system/bin/init.qcom.devstart.sh
+service devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
     user root
     group root system
