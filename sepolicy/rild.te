@@ -29,3 +29,4 @@ allowxperm rild self:socket ioctl msm_sock_ipc_ioctls;
 # allow rild to access radio data file
 allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
+allow rild vendor_file:file ioctl; 

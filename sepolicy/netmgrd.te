@@ -8,7 +8,7 @@ init_daemon_domain(netmgrd)
 net_domain(netmgrd)
 allowxperm netmgrd self:udp_socket ioctl priv_sock_ioctls;
 
-allow netmgrd self:capability { setuid setgid net_admin net_raw };
+allow netmgrd self:capability { setuid setgid net_admin net_raw sys_module };
 dontaudit netmgrd self:capability setpcap;
 
 set_prop(netmgrd, net_radio_prop)
@@ -18,7 +18,7 @@ allow netmgrd self:netlink_route_socket nlmsg_write;
 allow netmgrd self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_write nlmsg_read};
 allow netmgrd self:socket create_socket_perms;
 allowxperm netmgrd self:socket ioctl msm_sock_ipc_ioctls;
-allow netmgrd netd_socket:sock_file w_file_perms;
+#allow netmgrd netd_socket:sock_file w_file_perms;
 allow netmgrd net_data_file:dir r_dir_perms;
 allow netmgrd net_data_file:file r_file_perms;
 
