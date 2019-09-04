@@ -6,6 +6,7 @@ type firmware_file, fs_type, contextmount_type;
 
 type ims_socket, file_type;
 type irqbalance_socket, file_type;
+type netmgrd_socket, file_type;
 type perfd_data_file, file_type, data_file_type, core_data_file_type;
 type persist_file, file_type;
 type persist_audio_file, file_type;

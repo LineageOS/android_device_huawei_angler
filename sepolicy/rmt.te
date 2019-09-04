@@ -18,3 +18,7 @@ allowxperm rmt self:socket ioctl msm_sock_ipc_ioctls;
 allow rmt root_block_device:blk_file r_file_perms;
 allow rmt modem_block_device:blk_file rw_file_perms;
 allow rmt block_device:dir search;
+
+# rmt storage
+allow rmt debugfs_rmt_storage:dir { search read open };
+allow rmt debugfs_rmt_storage:file { read write open }; 

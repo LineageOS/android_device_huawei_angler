@@ -1,3 +1,4 @@
+type alarm_device, dev_type, mlstrustedobject;
 type diag_device, dev_type, mlstrustedobject;
 type dpl_device, dev_type;
 type drm_block_device, dev_type;
