@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 
 up="`getprop sys.qcom.devup`"
 while [ "$up" != "1" ]
