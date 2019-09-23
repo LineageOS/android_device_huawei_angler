@@ -218,9 +218,6 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     dsm_ctrl
 
-PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.0-impl
-
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
