@@ -3,7 +3,7 @@ type init-power-sh_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(init-power-sh)
 
-allow init-power-sh shell_exec:file r_file_perms;
+allow init-power-sh vendor_shell_exec:file r_file_perms;
 allow init-power-sh sysfs_devices_system_cpu:file w_file_perms;
 allow init-power-sh sysfs_performance:dir r_dir_perms;
 allow init-power-sh sysfs_performance:file w_file_perms;
@@ -21,4 +21,4 @@ allow init-power-sh sysfs:file rw_file_perms;
 allow init-power-sh sysfs_usb:file w_file_perms;
 
 # execute toybox/toolbox
-allow init-power-sh toolbox_exec:file rx_file_perms;
+allow init-power-sh vendor_toolbox_exec:file rx_file_perms;
