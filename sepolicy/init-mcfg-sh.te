@@ -3,7 +3,7 @@ type init-mcfg-sh_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(init-mcfg-sh)
 
-allow init-mcfg-sh shell_exec:file rx_file_perms;
+allow init-mcfg-sh vendor_shell_exec:file rx_file_perms;
 
 # remove and create /data/misc/radio/modem_config
 allow init-mcfg-sh radio_data_file:dir create_dir_perms;
@@ -13,7 +13,7 @@ allow init-mcfg-sh firmware_file:dir r_dir_perms;
 allow init-mcfg-sh firmware_file:file r_file_perms;
 
 # execute toybox/toolbox
-allow init-mcfg-sh toolbox_exec:file rx_file_perms;
+allow init-mcfg-sh vendor_toolbox_exec:file rx_file_perms;
 
 allow init-mcfg-sh vfat:dir { search read open };
 allow init-mcfg-sh vfat:file { getattr open read }; 
