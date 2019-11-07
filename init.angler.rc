@@ -548,3 +548,6 @@ on property:init.svc.media=restarting
 
 on property:init.svc.servicemanager=restarting
     restart qcamerasvr
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
