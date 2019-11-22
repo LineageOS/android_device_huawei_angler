@@ -1,1 +1,7 @@
 dontaudit netd self:capability sys_module;
+allow netd device:file { open write };
+
+# For /sys/modules/bcmdhd/parameters/firmware_path and nvram_path
+allow netd sysfs_wlan_fwpath:file w_file_perms;
+# For /sys/devices/virtual/net/rmnet_data0/mtu
+allow netd sysfs_wifi_mtu:file rw_file_perms;
