@@ -263,6 +263,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # GPS
 PRODUCT_PACKAGES += \
     libgps.utils \
+    libgnss \
+    liblocation_api \
     gps.msm8994
 
 PRODUCT_PACKAGES += \
@@ -348,7 +350,8 @@ PRODUCT_PACKAGES += \
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
 
 # Health HAL
 PRODUCT_PACKAGES += \
