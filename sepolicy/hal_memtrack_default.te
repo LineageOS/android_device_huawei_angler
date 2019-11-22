@@ -1,0 +1,6 @@
+allow hal_memtrack_default hal_configstore_default:file read;
+allow hal_memtrack_default hwservicemanager:file read;
+allow hal_memtrack_default idmap:file read;
+allow hal_memtrack_default servicemanager:file read;
+allow hal_memtrack_default system_app:file read;
+allow hal_memtrack_default vndservicemanager:file read;

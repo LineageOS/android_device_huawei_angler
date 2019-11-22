@@ -1,0 +1,6 @@
+# hal_graphics_composer binder
+allow vndservicemanager hal_graphics_composer_default:dir r_dir_perms;
+allow vndservicemanager hal_graphics_composer_default:file rw_file_perms;
+allow vndservicemanager hal_graphics_composer_default:process getattr;
+
+allow vndservicemanager vendor_file:dir r_dir_perms;

@@ -8,5 +8,7 @@ allow init-radio-sh vendor_shell_exec:file rx_file_perms;
 
 allow init-radio-sh vendor_toolbox_exec:file rx_file_perms;
 
-allow init-radio-sh radio_data_file:dir rw_dir_perms;
-allow init-radio-sh radio_data_file:file create_file_perms;
+allow init-radio-sh vendor_file:dir read;
+allow init-radio-sh radio_data_file:file open;
+allow init-radio-sh radio_data_file:file { getattr write };
+allow init-radio-sh radio_data_file:dir search;
