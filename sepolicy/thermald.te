@@ -25,3 +25,7 @@ qmux_socket(thermald)
 
 # Reboot the device
 set_prop(thermald, powerctl_prop)
+
+# battery
+allow thermald sysfs_battery:dir r_dir_perms;
+allow thermald sysfs_battery:lnk_file rw_file_perms;

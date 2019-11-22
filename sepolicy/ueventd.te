@@ -7,4 +7,5 @@ allow ueventd sysfs_thermal:file rw_file_perms;
 allow ueventd sysfs_fingerprintd:file rw_file_perms;
 allow ueventd sysfs_nanoapp_cmd:file w_file_perms;
 allow ueventd vfat:dir search;
-allow ueventd vfat:file { getattr open read };  
+allow ueventd vfat:file { getattr open read };
+allow ueventd proc:file { getattr open read };

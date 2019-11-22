@@ -46,6 +46,9 @@ allow system_server sysfs_thermal:file write;
 allow system_server self:socket ioctl;
 allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
 
+# leds
+allow system_server sysfs_qpnp_26:file rw_file_perms;
+
 # TapToWake
 allow system_server tap2wake_dev:file rw_file_perms;
 
