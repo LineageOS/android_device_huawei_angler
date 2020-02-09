@@ -433,6 +433,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
 
+PRODUCT_PACKAGES += \
+    telephony-ext \
+    ims-ext-common \
+    ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=10 \
