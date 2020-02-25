@@ -622,8 +622,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-service \
-    gatekeeper.msm8994 \
-    keystore.msm8994
+    gatekeeper.msm8994
 
 # general support
 PRODUCT_PACKAGES += \
