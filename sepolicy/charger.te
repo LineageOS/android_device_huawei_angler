@@ -1,0 +1,10 @@
+allow charger sysfs_thermal:dir r_dir_perms;
+allow charger sysfs_thermal:file rw_file_perms;
+
+allow charger sysfs_battery:dir r_dir_perms;
+allow charger sysfs_battery:file rw_file_perms;
+allow charger sysfs_battery:lnk_file rw_file_perms;
+
+# fixing missing charger
+allow charger sysfs:dir r_dir_perms;
+allow charger sysfs:file r_file_perms;
