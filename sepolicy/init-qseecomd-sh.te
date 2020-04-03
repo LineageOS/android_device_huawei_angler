@@ -9,3 +9,5 @@ allow init-angler-qseecomd-sh vendor_shell_exec:file rx_file_perms;
 allow init-angler-qseecomd-sh vendor_toolbox_exec:file rx_file_perms;
 
 allow init-angler-qseecomd-sh vendor_file:dir read;
+
+get_prop(init-angler-qseecomd-sh, vendor_tee_listener_prop)
