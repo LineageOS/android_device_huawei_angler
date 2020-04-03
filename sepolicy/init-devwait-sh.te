@@ -9,3 +9,4 @@ allow init-qcom-devwait-sh vendor_shell_exec:file rx_file_perms;
 allow init-qcom-devwait-sh vendor_toolbox_exec:file rx_file_perms;
 
 allow init-qcom-devwait-sh vendor_file:dir read;
+get_prop(init-qcom-devwait-sh, vendor_device_prop)
