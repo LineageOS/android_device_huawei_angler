@@ -2,5 +2,9 @@
  {
    "repository": "android_kernel_huawei_angler",
    "target_path": "kernel/huawei/angler"
+ },
+ {
+   "repository": "android_hardware_sony_timekeep",
+   "target_path": "hardware/sony/timekeep"
  }
 ]
