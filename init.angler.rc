@@ -206,10 +206,6 @@ on post-fs-data
     #Create folder for display calibration data
     mkdir /data/misc/display 0770 system graphics
 
-    # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
-    mkdir /data/audio/ 0770 media audio
-
     # Create folder for perf daemon
     mkdir /data/misc/perfd 0755 root system
     chmod 2755 /data/misc/perfd
@@ -401,12 +397,6 @@ service qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw usb net_admin
-    writepid /dev/cpuset/system-background/tasks
-
-service time_daemon /vendor/bin/time_daemon
-    class late_start
-    user root
-    group root
     writepid /dev/cpuset/system-background/tasks
 
 service loc_launcher /vendor/bin/loc_launcher
