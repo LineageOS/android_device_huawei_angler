@@ -77,7 +77,8 @@
 /dev/hsicctl14            0640   radio      radio
 /dev/hsicctl15            0640   radio      radio
 /dev/hsicctl16            0640   radio      radio
-/dev/qseecom              0660   system     drmrpc
+#changhua.li modify from 660 to 666 for alipay use tz
+/dev/qseecom              0666   system     drmrpc
 #ADD device block for FRP
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/frp 0600 system system
 # sensor HUB
