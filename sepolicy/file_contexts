@@ -78,6 +78,9 @@
 /persist/data/tz(/.*)?                                              u:object_r:persist_drm_file:s0
 /persist/sensors(/.*)?                                              u:object_r:persist_sensors_file:s0
 
+# files in firmware
+/firmware(/.*)?         u:object_r:firmware_file:s0
+
 /sys/bus/msm_subsys(/.*)?                                                                                  u:object_r:sysfs_msm_subsys:s0
 /sys/kernel/boot_adsp/boot                                                                                 u:object_r:sysfs_msm_subsys:s0
 /sys/devices/bt_bcm4358\.[0-9]+/rfkill/rfkill0/state                                                           u:object_r:sysfs_bluetooth_writable:s0
