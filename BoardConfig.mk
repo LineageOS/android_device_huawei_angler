@@ -50,6 +50,11 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=angler androidboot.console=ttyHSL0 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3 no_console_suspend
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 
+# system-as-root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0
+BOARD_KERNEL_CMDLINE += dm=\"system none ro,0 1 android-verity /dev/mmcblk0p43\"
+
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 # Needed for VoLTE
@@ -134,6 +139,8 @@ TARGET_AUX_OS_VARIANT_LIST := angler
 TARGET_RECOVERY_FSTAB = device/huawei/angler/fstab.angler
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler
+
+BOARD_ROOT_EXTRA_FOLDERS := firmware persist
 
 BOARD_SEPOLICY_DIRS += \
 	device/huawei/angler/sepolicy
