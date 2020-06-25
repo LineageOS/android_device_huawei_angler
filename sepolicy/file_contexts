@@ -141,9 +141,9 @@
 /system/bin/init\.radio\.sh              u:object_r:init-radio-sh_exec:s0
 /vendor/bin/irsc_util                    u:object_r:irsc_util_exec:s0
 /vendor/bin/loc_launcher                 u:object_r:location_exec:s0
-/system/bin/location-mq                  u:object_r:location_exec:s0
-/system/bin/lowi-server                  u:object_r:location_exec:s0
-/system/bin/mm-pp-daemon                 u:object_r:postprocd_exec:s0
+/vendor/bin/location-mq                  u:object_r:location_exec:s0
+/vendor/bin/lowi-server                  u:object_r:location_exec:s0
+/vendor/bin/mm-pp-daemon                 u:object_r:postprocd_exec:s0
 /vendor/bin/mm-qcamera-daemon            u:object_r:camera_exec:s0
 /vendor/bin/msm_irqbalance               u:object_r:irqbalance_exec:s0
 /vendor/bin/netmgrd                      u:object_r:netmgrd_exec:s0
@@ -153,8 +153,8 @@
 /vendor/bin/qmuxd                        u:object_r:qmux_exec:s0
 /vendor/bin/qseecomd                     u:object_r:tee_exec:s0
 /vendor/bin/rmt_storage                  u:object_r:rmt_exec:s0
-/system/bin/ssr_setup                    u:object_r:ssr_setup_exec:s0
-/system/bin/subsystem_ramdump            u:object_r:ssr_exec:s0
+/vendor/bin/ssr_setup                    u:object_r:ssr_setup_exec:s0
+/vendor/bin/subsystem_ramdump            u:object_r:ssr_exec:s0
 /vendor/bin/thermal-engine               u:object_r:thermald_exec:s0
 /vendor/bin/time_daemon                  u:object_r:time_exec:s0
 /vendor/bin/nanoapp_cmd                  u:object_r:nanoapp_cmd_exec:s0
@@ -189,7 +189,7 @@
 /sys/devices/virtual/nanohub/nanohub(/.*)? u:object_r:sysfs_nanoapp_cmd:s0
 
 # NFC hal
-/system/bin/hw/nfc_hal_pn54x    u:object_r:nfc_hal_pn54x_exec:s0
+/vendor/bin/hw/nfc_hal_pn54x    u:object_r:nfc_hal_pn54x_exec:s0
 
 # TapToWake
 /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input0/wake_gesture     u:object_r:tap2wake_dev:s0
