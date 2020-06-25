@@ -341,8 +341,7 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.angler \
-    android.hardware.power@1.0-impl \
+    android.hardware.power@1.2-service-qti
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
