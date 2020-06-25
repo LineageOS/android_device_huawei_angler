@@ -14,3 +14,6 @@ allow init-mcfg-sh firmware_file:file r_file_perms;
 
 # execute toybox/toolbox
 allow init-mcfg-sh toolbox_exec:file rx_file_perms;
+
+allow init-mcfg-sh vfat:dir { search read open };
+allow init-mcfg-sh vfat:file { getattr open read }; 
