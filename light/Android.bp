@@ -16,7 +16,6 @@
 cc_binary {
     relative_install_path: "hw",
     name: "android.hardware.light@2.0-service.angler",
-    proprietary: true,
     init_rc: ["android.hardware.light@2.0-service.angler.rc"],
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
@@ -24,6 +23,7 @@ cc_binary {
         "libcutils",
         "libhardware",
         "libhidlbase",
+        "liblog",
         "libutils",
         "android.hardware.light@2.0",
     ],
