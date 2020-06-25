@@ -12,3 +12,5 @@ allow platform_app oem_qmi_server:unix_stream_socket connectto;
 # part of b/28760354 in order to deprivilege other processes which do not need
 # access.
 r_dir_file(platform_app, sysfs)
+
+allow platform_app nfc_service:service_manager find; 

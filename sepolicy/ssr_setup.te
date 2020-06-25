@@ -1,5 +1,5 @@
 type ssr_setup, domain, device_domain_deprecated;
-type ssr_setup_exec, exec_type, file_type;
+type ssr_setup_exec, exec_type, file_type, vendor_file_type;
 init_daemon_domain(ssr_setup);
 
 allow ssr_setup sysfs_msm_subsys:dir r_dir_perms;
