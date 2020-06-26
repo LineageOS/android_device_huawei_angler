@@ -1,5 +1,4 @@
 -vendor/app/ims/ims.apk
--vendor/app/TimeService/TimeService.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/cnd
 vendor/bin/diag_klog
@@ -30,7 +29,6 @@ vendor/bin/rmt_storage
 vendor/bin/slim_daemon
 vendor/bin/sound_trigger_test
 vendor/bin/thermal-engine
-vendor/bin/time_daemon
 vendor/etc/acdbdata/angler/Angler_Bluetooth_cal.acdb
 vendor/etc/acdbdata/angler/Angler_General_cal.acdb
 vendor/etc/acdbdata/angler/Angler_Global_cal.acdb
@@ -260,7 +258,6 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 vendor/lib64/libtime_genoff.so
-vendor/lib64/libTimeService.so
 vendor/lib64/libtinyxml.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/libui.so
@@ -526,7 +523,6 @@ vendor/lib/libssd.so
 vendor/lib/libsystem_health_mon.so
 vendor/lib/libthermalclient.so
 vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
 vendor/lib/libtinyxml.so
 vendor/lib/libtzdrmgenprov.so
 vendor/lib/libui.so
