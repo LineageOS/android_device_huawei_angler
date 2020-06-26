@@ -1,6 +1,0 @@
-allow healthd sysfs_thermal:dir r_dir_perms;
-allow healthd sysfs_thermal:file rw_file_perms;
-
-allow healthd sysfs_battery:dir r_dir_perms;
-allow healthd sysfs_battery:file rw_file_perms;
-allow healthd sysfs_battery:lnk_file rw_file_perms;
