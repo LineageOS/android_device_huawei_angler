@@ -96,6 +96,10 @@
 /sys/devices/soc\.0/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/dispatch/inflight                                 u:object_r:sysfs_gpu_tuning:s0
 /sys/devices/soc\.0/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/dispatch/inflight_low_latency                     u:object_r:sysfs_gpu_tuning:s0
 
+# TimeKeep
+/sys/devices/soc\.0/qpnp-rtc-8/rtc/rtc0(/.*)?                           u:object_r:sysfs_rtc:s0
+/(system/vendor|vendor)/bin/timekeep                                    u:object_r:timekeep_exec:s0
+
 # Sysfs files used by fingerprintd
 /sys/devices/soc\.0/fpc1020\.[0-9]+(/.*)?                           u:object_r:sysfs_fingerprintd:s0
 
