@@ -202,6 +202,10 @@ PRODUCT_PACKAGES += \
     memtrack.msm8994 \
     android.hardware.memtrack@1.0-impl
 
+# CryptfsHW
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
+
 # Light HAL
 PRODUCT_PACKAGES += \
     lights.angler \

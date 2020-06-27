@@ -166,6 +166,9 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub
 # 32-bit or 64-bit), the following line should be deleted
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 
+# Crypto
+TARGET_HW_DISK_ENCRYPTION := true
+
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 WPA_SUPPLICANT_VERSION := VER_0_8_X
