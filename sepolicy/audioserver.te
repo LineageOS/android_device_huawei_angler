@@ -1,2 +1,4 @@
 # Callbacks in response to IPC from rild into audioserver
 binder_call(audioserver, rild)
+
+allow audioserver hal_power_hwservice:hwservice_manager find;

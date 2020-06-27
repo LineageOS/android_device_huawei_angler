@@ -1,5 +1,5 @@
 # Network utilities (radio process)
-type netmgrd, domain, device_domain_deprecated;
+type netmgrd, domain;
 type netmgrd_exec, exec_type, vendor_file_type, file_type;
 
 # Started by init
@@ -8,17 +8,35 @@ init_daemon_domain(netmgrd)
 net_domain(netmgrd)
 allowxperm netmgrd self:udp_socket ioctl priv_sock_ioctls;
 
-allow netmgrd self:capability { setuid setgid net_admin net_raw sys_module };
-dontaudit netmgrd self:capability setpcap;
+allow netmgrd self:capability { setuid setgid net_admin net_raw sys_module setpcap };
 
 set_prop(netmgrd, net_radio_prop)
+
+# Access sysfs
+allow netmgrd sysfs:file { getattr open read };
+
+#Acquire lock on /system/etc/xtables.lock
+#Required till netutils wrappers are available
+not_full_treble(`allow netmgrd system_file:file lock;')
+
+# use netutils
+domain_auto_trans(netmgrd, netutils_wrapper_exec, netutils_wrapper)
+allow netutils_wrapper netmgrd:fd use;
+allow netutils_wrapper netmgrd:fifo_file { read write getattr };
+allow netutils_wrapper netmgrd:netlink_route_socket { read write };
+allow netutils_wrapper netmgrd:unix_stream_socket { read write };
+allow netutils_wrapper netmgrd:netlink_generic_socket { read write };
+allow netutils_wrapper netmgrd:netlink_xfrm_socket { read write };
+allow netutils_wrapper netmgrd:udp_socket { read write };
+allow netutils_wrapper netmgrd:tcp_socket { read write };
+allow netutils_wrapper netmgrd_data_file:file rw_file_perms;
+allow netmgrd netutils_wrapper:process sigkill;
 
 allow netmgrd self:netlink_socket create_socket_perms_no_ioctl;
 allow netmgrd self:netlink_route_socket nlmsg_write;
 allow netmgrd self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_write nlmsg_read};
 allow netmgrd self:socket create_socket_perms;
 allowxperm netmgrd self:socket ioctl msm_sock_ipc_ioctls;
-#allow netmgrd netd_socket:sock_file w_file_perms;
 allow netmgrd net_data_file:dir r_dir_perms;
 allow netmgrd net_data_file:file r_file_perms;
 
@@ -45,3 +63,10 @@ allow netmgrd toolbox_exec:file rx_file_perms;
 
 #Allow netmgrd to use wakelock
 wakelock_use(netmgrd)
+
+#Allow netmgrd to use netd HAL via HIDL
+get_prop(netmgrd, hwservicemanager_prop)
+binder_use(netmgrd)
+binder_call(netmgrd, netd)
+binder_call(netmgrd, servicemanager)
+allow netmgrd system_net_netd_hwservice:hwservice_manager find;
