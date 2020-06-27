@@ -1,0 +1,2 @@
+allow hal_fingerprint_default sysfs_thermal:dir search;
+allow hal_fingerprint_default sysfs_thermal:file { read open };

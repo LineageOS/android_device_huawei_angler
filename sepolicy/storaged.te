@@ -1,0 +1,2 @@
+allow storaged sysfs:dir r_dir_perms;
+allow storaged sysfs:file { r_file_perms setattr };
