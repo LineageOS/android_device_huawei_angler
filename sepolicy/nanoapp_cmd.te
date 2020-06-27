@@ -6,3 +6,4 @@ init_daemon_domain(nanoapp_cmd)
 allow nanoapp_cmd sensors_device:chr_file rw_file_perms;
 allow nanoapp_cmd sysfs_nanoapp_cmd:dir search;
 allow nanoapp_cmd sysfs_nanoapp_cmd:file rw_file_perms;
+allow nanoapp_cmd vendor_file:dir read;
