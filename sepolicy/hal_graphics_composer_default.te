@@ -1,0 +1,17 @@
+allow hal_graphics_composer_default self:netlink_kobject_uevent_socket { read create bind setopt };
+allow hal_graphics_composer_default servicemanager:binder { call transfer };
+allow hal_graphics_composer_default sysfs_hal_gralloc:file { read open getattr };
+
+# vndbinder
+allow hal_graphics_composer_default vndbinder_device:chr_file rw_file_perms;
+# vndservicemanager
+allow hal_graphics_composer_default vndservicemanager:binder { call transfer };
+# graphics
+allow hal_graphics_composer_default sysfs_graphics_comp:dir r_dir_perms;
+allow hal_graphics_composer_default sysfs_graphics_comp:file { read open };
+allow hal_graphics_composer_default sysfs_graphics_comp:lnk_file rw_file_perms;
+# for hal_graphics_composer
+vndbinder_use(hal_graphics_composer_default);
+add_service(hal_graphics_composer_default, qdisplay_service)
+# display
+allow hal_graphics_composer_default display_data_file:dir r_dir_perms;
