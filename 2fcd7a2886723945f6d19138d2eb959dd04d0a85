@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "632b79e0_5f605cb4",
+        "filename": "sepolicy/init-mcfg-sh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d5097cc_91482f82",
+        "filename": "sepolicy/netmgrd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "why not just remove this instead of commenting it out?",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56afc98d_13d6248b",
+        "filename": "sepolicy/nfc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef9e3030_dd824314",
+        "filename": "sepolicy/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60244e0b_a2c61b86",
+        "filename": "sepolicy/qmux.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25656071_3cff8a9d",
+        "filename": "sepolicy/radio.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5508095e_5bd93a74",
+        "filename": "sepolicy/rild.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7f0cdc1_0a8aded7",
+        "filename": "sepolicy/rmt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d71694af_17eb0d02",
+        "filename": "sepolicy/tee.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6175b2fe_0f3b138f",
+        "filename": "sepolicy/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 16082
+      },
+      "writtenOn": "2020-06-28T22:48:29Z",
+      "side": 1,
+      "message": "hanging space",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
