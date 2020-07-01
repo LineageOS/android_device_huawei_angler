@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39868c92_c80692a9",
+        "filename": "sepolicy/init-mcfg-sh.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "632b79e0_5f605cb4",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d5097cc_91482f82",
         "filename": "sepolicy/netmgrd.te",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad47b4e3_a55c3d91",
+        "filename": "sepolicy/netmgrd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d5097cc_91482f82",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c75dd52a_d06c1920",
+        "filename": "sepolicy/nfc.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56afc98d_13d6248b",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef9e3030_dd824314",
         "filename": "sepolicy/platform_app.te",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e41101f_99a07425",
+        "filename": "sepolicy/platform_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef9e3030_dd824314",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "3d9b9ce2_ffbf7c71",
+        "filename": "sepolicy/qmux.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60244e0b_a2c61b86",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25656071_3cff8a9d",
         "filename": "sepolicy/radio.te",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a716720_7ddfc027",
+        "filename": "sepolicy/radio.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25656071_3cff8a9d",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "2f4c72e7_7b24538f",
+        "filename": "sepolicy/rild.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5508095e_5bd93a74",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7f0cdc1_0a8aded7",
         "filename": "sepolicy/rmt.te",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ea4c66a_9282f29d",
+        "filename": "sepolicy/rmt.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7f0cdc1_0a8aded7",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "4579705f_296653c4",
+        "filename": "sepolicy/tee.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d71694af_17eb0d02",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6175b2fe_0f3b138f",
         "filename": "sepolicy/ueventd.te",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a8a083_f30a9185",
+        "filename": "sepolicy/ueventd.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 24656
+      },
+      "writtenOn": "2020-07-01T07:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6175b2fe_0f3b138f",
+      "revId": "2fcd7a2886723945f6d19138d2eb959dd04d0a85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
